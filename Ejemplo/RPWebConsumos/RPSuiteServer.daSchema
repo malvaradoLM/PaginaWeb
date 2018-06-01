@@ -12245,7 +12245,7 @@ WHERE
           <ParamType>daptInput</ParamType>
           <Name>Nip</Name>
           <DataType>datString</DataType>
-          <Size>0</Size>
+          <Size>8</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>
           <BlobType>dabtUnknown</BlobType>
@@ -12257,8 +12257,8 @@ WHERE
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>Status</Name>
-          <DataType>datUnknown</DataType>
-          <Size>0</Size>
+          <DataType>datString</DataType>
+          <Size>1</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>
           <BlobType>dabtUnknown</BlobType>
@@ -12270,7 +12270,7 @@ WHERE
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>CargasMaximas</Name>
-          <DataType>datUnknown</DataType>
+          <DataType>datInteger</DataType>
           <Size>0</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>
@@ -12283,7 +12283,7 @@ WHERE
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>LimiteLTDia</Name>
-          <DataType>datUnknown</DataType>
+          <DataType>datFloat</DataType>
           <Size>0</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>
@@ -12296,7 +12296,7 @@ WHERE
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>LimiteLTSemana</Name>
-          <DataType>datUnknown</DataType>
+          <DataType>datFloat</DataType>
           <Size>0</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>
@@ -12309,7 +12309,7 @@ WHERE
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>LimiteLTMes</Name>
-          <DataType>datUnknown</DataType>
+          <DataType>datFloat</DataType>
           <Size>0</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>
@@ -12322,7 +12322,7 @@ WHERE
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>LimiteMNDia</Name>
-          <DataType>datUnknown</DataType>
+          <DataType>datFloat</DataType>
           <Size>0</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>
@@ -12335,7 +12335,7 @@ WHERE
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>LimiteMNSemana</Name>
-          <DataType>datUnknown</DataType>
+          <DataType>datFloat</DataType>
           <Size>0</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>
@@ -12348,7 +12348,7 @@ WHERE
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>LimiteMNMes</Name>
-          <DataType>datUnknown</DataType>
+          <DataType>datFloat</DataType>
           <Size>0</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>
@@ -12361,8 +12361,8 @@ WHERE
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>Lunes</Name>
-          <DataType>datUnknown</DataType>
-          <Size>0</Size>
+          <DataType>datString</DataType>
+          <Size>24</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>
           <BlobType>dabtUnknown</BlobType>
@@ -12374,8 +12374,8 @@ WHERE
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>Martes</Name>
-          <DataType>datUnknown</DataType>
-          <Size>0</Size>
+          <DataType>datString</DataType>
+          <Size>24</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>
           <BlobType>dabtUnknown</BlobType>
@@ -12387,8 +12387,8 @@ WHERE
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>Miercoles</Name>
-          <DataType>datUnknown</DataType>
-          <Size>0</Size>
+          <DataType>datString</DataType>
+          <Size>24</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>
           <BlobType>dabtUnknown</BlobType>
@@ -12400,8 +12400,8 @@ WHERE
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>Jueves</Name>
-          <DataType>datUnknown</DataType>
-          <Size>0</Size>
+          <DataType>datString</DataType>
+          <Size>24</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>
           <BlobType>dabtUnknown</BlobType>
@@ -12413,8 +12413,8 @@ WHERE
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>Viernes</Name>
-          <DataType>datUnknown</DataType>
-          <Size>0</Size>
+          <DataType>datString</DataType>
+          <Size>24</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>
           <BlobType>dabtUnknown</BlobType>
@@ -12426,8 +12426,8 @@ WHERE
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>Sabado</Name>
-          <DataType>datUnknown</DataType>
-          <Size>0</Size>
+          <DataType>datString</DataType>
+          <Size>24</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>
           <BlobType>dabtUnknown</BlobType>
@@ -12439,8 +12439,8 @@ WHERE
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>Domingo</Name>
-          <DataType>datUnknown</DataType>
-          <Size>0</Size>
+          <DataType>datString</DataType>
+          <Size>24</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>
           <BlobType>dabtUnknown</BlobType>
@@ -12452,8 +12452,8 @@ WHERE
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>ProductoAutorizado</Name>
-          <DataType>datUnknown</DataType>
-          <Size>0</Size>
+          <DataType>datString</DataType>
+          <Size>50</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>
           <BlobType>dabtUnknown</BlobType>
@@ -12465,7 +12465,7 @@ WHERE
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>VehiculoID</Name>
-          <DataType>datUnknown</DataType>
+          <DataType>datInteger</DataType>
           <Size>0</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>

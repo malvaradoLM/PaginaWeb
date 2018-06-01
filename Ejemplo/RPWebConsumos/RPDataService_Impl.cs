@@ -181,9 +181,26 @@ namespace RPSuiteServer
 
         public Boolean UpdateVehiculo(TVehiculo Datos)
         {
- 
-
-            return true;
+            try
+            {
+                using (IDbCommand lcommand = this.ServiceSchema.NewCommand(this.Connection, "UpdateVehiculo", new string[] {
+                    "Nip", "Status", "CargasMaximas","LimiteLTDia","LimiteLTSemana","LimiteLTMes",
+                    "Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo","ProductoAutorizado","VehiculoID"
+                }
+                    , new object[] { Datos.Nip,Datos.Status,Datos.CargasMaximas,Datos.LimiteLTDia,Datos.LimiteLTSemana,Datos.LimiteLTMes,
+                        Datos.LimiteMNDia,Datos.LimiteMNSemana,Datos.LimiteMNMes,Datos.ProductoAutorizado,Datos.VehiculoID
+                            }))
+                {
+                    lcommand.ExecuteNonQuery();
+                    return true;
+                }
+                    
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+           
         }
 
 
