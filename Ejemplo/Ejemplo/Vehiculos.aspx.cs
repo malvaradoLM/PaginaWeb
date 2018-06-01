@@ -12,12 +12,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using RPSuiteServer;
 
 namespace Ejemplo
 {
     public partial class WebForm3 : System.Web.UI.Page
     {
         private List<DataParameter> Params = new List<DataParameter>();
+        RPSuiteServer.TVehiculo vehiculo = new TVehiculo();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -247,16 +249,50 @@ namespace Ejemplo
         [System.Web.Services.WebMethod]              
         public static string leer(string ID)    // Metodo que lee tabla horarioHorario
         {
+            RPSuiteServer.TVehiculo vehiculo = new TVehiculo();
             var definicion = new
-            { Dia = "", Valor = ""};
+            { Dia = "", Valor = "" };
             var listaDefinicion = new[] { definicion };
             var horarios = ID;
             var listHorarios = JsonConvert.DeserializeAnonymousType(horarios, listaDefinicion);
-            foreach (var hor in listHorarios) {
-                Console.WriteLine("Día: " + hor.Dia + " Valor: " + hor.Valor);
-            }
 
+            
+
+            foreach (var hor in listHorarios)
+            {
+                switch (hor.Dia)
+                {
+                    case "Lunes":
+                        vehiculo.Lunes = hor.Valor;
+                        break;
+                    case "Martes":
+                        vehiculo.Martes = hor.Valor;
+                        break;
+                    case "Miércoles":
+                        vehiculo.Miercoles = hor.Valor;
+                        break;
+                    case "Jueves":
+                        vehiculo.Jueves = hor.Valor;
+                        break;
+                    case "Viernes":
+                        vehiculo.Viernes = hor.Valor;
+                        break;
+                    case "Sábado":
+                        vehiculo.Sabado = hor.Valor;
+                        break;
+                    case "Domingo":
+                        vehiculo.Domingo = hor.Valor;
+                        break;
+
+
+                }
+            }
             return "";
+        }
+
+        public void guardarTablaHorario(string ID)
+        {
+
         }
 
 
