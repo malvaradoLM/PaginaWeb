@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Library Name="RPSuiteServer" Namespace="RPSuiteServer" UID="{F8EAE11C-F0EC-4432-A7EE-967B1CF03A15}" Version="3.0">
+<Services>
+<Service Name="RPLoginService" UID="{8B69AF3F-6188-4522-AF7B-352375895771}" Ancestor="SimpleLoginService">
+<Interfaces>
+<Interface Name="Default" UID="{2B1FBE4F-CC86-449E-8729-DF23153C4317}">
+<Operations>
+</Operations>
+</Interface>
+</Interfaces>
+</Service>
+<Service Name="RPDataService" UID="{73D443D6-5A94-4555-9A3E-279A08C18612}" Ancestor="DataAbstractService">
+<Interfaces>
+<Interface Name="Default" UID="{52194F93-E8B1-46EA-91DD-144157E33BBE}">
+<Operations>
+<Operation Name="GuardaFactura" UID="{9E882F32-88D9-4B65-8968-239953873D71}">
+<Parameters>
+<Parameter Name="Result" DataType="Boolean" Flag="Result">
+</Parameter>
+<Parameter Name="Datos" DataType="TFactura" Flag="In" >
+</Parameter>
+</Parameters>
+</Operation>
+<Operation Name="Fecha" UID="{8F8E57C7-055F-486D-9022-88D1A7EF621B}">
+<Parameters>
+<Parameter Name="Result" DataType="DateTime" Flag="Result">
+</Parameter>
+</Parameters>
+</Operation>
+<Operation Name="SPGetFolio" UID="{20CF881B-E57A-448D-9E5F-5793FA182F0A}">
+<Parameters>
+<Parameter Name="Result" DataType="Integer" Flag="Result">
+</Parameter>
+<Parameter Name="Datos" DataType="AnsiString" Flag="In" >
+</Parameter>
+</Parameters>
+</Operation>
+<Operation Name="Folio" UID="{C677A40C-3C02-417B-B01B-6B13C2F62A9F}">
+<Parameters>
+<Parameter Name="Result" DataType="Integer" Flag="Result">
+</Parameter>
+<Parameter Name="Campo" DataType="AnsiString" Flag="In" >
+</Parameter>
+<Parameter Name="Serie" DataType="AnsiString" Flag="In" >
+</Parameter>
+</Parameters>
+</Operation>
+<Operation Name="getGasolinero" UID="{B7744072-8C21-4F2F-9C9D-ABE17BA7F37D}">
+<Parameters>
+<Parameter Name="Result" DataType="AnsiString" Flag="Result">
+</Parameter>
+</Parameters>
+</Operation>
+<Operation Name="getCliente" UID="{74D96B8F-817B-4AF0-9E94-477C3A0F3B98}">
+<Parameters>
+<Parameter Name="Result" DataType="TCliente" Flag="Result">
+</Parameter>
+<Parameter Name="ClienteID" DataType="Integer" Flag="In" >
+</Parameter>
+</Parameters>
+</Operation>
+<Operation Name="UpdateVehiculo" UID="{61595AD4-E583-4CE6-B5E1-024D0E70C0F7}">
+<Parameters>
+<Parameter Name="Result" DataType="Boolean" Flag="Result">
+</Parameter>
+<Parameter Name="Datos" DataType="TVehiculo" Flag="In" >
+</Parameter>
+</Parameters>
+</Operation>
+</Operations>
+</Interface>
+</Interfaces>
+</Service>
+</Services>
+<EventSinks>
+</EventSinks>
+<Structs>
+<Struct Name="TFactura" UID="{BB2B437F-A12A-485F-BCD3-717FD42AA1FE}" AutoCreateParams="1">
+<Elements>
+<Element Name="FacturaID" DataType="Integer">
+</Element>
+<Element Name="Serie" DataType="AnsiString">
+</Element>
+<Element Name="Folio" DataType="Integer">
+</Element>
+<Element Name="ClienteID" DataType="Integer">
+</Element>
+<Element Name="Detalle" DataType="TADetalle">
+</Element>
+</Elements>
+</Struct>
+<Struct Name="TDetalle" UID="{72ED0187-E7B2-4BD8-B2E0-61E669A48AFC}" AutoCreateParams="1">
+<Elements>
+<Element Name="ProductoID" DataType="Integer">
+</Element>
+<Element Name="Cantidad" DataType="Double">
+</Element>
+<Element Name="Precio" DataType="Double">
+</Element>
+</Elements>
+</Struct>
+<Struct Name="TConfiguraEstacion" UID="{7DCA63D3-EA2F-42B0-83CB-384D3299D490}" AutoCreateParams="1">
+<Elements>
+<Element Name="Numero" DataType="Integer">
+</Element>
+<Element Name="Protocolo" DataType="Integer">
+</Element>
+<Element Name="Telemedicion" DataType="Integer">
+</Element>
+<Element Name="Nombre" DataType="AnsiString">
+</Element>
+<Element Name="RazonSocial" DataType="AnsiString">
+</Element>
+</Elements>
+</Struct>
+<Struct Name="TConfiguraEstacionBombas" UID="{ED5FFA3F-907E-4732-A2D4-2AF8590C48E7}" AutoCreateParams="1">
+<Elements>
+<Element Name="BombaID" DataType="Integer">
+</Element>
+<Element Name="MangueraID" DataType="Integer">
+</Element>
+<Element Name="ProductoID" DataType="Integer">
+</Element>
+</Elements>
+</Struct>
+<Struct Name="TConfiguraEstacionTanques" UID="{602F21D2-A656-42EF-81F3-274B7B844E01}" AutoCreateParams="1">
+<Elements>
+</Elements>
+</Struct>
+<Struct Name="TConfiguraEstacionDispositivos" UID="{1D92DA9E-630F-4924-BCFE-614BA2650B70}" AutoCreateParams="1">
+<Elements>
+</Elements>
+</Struct>
+<Struct Name="TCliente" UID="{7F073AE3-7CA2-4916-865D-DB4CD4C363E1}" AutoCreateParams="1">
+<Elements>
+<Element Name="ClienteID" DataType="Integer">
+</Element>
+<Element Name="Nombre" DataType="AnsiString">
+</Element>
+<Element Name="RazonSocial" DataType="AnsiString">
+</Element>
+<Element Name="Domicilio" DataType="AnsiString">
+</Element>
+<Element Name="Colonia" DataType="AnsiString">
+</Element>
+<Element Name="Ciudad" DataType="AnsiString">
+</Element>
+<Element Name="Localidad" DataType="AnsiString">
+</Element>
+<Element Name="Estado" DataType="AnsiString">
+</Element>
+<Element Name="CodigoPostal" DataType="AnsiString">
+</Element>
+<Element Name="Telefono" DataType="AnsiString">
+</Element>
+<Element Name="RFC" DataType="AnsiString">
+</Element>
+<Element Name="Estatus" DataType="AnsiString">
+</Element>
+<Element Name="LimiteCredito" DataType="Double">
+</Element>
+</Elements>
+</Struct>
+<Struct Name="TVehiculo" UID="{4DAAF794-F53A-4038-BB82-005C95E548B0}" AutoCreateParams="1">
+<Elements>
+<Element Name="VehiculoID" DataType="Integer">
+</Element>
+<Element Name="Nip" DataType="AnsiString">
+</Element>
+<Element Name="Status" DataType="AnsiString">
+</Element>
+<Element Name="CargasMaximas" DataType="Integer">
+</Element>
+<Element Name="LimiteLTDia" DataType="Double">
+</Element>
+<Element Name="LimiteLTSemana" DataType="Double">
+</Element>
+<Element Name="LimiteLTMes" DataType="Double">
+</Element>
+<Element Name="LimiteMNDia" DataType="Double">
+</Element>
+<Element Name="LimiteMNSemana" DataType="Double">
+</Element>
+<Element Name="LimiteMNMes" DataType="Double">
+</Element>
+<Element Name="Lunes" DataType="AnsiString">
+</Element>
+<Element Name="Martes" DataType="AnsiString">
+</Element>
+<Element Name="Miercoles" DataType="AnsiString">
+</Element>
+<Element Name="Jueves" DataType="AnsiString">
+</Element>
+<Element Name="Viernes" DataType="AnsiString">
+</Element>
+<Element Name="Sabado" DataType="AnsiString">
+</Element>
+<Element Name="Domingo" DataType="AnsiString">
+</Element>
+<Element Name="ProductoAutorizado" DataType="AnsiString">
+</Element>
+</Elements>
+</Struct>
+</Structs>
+<Enums>
+</Enums>
+<Arrays>
+<Array Name="TADetalle" UID="{7B226A69-6368-4C32-AF85-34E58DCF2188}">
+<ElementType DataType="TDetalle" />
+</Array>
+<Array Name="TAConfiguraEstacionBombas" UID="{8EB2A42E-12BF-4EF0-AA83-91527D6AB70C}">
+<ElementType DataType="TConfiguraEstacionBombas" />
+</Array>
+<Array Name="TAConfiguraEstacionDispositivos" UID="{3D6872F1-1FD6-4FBC-8E6C-5F10223832F7}">
+<ElementType DataType="TConfiguraEstacionDispositivos" />
+</Array>
+<Array Name="TAConfiguraEstacionTanques" UID="{2E795BC2-B63C-490D-AB82-D751B30067BE}">
+<ElementType DataType="TConfiguraEstacionTanques" />
+</Array>
+</Arrays>
+<Uses>
+<Use Name="DataAbstract" UID="{30EEA332-03CE-45E5-8062-CCE8B6C1FAFE}" Rodl="..\..\..\..\..\..\Program Files (x86)\RemObjects Software\Data Abstract for .NET\Source\RemObjects.DataAbstract.Server\DataAbstract.RODL" AbsoluteRodl="C:\Program Files (x86)\RemObjects Software\Data Abstract for .NET\Source\RemObjects.DataAbstract.Server\DataAbstract.RODL" UsedRodlUID="{DC8B7BE2-14AF-402D-B1F8-E1008B6FA4F6}" DontCodeGen="1">
+<Includes UID="{ECE5910F-040B-4BDF-9502-EDF7F95642CF}" Delphi="DataAbstract4" DotNet="RemObjects.DataAbstract.Server" ObjC="DataAbstract/DataAbstract4_Intf" Java="com.remobjects.dataabstract.intf" Cocoa="DataAbstract"/>
+</Use>
+</Uses>
+<Exceptions>
+</Exceptions>
+</Library>

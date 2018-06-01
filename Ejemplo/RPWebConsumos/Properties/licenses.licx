@@ -1,0 +1,6 @@
+﻿RemObjects.DataAbstract.Linq.LinqLocalDataAdapter, RemObjects.DataAbstract.Server, Version=9.3.105.1345, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098
+RemObjects.DataAbstract.Server.ConnectionManager, RemObjects.DataAbstract.Server, Version=9.3.105.1345, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098
+RemObjects.DataAbstract.LocalDataAdapter, RemObjects.DataAbstract.Server, Version=9.3.105.1345, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098
+RemObjects.SDK.Server.IpSuperHttpServerChannel, RemObjects.SDK.Server, Version=9.3.105.1345, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098
+RemObjects.SDK.Server.IpHttpServerChannel, RemObjects.SDK.Server, Version=9.3.105.1345, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098
+RemObjects.SDK.Server.MemorySessionManager, RemObjects.SDK.Server, Version=9.3.105.1345, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098

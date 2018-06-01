@@ -1,0 +1,84 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Ejemplo.Site1" %>
+<%@ Register Assembly="DevExpress.Web.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Red Pacifico</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/datepicker3.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+	
+	<!--Custom Font-->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+</head>
+<body>
+    	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span></button>
+               <%--<form id="form2" runat="server">--%>
+				<a class="navbar-brand" href="#">
+                    <span></span>
+                  <div id="sidebar-collapse1" class="col-sm-12">
+                    <dx:ASPxLabel ID="NombreGrupo" runat="server" Text="Grupo" Font-Bold="False" Font-Size="Larger" ForeColor="White" ></dx:ASPxLabel>
+                        </div>
+        </a>
+                <%--</form>--%>
+
+				<ul class="nav navbar-top-links navbar-right">
+				</ul>
+			</div>
+		</div><!-- /.container-fluid -->
+	</nav>
+
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+		<div class="profile-sidebar">
+			<div class="profile-usertitle">
+				<div class="profile-usertitle-name">Manuel Alvarado</div>
+				<div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="divider"></div>
+		<ul class="nav menu">
+			<li class="active"><a href="Dashboard.Aspx"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
+			<li ><a href="DatosCliente.aspx"><em class="fa fa-address-card" >&nbsp;</em> Datos</a></li>
+           
+			<li><a href="VehiculoPage.aspx"><em class="fa fa-car">&nbsp;</em> Vehiculos</a></li>
+			<li><a href="Usuarios.aspx"><em class="fa fa-users">&nbsp;</em> Usuarios</a></li>
+            <li><a href="EditarVehiculo.aspx"><em class="fa fa-bar-chart">&nbsp;</em> Reportes</a></li>
+            <li><a href="loginPage.aspx"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+		</ul>
+	</div><!--/.sidebar-->
+   	<!--Inicio-->
+	 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+		<div class="row">
+	
+        <%--<div>--%>
+         <form runat="server">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            </form>       
+                <%--</div>--%>
+    
+		</div><!--/.row-->
+	</div>	<!--/.main-->
+	<%--<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	<script src="js/chart-data.js"></script>
+	<script src="js/easypiechart.js"></script>
+	<script src="js/easypiechart-data.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/custom.js"></script>--%>
+	
+</body>
+</html>
