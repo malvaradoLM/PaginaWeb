@@ -18,6 +18,7 @@ namespace Ejemplo
     public partial class WebForm3 : System.Web.UI.Page
     {
         private List<DataParameter> Params = new List<DataParameter>();
+        private static RPSuiteServer.TVehiculo vehiculo;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -202,18 +203,10 @@ namespace Ejemplo
 
         private void ConstruirTabla()
         {
-            /*
-            for (int i = 0; i < 24; i++)
-            {
-                HtmlTableCell cell = new HtmlTableCell();
-                cell.InnerHtml = "<a  runat='server' id='link"+i+"' AutoPostBack = 'true' Text ='" + string.Format("{0:00}", i) + "' OnClick ='validar(this.id);' style=' cursor: pointer;' />" + string.Format("{0:00}", i);
-                tableHorarios.Rows[0].Cells.Add(cell);
-            }
-            */
         }
         public override void VerifyRenderingInServerForm(Control control)
         {
-
+           
         }
         private void ConstruirChecks(string value,int posicion)
         {
@@ -247,16 +240,47 @@ namespace Ejemplo
         [System.Web.Services.WebMethod]              
         public static string leer(string ID)    // Metodo que lee tabla horarioHorario
         {
+          vehiculo = llenarVehiculo(ID);
+            
+            return "";
+        }
+        public static RPSuiteServer.TVehiculo llenarVehiculo(string ID)
+        {
+            RPSuiteServer.TVehiculo vehiculo = new RPSuiteServer.TVehiculo();
             var definicion = new
-            { Dia = "", Valor = ""};
+            { Dia = "", Valor = "" };
             var listaDefinicion = new[] { definicion };
             var horarios = ID;
             var listHorarios = JsonConvert.DeserializeAnonymousType(horarios, listaDefinicion);
-            foreach (var hor in listHorarios) {
-                Console.WriteLine("Día: " + hor.Dia + " Valor: " + hor.Valor);
+            foreach (var hor in listHorarios)
+            {
+                switch (hor.Dia)
+                {
+                    case "Lunes":
+                        vehiculo.Lunes = hor.Valor;
+                        break;
+                    case "Martes":
+                        vehiculo.Martes = hor.Valor;
+                        break;
+                    case "Miércoles":
+                        vehiculo.Miercoles = hor.Valor;
+                        break;
+                    case "Jueves":
+                        vehiculo.Jueves = hor.Valor;
+                        break;
+                    case "Viernes":
+                        vehiculo.Viernes = hor.Valor;
+                        break;
+                    case "Sábado":
+                        vehiculo.Sabado = hor.Valor;
+                        break;
+                    case "Domingo":
+                        vehiculo.Domingo = hor.Valor;
+                        break;
+                }
             }
+            return vehiculo;
 
-            return "";
         }
 
 

@@ -527,6 +527,7 @@
                 }
             });
             TableData.shift();
+            var a = document.getElementById('<%=txtNIP.ClientID%>').value;
             var TableData1 = JSON.stringify(TableData);
             $.ajax({
                 type: "POST",
