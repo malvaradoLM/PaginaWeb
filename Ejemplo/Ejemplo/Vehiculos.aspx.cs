@@ -246,39 +246,29 @@ namespace Ejemplo
         }
         public static RPSuiteServer.TVehiculo llenarVehiculo(string ID)
         {
+
             RPSuiteServer.TVehiculo vehiculo = new RPSuiteServer.TVehiculo();
             var definicion = new
-            { Dia = "", Valor = "" };
+            { Nip = "", VehiculoId = 0, Status = "", CargasMaximas = 0, LimiteLTDia = new double(), LimiteLTSemana = new double(), LimiteLTMes = new double(), LimiteMNDia = new double(),
+                LimiteMNSemana = new double(), LimiteMNMes = new double(), Lunes = "", Martes = "", Miercoles="", Jueves= "", Viernes= "", Sabado= "", Domingo= "", ProductoAutorizado="" };
             var listaDefinicion = new[] { definicion };
             var horarios = ID;
             var listHorarios = JsonConvert.DeserializeAnonymousType(horarios, listaDefinicion);
-            foreach (var hor in listHorarios)
-            {
-                switch (hor.Dia)
-                {
-                    case "Lunes":
-                        vehiculo.Lunes = hor.Valor;
-                        break;
-                    case "Martes":
-                        vehiculo.Martes = hor.Valor;
-                        break;
-                    case "Miércoles":
-                        vehiculo.Miercoles = hor.Valor;
-                        break;
-                    case "Jueves":
-                        vehiculo.Jueves = hor.Valor;
-                        break;
-                    case "Viernes":
-                        vehiculo.Viernes = hor.Valor;
-                        break;
-                    case "Sábado":
-                        vehiculo.Sabado = hor.Valor;
-                        break;
-                    case "Domingo":
-                        vehiculo.Domingo = hor.Valor;
-                        break;
-                }
-            }
+            vehiculo.CargasMaximas =listHorarios[0].CargasMaximas;
+            vehiculo.Domingo = listHorarios[0].Domingo;
+            vehiculo.Jueves = listHorarios[0].Jueves;
+            vehiculo.LimiteLTDia = listHorarios[0].LimiteLTDia;
+            vehiculo.LimiteLTMes = listHorarios[0].LimiteLTMes;
+            vehiculo.LimiteLTSemana = listHorarios[0].LimiteLTSemana;
+            vehiculo.Lunes = listHorarios[0].Lunes;
+            vehiculo.Martes = listHorarios[0].Martes;
+            vehiculo.Miercoles = listHorarios[0].Miercoles;
+            vehiculo.Nip = listHorarios[0].Nip;
+            vehiculo.ProductoAutorizado = listHorarios[0].ProductoAutorizado;
+            vehiculo.Sabado = listHorarios[0].Sabado;
+            vehiculo.Status = listHorarios[0].Status;
+            vehiculo.VehiculoID = listHorarios[0].VehiculoId;
+            vehiculo.Viernes = listHorarios[0].Viernes;
             return vehiculo;
 
         }

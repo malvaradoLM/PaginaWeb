@@ -497,6 +497,27 @@
         }
         function leerTabla() {
             var TableData = new Array();
+            TableData = recibirParametros();
+            var TableData1 = JSON.stringify(TableData);
+            $.ajax({
+                type: "POST",
+                url: "Vehiculos.aspx/leer",
+                data: JSON.stringify({ ID: TableData1}),
+                contentType: "application/json",
+                dataType: "json",
+                success: function () {
+                    alert("logrado");
+                },
+                error: function (xhr, textStatus, error) {
+                    console.log(xhr.statusText);
+                    console.log(textStatus);
+                    console.log(error);
+                }
+            });
+        }
+        function recibirParametros() {
+            var TableData = new Array();
+            var TableData2 = new Array();
             $('#ContentPlaceHolder1_tableHorarios tr').each(function (row, tr) {
                 TableData[row] = {
                     "Dia": "" + $(tr).find('th:eq(0)').text() + ""
@@ -527,23 +548,35 @@
                 }
             });
             TableData.shift();
-            var a = document.getElementById('<%=txtNIP.ClientID%>').value;
-            var TableData1 = JSON.stringify(TableData);
-            $.ajax({
-                type: "POST",
-                url: "Vehiculos.aspx/leer",
-                data: JSON.stringify({ ID: TableData1 }),
-                contentType: "application/json",
-                dataType: "json",
-                success: function () {
-                    alert("logrado");
-                },
-                error: function (xhr, textStatus, error) {
-                    console.log(xhr.statusText);
-                    console.log(textStatus);
-                    console.log(error);
-                }
-            });
+            var ProductoAutorizado = "";
+            if ($('#<%=chProductos.ClientID%>_0').is(':checked')) ProductoAutorizado = "1";
+            if ($('#<%=chProductos.ClientID%>_1').is(':checked')) ProductoAutorizado = ProductoAutorizado + "2";
+            if ($('#<%=chProductos.ClientID%>_2').is(':checked')) ProductoAutorizado = ProductoAutorizado + "3";
+            if ($('#<%=chProductos.ClientID%>_3').is(':checked')) ProductoAutorizado = ProductoAutorizado + "4";
+            var VehiculoID = document.getElementById('<%=txtVehiculoID.ClientID%>_I').value;
+            var TableData2 = new Array();
+            TableData2[0] = {
+                "Nip": document.getElementById('<%=txtNIP.ClientID%>_I').value
+                , "Status": document.getElementById('<%=cmbEstatusActual.ClientID%>_I').value
+                , "CargasMaximas": document.getElementById('<%=txtCargasMaximas.ClientID%>_I').value
+                , "LimiteLTDia": document.getElementById('<%=txtLAVDiario.ClientID%>_I').value
+                , "LimiteLTSemana": document.getElementById('<%=txtLAVSemanal.ClientID%>_I').value
+                , "LimiteLTMes": document.getElementById('<%=txtLAVMensual.ClientID%>_I').value
+                , "LimiteMNDia": document.getElementById('<%=txtLAIDiario.ClientID%>_I').value
+                , "LimiteMNSemana": document.getElementById('<%=txtLAISemanal.ClientID%>_I').value
+                , "LimiteMNMes": document.getElementById('<%=txtLAIMensual.ClientID%>_I').value
+                , "ProductoAutorizado": ProductoAutorizado
+                , "VehiculoID": VehiculoID
+                , "Lunes": TableData[0]["Valor"]
+                , "Martes": TableData[1]["Valor"]
+                , "Miercoles": TableData[2]["Valor"]
+                , "Jueves": TableData[3]["Valor"]
+                , "Viernes": TableData[4]["Valor"]
+                , "Sabado": TableData[5]["Valor"]
+                , "Domingo": TableData[6]["Valor"]
+            }
+
+            return TableData2;
         }
     </script>
 </asp:Content>

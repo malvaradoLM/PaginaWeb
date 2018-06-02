@@ -184,7 +184,7 @@ namespace RPSuiteServer
             try
             {
                 using (IDbCommand lcommand = this.ServiceSchema.NewCommand(this.Connection, "UpdateVehiculo", new string[] {
-                    "Nip", "Status", "CargasMaximas","LimiteLTDia","LimiteLTSemana","LimiteLTMes",
+                    "Nip", "Status", "CargasMaximas","LimiteLTDia","LimiteLTSemana","LimiteLTMes","LimiteMNDia","LimiteMNSemana","LimiteMNMes",
                     "Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo","ProductoAutorizado","VehiculoID"
                 }
                     , new object[] { Datos.Nip,Datos.Status,Datos.CargasMaximas,Datos.LimiteLTDia,Datos.LimiteLTSemana,Datos.LimiteLTMes,
