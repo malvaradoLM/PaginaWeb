@@ -3,6 +3,7 @@ using Ejemplo.Data;
 using Ejemplo.Data.Dataset;
 using HtmlAgilityPack;
 using Newtonsoft.Json;
+using Newtonsoft.JsonResult;
 using RemObjects.DataAbstract.Server;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace Ejemplo
     {
         private List<DataParameter> Params = new List<DataParameter>();
         private static RPSuiteServer.TVehiculo vehiculo;
+        string productoAutorizado = "";
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -66,20 +68,25 @@ namespace Ejemplo
             dt = ds.Tables["spCatEstacion"];
 
             IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
-
             foreach (DataRow dr in query)
             {
                 lista.Add(new ValuesCombo() { id = dr.Field<int>("EstacionID").ToString(), nombre = dr.Field<int>("EstacionID").ToString() +"-"+ dr.Field<string>("Nombre") });
+                
             }
-
             cmbLimitarEstacion.DataSource = lista;
             cmbLimitarEstacion.ValueField = "id";
             cmbLimitarEstacion.TextField = "nombre";
             cmbLimitarEstacion.DataBind();
+
             chProductos.Items.Add("PREMIUM");
+            if(productoAutorizado.Contains("1"))chProductos.Items[0].Selected = true;
             chProductos.Items.Add("MAGNA");
+            if (productoAutorizado.Contains("2")) chProductos.Items[1].Selected = true;
             chProductos.Items.Add("DIESEL");
+            if (productoAutorizado.Contains("3")) chProductos.Items[2].Selected = true;
             chProductos.Items.Add("OTRO");
+            if (productoAutorizado.Contains("4")) chProductos.Items[3].Selected = true;
+
 
         }
         #endregion
@@ -88,6 +95,7 @@ namespace Ejemplo
         private void FillDataFirstTab(DataTable dt)
         {
             IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
+            
             foreach (DataRow dr in query)
             {
                 txtVehiculoID.Text = dr.Field<int>("VehiculoID").ToString();
@@ -96,6 +104,7 @@ namespace Ejemplo
                 txtDepartamento.Text= dr.Field<string>("Departamento");
                 txtNombreUsuario.Text= dr.Field<string>("Nombre");
                 chkPlacas.Value= dr.Field<bool>("Placas");
+                productoAutorizado = dr.Field<string>("ProductoAutorizado");
             }
         }
         private void FillDataSecondTab(DataTable dt)
@@ -242,12 +251,14 @@ namespace Ejemplo
         {
             bool result = false;
             string resultado = "";
-          vehiculo = llenarVehiculo(ID);
+            vehiculo = llenarVehiculo(ID);
             try
             {
                result =  DataModule.DataService.UpdateVehiculo(vehiculo);
-                if (!result) resultado = "No se pudo actualizar el registro";
-            }
+                if (!result) resultado = "NO SE PUDIERON GUARDAR LOS CAMBIOS";
+                else resultado= "LOS CAMBIOS HAN SIDO GUARDADOS CORRECTAMENTE";
+                
+            } 
             catch (Exception ex)
             {
                 resultado = ex.Message;

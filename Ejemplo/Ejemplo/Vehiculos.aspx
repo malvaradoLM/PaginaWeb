@@ -421,9 +421,9 @@
      Activar todo</button>
         <button id="0" onclick="checks(this);" type="button">
      Desactivar todo</button>
-        <button id="2" onclick="leerTabla();" type="button">
-     Leer Tabla</button>
 	</div>
+                 <button id="2" onclick="leerTabla();" type="button">
+     GUARDAR CAMBIOS</button>
 			</div>
   </div>
 
@@ -504,10 +504,10 @@
                 url: "Vehiculos.aspx/leer",
                 data: JSON.stringify({ ID: TableData1}),
                 contentType: "application/json",
+                async: true,
                 dataType: "json",
-                success: function (resultado) {
-                    if (resultado != "") ("Los datos se han actualizado");
-                    else alert("Los datos se han actualizado");
+                success: function (result) {
+                    alert(result.d);
                 },
                 error: function (xhr, textStatus, error) {
                     console.log(xhr.statusText);
@@ -558,7 +558,7 @@
             var TableData2 = new Array();
             TableData2[0] = {
                 "Nip": document.getElementById('<%=txtNIP.ClientID%>_I').value
-                , "Status": document.getElementById('<%=cmbEstatusActual.ClientID%>_I').value.charAt(0)
+                , "Status": getStatus(document.getElementById('<%=cmbEstatusActual.ClientID%>_I').value.charAt(0))
                 , "CargasMaximas": document.getElementById('<%=txtCargasMaximas.ClientID%>_I').value
                 , "LimiteLTDia": document.getElementById('<%=txtLAVDiario.ClientID%>_I').value
                 , "LimiteLTSemana": document.getElementById('<%=txtLAVSemanal.ClientID%>_I').value
@@ -578,6 +578,10 @@
             }
 
             return TableData2;
+        }
+        function getStatus(letra) {
+            if (letra == "I") return "C";
+            else return letra;
         }
     </script>
 </asp:Content>
