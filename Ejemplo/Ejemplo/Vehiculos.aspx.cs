@@ -280,6 +280,9 @@ namespace Ejemplo
             vehiculo.Jueves = listHorarios[0].Jueves;
             vehiculo.LimiteLTDia = listHorarios[0].LimiteLTDia;
             vehiculo.LimiteLTMes = listHorarios[0].LimiteLTMes;
+            vehiculo.LimiteMNDia = listHorarios[0].LimiteMNDia;
+            vehiculo.LimiteMNSemana = listHorarios[0].LimiteMNSemana;
+            vehiculo.LimiteMNMes = listHorarios[0].LimiteMNMes;
             vehiculo.LimiteLTSemana = listHorarios[0].LimiteLTSemana;
             vehiculo.Lunes = listHorarios[0].Lunes;
             vehiculo.Martes = listHorarios[0].Martes;

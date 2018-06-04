@@ -38,9 +38,10 @@
     background-color: #428bca;
     padding: 5px 15px;
 }
+
     </style>
 
-    <div class="container" style="margin-left:0px; margin-right:0px"><h1>EDITAR VEHICULO</h1></div>
+    <div id="nav" class="container" style="margin-left:0px; margin-right:0px"><h1>EDITAR VEHICULO</h1></div>
 <div id="exTab1" class="container" style="margin-left:0px; margin-right:0px">	
 <ul  class="nav nav-pills" style="padding:0px">
 			<li class="active">
@@ -177,7 +178,7 @@
                     </table>
           </div>
           <div class="tab-pane " id="4a">
-              <table style="width:100%">
+              <table style="width:100%; height:500px">
                   <tr>
                       <td>
                           <h2 style="color: white;font-weight: bold;">LIMITES ASIGNADOS</h2>
@@ -394,7 +395,7 @@
 				</div>
                   <div class="tab-pane" id="6a">
                       <div id="horariosdiv" runat="server">
-                          <table border="1" id="tableHorarios" style="width:100%; height:300px" runat="server" >
+                          <table border="1" id="tableHorarios" style="width:100%; height:500px" runat="server" >
   <caption>Horarios</caption>
   <tr>
     <td>Días / Horas</td>
@@ -422,9 +423,9 @@
         <button id="0" onclick="checks(this);" type="button">
      Desactivar todo</button>
 	</div>
-                 <button id="2" onclick="leerTabla();" type="button">
-     GUARDAR CAMBIOS</button>
 			</div>
+       <button id="2" onclick="leerTabla();" type="button">
+     GUARDAR CAMBIOS</button>
   </div>
 
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -476,6 +477,9 @@
             agregarchecks("sabado", "fila6");
             agregarchecks("domingo", "fila7");
 
+            if (location.hash) {
+                $('a[href="#exTab1-2"]').click(); 
+            }
 
         })
         function numeroFormato(num) {
@@ -508,6 +512,10 @@
                 dataType: "json",
                 success: function (result) {
                     alert(result.d);
+                    var tab = tabActual();
+                    window.location.hash = tab;
+                    window.location.reload();
+               
                 },
                 error: function (xhr, textStatus, error) {
                     console.log(xhr.statusText);
@@ -515,6 +523,17 @@
                     console.log(error);
                 }
             });
+        }
+        function tabActual() {
+            var result = "";
+            var hijo =  $('#exTab1').children('li');
+            if ($("#1a").hasClass("active")) result = "#1a";
+            else if ($("#2a").hasClass("active")) result = "#2a";
+            else if ($("#3a").hasClass("active")) result = "#3a";
+            else if ($("#4a").hasClass("active")) result = "#4a";
+            else if ($("#5a").hasClass("active")) result = "#5a";
+            else if ($("#5a").hasClass("active")) result = "#6a";
+            return result;
         }
         function recibirParametros() {
             var TableData = new Array();
