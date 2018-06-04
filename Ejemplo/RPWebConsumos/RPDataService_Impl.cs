@@ -188,8 +188,8 @@ namespace RPSuiteServer
                     "Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo","ProductoAutorizado","VehiculoID"
                 }
                     , new object[] { Datos.Nip,Datos.Status,Datos.CargasMaximas,Datos.LimiteLTDia,Datos.LimiteLTSemana,Datos.LimiteLTMes,
-                        Datos.LimiteMNDia,Datos.LimiteMNSemana,Datos.LimiteMNMes,Datos.ProductoAutorizado,Datos.VehiculoID,Datos.Lunes,
-                        Datos.Martes,Datos.Miercoles,Datos.Jueves,Datos.Viernes,Datos.Sabado,Datos.Domingo
+                        Datos.LimiteMNDia,Datos.LimiteMNSemana,Datos.LimiteMNMes,Datos.Lunes,
+                        Datos.Martes,Datos.Miercoles,Datos.Jueves,Datos.Viernes,Datos.Sabado,Datos.Domingo,Datos.ProductoAutorizado,Datos.VehiculoID
                             }))
                 {
                     lcommand.ExecuteNonQuery();

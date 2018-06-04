@@ -12217,7 +12217,7 @@ set
 	 [NIP]=:Nip, 
 	 [Estatus]=:Status,
  	 [CargasMaximas]=:CargasMaximas, 
- 	 LimiteLTDia=:LimiteLTDia
+ 	 [LimiteLTDia]=:LimiteLTDia,
 	 [LimiteLTSemana]=:LimiteLTSemana, 
 	[LimiteLTMes]=:LimiteLTMes, 
 	[LimiteMNDia]=:LimiteMNDia, 

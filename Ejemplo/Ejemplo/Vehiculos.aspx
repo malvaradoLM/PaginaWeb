@@ -506,7 +506,7 @@
                 contentType: "application/json",
                 dataType: "json",
                 success: function (resultado) {
-                    if (resultado != "") alert(resultado);
+                    if (resultado != "") ("Los datos se han actualizado");
                     else alert("Los datos se han actualizado");
                 },
                 error: function (xhr, textStatus, error) {
