@@ -240,16 +240,26 @@ namespace Ejemplo
         [System.Web.Services.WebMethod]              
         public static string leer(string ID)    // Metodo que lee tabla horarioHorario
         {
+            bool result = false;
+            string resultado = "";
           vehiculo = llenarVehiculo(ID);
-            
-            return "";
+            try
+            {
+               result =  DataModule.DataService.UpdateVehiculo(vehiculo);
+                if (!result) resultado = "No se pudo actualizar el registro";
+            }
+            catch (Exception ex)
+            {
+                resultado = ex.Message;
+            }
+            return resultado;
         }
         public static RPSuiteServer.TVehiculo llenarVehiculo(string ID)
         {
 
             RPSuiteServer.TVehiculo vehiculo = new RPSuiteServer.TVehiculo();
             var definicion = new
-            { Nip = "", VehiculoId = 0, Status = "", CargasMaximas = 0, LimiteLTDia = new double(), LimiteLTSemana = new double(), LimiteLTMes = new double(), LimiteMNDia = new double(),
+            { Nip = "", VehiculoId = new int(), Status = "", CargasMaximas = new int(), LimiteLTDia = new double(), LimiteLTSemana = new double(), LimiteLTMes = new double(), LimiteMNDia = new double(),
                 LimiteMNSemana = new double(), LimiteMNMes = new double(), Lunes = "", Martes = "", Miercoles="", Jueves= "", Viernes= "", Sabado= "", Domingo= "", ProductoAutorizado="" };
             var listaDefinicion = new[] { definicion };
             var horarios = ID;

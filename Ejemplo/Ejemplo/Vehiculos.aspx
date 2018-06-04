@@ -505,8 +505,9 @@
                 data: JSON.stringify({ ID: TableData1}),
                 contentType: "application/json",
                 dataType: "json",
-                success: function () {
-                    alert("logrado");
+                success: function (resultado) {
+                    if (resultado != "") alert(resultado);
+                    else alert("Los datos se han actualizado");
                 },
                 error: function (xhr, textStatus, error) {
                     console.log(xhr.statusText);
@@ -557,7 +558,7 @@
             var TableData2 = new Array();
             TableData2[0] = {
                 "Nip": document.getElementById('<%=txtNIP.ClientID%>_I').value
-                , "Status": document.getElementById('<%=cmbEstatusActual.ClientID%>_I').value
+                , "Status": document.getElementById('<%=cmbEstatusActual.ClientID%>_I').value.charAt(0)
                 , "CargasMaximas": document.getElementById('<%=txtCargasMaximas.ClientID%>_I').value
                 , "LimiteLTDia": document.getElementById('<%=txtLAVDiario.ClientID%>_I').value
                 , "LimiteLTSemana": document.getElementById('<%=txtLAVSemanal.ClientID%>_I').value
