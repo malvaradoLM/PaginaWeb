@@ -43,24 +43,24 @@
 
     <div id="nav" class="container" style="margin-left:0px; margin-right:0px"><h1>EDITAR VEHICULO</h1></div>
 <div id="exTab1" class="container" style="margin-left:0px; margin-right:0px">	
-<ul  class="nav nav-pills" style="padding:0px">
-			<li class="active">
-        <a  href="#1a" data-toggle="tab">DATOS</a>
+<ul id="myTabs" class="nav nav-pills" style="padding:0px">
+			<li id="1ali">
+          <a  href="#1a" data-toggle="tab">DATOS</a>
 			</li>
-			<li><a href="#2a" data-toggle="tab">SEGURIDAD</a>
+			<li id="2ali"><a href="#2a" data-toggle="tab">SEGURIDAD</a>
 			</li>
-			<li><a href="#3a" data-toggle="tab">FECHAS</a>
+			<li id="3ali"><a href="#3a" data-toggle="tab">FECHAS</a>
 			</li>
-  		<li><a href="#4a" data-toggle="tab">LIMITES DE CONSUMO</a>
+  		<li id="4ali"><a href="#4a" data-toggle="tab">LIMITES DE CONSUMO</a>
 			</li>
-    <li><a href="#5a" data-toggle="tab">HISTORIAL DE CONSUMOS</a>
+    <li id="5ali"><a href="#5a" data-toggle="tab">HISTORIAL DE CONSUMOS</a>
 			</li>
-    <li><a href="#6a" data-toggle="tab">CONTROL DE HORARIOS</a>
+    <li id="6ali"><a href="#6a" data-toggle="tab">CONTROL DE HORARIOS</a>
 			</li>
 		</ul>
 
 			<div class="tab-content clearfix">
-			  <div class="tab-pane active" id="1a">
+			  <div class="tab-pane" id="1a">
                     <table style="width:100%; height:500px">
                         <tr>
                             <td style="width:20%"><dx:ASPxLabel ID="lblVehiculoID" Text="VEHICULO ID" runat="server" Font-Bold="true"/></td>
@@ -430,6 +430,8 @@
 
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         function validar(control)
         {
@@ -478,7 +480,11 @@
             agregarchecks("domingo", "fila7");
 
             if (location.hash) {
-                $('a[href="#exTab1-2"]').click(); 
+                $(location.hash+"li").addClass("active");
+                $(location.hash).addClass("active");
+            } else {
+                $("#1ali").addClass("active");
+                $("#1a").addClass("active");
             }
 
         })
