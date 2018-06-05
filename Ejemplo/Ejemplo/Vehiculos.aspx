@@ -38,6 +38,53 @@
     background-color: #428bca;
     padding: 5px 15px;
 }
+.btn-sample { 
+  color: #ffffff; 
+  background-color: #428BCA; 
+  border-color: #E8E8E8; 
+} 
+ 
+.btn-sample:hover, 
+.btn-sample:focus, 
+.btn-sample:active, 
+.btn-sample.active, 
+.open .dropdown-toggle.btn-sample { 
+  color: #ffffff; 
+  background-color: #428bca; 
+  border-color: #E8E8E8; 
+} 
+ 
+.btn-sample:active, 
+.btn-sample.active, 
+.open .dropdown-toggle.btn-sample { 
+  background-image: none; 
+} 
+ 
+.btn-sample.disabled, 
+.btn-sample[disabled], 
+fieldset[disabled] .btn-sample, 
+.btn-sample.disabled:hover, 
+.btn-sample[disabled]:hover, 
+fieldset[disabled] .btn-sample:hover, 
+.btn-sample.disabled:focus, 
+.btn-sample[disabled]:focus, 
+fieldset[disabled] .btn-sample:focus, 
+.btn-sample.disabled:active, 
+.btn-sample[disabled]:active, 
+fieldset[disabled] .btn-sample:active, 
+.btn-sample.disabled.active, 
+.btn-sample[disabled].active, 
+fieldset[disabled] .btn-sample.active { 
+  background-color: #428BCA; 
+  border-color: #E8E8E8; 
+} 
+ 
+.btn-sample .badge { 
+  color: #428BCA; 
+  background-color: #ffffff; 
+}
+
+
 
     </style>
 
@@ -395,7 +442,7 @@
 				</div>
                   <div class="tab-pane" id="6a">
                       <div id="horariosdiv" runat="server">
-                          <table id="tableHorarios" style="width:100%; height:500px;  border-radius:15px; " runat="server" >
+                          <table id="tableHorarios" style="width:100%; height:500px;  border-radius:15px;" runat="server" class="table-condensed">
   <caption>Horarios</caption>
   <tr>
       <td><h4 style="color: white;font-weight: bold;">Días / Horas</h4></td>
@@ -418,14 +465,15 @@
         </tr>
 </table>
 </div>
-                      <a id="1" style=' cursor: pointer; color:white; background-color: #428bca;' onclick="checks(this);" >
+                      <a id="1" style=' cursor: pointer; color:white; background-color: #428bca;' class="btn" onclick="checks(this);" >
      Activar todo</a>
-        <a id="0" style=' cursor: pointer; color:white; background-color: #428bca;' onclick="checks(this);" >
+        <a id="0" style=' cursor: pointer; color:white; background-color: #428bca;' class="btn" onclick="checks(this);" >
      Desactivar todo</a>
 			</div>
 	</div>
-       <button id="2" onclick="leerTabla();" type="button">
-     GUARDAR CAMBIOS</button>
+
+       <button id="2" class="btn-sample btn-lg" onclick="leerTabla();" type="button" style="float:right" >
+     GUARDAR </button>
   </div>
 
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -469,7 +517,7 @@
         $(document).ready(function () {
             var encabezados = "";
             for (var i = 0; i < 24; i++) {
-                $("#ContentPlaceHolder1_tableHorarios").find('td').eq(i).after("<td><a id='col" + numeroFormato(i) + "' onclick= 'checks(this);' style= ' cursor: pointer; font-weight:bold;' class='dxeBase'  >" + numeroFormato(i) + "</a ></td > ");
+                $("#ContentPlaceHolder1_tableHorarios").find('td').eq(i).after("<td><span id='col" + numeroFormato(i) + "' onclick= 'checks(this);' style= ' cursor: pointer; font-weight:bold;' class='dxeBase'  >" + numeroFormato(i) + "</span ></td > ");
             }
             agregarchecks("lunes", "fila1");
             agregarchecks("martes", "fila2");
