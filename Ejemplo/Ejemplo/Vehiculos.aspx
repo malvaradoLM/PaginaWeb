@@ -395,15 +395,15 @@
 				</div>
                   <div class="tab-pane" id="6a">
                       <div id="horariosdiv" runat="server">
-                          <table border="1" id="tableHorarios" style="width:100%; height:500px" runat="server" >
+                          <table id="tableHorarios" style="width:100%; height:500px;  border-radius:15px; " runat="server" >
   <caption>Horarios</caption>
   <tr>
-    <td>Días / Horas</td>
+      <td><h4 style="color: white;font-weight: bold;">Días / Horas</h4></td>
   </tr>
         <tr id="lunes"> <th scope="row" id="fila1"  onclick ='checks(this);' style=' cursor: pointer;'>Lunes</th>
         </tr>
         <tr id="martes"> 
-            <th scope="row" id="fila2" onclick ='checks(this);' style=' cursor: pointer;'>Martes</th>
+            <th scope="row" id="fila2" onclick ='checks(this);' style=' cursor: pointer; '  >Martes</th>
         </tr>
         <tr id="miercoles"> 
             <th scope="row" id="fila3" onclick ='checks(this);' style=' cursor: pointer;'>Miércoles</th>
@@ -418,12 +418,12 @@
         </tr>
 </table>
 </div>
-<button id="1" onclick="checks(this);" type="button">
-     Activar todo</button>
-        <button id="0" onclick="checks(this);" type="button">
-     Desactivar todo</button>
-	</div>
+                      <a id="1" style=' cursor: pointer; color:white; background-color: #428bca;' onclick="checks(this);" >
+     Activar todo</a>
+        <a id="0" style=' cursor: pointer; color:white; background-color: #428bca;' onclick="checks(this);" >
+     Desactivar todo</a>
 			</div>
+	</div>
        <button id="2" onclick="leerTabla();" type="button">
      GUARDAR CAMBIOS</button>
   </div>
@@ -469,7 +469,7 @@
         $(document).ready(function () {
             var encabezados = "";
             for (var i = 0; i < 24; i++) {
-                $("#ContentPlaceHolder1_tableHorarios").find('td').eq(i).after("<td><a id='col" + numeroFormato(i) + "' onclick= 'checks(this);' style= ' cursor: pointer;' >" + numeroFormato(i) + "</a ></td > ");
+                $("#ContentPlaceHolder1_tableHorarios").find('td').eq(i).after("<td><a id='col" + numeroFormato(i) + "' onclick= 'checks(this);' style= ' cursor: pointer; font-weight:bold;' class='dxeBase'  >" + numeroFormato(i) + "</a ></td > ");
             }
             agregarchecks("lunes", "fila1");
             agregarchecks("martes", "fila2");
@@ -538,7 +538,7 @@
             else if ($("#3a").hasClass("active")) result = "#3a";
             else if ($("#4a").hasClass("active")) result = "#4a";
             else if ($("#5a").hasClass("active")) result = "#5a";
-            else if ($("#5a").hasClass("active")) result = "#6a";
+            else if ($("#6a").hasClass("active")) result = "#6a";
             return result;
         }
         function recibirParametros() {
