@@ -481,16 +481,6 @@ fieldset[disabled] .btn-sample.active {
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-        function validar(control)
-        {
-            var x = document.getElementById(control);
-            var controles = document.getElementsByClassName(x.id);
-            for (var i = 0; i < controles.length; i++) {
-                var item = document.getElementById(controles[i].id);
-                item.checked=false;
-                //console.log(controles[i].id); //second console output
-            }
-        }
         function checks(control) {
             if (control.id == "1" || control.id == "0") {
                 if (control.id == "1") {
@@ -515,18 +505,9 @@ fieldset[disabled] .btn-sample.active {
             }
         }
         $(document).ready(function () {
-            var encabezados = "";
             for (var i = 0; i < 24; i++) {
-                $("#ContentPlaceHolder1_tableHorarios").find('td').eq(i).after("<td><span id='col" + numeroFormato(i) + "' onclick= 'checks(this);' style= ' cursor: pointer; font-weight:bold;' class='dxeBase'  >" + numeroFormato(i) + "</span ></td > ");
+                $('#<%=tableHorarios.ClientID%>').find('td').eq(i).after("<td><span id='col" + numeroFormato(i) + "' onclick= 'checks(this);' style= ' cursor: pointer; font-weight:bold;' class='dxeBase'  >" + numeroFormato(i) + "</span ></td > ");
             }
-            agregarchecks("lunes", "fila1");
-            agregarchecks("martes", "fila2");
-            agregarchecks("miercoles", "fila3");
-            agregarchecks("jueves", "fila4");
-            agregarchecks("viernes", "fila5");
-            agregarchecks("sabado", "fila6");
-            agregarchecks("domingo", "fila7");
-
             if (location.hash) {
                 $(location.hash+"li").addClass("active");
                 $(location.hash).addClass("active");
@@ -534,24 +515,16 @@ fieldset[disabled] .btn-sample.active {
                 $("#1ali").addClass("active");
                 $("#1a").addClass("active");
             }
-
         })
         function numeroFormato(num) {
             var numero = num.toString();
             if (numero.length < 2) numero = "0" + numero;
             return numero;
         }
-        function agregarchecks(dia, fila) {
-           // for (var i = 0; i < 24; i++) {
-             //   $('#ContentPlaceHolder1_' + dia + "").append("<td><input type='checkbox' id='" + fila + " col" + numeroFormato(i) + "' class='" + fila + " col" + numeroFormato(i) + " all' /></td>");
-           // }
-
-        }
         function checarcheck(valor) {
             if (valor == undefined || valor == false)
                 return "0";
             else return "1";
-
         }
         function leerTabla() {
             var TableData = new Array();
@@ -580,45 +553,18 @@ fieldset[disabled] .btn-sample.active {
         }
         function tabActual() {
             var result = "";
-            var hijo =  $('#exTab1').children('li');
-            if ($("#1a").hasClass("active")) result = "#1a";
-            else if ($("#2a").hasClass("active")) result = "#2a";
-            else if ($("#3a").hasClass("active")) result = "#3a";
-            else if ($("#4a").hasClass("active")) result = "#4a";
-            else if ($("#5a").hasClass("active")) result = "#5a";
-            else if ($("#6a").hasClass("active")) result = "#6a";
+            for (var i = 1; i < 7; i++) {
+                if ($("#" + i + "a").hasClass("active")) result = "#" + i + "a";
+            }
             return result;
         }
         function recibirParametros() {
             var TableData = new Array();
             var TableData2 = new Array();
-            $('#ContentPlaceHolder1_tableHorarios tr').each(function (row, tr) {
+            $('#<%=tableHorarios.ClientID%> tr').each(function (row, tr) {
                 TableData[row] = {
                     "Dia": "" + $(tr).find('th:eq(0)').text() + ""
-                    , "Valor": checarcheck($(tr).find(':checkbox:eq(0)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(1)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(2)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(3)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(4)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(5)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(6)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(7)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(8)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(9)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(10)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(11)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(12)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(13)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(14)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(15)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(16)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(17)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(18)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(19)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(20)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(21)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(22)').is(':checked'))
-                    + checarcheck($(tr).find(':checkbox:eq(23)').is(':checked'))
+                    , "Valor": leerChecks(tr)
                 }
             });
             TableData.shift();
@@ -655,6 +601,14 @@ fieldset[disabled] .btn-sample.active {
         function getStatus(letra) {
             if (letra == "I") return "C";
             else return letra;
+        }
+        function leerChecks(tr) {
+            result = "";
+            for (var i = 0; i < 24; i++) {
+                result = result + checarcheck($(tr).find(':checkbox:eq('+i+')').is(':checked'));
+            }
+            return result;
+            
         }
     </script>
 </asp:Content>

@@ -195,7 +195,6 @@ namespace Ejemplo
         }
         private void FillDataSixthTab(DataTable dt)
         {
-            ConstruirTabla();
             IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
             foreach (DataRow dr in query)
             {
@@ -209,26 +208,15 @@ namespace Ejemplo
             }
         }
 
-
-        private void ConstruirTabla()
-        {
-        }
         public override void VerifyRenderingInServerForm(Control control)
         {
            
         }
         private void ConstruirChecks(string value,int posicion)
-        {
-            
+        {          
             HtmlTableCell Td;
             string check = "";
             int i = 0;
-            
-            //foreach (HtmlTableRow row in tableHorarios.Rows)
-            //{
-            //    if (i != 0)
-            //    {
-            //        int col = 1;
                     foreach (char a in value)
                     {
                         check = "";
@@ -236,28 +224,18 @@ namespace Ejemplo
                         if (a.ToString() == "1") check = "checked";
                         Td.InnerHtml = "<input type='checkbox' id ='myCheck' class='fila" + posicion + " col" + string.Format("{0:00}", i) + " all'" + check + " />";
                 tableHorarios.Rows[posicion].Cells.Add(Td);
-                //row.Cells.Add(Td);
-                //col++;
                 i++;
-            }
-                //}
-                //i++;
-            //}
-            
-            
+            }            
         }
         [System.Web.Services.WebMethod]              
         public static string leer(string ID)    // Metodo que lee tabla horarioHorario
         {
-            bool result = false;
             string resultado = "";
             vehiculo = llenarVehiculo(ID);
             try
             {
-               result =  DataModule.DataService.UpdateVehiculo(vehiculo);
-                if (!result) resultado = "NO SE PUDIERON GUARDAR LOS CAMBIOS";
-                else resultado= "LOS CAMBIOS HAN SIDO GUARDADOS CORRECTAMENTE";
-                
+                if (!DataModule.DataService.UpdateVehiculo(vehiculo)) resultado = "NO SE PUDIERON GUARDAR LOS CAMBIOS";
+                else resultado= "LOS CAMBIOS HAN SIDO GUARDADOS CORRECTAMENTE";          
             } 
             catch (Exception ex)
             {
