@@ -569,10 +569,9 @@ fieldset[disabled] .btn-sample.active {
             });
             TableData.shift();
             var ProductoAutorizado = "";
-            if ($('#<%=chProductos.ClientID%>_0').is(':checked')) ProductoAutorizado = "1";
-            if ($('#<%=chProductos.ClientID%>_1').is(':checked')) ProductoAutorizado = ProductoAutorizado + "2";
-            if ($('#<%=chProductos.ClientID%>_2').is(':checked')) ProductoAutorizado = ProductoAutorizado + "3";
-            if ($('#<%=chProductos.ClientID%>_3').is(':checked')) ProductoAutorizado = ProductoAutorizado + "4";
+            for (var i = 0; i < 4; i++) {
+                if ($('#<%=chProductos.ClientID%>_'+i).is(':checked')) ProductoAutorizado += ""+(i+1);
+            }
             var VehiculoID = document.getElementById('<%=txtVehiculoID.ClientID%>_I').value;
             var TableData2 = new Array();
             TableData2[0] = {
@@ -594,6 +593,7 @@ fieldset[disabled] .btn-sample.active {
                 , "Viernes": TableData[4]["Valor"]
                 , "Sabado": TableData[5]["Valor"]
                 , "Domingo": TableData[6]["Valor"]
+                , "Estacion": obtenerIdEstacion(document.getElementById('<%=cmbLimitarEstacion.ClientID%>_I').value)
             }
 
             return TableData2;
@@ -607,8 +607,11 @@ fieldset[disabled] .btn-sample.active {
             for (var i = 0; i < 24; i++) {
                 result = result + checarcheck($(tr).find(':checkbox:eq('+i+')').is(':checked'));
             }
-            return result;
-            
+            return result;   
+        }
+        function obtenerIdEstacion(estacion) {
+            var array = estacion.split("-");
+            return array[0];
         }
     </script>
 </asp:Content>

@@ -12225,7 +12225,8 @@ set
 	[Lunes]=:Lunes, [Martes]=:Martes, 
 	[Miercoles]=:Miercoles, [Jueves]=:Jueves, [Viernes]=:Viernes, 
 	[Sabado]=:Sabado, [Domingo]=:Domingo, 
-    [ProductoAutorizado]=:ProductoAutorizado
+    [ProductoAutorizado]=:ProductoAutorizado,
+    [Estacion]=:Estacion
 
 WHERE 
 	VehiculoID=:VehiculoID</SQL>
@@ -12239,7 +12240,7 @@ WHERE
           <Description />
         </Item0>
       </Statements>
-      <Params IsObject="true" Count="18" IsCollection="true" Type="TDAParamCollection" ItemClass="TDAParam">
+      <Params IsObject="true" Count="19" IsCollection="true" Type="TDAParamCollection" ItemClass="TDAParam">
         <Item0>
           <Value />
           <ParamType>daptInput</ParamType>
@@ -12464,6 +12465,19 @@ WHERE
         <Item17>
           <Value />
           <ParamType>daptInput</ParamType>
+          <Name>Estacion</Name>
+          <DataType>datString</DataType>
+          <Size>150</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item17>
+        <Item18>
+          <Value />
+          <ParamType>daptInput</ParamType>
           <Name>VehiculoID</Name>
           <DataType>datInteger</DataType>
           <Size>0</Size>
@@ -12473,7 +12487,7 @@ WHERE
           <GeneratorName />
           <BusinessClassID />
           <Description />
-        </Item17>
+        </Item18>
       </Params>
       <CustomAttributes />
       <IsPublic>True</IsPublic>

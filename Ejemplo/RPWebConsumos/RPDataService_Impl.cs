@@ -185,11 +185,11 @@ namespace RPSuiteServer
             {
                 using (IDbCommand lcommand = this.ServiceSchema.NewCommand(this.Connection, "UpdateVehiculo", new string[] {
                     "Nip", "Status", "CargasMaximas","LimiteLTDia","LimiteLTSemana","LimiteLTMes","LimiteMNDia","LimiteMNSemana","LimiteMNMes",
-                    "Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo","ProductoAutorizado","VehiculoID"
+                    "Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo","ProductoAutorizado","VehiculoID","Estacion"
                 }
                     , new object[] { Datos.Nip,Datos.Status,Datos.CargasMaximas,Datos.LimiteLTDia,Datos.LimiteLTSemana,Datos.LimiteLTMes,
                         Datos.LimiteMNDia,Datos.LimiteMNSemana,Datos.LimiteMNMes,Datos.Lunes,
-                        Datos.Martes,Datos.Miercoles,Datos.Jueves,Datos.Viernes,Datos.Sabado,Datos.Domingo,Datos.ProductoAutorizado,Datos.VehiculoID
+                        Datos.Martes,Datos.Miercoles,Datos.Jueves,Datos.Viernes,Datos.Sabado,Datos.Domingo,Datos.ProductoAutorizado,Datos.VehiculoID,Datos.Estacion
                             }))
                 {
                     lcommand.ExecuteNonQuery();

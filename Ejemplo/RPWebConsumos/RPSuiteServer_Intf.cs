@@ -624,6 +624,7 @@ namespace RPSuiteServer {
         private string @__Sabado;
         private string @__Domingo;
         private string @__ProductoAutorizado;
+        private string @__Estacion;
         public virtual int VehiculoID {
             get {
                 return @__VehiculoID;
@@ -796,6 +797,16 @@ namespace RPSuiteServer {
                 this.TriggerPropertyChanged("ProductoAutorizado");
             }
         }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Estacion {
+            get {
+                return @__Estacion;
+            }
+            set {
+                @__Estacion = value;
+                this.TriggerPropertyChanged("Estacion");
+            }
+        }
         public override void ReadComplex(RemObjects.SDK.Serializer serializer) {
             if (serializer.RecordStrictOrder) {
                 this.VehiculoID = serializer.ReadInt32("VehiculoID");
@@ -816,10 +827,12 @@ namespace RPSuiteServer {
                 this.Sabado = serializer.ReadAnsiString("Sabado");
                 this.Domingo = serializer.ReadAnsiString("Domingo");
                 this.ProductoAutorizado = serializer.ReadAnsiString("ProductoAutorizado");
+                this.Estacion = serializer.ReadAnsiString("Estacion");
             }
             else {
                 this.CargasMaximas = serializer.ReadInt32("CargasMaximas");
                 this.Domingo = serializer.ReadAnsiString("Domingo");
+                this.Estacion = serializer.ReadAnsiString("Estacion");
                 this.Jueves = serializer.ReadAnsiString("Jueves");
                 this.LimiteLTDia = serializer.ReadDouble("LimiteLTDia");
                 this.LimiteLTMes = serializer.ReadDouble("LimiteLTMes");
@@ -858,10 +871,12 @@ namespace RPSuiteServer {
                 serializer.WriteAnsiString("Sabado", this.Sabado);
                 serializer.WriteAnsiString("Domingo", this.Domingo);
                 serializer.WriteAnsiString("ProductoAutorizado", this.ProductoAutorizado);
+                serializer.WriteAnsiString("Estacion", this.Estacion);
             }
             else {
                 serializer.WriteInt32("CargasMaximas", this.CargasMaximas);
                 serializer.WriteAnsiString("Domingo", this.Domingo);
+                serializer.WriteAnsiString("Estacion", this.Estacion);
                 serializer.WriteAnsiString("Jueves", this.Jueves);
                 serializer.WriteDouble("LimiteLTDia", this.LimiteLTDia);
                 serializer.WriteDouble("LimiteLTMes", this.LimiteLTMes);

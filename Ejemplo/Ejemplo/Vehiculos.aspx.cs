@@ -68,6 +68,7 @@ namespace Ejemplo
             dt = ds.Tables["spCatEstacion"];
 
             IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
+            lista.Add(new ValuesCombo() { id = "", nombre = ""});///Para elegir no limitar a una estacion
             foreach (DataRow dr in query)
             {
                 lista.Add(new ValuesCombo() { id = dr.Field<int>("EstacionID").ToString(), nombre = dr.Field<int>("EstacionID").ToString() +"-"+ dr.Field<string>("Nombre") });
@@ -249,7 +250,7 @@ namespace Ejemplo
             RPSuiteServer.TVehiculo vehiculo = new RPSuiteServer.TVehiculo();
             var definicion = new
             { Nip = "", VehiculoId = new int(), Status = "", CargasMaximas = new int(), LimiteLTDia = new double(), LimiteLTSemana = new double(), LimiteLTMes = new double(), LimiteMNDia = new double(),
-                LimiteMNSemana = new double(), LimiteMNMes = new double(), Lunes = "", Martes = "", Miercoles="", Jueves= "", Viernes= "", Sabado= "", Domingo= "", ProductoAutorizado="" };
+                LimiteMNSemana = new double(), LimiteMNMes = new double(), Lunes = "", Martes = "", Miercoles="", Jueves= "", Viernes= "", Sabado= "", Domingo= "", ProductoAutorizado="", Estacion="" };
             var listaDefinicion = new[] { definicion };
             var horarios = ID;
             var listHorarios = JsonConvert.DeserializeAnonymousType(horarios, listaDefinicion);
@@ -271,6 +272,7 @@ namespace Ejemplo
             vehiculo.Status = listHorarios[0].Status;
             vehiculo.VehiculoID = listHorarios[0].VehiculoId;
             vehiculo.Viernes = listHorarios[0].Viernes;
+            vehiculo.Estacion = listHorarios[0].Estacion;
             return vehiculo;
 
         }
