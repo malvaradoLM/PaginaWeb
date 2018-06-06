@@ -568,11 +568,6 @@ fieldset[disabled] .btn-sample.active {
                 }
             });
             TableData.shift();
-            var ProductoAutorizado = "";
-            for (var i = 0; i < 4; i++) {
-                if ($('#<%=chProductos.ClientID%>_'+i).is(':checked')) ProductoAutorizado += ""+(i+1);
-            }
-            var VehiculoID = document.getElementById('<%=txtVehiculoID.ClientID%>_I').value;
             var TableData2 = new Array();
             TableData2[0] = {
                 "Nip": document.getElementById('<%=txtNIP.ClientID%>_I').value
@@ -584,8 +579,8 @@ fieldset[disabled] .btn-sample.active {
                 , "LimiteMNDia": document.getElementById('<%=txtLAIDiario.ClientID%>_I').value
                 , "LimiteMNSemana": document.getElementById('<%=txtLAISemanal.ClientID%>_I').value
                 , "LimiteMNMes": document.getElementById('<%=txtLAIMensual.ClientID%>_I').value
-                , "ProductoAutorizado": ProductoAutorizado
-                , "VehiculoID": VehiculoID
+                , "ProductoAutorizado": getProductoAutorizado()
+                , "VehiculoID": document.getElementById('<%=txtVehiculoID.ClientID%>_I').value
                 , "Lunes": TableData[0]["Valor"]
                 , "Martes": TableData[1]["Valor"]
                 , "Miercoles": TableData[2]["Valor"]
@@ -612,6 +607,13 @@ fieldset[disabled] .btn-sample.active {
         function obtenerIdEstacion(estacion) {
             var array = estacion.split("-");
             return array[0];
+        }
+        function getProductoAutorizado() {
+            var ProductoAutorizado = "";
+            for (var i = 0; i < 4; i++) {
+                if ($('#<%=chProductos.ClientID%>_' + i).is(':checked')) ProductoAutorizado += "" + (i + 1);
+            }
+            return ProductoAutorizado;
         }
     </script>
 </asp:Content>
