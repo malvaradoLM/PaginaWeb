@@ -1,0 +1,89 @@
+﻿/*============================================================ Cards style ============================================================================*/
+.details-cards{
+     width:100%;
+     margin: 20px 0px 0px 20px;
+     float:left;
+     text-align:left;
+
+     padding-left: 20px;
+}
+
+.avatar{
+     float:right;
+
+     margin-top: 35px;
+     margin-right:40px;
+}
+
+.avatar img {
+  border-radius :10px; 
+}
+
+@media (max-width: 767px) { 
+    .table-responsive {
+        border: 1px solid #273142;
+    }
+    .table-responsive > table > thead > tr > th{
+        white-space: initial !important;
+    }
+    .table-responsive > table > tbody > tr > th{
+        white-space: initial !important;
+    }
+    .table-responsive > table > tbody > tr > td {
+        white-space: initial !important;
+    }
+}
+
+.table-responsive {
+    overflow-x: hidden;
+}
+
+#formatDiv {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#formatDiv h5 {
+    /*margin: 0px 60px 0px 60px;*/ 
+    line-height:25px;
+    /*vertical-align:middle;*/
+
+    border-radius: 5px;
+    background: #1E90FF;
+    padding: 0 15px;
+}
+
+.format-table {
+    background-color: #1B2431;
+    /*table-layout: fixed;*/
+    width: 100%;
+
+    border: 1px solid #273142;
+    /*border-radius :10px;*/
+}
+
+table, th, td {
+    border: 1px solid #273142;
+    border-collapse: collapse;
+}
+
+#FormatRow1 {
+    background-color: #273142;
+}
+
+#FormatRow1 .columna1 {
+    border-right: 1px solid #151025;
+}
+
+#FormatRow2 {
+    background-color: #1B2431;
+}
+
+#FormatRow2 .columna1 {
+    border-right: 1px solid #151025;
+}
+
+.table { border: 1px solid #273142; }
+.table thead > tr > th { border-bottom: none; padding-bottom: 30px; }
+.table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th, .table thead > tr > td, .table tbody > tr > td, .table tfoot > tr > td { border: 1px solid #273142; }

@@ -23,10 +23,10 @@ namespace Ejemplo
             lblDomicilio.Text = DatosCliente.Domicilio;
             lblCiudad.Text = DatosCliente.Ciudad;
            // lblCiudad.Text = DatosCliente.Ciudad;
-            lblEstado.Text = DatosCliente.Estado;
+            //lblEstado.Text = DatosCliente.Estado;
             lblCP.Text = DatosCliente.CodigoPostal;
             lblStatus.Text = DatosCliente.Estatus;
-
+            
         }
     }
 }
