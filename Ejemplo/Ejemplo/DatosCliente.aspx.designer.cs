@@ -22,6 +22,24 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxLabel lblCliente;
         
         /// <summary>
+        /// lblID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblID;
+        
+        /// <summary>
+        /// lblRazonSocial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblRazonSocial;
+        
+        /// <summary>
         /// lblDomicilio control.
         /// </summary>
         /// <remarks>
@@ -31,6 +49,15 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxLabel lblDomicilio;
         
         /// <summary>
+        /// lblColonia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblColonia;
+        
+        /// <summary>
         /// lblCiudad control.
         /// </summary>
         /// <remarks>
@@ -38,6 +65,15 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblCiudad;
+        
+        /// <summary>
+        /// lblEstado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblEstado;
         
         /// <summary>
         /// lblTelefono control.
@@ -56,6 +92,24 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblCP;
+        
+        /// <summary>
+        /// lblRFC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblRFC;
+        
+        /// <summary>
+        /// lblLimiteCredito control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblLimiteCredito;
         
         /// <summary>
         /// lblStatus control.

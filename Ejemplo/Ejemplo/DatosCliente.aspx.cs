@@ -17,16 +17,17 @@ namespace Ejemplo
            
             RPSuiteServer.TCliente DatosCliente = new RPSuiteServer.TCliente();
             DatosCliente = DataModule.DataService.getCliente( ClienteID);
-
-            
-            lblCliente.Text = DatosCliente.RazonSocial;
+            lblCliente.Text = DatosCliente.Nombre;
             lblDomicilio.Text = DatosCliente.Domicilio;
             lblCiudad.Text = DatosCliente.Ciudad;
-           // lblCiudad.Text = DatosCliente.Ciudad;
-            //lblEstado.Text = DatosCliente.Estado;
             lblCP.Text = DatosCliente.CodigoPostal;
             lblStatus.Text = DatosCliente.Estatus;
-            
+            lblRazonSocial.Text = DatosCliente.RazonSocial;
+            lblColonia.Text = DatosCliente.Colonia;
+            lblRFC.Text = DatosCliente.RFC;
+            lblEstado.Text = DatosCliente.Estado;
+            lblLimiteCredito.Text = DatosCliente.LimiteCredito.ToString("C");
+            lblID.Text = "ID." + DatosCliente.ClienteID;        
         }
     }
 }
