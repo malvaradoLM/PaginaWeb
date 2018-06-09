@@ -9,6 +9,9 @@
     
     
     <dx:BootstrapGridView ID="bgvVehiculo" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="VehiculoID" >
+                <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
+                <Settings ShowGroupPanel="true"/>
+                <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>
                 <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
                 <SettingsDataSecurity AllowEdit="True" />
                 <SettingsBehavior AllowFocusedRow="True" />

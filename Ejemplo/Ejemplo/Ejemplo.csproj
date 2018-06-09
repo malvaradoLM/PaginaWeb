@@ -149,6 +149,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="EditarUsuario.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="packages.config" />
@@ -158,6 +159,17 @@
     <Content Include="principal.Master" />
     <Content Include="Data\Dataset\spVehiculoDS.xsc">
       <DependentUpon>spVehiculoDS.xsd</DependentUpon>
+    </Content>
+    <Content Include="Data\Dataset\spUsuarioWeb.xsc">
+      <DependentUpon>spUsuarioWeb.xsd</DependentUpon>
+    </Content>
+    <None Include="Data\Dataset\spUsuarioWeb.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>spUsuarioWeb.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Data\Dataset\spUsuarioWeb.xss">
+      <DependentUpon>spUsuarioWeb.xsd</DependentUpon>
     </Content>
     <None Include="Data\Dataset\spVehiculoDS.xsd">
       <Generator>MSDatasetGenerator</Generator>
@@ -223,12 +235,24 @@
     <Compile Include="Data\DataModule.Designer.cs">
       <DependentUpon>DataModule.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data\Dataset\spUsuarioWeb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>spUsuarioWeb.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datos.aspx.cs">
       <DependentUpon>Datos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Datos.aspx.designer.cs">
       <DependentUpon>Datos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditarUsuario.aspx.cs">
+      <DependentUpon>EditarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarUsuario.aspx.designer.cs">
+      <DependentUpon>EditarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

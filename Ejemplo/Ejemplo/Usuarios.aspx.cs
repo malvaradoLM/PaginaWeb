@@ -26,13 +26,14 @@ namespace Ejemplo
             dt = ds.Tables["spUsuarioWeb"];
             bgvUsuario.DataSource = dt;
             bgvUsuario.DataBind();
+           
         }
         private void FindControlPage()
         {
             try
             {
                 Session["UsuarioWebID"] = bgvUsuario.GetRowValues(int.Parse(bgvUsuario.FocusedRowIndex.ToString()), "UsuarioWebID").ToString();
-                Response.Redirect("Usuarios.aspx", false);
+                Response.Redirect("EditarUsuario.aspx", false);
             }
             catch (Exception ex)
             {
@@ -48,10 +49,6 @@ namespace Ejemplo
         protected void btnEditar_Click(object sender, EventArgs e)
         {
             FindControlPage();
-        }
-        protected void clickButton(object sender, EventArgs e)
-        {
-            int i = 0;
         }
     }
 }

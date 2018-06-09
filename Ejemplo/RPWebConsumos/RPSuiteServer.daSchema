@@ -1,7 +1,7 @@
 <TDASchema>
   <UnionDataTables IsObject="true" Count="0" IsCollection="true" Type="TDAUnionDataTableCollection" ItemClass="TDAUnionDataTable" />
   <JoinDataTables IsObject="true" Count="0" IsCollection="true" Type="TDAJoinDataTableCollection" ItemClass="TDAJoinDataTable" />
-  <Datasets IsObject="true" Count="30" IsCollection="true" Type="TDADatasetCollection" ItemClass="TDADataset">
+  <Datasets IsObject="true" Count="31" IsCollection="true" Type="TDADatasetCollection" ItemClass="TDADataset">
     <Item0>
       <ReadOnly>False</ReadOnly>
       <Fields IsObject="true" Count="2" IsCollection="true" ItemClass="TDAField" Type="TDASchemaFieldCollection">
@@ -12348,7 +12348,7 @@ WHERE
       </Statements>
       <Params IsObject="true" Count="1" IsCollection="true" Type="TDAParamCollection" ItemClass="TDAParam">
         <Item0>
-          <Value>5</Value>
+          <Value />
           <ParamType>daptInput</ParamType>
           <Name>ClienteID</Name>
           <DataType>datInteger</DataType>
@@ -12368,6 +12368,249 @@ WHERE
       <Description />
       <Name>spUsuarioWeb</Name>
     </Item29>
+    <Item30>
+      <ReadOnly>False</ReadOnly>
+      <Fields IsObject="true" Count="6" IsCollection="true" ItemClass="TDAField" Type="TDASchemaFieldCollection">
+        <Item0>
+          <Name>UsuarioWebID</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datInteger</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>UsuarioWebID</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>True</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item0>
+        <Item1>
+          <Name>Nombre</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Nombre</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>70</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item1>
+        <Item2>
+          <Name>Usuario</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datString</DataType>
+          <DefaultValue>15</DefaultValue>
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Usuario</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>65536</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item2>
+        <Item3>
+          <Name>Clave</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datString</DataType>
+          <DefaultValue>15</DefaultValue>
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Usuario</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>65536</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item3>
+        <Item4>
+          <Name>Administrador</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datBoolean</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Administrador</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item4>
+        <Item5>
+          <Name>ClienteID</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datInteger</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>ClienteID</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item5>
+      </Fields>
+      <BusinessRulesClient IsObject="true" Type="TDAClientBusinessRuleScript">
+        <CompileOnServer>False</CompileOnServer>
+        <RunOnClientAndServer>False</RunOnClientAndServer>
+        <Script />
+        <ScriptLanguageStr />
+        <Description />
+        <Name />
+      </BusinessRulesClient>
+      <BusinessRulesServer Type="TDABusinessRuleScript" IsObject="true">
+        <Script />
+        <ScriptLanguageStr />
+        <Description />
+        <Name />
+      </BusinessRulesServer>
+      <UpdateCommandName />
+      <DeleteCommandName />
+      <InsertCommandName />
+      <Statements IsCollection="true" IsObject="true" Count="1" ItemClass="TDAStatement" Type="TDAStatementCollection">
+        <Item0>
+          <Connection>RPSuite</Connection>
+          <SQL>SELECT 	
+	[UsuarioWebID], [Nombre], [Usuario], 
+	[Clave], [Administrador], [ClienteID] 
+FROM 
+	[UsuarioWeb] 
+WHERE 
+	UsuarioWebID=:Datos </SQL>
+          <TargetTable>UsuarioWeb</TargetTable>
+          <ConnectionType>SQLite</ConnectionType>
+          <Default>False</Default>
+          <StatementName />
+          <StatementType>stSQL</StatementType>
+          <GeneratorName />
+          <ColumnMappings IsObject="true" Count="0" IsCollection="true" Type="TDAColumnMappingCollection" ItemClass="TDAColumnMapping" />
+          <Description />
+        </Item0>
+      </Statements>
+      <Params IsObject="true" Count="1" IsCollection="true" Type="TDAParamCollection" ItemClass="TDAParam">
+        <Item0>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Datos</Name>
+          <DataType>datInteger</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item0>
+      </Params>
+      <CustomAttributes />
+      <IsPublic>True</IsPublic>
+      <DynamicWhereXML />
+      <BusinessClassID />
+      <Description />
+      <Name>spCatUsuarioWeb</Name>
+    </Item30>
   </Datasets>
   <Commands IsObject="true" Count="3" IsCollection="true" ItemClass="TDASQLCommand" Type="TDASQLCommandCollection">
     <Item0>
