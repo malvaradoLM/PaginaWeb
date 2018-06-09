@@ -1,18 +1,10 @@
-﻿using DevExpress.Utils.MVVM.Services;
-using DevExpress.Web;
-using DevExpress.Web.Bootstrap;
+﻿
 using Ejemplo.Data;
 using Ejemplo.Data.Dataset;
 using RemObjects.DataAbstract.Server;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Script.Services;
-using System.Web.Services;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace Ejemplo

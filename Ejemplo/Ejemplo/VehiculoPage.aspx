@@ -13,16 +13,6 @@
                 <SettingsDataSecurity AllowEdit="True" />
                 <SettingsBehavior AllowFocusedRow="True" />
                 <Columns>
-                    
-                    <dx:BootstrapGridViewDataColumn Caption="" Width="50px" Settings-AllowDragDrop="False" VisibleIndex="0">
-            <DataItemTemplate>
-                     <dx:ASPxButton ID="btnEditar" runat="server" Text="Editar" AutoPostBack="false" OnClick="btnEditar_Click">
-                        <%-- <ClientSideEvents Click="function(s, e) { e.processOnServer = GetValues(); }"  />--%>
-                     </dx:ASPxButton>
-                
-            </DataItemTemplate>
-        </dx:BootstrapGridViewDataColumn>
-
                     <dx:BootstrapGridViewTextColumn FieldName="VehiculoID" ReadOnly="True" VisibleIndex="1">
                                         <DataItemTemplate>
                                             <%#Eval("VehiculoID")%>
@@ -43,6 +33,14 @@
                                             <%#Eval("Estatus")%>
                                         </DataItemTemplate>
                     </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewDataColumn Caption="" Width="50px" Settings-AllowDragDrop="False" VisibleIndex="5">
+            <DataItemTemplate>
+                     <dx:ASPxButton ID="btnEditar" runat="server" Text="Editar" AutoPostBack="false" OnClick="btnEditar_Click">
+                        <%-- <ClientSideEvents Click="function(s, e) { e.processOnServer = GetValues(); }"  />--%>
+                     </dx:ASPxButton>
+                
+            </DataItemTemplate>
+        </dx:BootstrapGridViewDataColumn>
                 </Columns>
 
            </dx:BootstrapGridView>
