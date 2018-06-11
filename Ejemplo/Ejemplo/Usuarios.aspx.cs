@@ -16,9 +16,11 @@ namespace Ejemplo
     {
 
         private List<DataParameter> Params = new List<DataParameter>();
+        private string ClienteID;
         protected void Page_Load(object sender, EventArgs e)
         {
             Params.Clear();
+            ClienteID = DataModule.Seguridad.UserID;
             Data.DataModule.ParamByName(Params, "ClienteID", DataModule.Seguridad.UserID);
             spVehiculoDS ds = new spVehiculoDS();
             DataModule.FillDataSet(ds, "spUsuarioWeb", Params.ToArray());

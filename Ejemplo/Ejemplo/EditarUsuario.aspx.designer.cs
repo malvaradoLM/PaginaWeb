@@ -13,6 +13,24 @@ namespace Ejemplo {
     public partial class EditarUsuario {
         
         /// <summary>
+        /// lblEncabezado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lblEncabezado;
+        
+        /// <summary>
+        /// HiddenUsuarioWebID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden HiddenUsuarioWebID;
+        
+        /// <summary>
         /// lblNombre control.
         /// </summary>
         /// <remarks>
@@ -85,12 +103,12 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxCheckBox chkAdministrador;
         
         /// <summary>
-        /// btnGuardar control.
+        /// btnguardar1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnGuardar;
+        protected global::DevExpress.Web.ASPxButton btnguardar1;
     }
 }

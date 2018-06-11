@@ -904,6 +904,118 @@ namespace RPSuiteServer {
             return new TVehiculo();
         }
     }
+    [System.Serializable()]
+    [RemObjects.SDK.Remotable(ActivatorClass=typeof(TUsuarioWeb_Activator))]
+    [System.Reflection.ObfuscationAttribute(Exclude=true)]
+    public partial class TUsuarioWeb : RemObjects.SDK.Types.ComplexType {
+        private int @__UsuarioWebID;
+        private string @__Nombre;
+        private string @__Usuario;
+        private string @__Clave;
+        private bool @__Administrador;
+        private int @__ClienteID;
+        public virtual int UsuarioWebID {
+            get {
+                return @__UsuarioWebID;
+            }
+            set {
+                @__UsuarioWebID = value;
+                this.TriggerPropertyChanged("UsuarioWebID");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Nombre {
+            get {
+                return @__Nombre;
+            }
+            set {
+                @__Nombre = value;
+                this.TriggerPropertyChanged("Nombre");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Usuario {
+            get {
+                return @__Usuario;
+            }
+            set {
+                @__Usuario = value;
+                this.TriggerPropertyChanged("Usuario");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Clave {
+            get {
+                return @__Clave;
+            }
+            set {
+                @__Clave = value;
+                this.TriggerPropertyChanged("Clave");
+            }
+        }
+        public virtual bool Administrador {
+            get {
+                return @__Administrador;
+            }
+            set {
+                @__Administrador = value;
+                this.TriggerPropertyChanged("Administrador");
+            }
+        }
+        public virtual int ClienteID {
+            get {
+                return @__ClienteID;
+            }
+            set {
+                @__ClienteID = value;
+                this.TriggerPropertyChanged("ClienteID");
+            }
+        }
+        public override void ReadComplex(RemObjects.SDK.Serializer serializer) {
+            if (serializer.RecordStrictOrder) {
+                this.UsuarioWebID = serializer.ReadInt32("UsuarioWebID");
+                this.Nombre = serializer.ReadAnsiString("Nombre");
+                this.Usuario = serializer.ReadAnsiString("Usuario");
+                this.Clave = serializer.ReadAnsiString("Clave");
+                this.Administrador = serializer.ReadBoolean("Administrador");
+                this.ClienteID = serializer.ReadInt32("ClienteID");
+            }
+            else {
+                this.Administrador = serializer.ReadBoolean("Administrador");
+                this.Clave = serializer.ReadAnsiString("Clave");
+                this.ClienteID = serializer.ReadInt32("ClienteID");
+                this.Nombre = serializer.ReadAnsiString("Nombre");
+                this.Usuario = serializer.ReadAnsiString("Usuario");
+                this.UsuarioWebID = serializer.ReadInt32("UsuarioWebID");
+            }
+        }
+        public override void WriteComplex(RemObjects.SDK.Serializer serializer) {
+            if (serializer.RecordStrictOrder) {
+                serializer.WriteInt32("UsuarioWebID", this.UsuarioWebID);
+                serializer.WriteAnsiString("Nombre", this.Nombre);
+                serializer.WriteAnsiString("Usuario", this.Usuario);
+                serializer.WriteAnsiString("Clave", this.Clave);
+                serializer.WriteBoolean("Administrador", this.Administrador);
+                serializer.WriteInt32("ClienteID", this.ClienteID);
+            }
+            else {
+                serializer.WriteBoolean("Administrador", this.Administrador);
+                serializer.WriteAnsiString("Clave", this.Clave);
+                serializer.WriteInt32("ClienteID", this.ClienteID);
+                serializer.WriteAnsiString("Nombre", this.Nombre);
+                serializer.WriteAnsiString("Usuario", this.Usuario);
+                serializer.WriteInt32("UsuarioWebID", this.UsuarioWebID);
+            }
+        }
+    }
+    [System.Reflection.ObfuscationAttribute(Exclude=true, ApplyToMembers=false)]
+    public class TUsuarioWeb_Activator : object, RemObjects.SDK.ITypeActivator {
+        public TUsuarioWeb_Activator() {
+        }
+        public object CreateInstance() {
+            return new TUsuarioWeb();
+        }
+    }
     public interface IRPLoginService : RemObjects.DataAbstract.Server.ISimpleLoginService {
     }
     public partial class RPLoginService_Proxy : RemObjects.DataAbstract.Server.SimpleLoginService_Proxy, IRPLoginService {
@@ -994,6 +1106,7 @@ namespace RPSuiteServer {
         string getGasolinero();
         TCliente getCliente(int ClienteID);
         bool UpdateVehiculo(TVehiculo Datos);
+        bool UpdateUsuarioWeb(TUsuarioWeb Datos);
     }
     public partial class RPDataService_Proxy : RemObjects.DataAbstract.Server.DataAbstractService_Proxy, IRPDataService {
         public RPDataService_Proxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -1113,6 +1226,23 @@ namespace RPSuiteServer {
                 return _Result;
             }
             finally {
+                this.@__ClearMessage(@__LocalMessage);
+            }
+        }
+        public virtual bool UpdateUsuarioWeb(TUsuarioWeb Datos)
+        {
+            RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
+            try
+            {
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "UpdateUsuarioWeb");
+                @__LocalMessage.Write("Datos", Datos, typeof(TVehiculo), RemObjects.SDK.StreamingFormat.Default);
+                @__LocalMessage.FinalizeMessage();
+                this.ClientChannel.Dispatch(@__LocalMessage);
+                bool _Result = @__LocalMessage.ReadBoolean("Result");
+                return _Result;
+            }
+            finally
+            {
                 this.@__ClearMessage(@__LocalMessage);
             }
         }

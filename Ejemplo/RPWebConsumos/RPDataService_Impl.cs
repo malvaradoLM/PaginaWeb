@@ -203,9 +203,30 @@ namespace RPSuiteServer
             catch (Exception ex)
             {
                 return false;
-            }
-           
+            }     
         }
+
+        public Boolean UpdateUsuarioWeb(TUsuarioWeb Datos)
+        {
+            try
+            {
+                using (IDbCommand lcommand = this.ServiceSchema.NewCommand(this.Connection, "UpdateUsuarioWeb", new string[] {
+                    "UsuarioWebID", "Nombre", "Usuario","Clave","Administrador","ClienteID"
+                }
+                    , new object[] { Datos.UsuarioWebID, Datos.Nombre, Datos.Clave, Datos.Administrador, Datos.ClienteID
+                            }))
+                {
+                    lcommand.ExecuteNonQuery();
+                    return true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
 
 
     }

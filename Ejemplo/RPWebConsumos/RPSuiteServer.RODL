@@ -203,6 +203,22 @@
 </Element>
 </Elements>
 </Struct>
+<Struct Name="TUsuarioWeb" UID="{5B0BDE9A-A27B-42EA-889A-F261493EC7CA}" AutoCreateParams="1">
+<Elements>
+<Element Name="UsuarioWebID" DataType="Integer">
+</Element>
+<Element Name="Nombre" DataType="AnsiString">
+</Element>
+<Element Name="Usuario" DataType="AnsiString">
+</Element>
+<Element Name="Clave" DataType="AnsiString">
+</Element>
+<Element Name="Administrador" DataType="Boolean">
+</Element>
+<Element Name="ClienteID" DataType="Integer">
+</Element>
+</Elements>
+</Struct>
 </Structs>
 <Enums>
 </Enums>
