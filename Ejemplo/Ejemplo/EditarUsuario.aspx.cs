@@ -22,11 +22,11 @@ namespace Ejemplo
             if (!IsPostBack)
             {
                 Params.Clear();
-                string x = Session["UsuarioWebID"].ToString();
-                string y= Session["ClienteID"].ToString();
                 if (Session["UsuarioWebID"] != null) modificarUsuario();
-                if (Session["ClienteID"] != null) crearUsuario();
+                else crearUsuario();
             }
+            Session.Remove("UsuarioWebID");
+            Session.Remove("CLienteID");
         }
         private void nuevoUsuario()
         {
