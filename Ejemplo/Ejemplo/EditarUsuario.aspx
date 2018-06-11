@@ -93,6 +93,7 @@ fieldset[disabled] .btn-sample.active {
 			<li id="1ali">
           <a  id="lblEncabezado" data-toggle="tab" class="active" runat="server"></a>
           <input  id="HiddenUsuarioWebID" data-toggle="tab" class="active" runat="server" type="hidden">
+           <input  id="HiddenClienteID" data-toggle="tab" class="active" runat="server" type="hidden">
 			</li>
 		</ul>
         <div class="tab-content clearfix">
@@ -101,23 +102,23 @@ fieldset[disabled] .btn-sample.active {
                         <tr>
                             <td style="width:20%"><dx:ASPxLabel ID="lblNombre" Text="NOMBRE" runat="server" Font-Bold="true"/></td>
                             <td>
-                                <dx:ASPxTextBox ID="txtNombre" runat="server"  Width="60%"  Font-Size="15px" Font-Bold="true"  HorizontalAlign="Left"></dx:ASPxTextBox>
+                                <dx:ASPxTextBox ID="txtNombre" runat="server"  Width="60%"  Font-Size="15px" Font-Bold="true"  HorizontalAlign="Left" autocomplete="off"></dx:ASPxTextBox>
                             </td>
                         </tr>
                          <tr>
                             <td><dx:ASPxLabel ID="lblUsuario" Text="USUARIO" runat="server" Font-Bold="true"/></td>
                             <td>
-                                <dx:ASPxTextBox ID="txtUsuario" runat="server"  Width="60%" Font-Size="15px" Font-Bold="true"  HorizontalAlign="Left"></dx:ASPxTextBox>
+                                <dx:ASPxTextBox ID="txtUsuario" runat="server"  Width="60%" Font-Size="15px" Font-Bold="true"  HorizontalAlign="Left" autocomplete="off"></dx:ASPxTextBox>
                             </td>
                         </tr>
                          <tr>
                             <td><dx:ASPxLabel ID="lblClave" Text="CLAVE" runat="server" Font-Bold="true"/></td>
                             <td>
-                                <dx:ASPxTextBox ID="txtClave" runat="server"  Width="60%" Font-Size="15px" Font-Bold="true"   HorizontalAlign="Left"></dx:ASPxTextBox>
+                                <dx:ASPxTextBox ID="txtClave" runat="server"  Width="60%" Font-Size="15px" Font-Bold="true"   HorizontalAlign="Left" autocomplete="off"></dx:ASPxTextBox>
                             </td>
                         </tr>
                          <tr>
-                            <td><dx:ASPxLabel ID="lblNivelAdministrador" Text="NIVEL ADMINISTRADOR" runat="server" Font-Bold="true"/></td>
+                            <td><dx:ASPxLabel ID="lblNivelAdministrador" Text="NIVEL ADMINISTRADOR" runat="server" Font-Bold="true" /></td>
                             <td> 
                                 <dx:ASPxCheckBox ID="chkAdministrador" runat="server"></dx:ASPxCheckBox>
                                 <%--<dx:ASPxTextBox ID="txtPlacas" runat="server" Theme="Youthful" Width="60%" Font-Size="15px" Font-Bold="true"   Enabled="false"></dx:ASPxTextBox>--%>

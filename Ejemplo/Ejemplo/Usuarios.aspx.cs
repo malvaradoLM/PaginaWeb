@@ -52,5 +52,17 @@ namespace Ejemplo
         {
             FindControlPage();
         }
+        protected void btnNuevo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Session["ClienteID"] = ClienteID;
+                Response.Redirect("EditarUsuario.aspx", false);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

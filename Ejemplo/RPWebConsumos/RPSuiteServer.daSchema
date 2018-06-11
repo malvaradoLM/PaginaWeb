@@ -12612,7 +12612,7 @@ WHERE
       <Name>spCatUsuarioWeb</Name>
     </Item30>
   </Datasets>
-  <Commands IsObject="true" Count="4" IsCollection="true" ItemClass="TDASQLCommand" Type="TDASQLCommandCollection">
+  <Commands IsObject="true" Count="5" IsCollection="true" ItemClass="TDASQLCommand" Type="TDASQLCommandCollection">
     <Item0>
       <BusinessRulesServer Type="TDABusinessRuleScript" IsObject="true">
         <Script />
@@ -12993,13 +12993,11 @@ WHERE
         <Item0>
           <Connection>RPSuite</Connection>
           <SQL>update UsuarioWeb
-set 
-Nombre = Nombre
-Usuario = Usuario
-Clave = Clave,
-Administrador = Administrador
-where
-UsuarioWebID=UsuarioWebID</SQL>
+set Nombre =:Nombre,
+	Usuario =:Usuario,
+	Clave =:Clave,
+	Administrador=:Administrador
+where UsuarioWebID=:UsuarioWebID</SQL>
           <TargetTable>UsuarioWeb</TargetTable>
           <ConnectionType>SQLite</ConnectionType>
           <Default>True</Default>
@@ -13097,6 +13095,116 @@ UsuarioWebID=UsuarioWebID</SQL>
       <Description />
       <Name>updateUsuarioWeb</Name>
     </Item3>
+    <Item4>
+      <BusinessRulesServer Type="TDABusinessRuleScript" IsObject="true">
+        <Script />
+        <ScriptLanguageStr />
+        <Description />
+        <Name />
+      </BusinessRulesServer>
+      <Statements IsCollection="true" IsObject="true" Count="1" ItemClass="TDAStatement" Type="TDAStatementCollection">
+        <Item0>
+          <Connection>RPSuite</Connection>
+          <SQL>insert into UsuarioWeb
+(UsuarioWebID,Nombre,Usuario,Clave,Administrador,ClienteID)values
+((select max(UsuarioWebID) from UsuarioWeb)+1,:Nombre,:Usuario,:Clave,:Administrador,:ClienteID)</SQL>
+          <TargetTable>UsuarioWeb</TargetTable>
+          <ConnectionType>SQLite</ConnectionType>
+          <Default>True</Default>
+          <StatementName />
+          <StatementType>stSQL</StatementType>
+          <GeneratorName />
+          <ColumnMappings IsObject="true" Count="0" IsCollection="true" Type="TDAColumnMappingCollection" ItemClass="TDAColumnMapping" />
+          <Description />
+        </Item0>
+      </Statements>
+      <Params IsObject="true" Count="6" IsCollection="true" Type="TDAParamCollection" ItemClass="TDAParam">
+        <Item0>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Nombre</Name>
+          <DataType>datString</DataType>
+          <Size>70</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item0>
+        <Item1>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Usuario</Name>
+          <DataType>datString</DataType>
+          <Size>15</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item1>
+        <Item2>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Clave</Name>
+          <DataType>datString</DataType>
+          <Size>15</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item2>
+        <Item3>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Administrador</Name>
+          <DataType>datBoolean</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item3>
+        <Item4>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>ClienteID</Name>
+          <DataType>datInteger</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item4>
+        <Item5>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>UsuarioWebID</Name>
+          <DataType>datInteger</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item5>
+      </Params>
+      <CustomAttributes />
+      <IsPublic>True</IsPublic>
+      <DynamicWhereXML />
+      <BusinessClassID />
+      <Description />
+      <Name>setUsuarioWeb</Name>
+    </Item4>
   </Commands>
   <RelationShips IsObject="true" Count="0" IsCollection="true" Type="TDADatasetRelationshipCollection" ItemClass="TDADatasetRelationship" />
   <UpdateRules IsObject="true" Count="0" IsCollection="true" Type="TDAUpdateRuleCollection" ItemClass="TDAUpdateRule" />

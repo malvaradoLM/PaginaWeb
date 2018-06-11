@@ -5,7 +5,54 @@
 </asp:Content>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       <%--  <asp:ScriptManager ID="ScriptMgr" runat="server" EnablePageMethods="true"></asp:ScriptManager>--%>
+ <style>
+.btn-sample { 
+  color: #ffffff; 
+  background-color: #428BCA; 
+  border-color: #E8E8E8; 
+} 
+ 
+.btn-sample:hover, 
+.btn-sample:focus, 
+.btn-sample:active, 
+.btn-sample.active, 
+.open .dropdown-toggle.btn-sample { 
+  color: #ffffff; 
+  background-color: #428bca; 
+  border-color: #E8E8E8; 
+} 
+ 
+.btn-sample:active, 
+.btn-sample.active, 
+.open .dropdown-toggle.btn-sample { 
+  background-image: none; 
+} 
+ 
+.btn-sample.disabled, 
+.btn-sample[disabled], 
+fieldset[disabled] .btn-sample, 
+.btn-sample.disabled:hover, 
+.btn-sample[disabled]:hover, 
+fieldset[disabled] .btn-sample:hover, 
+.btn-sample.disabled:focus, 
+.btn-sample[disabled]:focus, 
+fieldset[disabled] .btn-sample:focus, 
+.btn-sample.disabled:active, 
+.btn-sample[disabled]:active, 
+fieldset[disabled] .btn-sample:active, 
+.btn-sample.disabled.active, 
+.btn-sample[disabled].active, 
+fieldset[disabled] .btn-sample.active { 
+  background-color: #428BCA; 
+  border-color: #E8E8E8; 
+} 
+ 
+.btn-sample .badge { 
+  color: #428BCA; 
+  background-color: #ffffff; 
+}
 
+ </style>
       <dx:BootstrapGridView ID="bgvUsuario" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="UsuarioWebID" CssClassesPager-Control="true" >
                 <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
                 <Settings ShowGroupPanel="true"/>
@@ -38,5 +85,8 @@
                 </Columns>
 
            </dx:BootstrapGridView>
+        <div style="float:right;">
+      <dx:ASPxButton ID="btnNuevo" Text="Crear Nuevo" CssClass="btn-lg .btn-sample" HorizontalAlign="Right"  runat="server" OnClick="btnNuevo_Click"></dx:ASPxButton>
+    </div>
 
 </asp:Content>

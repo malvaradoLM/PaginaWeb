@@ -31,6 +31,15 @@ namespace Ejemplo {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden HiddenUsuarioWebID;
         
         /// <summary>
+        /// HiddenClienteID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden HiddenClienteID;
+        
+        /// <summary>
         /// lblNombre control.
         /// </summary>
         /// <remarks>

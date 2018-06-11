@@ -22,7 +22,10 @@ namespace Ejemplo
             if (!IsPostBack)
             {
                 Params.Clear();
+                string x = Session["UsuarioWebID"].ToString();
+                string y= Session["ClienteID"].ToString();
                 if (Session["UsuarioWebID"] != null) modificarUsuario();
+                if (Session["ClienteID"] != null) crearUsuario();
             }
         }
         private void nuevoUsuario()
@@ -55,7 +58,11 @@ namespace Ejemplo
 
         protected void btnguardar_Click(object sender, EventArgs e)
         {
-            if (lblEncabezado.InnerText.Contains("Modificar")) guardarModificar();
+            if (validar() == "")
+            {
+                if (lblEncabezado.InnerText.Contains("Modificar")) guardarModificar();
+                else guardarNuevo();
+            }
         }
         private void guardarModificar()
         {
@@ -65,9 +72,6 @@ namespace Ejemplo
             Datos.UsuarioWebID = Convert.ToInt32(HiddenUsuarioWebID.Value);
             Datos.Administrador = (bool)chkAdministrador.Value;
             Datos.Clave = txtClave.Text;
-
-
-
             string resultado = "";
             try
             {
@@ -78,6 +82,43 @@ namespace Ejemplo
             {
                 resultado = ex.Message;
             }
+
+            Response.Write("<script>window.alert('"+resultado+"');</script>");
+
+        }
+        private void crearUsuario()
+        {
+            lblEncabezado.InnerText = "Crear Usuario";
+            HiddenClienteID.Value = Session["ClienteID"].ToString();
+        }
+        private string validar()
+        {
+            if (txtNombre.Text.Trim() == "") return "INGRESE UNA CLAVE PARA CONTINUAR";
+            if (txtUsuario.Text.Trim() == "") return "INGRESE UNA CLAVE PARA CONTINUAR";
+            if (txtClave.Text.Trim() == "") return "INGRESE UNA CLAVE PARA CONTINUAR";
+            return "";
+        }
+        private void guardarNuevo()
+        {
+            TUsuarioWeb Datos = new TUsuarioWeb();
+            Datos.Nombre = txtNombre.Text;
+            Datos.Usuario = txtUsuario.Text;
+            Datos.Administrador = (bool)chkAdministrador.Value;
+            Datos.ClienteID = Convert.ToInt32(HiddenClienteID.Value);
+            Datos.Clave = txtClave.Text;
+            string resultado = "";
+            try
+            {
+                if (!DataModule.DataService.setUsuarioWeb(Datos)) resultado = "NO SE PUDIERON GUARDAR LOS CAMBIOS";
+                else resultado = "LOS CAMBIOS HAN SIDO GUARDADOS CORRECTAMENTE";
+            }
+            catch (Exception ex)
+            {
+                resultado = ex.Message;
+            }
+
+            Response.Write("<script>window.alert('" + resultado + "');</script>");
+            if(!resultado.Contains("NO")) Response.Redirect("Usuarios.aspx", false);
 
         }
     }
