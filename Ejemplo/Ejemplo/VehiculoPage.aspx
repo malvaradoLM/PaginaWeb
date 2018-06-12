@@ -6,13 +6,60 @@
 </asp:Content>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       <%--  <asp:ScriptManager ID="ScriptMgr" runat="server" EnablePageMethods="true"></asp:ScriptManager>--%>
+    <style>
+/*gridview*/
+.table table  tbody  tr  td a ,
+.table table  tbody  tr  td  span {
+position: relative;
+float: left;
+padding: 6px 12px;
+margin-left: -1px;
+line-height: 1.42857143;
+color: #337ab7;
+text-decoration: none;
+background-color: #fff;
+border: 1px solid #ddd;
+}
+
+.table table > tbody > tr > td > span {
+z-index: 3;
+color: #fff;
+cursor: default;
+background-color: #337ab7;
+border-color: #337ab7;
+}
+
+.table table > tbody > tr > td:first-child > a,
+.table table > tbody > tr > td:first-child > span {
+margin-left: 0;
+border-top-left-radius: 4px;
+border-bottom-left-radius: 4px;
+}
+
+.table table > tbody > tr > td:last-child > a,
+.table table > tbody > tr > td:last-child > span {
+border-top-right-radius: 4px;
+border-bottom-right-radius: 4px;
+}
+
+.table table > tbody > tr > td > a:hover,
+.table   table > tbody > tr > td > span:hover,
+.table table > tbody > tr > td > a:focus,
+.table table > tbody > tr > td > span:focus {
+z-index: 2;
+color: #23527c;
+background-color: #eee;
+border-color: #ddd;
+}
+/*end gridview */
+    </style>
     <link href="css/PaletaColores.css" rel="stylesheet">
     <link href="css/StylePage.css" rel="stylesheet">
     <link href="css/ResponsiveBootstrapTabs.css" rel="stylesheet">
     <div class="row">
         <div class="col-lg-8 col-md-8">
             <div class="Cards-Titulo HexColor-3"><h2 id="lblTitulo" runat="server">VEHICULOS ACTIVOS</h2></div>
-    <dx:BootstrapGridView ID="bgvVehiculo" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="VehiculoID" >
+    <dx:BootstrapGridView ID="bgvVehiculo" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="VehiculoID" CssClasses-Table="table table-striped table-bordered table-hover" >
                 <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
                 <Settings ShowGroupPanel="true"/>
                 <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>
@@ -42,9 +89,9 @@
                     </dx:BootstrapGridViewTextColumn>
                     <dx:BootstrapGridViewDataColumn Caption="" Width="50px" Settings-AllowDragDrop="False" VisibleIndex="5">
             <DataItemTemplate>
-                     <asp:Button ID="btnEditar" runat="server" Text="Editar" AutoPostBack="false" OnClick="btnEditar_Click">
-                        <%-- <ClientSideEvents Click="function(s, e) { e.processOnServer = GetValues(); }"  />--%>
-                     </asp:Button>
+                     <asp:LinkButton ID="btnEditar" runat="server" Text="Editar" AutoPostBack="false" OnClick="btnEditar_Click">
+                        <i class="fa fa-edit" style="font-size:40px"></i>
+                     </asp:LinkButton>
                 
             </DataItemTemplate>
         </dx:BootstrapGridViewDataColumn>
@@ -56,6 +103,7 @@
                  <asp:LinkButton  class="Largo amarillo Cards-Titulo HexColor-3" id="btnAll" onclick="btnAll_Click" runat="server" >
                     <a class="Cards-Titulo HexColor-3"">TODOS LOS VEHICULOS</a>
                 </asp:LinkButton>
+        </div>
         </div>
     <%--<script>
         function GetValues()
