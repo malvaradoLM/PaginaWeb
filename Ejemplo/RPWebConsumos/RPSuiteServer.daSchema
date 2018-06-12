@@ -1,7 +1,7 @@
 <TDASchema>
   <UnionDataTables IsObject="true" Count="0" IsCollection="true" Type="TDAUnionDataTableCollection" ItemClass="TDAUnionDataTable" />
   <JoinDataTables IsObject="true" Count="0" IsCollection="true" Type="TDAJoinDataTableCollection" ItemClass="TDAJoinDataTable" />
-  <Datasets IsObject="true" Count="31" IsCollection="true" Type="TDADatasetCollection" ItemClass="TDADataset">
+  <Datasets IsObject="true" Count="32" IsCollection="true" Type="TDADatasetCollection" ItemClass="TDADataset">
     <Item0>
       <ReadOnly>False</ReadOnly>
       <Fields IsObject="true" Count="2" IsCollection="true" ItemClass="TDAField" Type="TDASchemaFieldCollection">
@@ -12611,6 +12611,88 @@ WHERE
       <Description />
       <Name>spCatUsuarioWeb</Name>
     </Item30>
+    <Item31>
+      <ReadOnly>False</ReadOnly>
+      <Fields IsObject="true" Count="0" IsCollection="true" ItemClass="TDAField" Type="TDASchemaFieldCollection" />
+      <BusinessRulesClient IsObject="true" Type="TDAClientBusinessRuleScript">
+        <CompileOnServer>False</CompileOnServer>
+        <RunOnClientAndServer>False</RunOnClientAndServer>
+        <Script />
+        <ScriptLanguageStr />
+        <Description />
+        <Name />
+      </BusinessRulesClient>
+      <BusinessRulesServer Type="TDABusinessRuleScript" IsObject="true">
+        <Script />
+        <ScriptLanguageStr />
+        <Description />
+        <Name />
+      </BusinessRulesServer>
+      <UpdateCommandName />
+      <DeleteCommandName />
+      <InsertCommandName />
+      <Statements IsCollection="true" IsObject="true" Count="1" ItemClass="TDAStatement" Type="TDAStatementCollection">
+        <Item0>
+          <Connection>RPSuite</Connection>
+          <SQL>DECLARE 
+
+SELECT 	
+	[VehiculoID], [DigitoSeguridad], [Nombre], 
+	[Identificacion], [Departamento], [CuentaContable], 
+	[CentroCostos], [NumeroEconomico], [NIP], 
+	[Estatus], [CargasMaximas], [Odometro], 
+	[Firma], [Placas], [FechaAlta], 
+	[FechaExpira], [FechaBaja], [FechaCancelacion], 
+	[FechaBloqueada], [FechaInactiva], [Mensaje], 
+	[LimiteLTTurno], [LimiteLTDia], [LimiteLTSemana], 
+	[LimiteLTMes], [LimiteMNTurno], [LimiteMNDia], 
+	[LimiteMNSemana], [LimiteMNMes], [ActualLTTurno], 
+	[ActualLTDia], [ActualLTSemana], [ActualLTMes], 
+	[ActualMNTurno], [ActualMNDia], [ActualMNSemana], 
+	[ActualMNMes], [ActualCargas], [Clasificacion], 
+	[Generada], [Lunes], [Martes], 
+	[Miercoles], [Jueves], [Viernes], 
+	[Sabado], [Domingo], [ClienteID], 
+	[GasolineroID], [ProductoAutorizado], [IngresarDirecto], 
+	[Estacion], [AnteriorLTDia], [AnteriorLTSemana], 
+	[AnteriorLTMes], [AnteriorMNDia], [AnteriorMNSemana], 
+	[AnteriorMNMes], [PlacasNumero], [Fotos] 
+FROM 
+	[Vehiculo] 
+WHERE 
+	ClienteID=:ClienteID and Estatus='A'</SQL>
+          <TargetTable>Vehiculo</TargetTable>
+          <ConnectionType>SQLite</ConnectionType>
+          <Default>False</Default>
+          <StatementName />
+          <StatementType>stSQL</StatementType>
+          <GeneratorName />
+          <ColumnMappings IsObject="true" Count="0" IsCollection="true" Type="TDAColumnMappingCollection" ItemClass="TDAColumnMapping" />
+          <Description />
+        </Item0>
+      </Statements>
+      <Params IsObject="true" Count="1" IsCollection="true" Type="TDAParamCollection" ItemClass="TDAParam">
+        <Item0>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>ClienteID</Name>
+          <DataType>datInteger</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item0>
+      </Params>
+      <CustomAttributes />
+      <IsPublic>True</IsPublic>
+      <DynamicWhereXML />
+      <BusinessClassID />
+      <Description />
+      <Name>spVehiculosActivos</Name>
+    </Item31>
   </Datasets>
   <Commands IsObject="true" Count="5" IsCollection="true" ItemClass="TDASQLCommand" Type="TDASQLCommandCollection">
     <Item0>

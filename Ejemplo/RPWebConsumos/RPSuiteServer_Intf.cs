@@ -1106,8 +1106,8 @@ namespace RPSuiteServer {
         string getGasolinero();
         TCliente getCliente(int ClienteID);
         bool UpdateVehiculo(TVehiculo Datos);
-        bool UpdateUsuarioWeb(TUsuarioWeb Datos);
-        bool setUsuarioWeb(TUsuarioWeb Datos);
+        bool setUsuarioWeb(TUsuarioWeb datos);
+        bool UpdateUsuarioWeb(TUsuarioWeb datos);
     }
     public partial class RPDataService_Proxy : RemObjects.DataAbstract.Server.DataAbstractService_Proxy, IRPDataService {
         public RPDataService_Proxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -1236,7 +1236,7 @@ namespace RPSuiteServer {
             try
             {
                 @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "UpdateUsuarioWeb");
-                @__LocalMessage.Write("Datos", Datos, typeof(TVehiculo), RemObjects.SDK.StreamingFormat.Default);
+                @__LocalMessage.Write("Datos", Datos, typeof(TUsuarioWeb), RemObjects.SDK.StreamingFormat.Default);
                 @__LocalMessage.FinalizeMessage();
                 this.ClientChannel.Dispatch(@__LocalMessage);
                 bool _Result = @__LocalMessage.ReadBoolean("Result");
@@ -1247,14 +1247,13 @@ namespace RPSuiteServer {
                 this.@__ClearMessage(@__LocalMessage);
             }
         }
-
         public virtual bool setUsuarioWeb(TUsuarioWeb Datos)
         {
             RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
             try
             {
                 @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "setUsuarioWeb");
-                @__LocalMessage.Write("Datos", Datos, typeof(TVehiculo), RemObjects.SDK.StreamingFormat.Default);
+                @__LocalMessage.Write("Datos", Datos, typeof(TUsuarioWeb), RemObjects.SDK.StreamingFormat.Default);
                 @__LocalMessage.FinalizeMessage();
                 this.ClientChannel.Dispatch(@__LocalMessage);
                 bool _Result = @__LocalMessage.ReadBoolean("Result");

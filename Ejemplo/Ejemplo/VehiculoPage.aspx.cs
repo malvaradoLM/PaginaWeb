@@ -17,7 +17,13 @@ namespace Ejemplo
             Params.Clear();
             Data.DataModule.ParamByName(Params, "ClienteID", DataModule.Seguridad.UserID);
             spVehiculoDS ds = new spVehiculoDS();
-            DataModule.FillDataSet(ds, "spVehiculo", Params.ToArray());
+            string query = "";
+            if (Session["TODOS"] != null) {
+                query = "spVehiculo";
+                Session.Remove("TODOS");
+            } 
+            else query = "spVehiculosActivos";
+            DataModule.FillDataSet(ds, query, Params.ToArray());
             DataTable dt = new DataTable();
             dt = ds.Tables["spVehiculo"];
             bgvVehiculo.DataSource = dt;
@@ -46,7 +52,15 @@ namespace Ejemplo
         }
         protected void btnAll_Click(object sender, EventArgs e)
         {
-            int i = 0;
+            try
+            {
+                Session["TODOS"] = "1";
+                Response.Redirect("VehiculosPage.aspx", false);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
