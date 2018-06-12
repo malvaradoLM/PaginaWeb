@@ -11,7 +11,7 @@
     <link href="css/ResponsiveBootstrapTabs.css" rel="stylesheet">
     <div class="row">
         <div class="col-lg-8 col-md-8">
-            <div class="Cards-Titulo HexColor-3"><h2>VEHICULOS ACTIVOS</h2></div>
+            <div class="Cards-Titulo HexColor-3"><h2 id="lblTitulo" runat="server">VEHICULOS ACTIVOS</h2></div>
     <dx:BootstrapGridView ID="bgvVehiculo" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="VehiculoID" >
                 <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
                 <Settings ShowGroupPanel="true"/>
@@ -53,7 +53,7 @@
            </dx:BootstrapGridView>
             </div>
         <div class="col-lg-2 col-md-2">
-    <asp:LinkButton  class="Largo amarillo" onclick="btnAll_Click" runat="server" >
+    <asp:LinkButton ID="btnAll"  class="Largo amarillo" onclick="btnAll_Click" runat="server" >
                     <h2-largo>TODOS LOS VEHICULOS</h2-largo>
                 </asp:LinkButton>
         </div>

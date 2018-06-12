@@ -12613,7 +12613,1808 @@ WHERE
     </Item30>
     <Item31>
       <ReadOnly>False</ReadOnly>
-      <Fields IsObject="true" Count="0" IsCollection="true" ItemClass="TDAField" Type="TDASchemaFieldCollection" />
+      <Fields IsObject="true" Count="60" IsCollection="true" ItemClass="TDAField" Type="TDASchemaFieldCollection">
+        <Item0>
+          <Name>VehiculoID</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datInteger</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>VehiculoID</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item0>
+        <Item1>
+          <Name>DigitoSeguridad</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datInteger</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>DigitoSeguridad</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item1>
+        <Item2>
+          <Name>Nombre</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Nombre</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>30</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item2>
+        <Item3>
+          <Name>Identificacion</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Identificacion</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>30</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item3>
+        <Item4>
+          <Name>Departamento</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Departamento</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>20</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item4>
+        <Item5>
+          <Name>CuentaContable</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>CuentaContable</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>20</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item5>
+        <Item6>
+          <Name>CentroCostos</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>CentroCostos</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>15</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item6>
+        <Item7>
+          <Name>NumeroEconomico</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>NumeroEconomico</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>15</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item7>
+        <Item8>
+          <Name>NIP</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>NIP</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>8</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item8>
+        <Item9>
+          <Name>Estatus</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Estatus</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>1</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item9>
+        <Item10>
+          <Name>CargasMaximas</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datInteger</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>CargasMaximas</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item10>
+        <Item11>
+          <Name>Odometro</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datBoolean</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Odometro</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item11>
+        <Item12>
+          <Name>Firma</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datBoolean</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Firma</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item12>
+        <Item13>
+          <Name>Placas</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datBoolean</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Placas</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item13>
+        <Item14>
+          <Name>FechaAlta</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datDateTime</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>FechaAlta</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item14>
+        <Item15>
+          <Name>FechaExpira</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datDateTime</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>FechaExpira</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item15>
+        <Item16>
+          <Name>FechaBaja</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datDateTime</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>FechaBaja</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item16>
+        <Item17>
+          <Name>FechaCancelacion</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datDateTime</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>FechaCancelacion</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item17>
+        <Item18>
+          <Name>FechaBloqueada</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datDateTime</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>FechaBloqueada</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item18>
+        <Item19>
+          <Name>FechaInactiva</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datDateTime</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>FechaInactiva</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item19>
+        <Item20>
+          <Name>Mensaje</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Mensaje</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>50</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item20>
+        <Item21>
+          <Name>LimiteLTTurno</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>LimiteLTTurno</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item21>
+        <Item22>
+          <Name>LimiteLTDia</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>LimiteLTDia</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item22>
+        <Item23>
+          <Name>LimiteLTSemana</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>LimiteLTSemana</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item23>
+        <Item24>
+          <Name>LimiteLTMes</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>LimiteLTMes</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item24>
+        <Item25>
+          <Name>LimiteMNTurno</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>LimiteMNTurno</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item25>
+        <Item26>
+          <Name>LimiteMNDia</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>LimiteMNDia</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item26>
+        <Item27>
+          <Name>LimiteMNSemana</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>LimiteMNSemana</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item27>
+        <Item28>
+          <Name>LimiteMNMes</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>LimiteMNMes</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item28>
+        <Item29>
+          <Name>ActualLTTurno</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>ActualLTTurno</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item29>
+        <Item30>
+          <Name>ActualLTDia</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>ActualLTDia</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item30>
+        <Item31>
+          <Name>ActualLTSemana</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>ActualLTSemana</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item31>
+        <Item32>
+          <Name>ActualLTMes</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>ActualLTMes</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item32>
+        <Item33>
+          <Name>ActualMNTurno</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>ActualMNTurno</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item33>
+        <Item34>
+          <Name>ActualMNDia</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>ActualMNDia</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item34>
+        <Item35>
+          <Name>ActualMNSemana</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>ActualMNSemana</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item35>
+        <Item36>
+          <Name>ActualMNMes</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>ActualMNMes</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item36>
+        <Item37>
+          <Name>ActualCargas</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datInteger</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>ActualCargas</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item37>
+        <Item38>
+          <Name>Clasificacion</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Clasificacion</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item38>
+        <Item39>
+          <Name>Generada</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datBoolean</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Generada</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item39>
+        <Item40>
+          <Name>Lunes</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Lunes</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>24</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item40>
+        <Item41>
+          <Name>Martes</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Martes</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>24</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item41>
+        <Item42>
+          <Name>Miercoles</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Miercoles</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>24</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item42>
+        <Item43>
+          <Name>Jueves</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Jueves</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>24</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item43>
+        <Item44>
+          <Name>Viernes</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Viernes</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>24</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item44>
+        <Item45>
+          <Name>Sabado</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Sabado</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>24</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item45>
+        <Item46>
+          <Name>Domingo</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Domingo</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>24</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item46>
+        <Item47>
+          <Name>ClienteID</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datInteger</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>ClienteID</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item47>
+        <Item48>
+          <Name>GasolineroID</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datInteger</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>GasolineroID</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item48>
+        <Item49>
+          <Name>ProductoAutorizado</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>ProductoAutorizado</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>50</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item49>
+        <Item50>
+          <Name>IngresarDirecto</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datBoolean</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>IngresarDirecto</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item50>
+        <Item51>
+          <Name>Estacion</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Estacion</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>150</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item51>
+        <Item52>
+          <Name>AnteriorLTDia</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>AnteriorLTDia</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item52>
+        <Item53>
+          <Name>AnteriorLTSemana</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>AnteriorLTSemana</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item53>
+        <Item54>
+          <Name>AnteriorLTMes</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>AnteriorLTMes</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item54>
+        <Item55>
+          <Name>AnteriorMNDia</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>AnteriorMNDia</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item55>
+        <Item56>
+          <Name>AnteriorMNSemana</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>AnteriorMNSemana</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item56>
+        <Item57>
+          <Name>AnteriorMNMes</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>AnteriorMNMes</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item57>
+        <Item58>
+          <Name>PlacasNumero</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>PlacasNumero</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>10</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item58>
+        <Item59>
+          <Name>Fotos</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Fotos</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>150</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item59>
+      </Fields>
       <BusinessRulesClient IsObject="true" Type="TDAClientBusinessRuleScript">
         <CompileOnServer>False</CompileOnServer>
         <RunOnClientAndServer>False</RunOnClientAndServer>
@@ -12634,9 +14435,7 @@ WHERE
       <Statements IsCollection="true" IsObject="true" Count="1" ItemClass="TDAStatement" Type="TDAStatementCollection">
         <Item0>
           <Connection>RPSuite</Connection>
-          <SQL>DECLARE 
-
-SELECT 	
+          <SQL>SELECT 	
 	[VehiculoID], [DigitoSeguridad], [Nombre], 
 	[Identificacion], [Departamento], [CuentaContable], 
 	[CentroCostos], [NumeroEconomico], [NIP], 
@@ -12660,7 +14459,7 @@ SELECT
 FROM 
 	[Vehiculo] 
 WHERE 
-	ClienteID=:ClienteID and Estatus='A'</SQL>
+	ClienteID=:ClienteID </SQL>
           <TargetTable>Vehiculo</TargetTable>
           <ConnectionType>SQLite</ConnectionType>
           <Default>False</Default>

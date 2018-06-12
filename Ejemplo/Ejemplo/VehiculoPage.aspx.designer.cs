@@ -13,6 +13,15 @@ namespace Ejemplo {
     public partial class VehiculoPage {
         
         /// <summary>
+        /// lblTitulo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTitulo;
+        
+        /// <summary>
         /// bgvVehiculo control.
         /// </summary>
         /// <remarks>
@@ -20,5 +29,14 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.Bootstrap.BootstrapGridView bgvVehiculo;
+        
+        /// <summary>
+        /// btnAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnAll;
     }
 }

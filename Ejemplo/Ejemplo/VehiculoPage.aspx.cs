@@ -14,20 +14,33 @@ namespace Ejemplo
         private List<DataParameter> Params = new List<DataParameter>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Params.Clear();
-            Data.DataModule.ParamByName(Params, "ClienteID", DataModule.Seguridad.UserID);
-            spVehiculoDS ds = new spVehiculoDS();
-            string query = "";
-            if (Session["TODOS"] != null) {
-                query = "spVehiculo";
+            if (!IsPostBack)
+            {
+                Params.Clear();
+                Data.DataModule.ParamByName(Params, "ClienteID", DataModule.Seguridad.UserID);
+                spVehiculoDS ds = new spVehiculoDS();
+                DataModule.FillDataSet(ds, "spVehiculo", Params.ToArray());
+                DataTable dt = new DataTable();
+                dt = ds.Tables["spVehiculo"];
+                if (Session["TODOS"] == null)
+                {
+                    IEnumerable<DataRow> queryenum = from dts in dt.AsEnumerable() select dts;
+                    foreach (DataRow dr in queryenum)
+                    {
+                        if (dr.Field<string>("Estatus") != "A") dr.Delete();
+                    }
+                    btnAll.Text = "TODOS LOS VEHICULOS";
+                    lblTitulo.InnerText = "VEHICULOS ACTIVOS";
+                }
+                else
+                {
+                    lblTitulo.InnerText = "TODOS LOS VEHICULOS";
+                    btnAll.Text = "VEHICULOS ACTIVOS";
+                }
+                bgvVehiculo.DataSource = dt;
+                bgvVehiculo.DataBind();
                 Session.Remove("TODOS");
-            } 
-            else query = "spVehiculosActivos";
-            DataModule.FillDataSet(ds, query, Params.ToArray());
-            DataTable dt = new DataTable();
-            dt = ds.Tables["spVehiculo"];
-            bgvVehiculo.DataSource = dt;
-            bgvVehiculo.DataBind();
+            }
 
         }
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control)
@@ -54,8 +67,11 @@ namespace Ejemplo
         {
             try
             {
-                Session["TODOS"] = "1";
-                Response.Redirect("VehiculosPage.aspx", false);
+                if (!btnAll.Text.Contains("ACTIVOS"))
+                {
+                    Session["TODOS"] = "1";
+                }
+                Response.Redirect("VehiculoPage.aspx", false);
             }
             catch (Exception ex)
             {
