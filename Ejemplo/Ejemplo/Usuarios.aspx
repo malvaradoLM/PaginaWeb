@@ -86,7 +86,7 @@ fieldset[disabled] .btn-sample.active {
 
            </dx:BootstrapGridView>
         <div style="float:right;">
-      <dx:ASPxButton ID="btnNuevo" Text="Crear Nuevo" CssClass="btn-lg .btn-sample" HorizontalAlign="Right"  runat="server" OnClick="btnNuevo_Click"></dx:ASPxButton>
+      <asp:LinkButton ID="btnNuevo1" Text="Crear Nuevo" class="btn-lg btn-sample" HorizontalAlign="Right"  runat="server" OnClick="btnNuevo_Click"></asp:LinkButton>
     </div>
 
 </asp:Content>

@@ -53,7 +53,7 @@
            </dx:BootstrapGridView>
             </div>
         <div class="col-lg-2 col-md-2">
-    <asp:LinkButton  class="Largo amarillo Cards-Titulo HexColor-3" id="btnAll" onclick="btnAll_Click" runat="server" >
+                 <asp:LinkButton  class="Largo amarillo Cards-Titulo HexColor-3" id="btnAll" onclick="btnAll_Click" runat="server" >
                     <a class="Cards-Titulo HexColor-3"">TODOS LOS VEHICULOS</a>
                 </asp:LinkButton>
         </div>
