@@ -127,6 +127,7 @@ fieldset[disabled] .btn-sample.active {
                     </table>
                 </div>
             </div>
-<dx:ASPxButton  id="btnguardar1" class="btn-sample btn-lg" OnClick="btnguardar_Click" type="button" style="float:right" runat="server" Text="GUARDAR" >
- </dx:ASPxButton>    </div>	
+<asp:LinkButton  id="btnguardar" class="btn-sample btn-lg" OnClick="btnguardar_Click" type="button" style="float:right" runat="server" Text="GUARDAR" ></asp:LinkButton>
+<asp:LinkButton id="btnCancelar1" class="btn-sample btn-lg" OnClick="btnCancelar_Click" type="button" style="float:right" runat="server" Text="CANCELAR" >
+ </asp:LinkButton>    </div>	
 </asp:Content>

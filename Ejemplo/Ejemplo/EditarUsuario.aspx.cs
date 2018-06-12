@@ -57,6 +57,17 @@ namespace Ejemplo
                 else guardarNuevo();
             }else Response.Write("<script>window.alert('" + validacion+ "');</script>");
         }
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("Usuarios.aspx", false);
+            }
+            catch (Exception ex)
+            {
+               
+            }
+        }
         private void guardarModificar()
         {
             TUsuarioWeb Datos = new TUsuarioWeb();
