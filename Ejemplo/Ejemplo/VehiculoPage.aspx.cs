@@ -43,7 +43,10 @@ namespace Ejemplo
             {
                 MessageBox.Show(ex.Message);
             }
-            
+        }
+        protected void btnAll_Click(object sender, EventArgs e)
+        {
+            int i = 0;
         }
     }
 }

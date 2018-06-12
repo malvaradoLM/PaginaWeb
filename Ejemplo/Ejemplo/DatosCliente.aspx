@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="table-responsive ">
-                    <table class="table format-table">
+                    <table class="table format-table" style="float:left">
                         <thead>
                             <tr id="FormatRow2">
                                 <th colspan="2">                        

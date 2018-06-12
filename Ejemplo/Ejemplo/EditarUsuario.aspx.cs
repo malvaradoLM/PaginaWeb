@@ -28,10 +28,6 @@ namespace Ejemplo
             Session.Remove("UsuarioWebID");
             Session.Remove("CLienteID");
         }
-        private void nuevoUsuario()
-        {
-
-        }
         private void modificarUsuario()
         {
             lblEncabezado.InnerText = "Modificar Usuario";
@@ -43,7 +39,6 @@ namespace Ejemplo
             DataTable dt = new DataTable();
             dt = ds.Tables["spCatUsuarioWeb"];
             IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
-
             foreach (DataRow dr in query)
             {
                 txtNombre.Text = dr.Field<string>("Nombre");
@@ -52,17 +47,15 @@ namespace Ejemplo
                 chkAdministrador.Value = dr.Field<bool>("Administrador");
             }
         }
-        private void Guardar(object sender, EventArgs e)
-        {
-        }
-
         protected void btnguardar_Click(object sender, EventArgs e)
         {
-            if (validar() == "")
+            string validacion = "";
+            validacion = validar();
+            if (validacion == "")
             {
                 if (lblEncabezado.InnerText.Contains("Modificar")) guardarModificar();
                 else guardarNuevo();
-            }
+            }else Response.Write("<script>window.alert('" + validacion+ "');</script>");
         }
         private void guardarModificar()
         {
@@ -93,9 +86,9 @@ namespace Ejemplo
         }
         private string validar()
         {
-            if (txtNombre.Text.Trim() == "") return "INGRESE UNA CLAVE PARA CONTINUAR";
-            if (txtUsuario.Text.Trim() == "") return "INGRESE UNA CLAVE PARA CONTINUAR";
-            if (txtClave.Text.Trim() == "") return "INGRESE UNA CLAVE PARA CONTINUAR";
+            if (txtNombre.Text.Trim() == "") return "ES NECESARIO INGRESAR UN NOMBRE PARA GUARDAR";
+            if (txtUsuario.Text.Trim() == "") return "ES NECESARIO INGRESAR UN USUARIO PARA GUARDAR";
+            if (txtClave.Text.Trim() == "") return "ES NECESARIO INGRESAR UNA CLAVE PARA GUARDAR";
             return "";
         }
         private void guardarNuevo()
