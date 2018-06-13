@@ -74,12 +74,12 @@ border-color: #ddd;
 }
 /*end gridview */
     </style>
-    <link href="css/StylePage.css" rel="stylesheet">
-    <link href="css/ResponsiveBootstrapTabs.css" rel="stylesheet">
+    <link href="css/StylePage1.css" rel="stylesheet">
+
     <div class="row">
-        <div class="col-lg-8 col-md-8">
+        <div class="col-lg-9 col-md-9">
             <div class="Cards-Titulo HexColor-3"><h2 id="lblTitulo" runat="server">VEHICULOS ACTIVOS</h2></div>
-    <dx:BootstrapGridView ID="bgvVehiculo" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="VehiculoID" CssClasses-Table="table table-striped table-bordered table-hover" >
+    <dx:BootstrapGridView ID="bgvVehiculo" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="VehiculoID" CssClassesPager-Control="true" CssClasses-Table="table table-striped table-bordered table-hover">
                 <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
                 <Settings ShowGroupPanel="true"/>
                 <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>

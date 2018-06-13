@@ -154,17 +154,17 @@
             <div class="col-lg-2">
                 <a href="javascript://" class="Largo verde_claro" onclick="location.href='/Cliente/DetailsEdoCta' ">
                     <div>
-                    <i class="glyphicon glyphicon-usd" style="vertical-align:central"></i>
-                    <h2-largo style="align-self:baseline">ESTADO DE CUENTA</h2-largo>
+                    <i class="glyphicon glyphicon-usd" style="margin-top: 15%;"></i>
+                    <h2-largo style="align-self:baseline;">ESTADO DE CUENTA</h2-largo>
                     </div>
                 </a>
-                <a href="javascript://" class="Largo amarillo" onclick="location.href='/Cliente/DetailsListaFactura/NQ%3d%3d'">
-                    <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="javascript://" class="Largo amarillo"  onclick="location.href='/Cliente/DetailsListaFactura/NQ%3d%3d'">
+                    <i class="glyphicon glyphicon-list-alt" style="margin-top: 15%;"></i>
                     <h2-largo>LISTADO DE FACTURAS</h2-largo>
                     
                 </a>
-                <a href="javascript://" class="Largo azul" onclick="location.href='/Cliente/SendInformacion'">
-                    <i class="glyphicon glyphicon-send"></i>
+                <a href="javascript://" class="Largo azul"  onclick="location.href='/Cliente/SendInformacion'">
+                    <i class="glyphicon glyphicon-send" style="margin-top: 15%;"></i>
                     <h2-largo>ENVIO DE INFORMACION</h2-largo>
                 </a>
             </div>

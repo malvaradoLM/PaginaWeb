@@ -104,9 +104,9 @@ border-color: #ddd;
 /*end gridview */
  </style>
     <div class="Cards-Titulo HexColor-3"><h2 id="lblTitulo" runat="server" class="">USUARIOS</h2></div>
-    <div class="row  col-lg-8 col-md-8" >
+    <div class="row  col-lg-12 col-md-12" >
       <dx:BootstrapGridView ID="bgvUsuario" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="UsuarioWebID" CssClassesPager-Control="true" CssClasses-Table="table table-striped table-bordered table-hover" >
-                <SettingsSearchPanel Visible="true" ShowApplyButton="true"  />
+                <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
                 <Settings ShowGroupPanel="true"/>
                 <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>
                 <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
