@@ -97,9 +97,6 @@ border-color: #ddd;
 }
 /*end gridview */
  </style>
-    <link href="css/PaletaColores.css" rel="stylesheet">
-    <link href="css/StylePage.css" rel="stylesheet">
-    <link href="css/ResponsiveBootstrapTabs.css" rel="stylesheet">
     <div class="Cards-Titulo HexColor-3"><h2 id="lblTitulo" runat="server" class="">USUARIOS</h2></div>
     <div class="row  col-lg-8 col-md-8" >
       <dx:BootstrapGridView ID="bgvUsuario" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="UsuarioWebID" CssClassesPager-Control="true" CssClasses-Table="table table-striped table-bordered table-hover">

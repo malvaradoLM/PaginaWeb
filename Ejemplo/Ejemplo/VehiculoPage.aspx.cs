@@ -29,13 +29,14 @@ namespace Ejemplo
                     {
                         if (dr.Field<string>("Estatus") != "A") dr.Delete();
                     }
-                    btnAll.Text = "TODOS LOS VEHICULOS";
+                    lblVehiculosActivos.InnerText = "TODOS LOS VEHICULOS";
                     lblTitulo.InnerText = "VEHICULOS ACTIVOS";
+     
                 }
                 else
                 {
                     lblTitulo.InnerText = "TODOS LOS VEHICULOS";
-                    btnAll.Text = "VEHICULOS ACTIVOS";
+                    lblVehiculosActivos.InnerText = "VEHICULOS ACTIVOS";
                 }
                 bgvVehiculo.DataSource = dt;
                 bgvVehiculo.DataBind();
@@ -67,7 +68,7 @@ namespace Ejemplo
         {
             try
             {
-                if (!btnAll.Text.Contains("ACTIVOS"))
+                if (!lblVehiculosActivos.InnerText.Contains("ACTIVOS"))
                 {
                     Session["TODOS"] = "1";
                 }

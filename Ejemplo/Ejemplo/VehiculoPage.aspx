@@ -50,10 +50,30 @@ z-index: 2;
 color: #23527c;
 background-color: #eee;
 border-color: #ddd;
+
+}
+
+.linkclass
+{
+    margin-left: 33%;
+    margin-top: 7%;
+}
+.labelCuadro
+{
+    display: block;
+    /* font-size: 14px; */
+    text-align: center;
+    margin-top: 5px;
+    color: #ffffff;
+    font-family: 'Roboto Condensed', sans-serif;
+    /* font-style: normal; */
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    font-size: 16px;
+    text-transform: uppercase;
 }
 /*end gridview */
     </style>
-    <link href="css/PaletaColores.css" rel="stylesheet">
     <link href="css/StylePage.css" rel="stylesheet">
     <link href="css/ResponsiveBootstrapTabs.css" rel="stylesheet">
     <div class="row">
@@ -100,8 +120,11 @@ border-color: #ddd;
            </dx:BootstrapGridView>
             </div>
         <div class="col-lg-2 col-md-2">
-                 <asp:LinkButton  class="Largo amarillo Cards-Titulo HexColor-3" id="btnAll" onclick="btnAll_Click" runat="server" >
-                    <a class="Cards-Titulo HexColor-3"">TODOS LOS VEHICULOS</a>
+                 <asp:LinkButton  class="Largo amarillo Cards-Titulo HexColor-3 linkclass" id="btnAll" onclick="btnAll_Click" runat="server" >
+                      <asp:Image ID="Image1" runat="server" ImageUrl="\Icons\png\80px\large\vehicle-car.png" CssClass="linkclass" />
+                    <div style="text-align:center" id="lblVehiculos" runat="server">
+                     <div id="lblVehiculosActivos" runat="server" class="labelCuadro">VEHICULOS ACTIVOS</div>
+                    </div>
                 </asp:LinkButton>
         </div>
         </div>
