@@ -83,7 +83,11 @@ fieldset[disabled] .btn-sample.active {
   color: #428BCA; 
   background-color: #ffffff; 
 }
-
+.labelCuadro
+{
+    color: #ffffff;
+    font-family: 'Roboto Condensed', sans-serif;
+}
 
 
     </style>
@@ -472,7 +476,7 @@ fieldset[disabled] .btn-sample.active {
 			</div>
 	</div>
 
-       <button id="2" class="btn-sample btn-lg" onclick="leerTabla();" type="button" style="float:right" >
+       <button id="2" class="btn-sample btn-lg labelCuadro" onclick="leerTabla();" type="button" style="float:right;" >
      GUARDAR </button>
   </div>
 

@@ -95,12 +95,18 @@ color: #23527c;
 background-color: #eee;
 border-color: #ddd;
 }
+.labelCuadro
+{
+    color: #ffffff;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
 /*end gridview */
  </style>
     <div class="Cards-Titulo HexColor-3"><h2 id="lblTitulo" runat="server" class="">USUARIOS</h2></div>
     <div class="row  col-lg-8 col-md-8" >
-      <dx:BootstrapGridView ID="bgvUsuario" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="UsuarioWebID" CssClassesPager-Control="true" CssClasses-Table="table table-striped table-bordered table-hover">
-                <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
+      <dx:BootstrapGridView ID="bgvUsuario" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="UsuarioWebID" CssClassesPager-Control="true" CssClasses-Table="table table-striped table-bordered table-hover" >
+                <SettingsSearchPanel Visible="true" ShowApplyButton="true"  />
                 <Settings ShowGroupPanel="true"/>
                 <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>
                 <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
@@ -133,7 +139,10 @@ border-color: #ddd;
 
            </dx:BootstrapGridView>
         <div style="float:right;">
-      <asp:LinkButton ID="btnNuevo1" Text="Crear Nuevo" class="btn-lg btn-sample" HorizontalAlign="Right"  runat="server" OnClick="btnNuevo_Click"></asp:LinkButton>
+      <asp:LinkButton ID="btnNuevo1"  class="btn-lg btn-sample labelCuadro" HorizontalAlign="Right"  runat="server" OnClick="btnNuevo_Click">
+          <asp:Image ID="Image1" runat="server" ImageUrl="\Icons\png\16px\large\user-add.png" CssClass="linkclass" />
+          CREAR NUEVO
+      </asp:LinkButton>
     </div>
         </div>
 

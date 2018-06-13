@@ -83,9 +83,14 @@ fieldset[disabled] .btn-sample.active {
   color: #428BCA; 
   background-color: #ffffff; 
 }
+.labelCuadro
+{
 
+    color: #ffffff;
+    font-family: 'Roboto Condensed', sans-serif;
+
+}
  </style>
-
 
     <div id="nav" class="container" style="margin-left:0px; margin-right:0px"><h1>USUARIOS</h1></div>
     <div id="exTab1" class="container" style="margin-left:0px; margin-right:0px">	
@@ -127,7 +132,10 @@ fieldset[disabled] .btn-sample.active {
                     </table>
                 </div>
             </div>
-<asp:LinkButton  id="btnguardar" class="btn-sample btn-lg" OnClick="btnguardar_Click" type="button" style="float:right" runat="server" Text="GUARDAR" ></asp:LinkButton>
-<asp:LinkButton id="btnCancelar1" class="btn-sample btn-lg" OnClick="btnCancelar_Click" type="button" style="float:right" runat="server" Text="CANCELAR" >
- </asp:LinkButton>    </div>	
+<asp:LinkButton  id="btnguardar" class="btn-sample btn-lg labelCuadro" OnClick="btnguardar_Click" type="button" style="float:right;margin-top: 1px; background-color:mediumseagreen" runat="server" Text="GUARDAR " >
+    <asp:Image ID="Image2" runat="server" ImageUrl="\Icons\png\16px\large\button-ok.png"   /> 
+</asp:LinkButton>
+<asp:LinkButton id="btnCancelar1" class="btn-sample btn-lg labelCuadro" OnClick="btnCancelar_Click" type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
+  <asp:Image ID="Image1" runat="server" ImageUrl="\Icons\png\16px\large\button-cancel.png"  />
+ </asp:LinkButton></div>	
 </asp:Content>
