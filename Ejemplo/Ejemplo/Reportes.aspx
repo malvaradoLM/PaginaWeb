@@ -44,7 +44,7 @@
 
     <div class="row hidden-md hidden-sm hidden-xs">
         <div class="col-lg-2">
-            <a href="/Reportes/DetailsAnalisisConsumo" id="btnAnalisisConsumo" class="Largo rojo">
+            <a href="DetailsAnalisisConsumo.aspx" id="btnAnalisisConsumo1" class="Largo rojo">
                 <i class="icon-analisis-consumo"></i>
                 <h2-largo>ANALISIS DE CONSUMO</h2-largo>
             </a>

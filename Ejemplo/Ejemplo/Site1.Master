@@ -54,7 +54,7 @@
            
 			<li><a href="VehiculoPage.aspx"><em class="fa fa-car">&nbsp;</em> Vehiculos</a></li>
 			<li><a href="Usuarios.aspx"><em class="fa fa-users">&nbsp;</em> Usuarios</a></li>
-            <li><a href="EditarVehiculo.aspx"><em class="fa fa-bar-chart">&nbsp;</em> Reportes</a></li>
+            <li><a href="Reportes.aspx"><em class="fa fa-bar-chart">&nbsp;</em> Reportes</a></li>
             <li><a href="loginPage.aspx"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>
 	</div><!--/.sidebar-->
