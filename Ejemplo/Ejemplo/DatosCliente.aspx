@@ -162,7 +162,7 @@
                     <h2-largo>LISTADO DE FACTURAS</h2-largo>
                     
                 </a>
-                <a href="javascript://" class="Largo azul"  onclick="location.href='/Cliente/SendInformacion'">
+                <a href="javascript://" class="Largo azul"  onclick="location.href='EnvioInformacion.aspx'">
                     <i class="glyphicon glyphicon-send" style="margin-top: 15%;"></i>
                     <h2-largo>ENVIO DE INFORMACION</h2-largo>
                 </a>

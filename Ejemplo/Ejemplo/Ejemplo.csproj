@@ -151,6 +151,7 @@
   <ItemGroup>
     <Content Include="DetailsEdoCta.aspx" />
     <Content Include="EditarUsuario.aspx" />
+    <Content Include="EnvioInformacion.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="packages.config" />
@@ -180,6 +181,7 @@
     <Content Include="Data\Dataset\spVehiculoDS.xss">
       <DependentUpon>spVehiculoDS.xsd</DependentUpon>
     </Content>
+    <Content Include="Reportes.aspx" />
     <Content Include="Site1.Master" />
     <Content Include="Data\Dataset\spCatVehiculoDS.xsc">
       <DependentUpon>spCatVehiculoDS.xsd</DependentUpon>
@@ -262,6 +264,13 @@
     <Compile Include="EditarUsuario.aspx.designer.cs">
       <DependentUpon>EditarUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EnvioInformacion.aspx.cs">
+      <DependentUpon>EnvioInformacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EnvioInformacion.aspx.designer.cs">
+      <DependentUpon>EnvioInformacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -305,6 +314,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>spVehiculoDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes.aspx.cs">
+      <DependentUpon>Reportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes.aspx.designer.cs">
+      <DependentUpon>Reportes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
