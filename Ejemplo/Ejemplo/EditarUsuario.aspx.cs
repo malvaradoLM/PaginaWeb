@@ -30,7 +30,7 @@ namespace Ejemplo
         }
         private void modificarUsuario()
         {
-            lblEncabezado.InnerText = "Modificar Usuario";
+            lblEncabezado1.InnerText = "Modificar Usuario";
             UsuarioWebID = Session["UsuarioWebID"].ToString();
             HiddenUsuarioWebID.Value = UsuarioWebID;
             Data.DataModule.ParamByName(Params, "Datos", Session["UsuarioWebID"]);
@@ -53,7 +53,7 @@ namespace Ejemplo
             validacion = validar();
             if (validacion == "")
             {
-                if (lblEncabezado.InnerText.Contains("Modificar")) guardarModificar();
+                if (lblEncabezado1.InnerText.Contains("Modificar")) guardarModificar();
                 else guardarNuevo();
             }else Response.Write("<script>window.alert('" + validacion+ "');</script>");
         }
@@ -92,7 +92,7 @@ namespace Ejemplo
         }
         private void crearUsuario()
         {
-            lblEncabezado.InnerText = "Crear Usuario";
+            lblEncabezado1.InnerText = "Crear Usuario";
             HiddenClienteID.Value = Session["ClienteID"].ToString();
         }
         private string validar()

@@ -13,13 +13,13 @@ namespace Ejemplo {
     public partial class EditarUsuario {
         
         /// <summary>
-        /// lblEncabezado control.
+        /// lblEncabezado1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor lblEncabezado;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblEncabezado1;
         
         /// <summary>
         /// HiddenUsuarioWebID control.

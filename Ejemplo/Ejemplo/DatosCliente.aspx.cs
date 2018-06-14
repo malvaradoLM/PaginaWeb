@@ -29,5 +29,20 @@ namespace Ejemplo
             lblLimiteCredito.Text = DatosCliente.LimiteCredito.ToString("C");
             lblID.Text = "ID." + DatosCliente.ClienteID;        
         }
+        public override void VerifyRenderingInServerForm(System.Web.UI.Control control)
+        {
+
+        }
+        protected void Click (object sender, EventArgs e)
+        {
+            try
+            {
+                
+                Response.Redirect("DetailsEdoCta.aspx", false);
+            }
+            catch (Exception ex)
+            {
+            }
+        }
     }
 }

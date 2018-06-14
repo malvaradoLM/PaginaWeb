@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/principal.Master" AutoEventWireup="true" CodeBehind="DatosCliente.aspx.cs" Inherits="Ejemplo.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/principal.Master" AutoEventWireup="true" CodeBehind="DatosCliente.aspx.cs" Inherits="Ejemplo.WebForm1" EnableEventValidation="false" %>
 <%@ Register assembly="DevExpress.Web.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
 <%@ Register assembly="DevExpress.Web.Bootstrap.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.Bootstrap" tagprefix="dx" %>
 
@@ -28,8 +28,7 @@
 }
 </style>
 
-    <link href="css/PaletaColores.css" rel="stylesheet">
-    <link href="css/StylePage.css" rel="stylesheet">
+    <link href="css/StylePage1.css" rel="stylesheet">
     <link href="css/ResponsiveBootstrapTabs.css" rel="stylesheet">
     <div class="row">
                 <div class="col-lg-12">
@@ -152,12 +151,12 @@
                 </div>
             </div>
             <div class="col-lg-2">
-                <a href="javascript://" class="Largo verde_claro" onclick="location.href='/Cliente/DetailsEdoCta' ">
+                <asp:LinkButton  class="Largo verde_claro" runat= "server" OnClick="Click">
                     <div>
                     <i class="glyphicon glyphicon-usd" style="margin-top: 15%;"></i>
                     <h2-largo style="align-self:baseline;">ESTADO DE CUENTA</h2-largo>
                     </div>
-                </a>
+                </asp:LinkButton>
                 <a href="javascript://" class="Largo amarillo"  onclick="location.href='/Cliente/DetailsListaFactura/NQ%3d%3d'">
                     <i class="glyphicon glyphicon-list-alt" style="margin-top: 15%;"></i>
                     <h2-largo>LISTADO DE FACTURAS</h2-largo>

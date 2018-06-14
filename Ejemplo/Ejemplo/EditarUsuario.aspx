@@ -85,18 +85,21 @@ fieldset[disabled] .btn-sample.active {
 }
 .labelCuadro
 {
-
     color: #ffffff;
     font-family: 'Roboto Condensed', sans-serif;
-
 }
  </style>
 
     <div id="nav" class="container" style="margin-left:0px; margin-right:0px"><h1>USUARIOS</h1></div>
+    <div class="row">
+            <ol class="breadcrumb col-lg-10" style="background:initial">
+                <li class="breadcrumb-item"><a href="Usuarios.aspx">Usuarios</a></li>
+                <li class="breadcrumb-item active" id="lblEncabezado1" runat="server">Estado de Cuenta</li>
+            </ol>
+        </div>
     <div id="exTab1" class="container" style="margin-left:0px; margin-right:0px">	
         <ul id="myTabs" class="nav nav-pills" style="padding:0px">
 			<li id="1ali">
-          <a  id="lblEncabezado" data-toggle="tab" class="active" runat="server"></a>
           <input  id="HiddenUsuarioWebID" data-toggle="tab" class="active" runat="server" type="hidden">
            <input  id="HiddenClienteID" data-toggle="tab" class="active" runat="server" type="hidden">
 			</li>

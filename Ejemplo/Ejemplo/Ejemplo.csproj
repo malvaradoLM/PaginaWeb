@@ -149,6 +149,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DetailsEdoCta.aspx" />
     <Content Include="EditarUsuario.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="LoginPage.aspx" />
@@ -246,6 +247,13 @@
     </Compile>
     <Compile Include="Datos.aspx.designer.cs">
       <DependentUpon>Datos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetailsEdoCta.aspx.cs">
+      <DependentUpon>DetailsEdoCta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetailsEdoCta.aspx.designer.cs">
+      <DependentUpon>DetailsEdoCta.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditarUsuario.aspx.cs">
       <DependentUpon>EditarUsuario.aspx</DependentUpon>
