@@ -150,7 +150,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DetailsAnalisisConsumo.aspx" />
+    <Content Include="DetailsComparativoMensualByCliente.aspx" />
+    <Content Include="DetailsConsumoByEstacion.aspx" />
+    <Content Include="DetailsConsumoByFecha.aspx" />
+    <Content Include="DetailsConsumoByVehiculo.aspx" />
     <Content Include="DetailsEdoCta.aspx" />
+    <Content Include="DetailsFacturaPendienteByPago.aspx" />
     <Content Include="EditarUsuario.aspx" />
     <Content Include="EnvioInformacion.aspx" />
     <Content Include="Login.aspx" />
@@ -258,12 +263,47 @@
     <Compile Include="DetailsAnalisisConsumo.aspx.designer.cs">
       <DependentUpon>DetailsAnalisisConsumo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DetailsComparativoMensualByCliente.aspx.cs">
+      <DependentUpon>DetailsComparativoMensualByCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetailsComparativoMensualByCliente.aspx.designer.cs">
+      <DependentUpon>DetailsComparativoMensualByCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetailsConsumoByEstacion.aspx.cs">
+      <DependentUpon>DetailsConsumoByEstacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetailsConsumoByEstacion.aspx.designer.cs">
+      <DependentUpon>DetailsConsumoByEstacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetailsConsumoByFecha.aspx.cs">
+      <DependentUpon>DetailsConsumoByFecha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetailsConsumoByFecha.aspx.designer.cs">
+      <DependentUpon>DetailsConsumoByFecha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetailsConsumoByVehiculo.aspx.cs">
+      <DependentUpon>DetailsConsumoByVehiculo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetailsConsumoByVehiculo.aspx.designer.cs">
+      <DependentUpon>DetailsConsumoByVehiculo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DetailsEdoCta.aspx.cs">
       <DependentUpon>DetailsEdoCta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DetailsEdoCta.aspx.designer.cs">
       <DependentUpon>DetailsEdoCta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetailsFacturaPendienteByPago.aspx.cs">
+      <DependentUpon>DetailsFacturaPendienteByPago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetailsFacturaPendienteByPago.aspx.designer.cs">
+      <DependentUpon>DetailsFacturaPendienteByPago.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditarUsuario.aspx.cs">
       <DependentUpon>EditarUsuario.aspx</DependentUpon>

@@ -50,25 +50,25 @@
             </a>
         </div>
         <div class="col-lg-2">
-            <a href="/Reportes/DetailsFacturaPendienteByPago" id="btnFactPendientePago" class="Largo anaranjado">
+            <a href="DetailsFacturaPendienteByPago.aspx" id="btnFactPendientePago1" class="Largo anaranjado">
                 <i class="icon-factura-pendiente"></i>
                 <h2-largo>FACTURAS PENDIENTES DE PAGO</h2-largo>
             </a>
         </div>
         <div class="col-lg-2">
-            <a href="/Reportes/DetailsConsumoByFecha" id="btnConsumoPorFecha" class="Largo grisClaro">
+            <a href="DetailsConsumoByFecha.aspx" id="btnConsumoPorFecha1" class="Largo grisClaro">
                 <i class="icon-consumo-fecha"></i>
                 <h2-largo>CONSUMO POR FECHA</h2-largo>
             </a>
         </div>
         <div class="col-lg-2">
-            <a href="/Reportes/DetailsConsumoByVehiculo" id="btnConsumoPorVehiculo" class="Largo verdeAzuloso">
+            <a href="DetailsConsumoByVehiculo.aspx" id="btnConsumoPorVehiculo1" class="Largo verdeAzuloso">
                 <i class="icon-consumo-vehiculo"></i>
                 <h2-largo>CONSUMO POR VEHICULO</h2-largo>
             </a>
         </div>
         <div class="col-lg-2">
-            <a href="/Reportes/DetailsConsumoByEstacion" id="btnConsumoPorEstacion" class="Largo verde">
+            <a href="DetailsConsumoByEstacion.aspx" id="btnConsumoPorEstacion1" class="Largo verde">
                 <i class="icon-consumo-estacion"></i>
                 <h2-largo>CONSUMO POR ESTACION</h2-largo>
             </a>
@@ -76,7 +76,7 @@
     </div>
     <div class="row hidden-md hidden-sm hidden-xs">
         <div class="col-lg-2">
-            <a href="/Reportes/DetailsComparativoMensualByCliente" id="btnComparativoMensulaCte" class="Largo morado">
+            <a href="DetailsComparativoMensualByCliente.aspx" id="btnComparativoMensulaCte" class="Largo morado">
                 <i class="icon-comparativo-mensual-us"></i>
                 <h2-largo>COMPARATIVO MENSUAL POR CLIENTE</h2-largo>
             </a>
