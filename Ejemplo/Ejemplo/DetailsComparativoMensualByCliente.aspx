@@ -110,10 +110,8 @@ fieldset[disabled] .btn-sample.active {
                         <tr>
                             <td style="width:20%"><dx:ASPxLabel ID="lblanio" Text="AÑO" runat="server" Font-Bold="true"/></td>
                             <td>
-                                <dx:ASPxDateEdit ID="de" runat="server" Theme="BlackGlass" EnableTheming="True" ShowShadow="false"
-                                      DisplayFormatString="yyyy" EditFormatString="yyyy" >
-                        <ClientSideEvents DropDown="OnDropDown" Init="" />        
-                        </dx:ASPxDateEdit>
+                                <dx:ASPxSpinEdit type="number" ID="txtanio1" runat="server" style="color:black;" MinValue="1" MaxValue="99999">   
+                                </dx:ASPxSpinEdit>
                             </td>
                         </tr>
                         <tr>
@@ -136,39 +134,5 @@ fieldset[disabled] .btn-sample.active {
 <asp:LinkButton id="btnCancelar" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
   
  </asp:LinkButton>
-
-    </div>	
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
-    function OnInit(s, e) {
-        var calendar = s.GetCalendar();
-        calendar.owner = s;
-        calendar.GetMainElement().style.opacity = '0';
-    }
-
-    function OnDropDown(s, e) {
-        var calendar = s.GetCalendar();
-        var fastNav = calendar.fastNavigation;
-        fastNav.activeView = calendar.GetView(0, 0);
-        fastNav.Prepare();
-        fastNav.GetPopup().popupVerticalAlign = "Below";
-        fastNav.GetPopup().ShowAtElement(s.GetMainElement())
-
-        fastNav.OnOkClick = function () {
-            var parentDateEdit = this.calendar.owner;
-            var currentDate = new Date(fastNav.activeYear, fastNav.activeMonth, 1);
-            parentDateEdit.SetDate(currentDate);
-            parentDateEdit.HideDropDown();
-        }
-
-        fastNav.OnCancelClick = function () {
-            var parentDateEdit = this.calendar.owner;
-            parentDateEdit.HideDropDown();
-        }
-    }
-    </script>
 </asp:Content>
 

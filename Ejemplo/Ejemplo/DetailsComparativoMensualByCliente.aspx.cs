@@ -11,7 +11,7 @@ namespace Ejemplo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack) chkBoxList.SelectedIndex = 0;
         }
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control)
         {

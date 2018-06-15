@@ -22,13 +22,13 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxLabel lblanio;
         
         /// <summary>
-        /// de control.
+        /// txtanio1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxDateEdit de;
+        protected global::DevExpress.Web.ASPxSpinEdit txtanio1;
         
         /// <summary>
         /// lblCheckBoxes control.
