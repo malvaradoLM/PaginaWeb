@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+  <g id="main">
+    <clipPath id="clip_mask">
+      <path d="M18.1667,31.5294C18,30.9706,18,30.363,18,30v-8v-3l0.2706,-1c0.3465,-0.5968,0.9911,-1,1.7294,-1h11c0.3644,0,0.7058,0.0986,1,0.2698V0H0v32h18.3576C18.2818,31.8568,18.2176,31.6999,18.1667,31.5294z"/>
+    </clipPath>
+    <g id="icon" clip-path="url(#clip_mask)">
+      <path d="M28.2,28.5H1.8c-0.693,0,-1.3,-0.6,-1.3,-1.3V6.5h29v20.7C29.5,27.9,28.893,28.5,28.2,28.5z" fill-rule="evenodd" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-miterlimit="1"/>
+      <path d="M28.66,2H25v3h-4V2H10v3H6V2H1.3C0.5832,2,0,2.5832,0,3.3v3.7h30V3.3C30,2.5953,29.3863,2,28.66,2z" fill="#FFFFFF"/>
+      <g>
+        <rect x="7" width="2" height="4" fill="#FFFFFF"/>
+        <rect x="22" width="2" height="4" fill="#FFFFFF"/>
+      </g>
+      <path d="M9,9v4H3v13h24V9H9zM9,25H4v-3h5V25zM9,21H4v-3h5V21zM9,17H4v-3h5V17zM15,25h-5v-3h5V25zM15,21h-5v-3h5V21zM15,17h-5v-3h5V17zM15,13h-5v-3h5V13zM20,25h-4v-3h4V25zM20,21h-4v-3h4V21zM20,17h-4v-3h4V17zM20,13h-4v-3h4V13zM26,25h-5v-3h5V25zM26,21h-5v-3h5V21zM26,17h-5v-3h5V17zM26,13h-5v-3h5V13z" fill="#FFFFFF"/>
+    </g>
+    <g id="overlay">
+      <path d="M31,31.5H20c-0.2761,0,-0.5,-0.2239,-0.5,-1.5V19.5h12v10.5C31.5,31.2761,31.2761,31.5,31,31.5z" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-miterlimit="1"/>
+      <path d="M32,21H19v-2c0,-0.5523,0.4477,-1,1,-1h11c0.5523,0,1,0.4477,1,1V21z" fill="#FFFFFF"/>
+      <path d="M22,23h2M22,25h2M22,27h2M22,29h2" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+      <path d="M26,23h3.1M26,25h3.1M26,27h3.1M26,29h3.1" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+    </g>
+  </g>
+</svg>
