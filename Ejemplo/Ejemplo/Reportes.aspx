@@ -82,25 +82,25 @@
             </a>
         </div>
         <div class="col-lg-2">
-            <a href="/Reportes/DetailsComparativoMensualByVehiculo" id="btnComparativoMensulaVehiculo" class="Largo verdeFourence">
+            <a href="DetailsComparativoMensualByVehiculo.aspx" id="btnComparativoMensulaVehiculo" class="Largo verdeFourence">
                 <i class="icon-comparativo-mensual-veh"></i>
                 <h2-largo>COMPARATIVO MENSUAL POR VEHICULO</h2-largo>
             </a>
         </div>
         <div class="col-lg-2">
-            <a href="/Reportes/DetailsConciliacionConsumoByCte" id="btnConsiliacionConsumoCte" class="Largo amarillo">
+            <a href="DetailsConciliacionConsumoByCte.aspx" id="btnConsiliacionConsumoCte" class="Largo amarillo">
                 <i class="icon-descarga-consumo"></i>
                 <h2-largo>CONCILIACION DE CONSUMOS POR CLIENTE</h2-largo>
             </a>
         </div>
         <div class="col-lg-2">
-            <a href="/Reportes/DetailsConsumoByProducto" id="btnConsumoPorProducto" class="Largo naranjaFuerte">
+            <a href="DetailsConsumoByProducto.aspx" id="btnConsumoPorProducto" class="Largo naranjaFuerte">
                 <i class="icon-consumo-producto"></i>
                 <h2-largo>CONSUMO POR PRODUCTO</h2-largo>
             </a>
         </div>
         <div class="col-lg-2">
-            <a href="/Reportes/DetailsConsumoByDpto" id="btnConsumoPorDpto" class="Largo blue">
+            <a href="DetailsConsumoByDpto.aspx" id="btnConsumoPorDpto" class="Largo blue">
                 <i class="icon-consumo-dpto"></i>
                 <h2-largo>CONSUMO POR DEPARTAMENTO</h2-largo>
             </a>
@@ -108,20 +108,20 @@
     </div>
     <div class="row hidden-md hidden-sm hidden-xs">
         <div class="col-lg-2">
-            <a href="/Reportes/DetailsConsumoEspecial" id="btnReporteEspecialConsumos" class="Largo blueLight">
+            <a href="DetailsConsumoEspecial.aspx" id="btnReporteEspecialConsumos" class="Largo blueLight">
                 <i class="icon-reporte-consumo"></i>
                 <h2-largo>REPORTE ESPECIAL DE CONSUMOS</h2-largo>
             </a>
         </div>
         <div class="col-lg-2">
-            <a href="/Reportes/DetailsConsumoFiltroByDpto" id="btnFiltroDpto" class="Largo rojo">
+            <a href="DetailsConsumoFiltroByDpto.aspx" id="btnFiltroDpto" class="Largo rojo">
                 <i class="icon-filtro-departamento"></i>
                 <h2-largo>FILTRO POR DEPARTAMENTO</h2-largo>
             </a>
 
         </div>
         <div class="col-lg-2">
-            <a href="/Reportes/DetailsBitacoraCliente" id="btnBitacora" class="Largo anaranjado">
+            <a href="DetailsBitacoraCliente.aspx" id="btnBitacora" class="Largo anaranjado">
                 <i class="icon-bitacora"></i>
                 <h2-largo>BITACORA</h2-largo>
             </a>
