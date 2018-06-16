@@ -401,6 +401,7 @@ namespace RPSuiteServer {
         private string @__RFC;
         private string @__Estatus;
         private double @__LimiteCredito;
+        private double @__Saldo;
         public virtual int ClienteID {
             get {
                 return @__ClienteID;
@@ -529,6 +530,15 @@ namespace RPSuiteServer {
                 this.TriggerPropertyChanged("LimiteCredito");
             }
         }
+        public virtual double Saldo {
+            get {
+                return @__Saldo;
+            }
+            set {
+                @__Saldo = value;
+                this.TriggerPropertyChanged("Saldo");
+            }
+        }
         public override void ReadComplex(RemObjects.SDK.Serializer serializer) {
             if (serializer.RecordStrictOrder) {
                 this.ClienteID = serializer.ReadInt32("ClienteID");
@@ -544,6 +554,7 @@ namespace RPSuiteServer {
                 this.RFC = serializer.ReadAnsiString("RFC");
                 this.Estatus = serializer.ReadAnsiString("Estatus");
                 this.LimiteCredito = serializer.ReadDouble("LimiteCredito");
+                this.Saldo = serializer.ReadDouble("Saldo");
             }
             else {
                 this.Ciudad = serializer.ReadAnsiString("Ciudad");
@@ -558,6 +569,7 @@ namespace RPSuiteServer {
                 this.Nombre = serializer.ReadAnsiString("Nombre");
                 this.RazonSocial = serializer.ReadAnsiString("RazonSocial");
                 this.RFC = serializer.ReadAnsiString("RFC");
+                this.Saldo = serializer.ReadDouble("Saldo");
                 this.Telefono = serializer.ReadAnsiString("Telefono");
             }
         }
@@ -576,6 +588,7 @@ namespace RPSuiteServer {
                 serializer.WriteAnsiString("RFC", this.RFC);
                 serializer.WriteAnsiString("Estatus", this.Estatus);
                 serializer.WriteDouble("LimiteCredito", this.LimiteCredito);
+                serializer.WriteDouble("Saldo", this.Saldo);
             }
             else {
                 serializer.WriteAnsiString("Ciudad", this.Ciudad);
@@ -590,6 +603,7 @@ namespace RPSuiteServer {
                 serializer.WriteAnsiString("Nombre", this.Nombre);
                 serializer.WriteAnsiString("RazonSocial", this.RazonSocial);
                 serializer.WriteAnsiString("RFC", this.RFC);
+                serializer.WriteDouble("Saldo", this.Saldo);
                 serializer.WriteAnsiString("Telefono", this.Telefono);
             }
         }
@@ -1106,8 +1120,8 @@ namespace RPSuiteServer {
         string getGasolinero();
         TCliente getCliente(int ClienteID);
         bool UpdateVehiculo(TVehiculo Datos);
-        bool setUsuarioWeb(TUsuarioWeb datos);
         bool UpdateUsuarioWeb(TUsuarioWeb datos);
+        bool setUsuarioWeb(TUsuarioWeb datos);
     }
     public partial class RPDataService_Proxy : RemObjects.DataAbstract.Server.DataAbstractService_Proxy, IRPDataService {
         public RPDataService_Proxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 

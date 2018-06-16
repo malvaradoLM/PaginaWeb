@@ -170,6 +170,8 @@ namespace RPSuiteServer
 
                         if (reader["LimiteCredito"] != DBNull.Value)
                         { Res.LimiteCredito = (double)reader["LimiteCredito"]; }
+                        if (reader["Saldo"] != DBNull.Value)
+                        { Res.Saldo = (double)reader["Saldo"]; }
                     }
                 }
             }
