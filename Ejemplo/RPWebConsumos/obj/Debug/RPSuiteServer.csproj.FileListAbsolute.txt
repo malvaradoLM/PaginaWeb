@@ -181,7 +181,6 @@ C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\RPWebConsumos\bin\
 C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\RPWebConsumos\bin\Debug\RemObjects.SDK.ZLib.pdb
 C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\RPWebConsumos\bin\Debug\RemObjects.DataAbstract.pdb
 C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\RPWebConsumos\bin\Debug\RemObjects.DataAbstract.Server.pdb
-C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\RPWebConsumos\obj\Debug\RPSuiteServer.csprojResolveAssemblyReference.cache
 C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\RPWebConsumos\obj\Debug\RPSuiteServer.RPDataService.resources
 C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\RPWebConsumos\obj\Debug\RPSuiteServer.RPLoginService.resources
 C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\RPWebConsumos\obj\Debug\RPSuiteServer.Engine.resources

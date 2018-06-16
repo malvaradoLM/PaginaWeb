@@ -119,11 +119,9 @@ namespace RPSuiteServer {
                 @__ObjectDisposer.Dispose();
             }
         }
-        public static void Invoke_UpdateUsuarioWeb(RemObjects.SDK.IROService @__Instance, RemObjects.SDK.IMessage @__Message, RemObjects.SDK.Server.IServerChannelInfo @__ServerChannelInfo, out RemObjects.SDK.Server.ResponseOptions @__oResponseOptions)
-        {
+        public static void Invoke_UpdateUsuarioWeb(RemObjects.SDK.IROService @__Instance, RemObjects.SDK.IMessage @__Message, RemObjects.SDK.Server.IServerChannelInfo @__ServerChannelInfo, out RemObjects.SDK.Server.ResponseOptions @__oResponseOptions) {
             RemObjects.SDK.ObjectDisposer @__ObjectDisposer = new RemObjects.SDK.ObjectDisposer(1);
-            try
-            {
+            try {
                 TUsuarioWeb Datos = ((TUsuarioWeb)(@__Message.Read("Datos", typeof(TUsuarioWeb), RemObjects.SDK.StreamingFormat.Default)));
                 @__ObjectDisposer.Add(Datos);
                 bool Result;
@@ -133,16 +131,13 @@ namespace RPSuiteServer {
                 @__Message.FinalizeMessage();
                 @__oResponseOptions = RemObjects.SDK.Server.ResponseOptions.roDefault;
             }
-            finally
-            {
+            finally {
                 @__ObjectDisposer.Dispose();
             }
         }
-        public static void Invoke_setUsuarioWeb(RemObjects.SDK.IROService @__Instance, RemObjects.SDK.IMessage @__Message, RemObjects.SDK.Server.IServerChannelInfo @__ServerChannelInfo, out RemObjects.SDK.Server.ResponseOptions @__oResponseOptions)
-        {
+        public static void Invoke_setUsuarioWeb(RemObjects.SDK.IROService @__Instance, RemObjects.SDK.IMessage @__Message, RemObjects.SDK.Server.IServerChannelInfo @__ServerChannelInfo, out RemObjects.SDK.Server.ResponseOptions @__oResponseOptions) {
             RemObjects.SDK.ObjectDisposer @__ObjectDisposer = new RemObjects.SDK.ObjectDisposer(1);
-            try
-            {
+            try {
                 TUsuarioWeb Datos = ((TUsuarioWeb)(@__Message.Read("Datos", typeof(TUsuarioWeb), RemObjects.SDK.StreamingFormat.Default)));
                 @__ObjectDisposer.Add(Datos);
                 bool Result;
@@ -152,8 +147,7 @@ namespace RPSuiteServer {
                 @__Message.FinalizeMessage();
                 @__oResponseOptions = RemObjects.SDK.Server.ResponseOptions.roDefault;
             }
-            finally
-            {
+            finally {
                 @__ObjectDisposer.Dispose();
             }
         }

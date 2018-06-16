@@ -67,6 +67,22 @@
 </Parameter>
 </Parameters>
 </Operation>
+<Operation Name="UpdateUsuarioWeb" UID="{DBEC8C50-EF2E-480D-8644-0E091E4E72E9}">
+<Parameters>
+<Parameter Name="Result" DataType="Boolean" Flag="Result">
+</Parameter>
+<Parameter Name="Datos" DataType="TUsuarioWeb" Flag="In" >
+</Parameter>
+</Parameters>
+</Operation>
+<Operation Name="setUsuarioWeb" UID="{C2837E1B-C704-471C-ABEC-0E7E61C2C1D8}">
+<Parameters>
+<Parameter Name="Result" DataType="Boolean" Flag="Result">
+</Parameter>
+<Parameter Name="Datos" DataType="TUsuarioWeb" Flag="In" >
+</Parameter>
+</Parameters>
+</Operation>
 </Operations>
 </Interface>
 </Interfaces>

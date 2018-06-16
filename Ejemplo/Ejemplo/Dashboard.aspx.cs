@@ -1,4 +1,5 @@
-﻿using Ejemplo.Data;
+﻿using DevExpress.XtraCharts;
+using Ejemplo.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,14 @@ namespace Ejemplo
             lblLimiteCredito.Text = DatosCliente.LimiteCredito.ToString("C");
             lblSaldoDisponible.Text = DatosCliente.LimiteCredito.ToString("C");
             lblSaldoDeudor.Text = saldoDeudor.ToString("C");
-        } 
+
+            webChartControl.Series.Add(new Series { LegendText = "PREMIUM", });
+            webChartControl.Series.Add(new Series { LegendText = "MAGNA" });
+            webChartControl.Series.Add(new Series { LegendText = "DIESEL" });
+            webChartControl.Series.Add(new Series { LegendText = "OTRO" });
+            
+
+
+        }
     }
 }

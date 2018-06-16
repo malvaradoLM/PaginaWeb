@@ -1120,8 +1120,8 @@ namespace RPSuiteServer {
         string getGasolinero();
         TCliente getCliente(int ClienteID);
         bool UpdateVehiculo(TVehiculo Datos);
-        bool UpdateUsuarioWeb(TUsuarioWeb datos);
-        bool setUsuarioWeb(TUsuarioWeb datos);
+        bool UpdateUsuarioWeb(TUsuarioWeb Datos);
+        bool setUsuarioWeb(TUsuarioWeb Datos);
     }
     public partial class RPDataService_Proxy : RemObjects.DataAbstract.Server.DataAbstractService_Proxy, IRPDataService {
         public RPDataService_Proxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -1244,11 +1244,9 @@ namespace RPSuiteServer {
                 this.@__ClearMessage(@__LocalMessage);
             }
         }
-        public virtual bool UpdateUsuarioWeb(TUsuarioWeb Datos)
-        {
+        public virtual bool UpdateUsuarioWeb(TUsuarioWeb Datos) {
             RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
-            try
-            {
+            try {
                 @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "UpdateUsuarioWeb");
                 @__LocalMessage.Write("Datos", Datos, typeof(TUsuarioWeb), RemObjects.SDK.StreamingFormat.Default);
                 @__LocalMessage.FinalizeMessage();
@@ -1256,16 +1254,13 @@ namespace RPSuiteServer {
                 bool _Result = @__LocalMessage.ReadBoolean("Result");
                 return _Result;
             }
-            finally
-            {
+            finally {
                 this.@__ClearMessage(@__LocalMessage);
             }
         }
-        public virtual bool setUsuarioWeb(TUsuarioWeb Datos)
-        {
+        public virtual bool setUsuarioWeb(TUsuarioWeb Datos) {
             RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
-            try
-            {
+            try {
                 @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "setUsuarioWeb");
                 @__LocalMessage.Write("Datos", Datos, typeof(TUsuarioWeb), RemObjects.SDK.StreamingFormat.Default);
                 @__LocalMessage.FinalizeMessage();
@@ -1273,8 +1268,7 @@ namespace RPSuiteServer {
                 bool _Result = @__LocalMessage.ReadBoolean("Result");
                 return _Result;
             }
-            finally
-            {
+            finally {
                 this.@__ClearMessage(@__LocalMessage);
             }
         }
@@ -1315,6 +1309,12 @@ namespace RPSuiteServer {
         System.IAsyncResult BeginUpdateVehiculo(TVehiculo Datos, System.AsyncCallback @__Callback, object @__UserData);
         bool EndUpdateVehiculo(System.IAsyncResult @__AsyncResult);
         System.Threading.Tasks.Task<bool> UpdateVehiculoAsync(TVehiculo Datos);
+        System.IAsyncResult BeginUpdateUsuarioWeb(TUsuarioWeb Datos, System.AsyncCallback @__Callback, object @__UserData);
+        bool EndUpdateUsuarioWeb(System.IAsyncResult @__AsyncResult);
+        System.Threading.Tasks.Task<bool> UpdateUsuarioWebAsync(TUsuarioWeb Datos);
+        System.IAsyncResult BeginsetUsuarioWeb(TUsuarioWeb Datos, System.AsyncCallback @__Callback, object @__UserData);
+        bool EndsetUsuarioWeb(System.IAsyncResult @__AsyncResult);
+        System.Threading.Tasks.Task<bool> setUsuarioWebAsync(TUsuarioWeb Datos);
     }
     public partial class RPDataService_AsyncProxy : RemObjects.DataAbstract.Server.DataAbstractService_AsyncProxy, IRPDataService_Async {
         public RPDataService_AsyncProxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -1520,6 +1520,58 @@ namespace RPSuiteServer {
         }
         public virtual System.Threading.Tasks.Task<bool> UpdateVehiculoAsync(TVehiculo Datos) {
             return System.Threading.Tasks.Task<bool>.Factory.FromAsync(this.BeginUpdateVehiculo(Datos, null, null), new System.Func<System.IAsyncResult, bool>(this.EndUpdateVehiculo));
+        }
+        public virtual System.IAsyncResult BeginUpdateUsuarioWeb(TUsuarioWeb Datos, System.AsyncCallback @__Callback, object @__UserData) {
+            RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
+            try {
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "UpdateUsuarioWeb");
+                @__LocalMessage.Write("Datos", Datos, typeof(TUsuarioWeb), RemObjects.SDK.StreamingFormat.Default);
+                @__LocalMessage.FinalizeMessage();
+                return this.ClientChannel.AsyncDispatch(@__LocalMessage, @__Callback, @__UserData);
+            }
+            catch (System.Exception ex) {
+                this.@__ClearMessage(@__LocalMessage);
+                throw ex;
+            }
+        }
+        public virtual bool EndUpdateUsuarioWeb(System.IAsyncResult @__AsyncResult) {
+            RemObjects.SDK.IMessage @__LocalMessage = ((RemObjects.SDK.IClientAsyncResult)(@__AsyncResult)).Message;
+            try {
+                bool Result = @__LocalMessage.ReadBoolean("Result");
+                return Result;
+            }
+            finally {
+                this.@__ClearMessage(@__LocalMessage);
+            }
+        }
+        public virtual System.Threading.Tasks.Task<bool> UpdateUsuarioWebAsync(TUsuarioWeb Datos) {
+            return System.Threading.Tasks.Task<bool>.Factory.FromAsync(this.BeginUpdateUsuarioWeb(Datos, null, null), new System.Func<System.IAsyncResult, bool>(this.EndUpdateUsuarioWeb));
+        }
+        public virtual System.IAsyncResult BeginsetUsuarioWeb(TUsuarioWeb Datos, System.AsyncCallback @__Callback, object @__UserData) {
+            RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
+            try {
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "setUsuarioWeb");
+                @__LocalMessage.Write("Datos", Datos, typeof(TUsuarioWeb), RemObjects.SDK.StreamingFormat.Default);
+                @__LocalMessage.FinalizeMessage();
+                return this.ClientChannel.AsyncDispatch(@__LocalMessage, @__Callback, @__UserData);
+            }
+            catch (System.Exception ex) {
+                this.@__ClearMessage(@__LocalMessage);
+                throw ex;
+            }
+        }
+        public virtual bool EndsetUsuarioWeb(System.IAsyncResult @__AsyncResult) {
+            RemObjects.SDK.IMessage @__LocalMessage = ((RemObjects.SDK.IClientAsyncResult)(@__AsyncResult)).Message;
+            try {
+                bool Result = @__LocalMessage.ReadBoolean("Result");
+                return Result;
+            }
+            finally {
+                this.@__ClearMessage(@__LocalMessage);
+            }
+        }
+        public virtual System.Threading.Tasks.Task<bool> setUsuarioWebAsync(TUsuarioWeb Datos) {
+            return System.Threading.Tasks.Task<bool>.Factory.FromAsync(this.BeginsetUsuarioWeb(Datos, null, null), new System.Func<System.IAsyncResult, bool>(this.EndsetUsuarioWeb));
         }
     }
     public class CoRPDataServiceAsync {
