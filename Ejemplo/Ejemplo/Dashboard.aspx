@@ -88,7 +88,7 @@
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Grafico de Consumos por Producto
+						
 						<ul class="pull-right panel-settings panel-button-tab-right">
 							<%--<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
 								<em class="fa fa-cogs"></em>
@@ -116,7 +116,8 @@
 					<div class="panel-body">
 						<div class="canvas-wrapper">
                            <%-- <canvas class="main-chart" id="line-chart" height="200" width="600"></canvas>--%>
-                            <dx:WebChartControl ID="webChartControl" runat="server" CrosshairEnabled="True" Height="200px" Width="300px" />
+                            <dx:WebChartControl ID="webChartControl" runat="server"  Height="600" Width="900" >
+                            </dx:WebChartControl>
 						    <br />
                             <br />
 						</div>

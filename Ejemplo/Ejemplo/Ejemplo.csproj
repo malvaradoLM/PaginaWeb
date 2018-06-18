@@ -178,6 +178,17 @@
     <Content Include="Data\Dataset\spUsuarioWeb.xsc">
       <DependentUpon>spUsuarioWeb.xsd</DependentUpon>
     </Content>
+    <Content Include="Data\Dataset\spRptConsumoClienteDS.xsc">
+      <DependentUpon>spRptConsumoClienteDS.xsd</DependentUpon>
+    </Content>
+    <None Include="Data\Dataset\spRptConsumoClienteDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>spRptConsumoClienteDS.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Data\Dataset\spRptConsumoClienteDS.xss">
+      <DependentUpon>spRptConsumoClienteDS.xsd</DependentUpon>
+    </Content>
     <None Include="Data\Dataset\spUsuarioWeb.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -245,11 +256,17 @@
     <Content Include="widgets.html" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClienteCs.cs" />
     <Compile Include="Data\DataModule.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Data\DataModule.Designer.cs">
       <DependentUpon>DataModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dataset\spRptConsumoClienteDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>spRptConsumoClienteDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="Data\Dataset\spUsuarioWeb.Designer.cs">
       <AutoGen>True</AutoGen>
