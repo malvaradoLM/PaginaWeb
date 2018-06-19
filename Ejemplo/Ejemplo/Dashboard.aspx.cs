@@ -19,7 +19,7 @@ namespace Ejemplo
         protected void Page_Load(object sender, EventArgs e)
         {
             cargaSaldos();
-            cargaGrafica();
+            cargaDataTableGrafica();
         }
         private void cargaSaldos()
         {
@@ -33,7 +33,7 @@ namespace Ejemplo
             lblSaldoDisponible.Text = saldoDisponible.ToString("C");
             lblSaldoDeudor.Text = saldoDeudor.ToString("C");
         }
-        private void cargaGrafica()
+        private void cargaDataTableGrafica()
         {
             Params.Clear();
             int anio = DateTime.Now.Year;
@@ -46,15 +46,20 @@ namespace Ejemplo
             DataModule.FillDataSet(ds, "spRptConsumoCliente", Params.ToArray());
             DataTable dt = new DataTable();
             dt = ds.Tables["spRptConsumoCliente"];
-            IEnumerable<DataRow> queryenum = from dts in dt.AsEnumerable() select dts;
+            cargarDataSourceEnChart(dt);
+            
+        }
+        private void cargarDataSourceEnChart(DataTable dt)
+        {
             webChartControl.DataSource = dt;
             // Specify data members to bind the chart's series template.
             webChartControl.SeriesDataMember = "Descripcion";
             webChartControl.SeriesTemplate.ArgumentDataMember = "Descripcion";
             webChartControl.SeriesTemplate.ValueDataMembers.AddRange(new string[] { "Importe" });
             webChartControl.SeriesTemplate.View = new SideBySideBarSeriesView();
-            webChartControl.SeriesTemplate.CrosshairLabelPattern = "{A} - {V:c}"; 
+            webChartControl.SeriesTemplate.CrosshairLabelPattern = "{A} - {V:c}";
             webChartControl.DataBind();
         }
     }
+
 }

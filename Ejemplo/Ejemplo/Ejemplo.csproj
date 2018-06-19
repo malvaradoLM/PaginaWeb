@@ -256,7 +256,6 @@
     <Content Include="widgets.html" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClienteCs.cs" />
     <Compile Include="Data\DataModule.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -488,6 +487,7 @@
     <Compile Include="EditarVehiculo.aspx.designer.cs">
       <DependentUpon>EditarVehiculo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="webChartControl3D.cs" />
     <Compile Include="WebForm6.aspx.cs">
       <DependentUpon>WebForm6.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

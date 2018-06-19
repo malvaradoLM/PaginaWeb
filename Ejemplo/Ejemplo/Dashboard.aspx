@@ -9,15 +9,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
   <script>
-		window.onload = function () {
-	var chart1 = document.getElementById("line-chart").getContext("2d");
-	window.myLine = new Chart(chart1).Line(lineChartData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.2)",
-	scaleGridLineColor: "rgba(0,0,0,.05)",
-	scaleFontColor: "#c5c7cc"
-	});
-};
+	//	window.onload = function () {
+      //      var chart1 = document.getElementById('<%=webChartControl.ClientID%>').getContext("2d");
+	//window.myLine = new Chart(chart1).Line(lineChartData, {
+//	responsive: true,
+	//scaleLineColor: "rgba(0,0,0,.2)",
+	//scaleGridLineColor: "rgba(0,0,0,.05)",
+	//scaleFontColor: "#c5c7cc"
+	//});
+//};
 	</script>
     <%-- Inicio de Cabecera  --%>
     	<div class="col-md-12">
@@ -116,7 +116,23 @@
 					<div class="panel-body">
 						<div class="canvas-wrapper">
                            <%-- <canvas class="main-chart" id="line-chart" height="200" width="600"></canvas>--%>
-                            <dx:WebChartControl ID="webChartControl" runat="server"  Height="600" Width="900" >
+                            <dx:WebChartControl ID="webChartControl" runat="server"  Height="600" Width="1200" >
+                                <SeriesTemplate ArgumentDataMember="Descripcion" ValueDataMembersSerializable="Importe" LabelsVisibility="False">
+            <ViewSerializable>
+                <dx:SideBySideBar3DSeriesView></dx:SideBySideBar3DSeriesView>
+            </ViewSerializable>
+            <LabelSerializable>
+                <dx:Bar3DSeriesLabel>
+                </dx:Bar3DSeriesLabel>
+            </LabelSerializable>
+        </SeriesTemplate> 
+                                <DiagramSerializable>
+            <dx:XYDiagram3D> 
+                <AxisY>
+                    <label TextPattern="${V}M"/>
+                </AxisY>
+            </dx:XYDiagram3D>
+        </DiagramSerializable>
                             </dx:WebChartControl>
 						    <br />
                             <br />
