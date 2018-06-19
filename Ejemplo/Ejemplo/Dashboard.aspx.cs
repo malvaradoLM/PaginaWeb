@@ -53,6 +53,7 @@ namespace Ejemplo
             webChartControl.SeriesTemplate.ArgumentDataMember = "Descripcion";
             webChartControl.SeriesTemplate.ValueDataMembers.AddRange(new string[] { "Importe" });
             webChartControl.SeriesTemplate.View = new SideBySideBarSeriesView();
+            webChartControl.SeriesTemplate.CrosshairLabelPattern = "{A} - {V:c}"; 
             webChartControl.DataBind();
         }
     }
