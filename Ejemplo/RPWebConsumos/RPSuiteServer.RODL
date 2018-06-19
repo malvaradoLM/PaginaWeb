@@ -237,6 +237,68 @@
 </Element>
 </Elements>
 </Struct>
+<Struct Name="TConsumo" UID="{CC3DB8C8-6926-49F7-A43F-33198D6BC869}" AutoCreateParams="1">
+<Elements>
+<Element Name="ID" DataType="Integer">
+</Element>
+<Element Name="Estacion" DataType="AnsiString">
+</Element>
+<Element Name="EstacionID" DataType="Integer">
+</Element>
+<Element Name="Ticket" DataType="Integer">
+</Element>
+<Element Name="Serie" DataType="AnsiString">
+</Element>
+<Element Name="FechaCarga" DataType="DateTime">
+</Element>
+<Element Name="Bomba" DataType="Integer">
+</Element>
+<Element Name="Producto" DataType="AnsiString">
+</Element>
+<Element Name="Cantidad" DataType="AnsiString">
+</Element>
+<Element Name="Precio" DataType="AnsiString">
+</Element>
+<Element Name="Importe" DataType="AnsiString">
+</Element>
+<Element Name="ClienteID" DataType="Integer">
+</Element>
+<Element Name="VehiculoID" DataType="Integer">
+</Element>
+<Element Name="Tarjeta" DataType="AnsiString">
+</Element>
+<Element Name="Nombre" DataType="AnsiString">
+</Element>
+<Element Name="Identificacion" DataType="AnsiString">
+</Element>
+<Element Name="Facturado" DataType="ColumnSorting">
+</Element>
+<Element Name="Kilometraje" DataType="Integer">
+</Element>
+<Element Name="Turno" DataType="Integer">
+</Element>
+<Element Name="FechaMovimiento" DataType="DateTime">
+</Element>
+<Element Name="PathConsumoFacturaTicket" DataType="AnsiString">
+</Element>
+<Element Name="ErrorConsumoFacturaTicket" DataType="AnsiString">
+</Element>
+<Element Name="typeDevices" DataType="AnsiString">
+</Element>
+<Element Name="LatitudEstacion" DataType="Double">
+</Element>
+<Element Name="LongitudEstacion" DataType="Double">
+</Element>
+<Element Name="Folio" DataType="Integer">
+</Element>
+<Element Name="FecIni" DataType="DateTime">
+</Element>
+<Element Name="FecFin" DataType="DateTime">
+</Element>
+<Element Name="Datos" DataType="Aconsumo">
+</Element>
+</Elements>
+</Struct>
 </Structs>
 <Enums>
 </Enums>
@@ -252,6 +314,10 @@
 </Array>
 <Array Name="TAConfiguraEstacionTanques" UID="{2E795BC2-B63C-490D-AB82-D751B30067BE}">
 <ElementType DataType="TConfiguraEstacionTanques" />
+</Array>
+<Array Name="Aconsumo" UID="{CC2F7096-0486-4DED-8B0C-BC0628CD2DED}">
+<Documentation><![CDATA[Arreglo que se utiliza para encapsular informacion de consumos del Cliente]]></Documentation>
+<ElementType DataType="TConsumo" />
 </Array>
 </Arrays>
 <Uses>

@@ -1030,6 +1030,449 @@ namespace RPSuiteServer {
             return new TUsuarioWeb();
         }
     }
+    [System.Serializable()]
+    [RemObjects.SDK.Remotable(ActivatorClass=typeof(TConsumo_Activator))]
+    [System.Reflection.ObfuscationAttribute(Exclude=true)]
+    public partial class TConsumo : RemObjects.SDK.Types.ComplexType {
+        private int @__ID;
+        private string @__Estacion;
+        private int @__EstacionID;
+        private int @__Ticket;
+        private string @__Serie;
+        private System.DateTime @__FechaCarga;
+        private int @__Bomba;
+        private string @__Producto;
+        private string @__Cantidad;
+        private string @__Precio;
+        private string @__Importe;
+        private int @__ClienteID;
+        private int @__VehiculoID;
+        private string @__Tarjeta;
+        private string @__Nombre;
+        private string @__Identificacion;
+        private ColumnSorting @__Facturado;
+        private int @__Kilometraje;
+        private int @__Turno;
+        private System.DateTime @__FechaMovimiento;
+        private string @__PathConsumoFacturaTicket;
+        private string @__ErrorConsumoFacturaTicket;
+        private string @__typeDevices;
+        private double @__LatitudEstacion;
+        private double @__LongitudEstacion;
+        private int @__Folio;
+        private System.DateTime @__FecIni;
+        private System.DateTime @__FecFin;
+        private TConsumo[] @__Datos;
+        public virtual int ID {
+            get {
+                return @__ID;
+            }
+            set {
+                @__ID = value;
+                this.TriggerPropertyChanged("ID");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Estacion {
+            get {
+                return @__Estacion;
+            }
+            set {
+                @__Estacion = value;
+                this.TriggerPropertyChanged("Estacion");
+            }
+        }
+        public virtual int EstacionID {
+            get {
+                return @__EstacionID;
+            }
+            set {
+                @__EstacionID = value;
+                this.TriggerPropertyChanged("EstacionID");
+            }
+        }
+        public virtual int Ticket {
+            get {
+                return @__Ticket;
+            }
+            set {
+                @__Ticket = value;
+                this.TriggerPropertyChanged("Ticket");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Serie {
+            get {
+                return @__Serie;
+            }
+            set {
+                @__Serie = value;
+                this.TriggerPropertyChanged("Serie");
+            }
+        }
+        public virtual System.DateTime FechaCarga {
+            get {
+                return @__FechaCarga;
+            }
+            set {
+                @__FechaCarga = value;
+                this.TriggerPropertyChanged("FechaCarga");
+            }
+        }
+        public virtual int Bomba {
+            get {
+                return @__Bomba;
+            }
+            set {
+                @__Bomba = value;
+                this.TriggerPropertyChanged("Bomba");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Producto {
+            get {
+                return @__Producto;
+            }
+            set {
+                @__Producto = value;
+                this.TriggerPropertyChanged("Producto");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Cantidad {
+            get {
+                return @__Cantidad;
+            }
+            set {
+                @__Cantidad = value;
+                this.TriggerPropertyChanged("Cantidad");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Precio {
+            get {
+                return @__Precio;
+            }
+            set {
+                @__Precio = value;
+                this.TriggerPropertyChanged("Precio");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Importe {
+            get {
+                return @__Importe;
+            }
+            set {
+                @__Importe = value;
+                this.TriggerPropertyChanged("Importe");
+            }
+        }
+        public virtual int ClienteID {
+            get {
+                return @__ClienteID;
+            }
+            set {
+                @__ClienteID = value;
+                this.TriggerPropertyChanged("ClienteID");
+            }
+        }
+        public virtual int VehiculoID {
+            get {
+                return @__VehiculoID;
+            }
+            set {
+                @__VehiculoID = value;
+                this.TriggerPropertyChanged("VehiculoID");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Tarjeta {
+            get {
+                return @__Tarjeta;
+            }
+            set {
+                @__Tarjeta = value;
+                this.TriggerPropertyChanged("Tarjeta");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Nombre {
+            get {
+                return @__Nombre;
+            }
+            set {
+                @__Nombre = value;
+                this.TriggerPropertyChanged("Nombre");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Identificacion {
+            get {
+                return @__Identificacion;
+            }
+            set {
+                @__Identificacion = value;
+                this.TriggerPropertyChanged("Identificacion");
+            }
+        }
+        public virtual ColumnSorting Facturado {
+            get {
+                return @__Facturado;
+            }
+            set {
+                @__Facturado = value;
+                this.TriggerPropertyChanged("Facturado");
+            }
+        }
+        public virtual int Kilometraje {
+            get {
+                return @__Kilometraje;
+            }
+            set {
+                @__Kilometraje = value;
+                this.TriggerPropertyChanged("Kilometraje");
+            }
+        }
+        public virtual int Turno {
+            get {
+                return @__Turno;
+            }
+            set {
+                @__Turno = value;
+                this.TriggerPropertyChanged("Turno");
+            }
+        }
+        public virtual System.DateTime FechaMovimiento {
+            get {
+                return @__FechaMovimiento;
+            }
+            set {
+                @__FechaMovimiento = value;
+                this.TriggerPropertyChanged("FechaMovimiento");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string PathConsumoFacturaTicket {
+            get {
+                return @__PathConsumoFacturaTicket;
+            }
+            set {
+                @__PathConsumoFacturaTicket = value;
+                this.TriggerPropertyChanged("PathConsumoFacturaTicket");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string ErrorConsumoFacturaTicket {
+            get {
+                return @__ErrorConsumoFacturaTicket;
+            }
+            set {
+                @__ErrorConsumoFacturaTicket = value;
+                this.TriggerPropertyChanged("ErrorConsumoFacturaTicket");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string typeDevices {
+            get {
+                return @__typeDevices;
+            }
+            set {
+                @__typeDevices = value;
+                this.TriggerPropertyChanged("typeDevices");
+            }
+        }
+        public virtual double LatitudEstacion {
+            get {
+                return @__LatitudEstacion;
+            }
+            set {
+                @__LatitudEstacion = value;
+                this.TriggerPropertyChanged("LatitudEstacion");
+            }
+        }
+        public virtual double LongitudEstacion {
+            get {
+                return @__LongitudEstacion;
+            }
+            set {
+                @__LongitudEstacion = value;
+                this.TriggerPropertyChanged("LongitudEstacion");
+            }
+        }
+        public virtual int Folio {
+            get {
+                return @__Folio;
+            }
+            set {
+                @__Folio = value;
+                this.TriggerPropertyChanged("Folio");
+            }
+        }
+        public virtual System.DateTime FecIni {
+            get {
+                return @__FecIni;
+            }
+            set {
+                @__FecIni = value;
+                this.TriggerPropertyChanged("FecIni");
+            }
+        }
+        public virtual System.DateTime FecFin {
+            get {
+                return @__FecFin;
+            }
+            set {
+                @__FecFin = value;
+                this.TriggerPropertyChanged("FecFin");
+            }
+        }
+        public virtual TConsumo[] Datos {
+            get {
+                return @__Datos;
+            }
+            set {
+                @__Datos = value;
+                this.TriggerPropertyChanged("Datos");
+            }
+        }
+        public override void ReadComplex(RemObjects.SDK.Serializer serializer) {
+            if (serializer.RecordStrictOrder) {
+                this.ID = serializer.ReadInt32("ID");
+                this.Estacion = serializer.ReadAnsiString("Estacion");
+                this.EstacionID = serializer.ReadInt32("EstacionID");
+                this.Ticket = serializer.ReadInt32("Ticket");
+                this.Serie = serializer.ReadAnsiString("Serie");
+                this.FechaCarga = serializer.ReadDateTime("FechaCarga");
+                this.Bomba = serializer.ReadInt32("Bomba");
+                this.Producto = serializer.ReadAnsiString("Producto");
+                this.Cantidad = serializer.ReadAnsiString("Cantidad");
+                this.Precio = serializer.ReadAnsiString("Precio");
+                this.Importe = serializer.ReadAnsiString("Importe");
+                this.ClienteID = serializer.ReadInt32("ClienteID");
+                this.VehiculoID = serializer.ReadInt32("VehiculoID");
+                this.Tarjeta = serializer.ReadAnsiString("Tarjeta");
+                this.Nombre = serializer.ReadAnsiString("Nombre");
+                this.Identificacion = serializer.ReadAnsiString("Identificacion");
+                this.Facturado = ((ColumnSorting)(serializer.Read("Facturado", typeof(ColumnSorting), RemObjects.SDK.StreamingFormat.Default)));
+                this.Kilometraje = serializer.ReadInt32("Kilometraje");
+                this.Turno = serializer.ReadInt32("Turno");
+                this.FechaMovimiento = serializer.ReadDateTime("FechaMovimiento");
+                this.PathConsumoFacturaTicket = serializer.ReadAnsiString("PathConsumoFacturaTicket");
+                this.ErrorConsumoFacturaTicket = serializer.ReadAnsiString("ErrorConsumoFacturaTicket");
+                this.typeDevices = serializer.ReadAnsiString("typeDevices");
+                this.LatitudEstacion = serializer.ReadDouble("LatitudEstacion");
+                this.LongitudEstacion = serializer.ReadDouble("LongitudEstacion");
+                this.Folio = serializer.ReadInt32("Folio");
+                this.FecIni = serializer.ReadDateTime("FecIni");
+                this.FecFin = serializer.ReadDateTime("FecFin");
+                this.Datos = ((TConsumo[])(serializer.Read("Datos", typeof(TConsumo[]), RemObjects.SDK.StreamingFormat.Default)));
+            }
+            else {
+                this.Bomba = serializer.ReadInt32("Bomba");
+                this.Cantidad = serializer.ReadAnsiString("Cantidad");
+                this.ClienteID = serializer.ReadInt32("ClienteID");
+                this.Datos = ((TConsumo[])(serializer.Read("Datos", typeof(TConsumo[]), RemObjects.SDK.StreamingFormat.Default)));
+                this.ErrorConsumoFacturaTicket = serializer.ReadAnsiString("ErrorConsumoFacturaTicket");
+                this.Estacion = serializer.ReadAnsiString("Estacion");
+                this.EstacionID = serializer.ReadInt32("EstacionID");
+                this.Facturado = ((ColumnSorting)(serializer.Read("Facturado", typeof(ColumnSorting), RemObjects.SDK.StreamingFormat.Default)));
+                this.FecFin = serializer.ReadDateTime("FecFin");
+                this.FechaCarga = serializer.ReadDateTime("FechaCarga");
+                this.FechaMovimiento = serializer.ReadDateTime("FechaMovimiento");
+                this.FecIni = serializer.ReadDateTime("FecIni");
+                this.Folio = serializer.ReadInt32("Folio");
+                this.ID = serializer.ReadInt32("ID");
+                this.Identificacion = serializer.ReadAnsiString("Identificacion");
+                this.Importe = serializer.ReadAnsiString("Importe");
+                this.Kilometraje = serializer.ReadInt32("Kilometraje");
+                this.LatitudEstacion = serializer.ReadDouble("LatitudEstacion");
+                this.LongitudEstacion = serializer.ReadDouble("LongitudEstacion");
+                this.Nombre = serializer.ReadAnsiString("Nombre");
+                this.PathConsumoFacturaTicket = serializer.ReadAnsiString("PathConsumoFacturaTicket");
+                this.Precio = serializer.ReadAnsiString("Precio");
+                this.Producto = serializer.ReadAnsiString("Producto");
+                this.Serie = serializer.ReadAnsiString("Serie");
+                this.Tarjeta = serializer.ReadAnsiString("Tarjeta");
+                this.Ticket = serializer.ReadInt32("Ticket");
+                this.Turno = serializer.ReadInt32("Turno");
+                this.typeDevices = serializer.ReadAnsiString("typeDevices");
+                this.VehiculoID = serializer.ReadInt32("VehiculoID");
+            }
+        }
+        public override void WriteComplex(RemObjects.SDK.Serializer serializer) {
+            if (serializer.RecordStrictOrder) {
+                serializer.WriteInt32("ID", this.ID);
+                serializer.WriteAnsiString("Estacion", this.Estacion);
+                serializer.WriteInt32("EstacionID", this.EstacionID);
+                serializer.WriteInt32("Ticket", this.Ticket);
+                serializer.WriteAnsiString("Serie", this.Serie);
+                serializer.WriteDateTime("FechaCarga", this.FechaCarga);
+                serializer.WriteInt32("Bomba", this.Bomba);
+                serializer.WriteAnsiString("Producto", this.Producto);
+                serializer.WriteAnsiString("Cantidad", this.Cantidad);
+                serializer.WriteAnsiString("Precio", this.Precio);
+                serializer.WriteAnsiString("Importe", this.Importe);
+                serializer.WriteInt32("ClienteID", this.ClienteID);
+                serializer.WriteInt32("VehiculoID", this.VehiculoID);
+                serializer.WriteAnsiString("Tarjeta", this.Tarjeta);
+                serializer.WriteAnsiString("Nombre", this.Nombre);
+                serializer.WriteAnsiString("Identificacion", this.Identificacion);
+                serializer.Write("Facturado", this.Facturado, typeof(ColumnSorting), RemObjects.SDK.StreamingFormat.Default);
+                serializer.WriteInt32("Kilometraje", this.Kilometraje);
+                serializer.WriteInt32("Turno", this.Turno);
+                serializer.WriteDateTime("FechaMovimiento", this.FechaMovimiento);
+                serializer.WriteAnsiString("PathConsumoFacturaTicket", this.PathConsumoFacturaTicket);
+                serializer.WriteAnsiString("ErrorConsumoFacturaTicket", this.ErrorConsumoFacturaTicket);
+                serializer.WriteAnsiString("typeDevices", this.typeDevices);
+                serializer.WriteDouble("LatitudEstacion", this.LatitudEstacion);
+                serializer.WriteDouble("LongitudEstacion", this.LongitudEstacion);
+                serializer.WriteInt32("Folio", this.Folio);
+                serializer.WriteDateTime("FecIni", this.FecIni);
+                serializer.WriteDateTime("FecFin", this.FecFin);
+                serializer.Write("Datos", this.Datos, typeof(TConsumo[]), RemObjects.SDK.StreamingFormat.Default);
+            }
+            else {
+                serializer.WriteInt32("Bomba", this.Bomba);
+                serializer.WriteAnsiString("Cantidad", this.Cantidad);
+                serializer.WriteInt32("ClienteID", this.ClienteID);
+                serializer.Write("Datos", this.Datos, typeof(TConsumo[]), RemObjects.SDK.StreamingFormat.Default);
+                serializer.WriteAnsiString("ErrorConsumoFacturaTicket", this.ErrorConsumoFacturaTicket);
+                serializer.WriteAnsiString("Estacion", this.Estacion);
+                serializer.WriteInt32("EstacionID", this.EstacionID);
+                serializer.Write("Facturado", this.Facturado, typeof(ColumnSorting), RemObjects.SDK.StreamingFormat.Default);
+                serializer.WriteDateTime("FecFin", this.FecFin);
+                serializer.WriteDateTime("FechaCarga", this.FechaCarga);
+                serializer.WriteDateTime("FechaMovimiento", this.FechaMovimiento);
+                serializer.WriteDateTime("FecIni", this.FecIni);
+                serializer.WriteInt32("Folio", this.Folio);
+                serializer.WriteInt32("ID", this.ID);
+                serializer.WriteAnsiString("Identificacion", this.Identificacion);
+                serializer.WriteAnsiString("Importe", this.Importe);
+                serializer.WriteInt32("Kilometraje", this.Kilometraje);
+                serializer.WriteDouble("LatitudEstacion", this.LatitudEstacion);
+                serializer.WriteDouble("LongitudEstacion", this.LongitudEstacion);
+                serializer.WriteAnsiString("Nombre", this.Nombre);
+                serializer.WriteAnsiString("PathConsumoFacturaTicket", this.PathConsumoFacturaTicket);
+                serializer.WriteAnsiString("Precio", this.Precio);
+                serializer.WriteAnsiString("Producto", this.Producto);
+                serializer.WriteAnsiString("Serie", this.Serie);
+                serializer.WriteAnsiString("Tarjeta", this.Tarjeta);
+                serializer.WriteInt32("Ticket", this.Ticket);
+                serializer.WriteInt32("Turno", this.Turno);
+                serializer.WriteAnsiString("typeDevices", this.typeDevices);
+                serializer.WriteInt32("VehiculoID", this.VehiculoID);
+            }
+        }
+    }
+    [System.Reflection.ObfuscationAttribute(Exclude=true, ApplyToMembers=false)]
+    public class TConsumo_Activator : object, RemObjects.SDK.ITypeActivator {
+        public TConsumo_Activator() {
+        }
+        public object CreateInstance() {
+            return new TConsumo();
+        }
+    }
     public interface IRPLoginService : RemObjects.DataAbstract.Server.ISimpleLoginService {
     }
     public partial class RPLoginService_Proxy : RemObjects.DataAbstract.Server.SimpleLoginService_Proxy, IRPLoginService {
