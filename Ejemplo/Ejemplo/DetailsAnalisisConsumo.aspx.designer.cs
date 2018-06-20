@@ -85,12 +85,12 @@ namespace Ejemplo {
         protected global::System.Web.UI.WebControls.LinkButton btnCancelar;
         
         /// <summary>
-        /// bgvConsumo control.
+        /// bgvConsumo2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapGridView bgvConsumo;
+        protected global::DevExpress.Web.Bootstrap.BootstrapGridView bgvConsumo2;
     }
 }

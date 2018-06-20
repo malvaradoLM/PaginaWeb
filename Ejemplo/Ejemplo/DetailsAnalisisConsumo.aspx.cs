@@ -23,21 +23,16 @@ namespace Ejemplo
                 txtFechaInicial.Date = DateTime.Now;
                 txtFechaFinal.Date = DateTime.Now;
                 chkBoxList.SelectedIndex = 0;
-                bgvConsumo.Visible = false;
+                bgvConsumo2.Visible = false;
  
             }
             else
             {
-                bgvConsumo.Visible = true;
-                CargarReportePorCliente(Convert.ToInt32(DataModule.Seguridad.UserID), txtFechaInicial.Text, txtFechaFinal.Text);   
+                bgvConsumo2.Visible = true;
+                if (Convert.ToInt32(chkBoxList.Value) == 0)
+                    CargarReportePorCliente(Convert.ToInt32(DataModule.Seguridad.UserID), txtFechaInicial.Text, txtFechaFinal.Text);
+                else CargarReportePorGrupo(Convert.ToInt32(DataModule.Seguridad.UserID), txtFechaInicial.Text, txtFechaFinal.Text);
             }
-            
-            bgvConsumo.BeginUpdate();
-            bgvConsumo.GroupSummary.Add(SummaryItemType.Count, "CANTIDAD");
-            bgvConsumo.GroupSummary.Add(SummaryItemType.Sum, "IMPORTE");
-            bgvConsumo.CustomColumnDisplayText += BgvConsumo_CustomColumnDisplayText;
-            bgvConsumo.EndUpdate();
-
         }
 
         public void BgvConsumo_CustomColumnDisplayText(object sender, DevExpress.Web.Bootstrap.BootstrapGridViewColumnDisplayTextEventArgs e)
@@ -69,14 +64,30 @@ namespace Ejemplo
             DataTable dt = new DataTable();
             dt = ds.Tables["spListaConsumoByFecha"];
             IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
-            bgvConsumo.DataSource = dt;
-            bgvConsumo.DataBind();
-
+            bgvConsumo2.DataSource = dt;
+            bgvConsumo2.DataBind();
+            bgvConsumo2.SettingsText.Title = "CONSUMOS DEL CLIENTE";
         }
 
         protected void btnProcesar_Click(object sender, EventArgs e)
         {
             
+        }
+        private void CargarReportePorGrupo(int ClienteID, string FechaIni, string FechaFin)
+        {
+            Params.Clear();
+            Data.DataModule.ParamByName(Params, "ClienteID", ClienteID);
+            Data.DataModule.ParamByName(Params, "FechaInicial", FechaIni);
+            Data.DataModule.ParamByName(Params, "FechaFinal", FechaFin);
+
+            spConsumoDS ds = new spConsumoDS();
+            DataModule.FillDataSet(ds, "spListaConsumoByFecha", Params.ToArray());
+            DataTable dt = new DataTable();
+            dt = ds.Tables["spListaConsumoByFecha"];
+            IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
+            bgvConsumo2.DataSource = dt;
+            bgvConsumo2.DataBind();
+            bgvConsumo2.SettingsText.Title = "CONSUMOS DEL CLIENTE";
         }
     }
 }
