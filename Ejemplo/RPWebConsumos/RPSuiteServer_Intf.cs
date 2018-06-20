@@ -1050,7 +1050,7 @@ namespace RPSuiteServer {
         private string @__Tarjeta;
         private string @__Nombre;
         private string @__Identificacion;
-        private ColumnSorting @__Facturado;
+        private bool @__Facturado;
         private int @__Kilometraje;
         private int @__Turno;
         private System.DateTime @__FechaMovimiento;
@@ -1216,7 +1216,7 @@ namespace RPSuiteServer {
                 this.TriggerPropertyChanged("Identificacion");
             }
         }
-        public virtual ColumnSorting Facturado {
+        public virtual bool Facturado {
             get {
                 return @__Facturado;
             }
@@ -1336,6 +1336,10 @@ namespace RPSuiteServer {
                 this.TriggerPropertyChanged("Datos");
             }
         }
+
+        public bool Error { get; internal set; }
+        public string MensajeError { get; internal set; }
+
         public override void ReadComplex(RemObjects.SDK.Serializer serializer) {
             if (serializer.RecordStrictOrder) {
                 this.ID = serializer.ReadInt32("ID");
@@ -1354,7 +1358,7 @@ namespace RPSuiteServer {
                 this.Tarjeta = serializer.ReadAnsiString("Tarjeta");
                 this.Nombre = serializer.ReadAnsiString("Nombre");
                 this.Identificacion = serializer.ReadAnsiString("Identificacion");
-                this.Facturado = ((ColumnSorting)(serializer.Read("Facturado", typeof(ColumnSorting), RemObjects.SDK.StreamingFormat.Default)));
+                this.Facturado = serializer.ReadBoolean("Facturado");
                 this.Kilometraje = serializer.ReadInt32("Kilometraje");
                 this.Turno = serializer.ReadInt32("Turno");
                 this.FechaMovimiento = serializer.ReadDateTime("FechaMovimiento");
@@ -1376,7 +1380,7 @@ namespace RPSuiteServer {
                 this.ErrorConsumoFacturaTicket = serializer.ReadAnsiString("ErrorConsumoFacturaTicket");
                 this.Estacion = serializer.ReadAnsiString("Estacion");
                 this.EstacionID = serializer.ReadInt32("EstacionID");
-                this.Facturado = ((ColumnSorting)(serializer.Read("Facturado", typeof(ColumnSorting), RemObjects.SDK.StreamingFormat.Default)));
+                this.Facturado = serializer.ReadBoolean("Facturado");
                 this.FecFin = serializer.ReadDateTime("FecFin");
                 this.FechaCarga = serializer.ReadDateTime("FechaCarga");
                 this.FechaMovimiento = serializer.ReadDateTime("FechaMovimiento");
@@ -1418,7 +1422,7 @@ namespace RPSuiteServer {
                 serializer.WriteAnsiString("Tarjeta", this.Tarjeta);
                 serializer.WriteAnsiString("Nombre", this.Nombre);
                 serializer.WriteAnsiString("Identificacion", this.Identificacion);
-                serializer.Write("Facturado", this.Facturado, typeof(ColumnSorting), RemObjects.SDK.StreamingFormat.Default);
+                serializer.WriteBoolean("Facturado", this.Facturado);
                 serializer.WriteInt32("Kilometraje", this.Kilometraje);
                 serializer.WriteInt32("Turno", this.Turno);
                 serializer.WriteDateTime("FechaMovimiento", this.FechaMovimiento);
@@ -1440,7 +1444,7 @@ namespace RPSuiteServer {
                 serializer.WriteAnsiString("ErrorConsumoFacturaTicket", this.ErrorConsumoFacturaTicket);
                 serializer.WriteAnsiString("Estacion", this.Estacion);
                 serializer.WriteInt32("EstacionID", this.EstacionID);
-                serializer.Write("Facturado", this.Facturado, typeof(ColumnSorting), RemObjects.SDK.StreamingFormat.Default);
+                serializer.WriteBoolean("Facturado", this.Facturado);
                 serializer.WriteDateTime("FecFin", this.FecFin);
                 serializer.WriteDateTime("FechaCarga", this.FechaCarga);
                 serializer.WriteDateTime("FechaMovimiento", this.FechaMovimiento);
@@ -1565,6 +1569,7 @@ namespace RPSuiteServer {
         bool UpdateVehiculo(TVehiculo Datos);
         bool UpdateUsuarioWeb(TUsuarioWeb Datos);
         bool setUsuarioWeb(TUsuarioWeb Datos);
+        TConsumo ListaConsumoByFecha(int ClienteID, string FechaInicial, string FechaFinal);
     }
     public partial class RPDataService_Proxy : RemObjects.DataAbstract.Server.DataAbstractService_Proxy, IRPDataService {
         public RPDataService_Proxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -1715,6 +1720,22 @@ namespace RPSuiteServer {
                 this.@__ClearMessage(@__LocalMessage);
             }
         }
+        public virtual TConsumo ListaConsumoByFecha(int ClienteID, string FechaInicial, string FechaFinal) {
+            RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
+            try {
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "ListaConsumoByFecha");
+                @__LocalMessage.WriteInt32("ClienteID", ClienteID);
+                @__LocalMessage.WriteAnsiString("FechaInicial", FechaInicial);
+                @__LocalMessage.WriteAnsiString("FechaFinal", FechaFinal);
+                @__LocalMessage.FinalizeMessage();
+                this.ClientChannel.Dispatch(@__LocalMessage);
+                TConsumo _Result = ((TConsumo)(@__LocalMessage.Read("Result", typeof(TConsumo), RemObjects.SDK.StreamingFormat.Default)));
+                return _Result;
+            }
+            finally {
+                this.@__ClearMessage(@__LocalMessage);
+            }
+        }
     }
     public class CoRPDataService {
         public static IRPDataService Create(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) {
@@ -1758,6 +1779,9 @@ namespace RPSuiteServer {
         System.IAsyncResult BeginsetUsuarioWeb(TUsuarioWeb Datos, System.AsyncCallback @__Callback, object @__UserData);
         bool EndsetUsuarioWeb(System.IAsyncResult @__AsyncResult);
         System.Threading.Tasks.Task<bool> setUsuarioWebAsync(TUsuarioWeb Datos);
+        System.IAsyncResult BeginListaConsumoByFecha(int ClienteID, string FechaInicial, string FechaFinal, System.AsyncCallback @__Callback, object @__UserData);
+        TConsumo EndListaConsumoByFecha(System.IAsyncResult @__AsyncResult);
+        System.Threading.Tasks.Task<TConsumo> ListaConsumoByFechaAsync(int ClienteID, string FechaInicial, string FechaFinal);
     }
     public partial class RPDataService_AsyncProxy : RemObjects.DataAbstract.Server.DataAbstractService_AsyncProxy, IRPDataService_Async {
         public RPDataService_AsyncProxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -2015,6 +2039,34 @@ namespace RPSuiteServer {
         }
         public virtual System.Threading.Tasks.Task<bool> setUsuarioWebAsync(TUsuarioWeb Datos) {
             return System.Threading.Tasks.Task<bool>.Factory.FromAsync(this.BeginsetUsuarioWeb(Datos, null, null), new System.Func<System.IAsyncResult, bool>(this.EndsetUsuarioWeb));
+        }
+        public virtual System.IAsyncResult BeginListaConsumoByFecha(int ClienteID, string FechaInicial, string FechaFinal, System.AsyncCallback @__Callback, object @__UserData) {
+            RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
+            try {
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "ListaConsumoByFecha");
+                @__LocalMessage.WriteInt32("ClienteID", ClienteID);
+                @__LocalMessage.WriteAnsiString("FechaInicial", FechaInicial);
+                @__LocalMessage.WriteAnsiString("FechaFinal", FechaFinal);
+                @__LocalMessage.FinalizeMessage();
+                return this.ClientChannel.AsyncDispatch(@__LocalMessage, @__Callback, @__UserData);
+            }
+            catch (System.Exception ex) {
+                this.@__ClearMessage(@__LocalMessage);
+                throw ex;
+            }
+        }
+        public virtual TConsumo EndListaConsumoByFecha(System.IAsyncResult @__AsyncResult) {
+            RemObjects.SDK.IMessage @__LocalMessage = ((RemObjects.SDK.IClientAsyncResult)(@__AsyncResult)).Message;
+            try {
+                TConsumo Result = ((TConsumo)(@__LocalMessage.Read("Result", typeof(TConsumo), RemObjects.SDK.StreamingFormat.Default)));
+                return Result;
+            }
+            finally {
+                this.@__ClearMessage(@__LocalMessage);
+            }
+        }
+        public virtual System.Threading.Tasks.Task<TConsumo> ListaConsumoByFechaAsync(int ClienteID, string FechaInicial, string FechaFinal) {
+            return System.Threading.Tasks.Task<TConsumo>.Factory.FromAsync(this.BeginListaConsumoByFecha(ClienteID, FechaInicial, FechaFinal, null, null), new System.Func<System.IAsyncResult, TConsumo>(this.EndListaConsumoByFecha));
         }
     }
     public class CoRPDataServiceAsync {

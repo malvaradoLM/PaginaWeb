@@ -249,7 +249,78 @@ namespace RPSuiteServer
                 return false;
             }
         }
+        //METODO QUE MUESTRA INFORMACION DE CONSUMOS DE FACTURAS por fecha
+        public virtual TConsumo ListaConsumoByFecha(int ClienteID, string FechaInicial, string FechaFinal)
+        {
+            TConsumo result = new TConsumo();
+            List<TConsumo> info = new List<TConsumo>();
+            TCliente Res = new TCliente();
+            try
+            {
+                IDbCommand command;
 
+                using (IDataReader rDataset = this.ServiceSchema.GetDataReader(this.Connection, "spListaConsumoByFecha", new string[] { "ClienteID","FechaInicial","FechaFinal" }, new object[] { ClienteID,FechaInicial,FechaFinal }, out command))
+                // using (IDataReader reader = this.ServiceSchema.GetDataReader(this.Connection, "BuscaCliente", new string[] { "ClienteID" }, new object[] { ClienteID }, out command))
+
+                {
+                    while (rDataset.Read())
+                    {
+                        info.Add(new TConsumo()
+                        {
+                            ID = (string.IsNullOrEmpty(rDataset["ID"].ToString()) ? 0 : (int)(rDataset["ID"])),
+                            Estacion = (string.IsNullOrEmpty(rDataset["Estacion"].ToString()) ? "" : (string)(rDataset["Estacion"])),
+                            EstacionID = (string.IsNullOrEmpty(rDataset["EstacionID"].ToString()) ? 0 : (int)(rDataset["EstacionID"])),
+                            Ticket = (string.IsNullOrEmpty(rDataset["Ticket"].ToString()) ? 0 : (int)(rDataset["Ticket"])),
+                            Serie = (string.IsNullOrEmpty(rDataset["Serie"].ToString()) ? "" : (string)(rDataset["Serie"])),
+                            FechaCarga = (string.IsNullOrEmpty(rDataset["FechaCarga"].ToString()) ? DateTime.Parse("01/01/1900") : (DateTime)(rDataset["FechaCarga"])),
+                            Bomba = (string.IsNullOrEmpty(rDataset["Bomba"].ToString()) ? 0 : (int)(rDataset["Bomba"])),
+                            Producto = (string.IsNullOrEmpty(rDataset["Producto"].ToString()) ? "" : (string)(rDataset["Producto"])),
+
+                            Cantidad = Convert.ToDecimal(rDataset["Cantidad"] ?? 0.0).ToString(),
+                            Precio = (string.IsNullOrEmpty(rDataset["Precio"].ToString()) ? "" : "$" + Convert.ToDecimal(rDataset["Precio"] ?? 0.0).ToString("#,##0.00")),
+                            Importe = Convert.ToDecimal(rDataset["Importe"] ?? 0.0).ToString(),
+
+                            ClienteID = (string.IsNullOrEmpty(rDataset["ClienteID"].ToString()) ? 0 : (int)(rDataset["ClienteID"])),
+                            VehiculoID = (string.IsNullOrEmpty(rDataset["VehiculoID"].ToString()) ? 0 : (int)(rDataset["VehiculoID"])),
+                            Tarjeta = (string.IsNullOrEmpty(rDataset["Tarjeta"].ToString()) ? "" : (string)(rDataset["Tarjeta"])),
+                            Nombre = (string.IsNullOrEmpty(rDataset["Nombre"].ToString()) ? "" : (string)(rDataset["Nombre"])),
+                            Identificacion = (string.IsNullOrEmpty(rDataset["Identificacion"].ToString()) ? "" : (string)(rDataset["Identificacion"])),
+                            Facturado = (bool)rDataset["Facturado"],
+                            Kilometraje = (string.IsNullOrEmpty(rDataset["Kilometraje"].ToString()) ? 0 : (int)(rDataset["Kilometraje"])),
+                            Turno = (string.IsNullOrEmpty(rDataset["Turno"].ToString()) ? 0 : (int)(rDataset["Turno"])),
+                            FechaMovimiento = (string.IsNullOrEmpty(rDataset["FechaMovimiento"].ToString()) ? DateTime.Parse("01/01/1900") : (DateTime)(rDataset["FechaMovimiento"])),
+                            PathConsumoFacturaTicket = (string.IsNullOrEmpty(rDataset["PathConsumoFacturaTicket"].ToString()) ? "" : (string)(rDataset["PathConsumoFacturaTicket"])),
+                            ErrorConsumoFacturaTicket = (string.IsNullOrEmpty(rDataset["ErrorConsumoFacturaTicket"].ToString()) ? "" : (string)(rDataset["ErrorConsumoFacturaTicket"])),
+                            typeDevices = (string.IsNullOrEmpty(rDataset["typeDevices"].ToString()) ? "" : (string)(rDataset["typeDevices"])),
+                            LatitudEstacion = (string.IsNullOrEmpty(rDataset["LatitudEstacion"].ToString()) ? 0 : (int)(rDataset["LatitudEstacion"])),
+                            LongitudEstacion = (string.IsNullOrEmpty(rDataset["LongitudEstacion"].ToString()) ? 0 : (int)(rDataset["LongitudEstacion"])),
+                            Folio = (string.IsNullOrEmpty(rDataset["Folio"].ToString()) ? 0 : (int)(rDataset["Folio"])),
+                            FecIni = Convert.ToDateTime(FechaInicial),
+                            FecFin = Convert.ToDateTime(FechaFinal),
+                            Datos = null
+                        });
+
+                        result.Error = false;
+                    }
+                    if (result.Error)
+                    {
+                        // No se encontro informacion del cliente, destruimos la session.
+                        result.MensajeError = "No se encontro informacion de facturas del cliente.";
+                        DestroySession();
+                        GetSession();
+                    }
+
+                    result.Datos = info.ToArray();
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                result.MensajeError = "Ocurrio un error en la conexión al sistema, favor de contactar al administrador! " +
+                                    "Descripción del Error: " + ex.Message.ToString().ToString();
+                return result;
+            }
+        }
 
 
     }

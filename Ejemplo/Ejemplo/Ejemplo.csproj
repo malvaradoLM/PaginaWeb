@@ -181,6 +181,17 @@
     <Content Include="Data\Dataset\spRptConsumoClienteDS.xsc">
       <DependentUpon>spRptConsumoClienteDS.xsd</DependentUpon>
     </Content>
+    <Content Include="Data\Dataset\spConsumoDS.xsc">
+      <DependentUpon>spConsumoDS.xsd</DependentUpon>
+    </Content>
+    <None Include="Data\Dataset\spConsumoDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>spConsumoDS.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Data\Dataset\spConsumoDS.xss">
+      <DependentUpon>spConsumoDS.xsd</DependentUpon>
+    </Content>
     <None Include="Data\Dataset\spRptConsumoClienteDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -261,6 +272,11 @@
     </Compile>
     <Compile Include="Data\DataModule.Designer.cs">
       <DependentUpon>DataModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dataset\spConsumoDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>spConsumoDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="Data\Dataset\spRptConsumoClienteDS.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -487,7 +503,6 @@
     <Compile Include="EditarVehiculo.aspx.designer.cs">
       <DependentUpon>EditarVehiculo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="webChartControl3D.cs" />
     <Compile Include="WebForm6.aspx.cs">
       <DependentUpon>WebForm6.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

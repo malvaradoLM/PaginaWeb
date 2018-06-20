@@ -83,6 +83,18 @@
 </Parameter>
 </Parameters>
 </Operation>
+<Operation Name="ListaConsumoByFecha" UID="{6B9BF3AF-9B1F-491C-BB3D-2E7D5F82BA4E}">
+<Parameters>
+<Parameter Name="Result" DataType="TConsumo" Flag="Result">
+</Parameter>
+<Parameter Name="ClienteID" DataType="Integer" Flag="In" >
+</Parameter>
+<Parameter Name="FechaInicial" DataType="AnsiString" Flag="In" >
+</Parameter>
+<Parameter Name="FechaFinal" DataType="AnsiString" Flag="In" >
+</Parameter>
+</Parameters>
+</Operation>
 </Operations>
 </Interface>
 </Interfaces>
@@ -271,7 +283,7 @@
 </Element>
 <Element Name="Identificacion" DataType="AnsiString">
 </Element>
-<Element Name="Facturado" DataType="ColumnSorting">
+<Element Name="Facturado" DataType="Boolean">
 </Element>
 <Element Name="Kilometraje" DataType="Integer">
 </Element>
