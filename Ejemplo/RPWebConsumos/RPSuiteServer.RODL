@@ -189,6 +189,8 @@
 </Element>
 <Element Name="Saldo" DataType="Double">
 </Element>
+<Element Name="Grupo" DataType="AnsiString">
+</Element>
 </Elements>
 </Struct>
 <Struct Name="TVehiculo" UID="{4DAAF794-F53A-4038-BB82-005C95E548B0}" AutoCreateParams="1">
@@ -308,6 +310,10 @@
 <Element Name="FecFin" DataType="DateTime">
 </Element>
 <Element Name="Datos" DataType="Aconsumo">
+</Element>
+<Element Name="Error" DataType="Boolean">
+</Element>
+<Element Name="MensajeError" DataType="AnsiString">
 </Element>
 </Elements>
 </Struct>

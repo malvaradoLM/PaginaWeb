@@ -402,6 +402,7 @@ namespace RPSuiteServer {
         private string @__Estatus;
         private double @__LimiteCredito;
         private double @__Saldo;
+        private string @__Grupo;
         public virtual int ClienteID {
             get {
                 return @__ClienteID;
@@ -539,6 +540,16 @@ namespace RPSuiteServer {
                 this.TriggerPropertyChanged("Saldo");
             }
         }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Grupo {
+            get {
+                return @__Grupo;
+            }
+            set {
+                @__Grupo = value;
+                this.TriggerPropertyChanged("Grupo");
+            }
+        }
         public override void ReadComplex(RemObjects.SDK.Serializer serializer) {
             if (serializer.RecordStrictOrder) {
                 this.ClienteID = serializer.ReadInt32("ClienteID");
@@ -555,6 +566,7 @@ namespace RPSuiteServer {
                 this.Estatus = serializer.ReadAnsiString("Estatus");
                 this.LimiteCredito = serializer.ReadDouble("LimiteCredito");
                 this.Saldo = serializer.ReadDouble("Saldo");
+                this.Grupo = serializer.ReadAnsiString("Grupo");
             }
             else {
                 this.Ciudad = serializer.ReadAnsiString("Ciudad");
@@ -564,6 +576,7 @@ namespace RPSuiteServer {
                 this.Domicilio = serializer.ReadAnsiString("Domicilio");
                 this.Estado = serializer.ReadAnsiString("Estado");
                 this.Estatus = serializer.ReadAnsiString("Estatus");
+                this.Grupo = serializer.ReadAnsiString("Grupo");
                 this.LimiteCredito = serializer.ReadDouble("LimiteCredito");
                 this.Localidad = serializer.ReadAnsiString("Localidad");
                 this.Nombre = serializer.ReadAnsiString("Nombre");
@@ -589,6 +602,7 @@ namespace RPSuiteServer {
                 serializer.WriteAnsiString("Estatus", this.Estatus);
                 serializer.WriteDouble("LimiteCredito", this.LimiteCredito);
                 serializer.WriteDouble("Saldo", this.Saldo);
+                serializer.WriteAnsiString("Grupo", this.Grupo);
             }
             else {
                 serializer.WriteAnsiString("Ciudad", this.Ciudad);
@@ -598,6 +612,7 @@ namespace RPSuiteServer {
                 serializer.WriteAnsiString("Domicilio", this.Domicilio);
                 serializer.WriteAnsiString("Estado", this.Estado);
                 serializer.WriteAnsiString("Estatus", this.Estatus);
+                serializer.WriteAnsiString("Grupo", this.Grupo);
                 serializer.WriteDouble("LimiteCredito", this.LimiteCredito);
                 serializer.WriteAnsiString("Localidad", this.Localidad);
                 serializer.WriteAnsiString("Nombre", this.Nombre);
@@ -1063,6 +1078,8 @@ namespace RPSuiteServer {
         private System.DateTime @__FecIni;
         private System.DateTime @__FecFin;
         private TConsumo[] @__Datos;
+        private bool @__Error;
+        private string @__MensajeError;
         public virtual int ID {
             get {
                 return @__ID;
@@ -1336,10 +1353,25 @@ namespace RPSuiteServer {
                 this.TriggerPropertyChanged("Datos");
             }
         }
-
-        public bool Error { get; internal set; }
-        public string MensajeError { get; internal set; }
-
+        public virtual bool Error {
+            get {
+                return @__Error;
+            }
+            set {
+                @__Error = value;
+                this.TriggerPropertyChanged("Error");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string MensajeError {
+            get {
+                return @__MensajeError;
+            }
+            set {
+                @__MensajeError = value;
+                this.TriggerPropertyChanged("MensajeError");
+            }
+        }
         public override void ReadComplex(RemObjects.SDK.Serializer serializer) {
             if (serializer.RecordStrictOrder) {
                 this.ID = serializer.ReadInt32("ID");
@@ -1371,12 +1403,15 @@ namespace RPSuiteServer {
                 this.FecIni = serializer.ReadDateTime("FecIni");
                 this.FecFin = serializer.ReadDateTime("FecFin");
                 this.Datos = ((TConsumo[])(serializer.Read("Datos", typeof(TConsumo[]), RemObjects.SDK.StreamingFormat.Default)));
+                this.Error = serializer.ReadBoolean("Error");
+                this.MensajeError = serializer.ReadAnsiString("MensajeError");
             }
             else {
                 this.Bomba = serializer.ReadInt32("Bomba");
                 this.Cantidad = serializer.ReadAnsiString("Cantidad");
                 this.ClienteID = serializer.ReadInt32("ClienteID");
                 this.Datos = ((TConsumo[])(serializer.Read("Datos", typeof(TConsumo[]), RemObjects.SDK.StreamingFormat.Default)));
+                this.Error = serializer.ReadBoolean("Error");
                 this.ErrorConsumoFacturaTicket = serializer.ReadAnsiString("ErrorConsumoFacturaTicket");
                 this.Estacion = serializer.ReadAnsiString("Estacion");
                 this.EstacionID = serializer.ReadInt32("EstacionID");
@@ -1392,6 +1427,7 @@ namespace RPSuiteServer {
                 this.Kilometraje = serializer.ReadInt32("Kilometraje");
                 this.LatitudEstacion = serializer.ReadDouble("LatitudEstacion");
                 this.LongitudEstacion = serializer.ReadDouble("LongitudEstacion");
+                this.MensajeError = serializer.ReadAnsiString("MensajeError");
                 this.Nombre = serializer.ReadAnsiString("Nombre");
                 this.PathConsumoFacturaTicket = serializer.ReadAnsiString("PathConsumoFacturaTicket");
                 this.Precio = serializer.ReadAnsiString("Precio");
@@ -1435,12 +1471,15 @@ namespace RPSuiteServer {
                 serializer.WriteDateTime("FecIni", this.FecIni);
                 serializer.WriteDateTime("FecFin", this.FecFin);
                 serializer.Write("Datos", this.Datos, typeof(TConsumo[]), RemObjects.SDK.StreamingFormat.Default);
+                serializer.WriteBoolean("Error", this.Error);
+                serializer.WriteAnsiString("MensajeError", this.MensajeError);
             }
             else {
                 serializer.WriteInt32("Bomba", this.Bomba);
                 serializer.WriteAnsiString("Cantidad", this.Cantidad);
                 serializer.WriteInt32("ClienteID", this.ClienteID);
                 serializer.Write("Datos", this.Datos, typeof(TConsumo[]), RemObjects.SDK.StreamingFormat.Default);
+                serializer.WriteBoolean("Error", this.Error);
                 serializer.WriteAnsiString("ErrorConsumoFacturaTicket", this.ErrorConsumoFacturaTicket);
                 serializer.WriteAnsiString("Estacion", this.Estacion);
                 serializer.WriteInt32("EstacionID", this.EstacionID);
@@ -1456,6 +1495,7 @@ namespace RPSuiteServer {
                 serializer.WriteInt32("Kilometraje", this.Kilometraje);
                 serializer.WriteDouble("LatitudEstacion", this.LatitudEstacion);
                 serializer.WriteDouble("LongitudEstacion", this.LongitudEstacion);
+                serializer.WriteAnsiString("MensajeError", this.MensajeError);
                 serializer.WriteAnsiString("Nombre", this.Nombre);
                 serializer.WriteAnsiString("PathConsumoFacturaTicket", this.PathConsumoFacturaTicket);
                 serializer.WriteAnsiString("Precio", this.Precio);

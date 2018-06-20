@@ -24,7 +24,7 @@ namespace Ejemplo
                 txtFechaFinal.Date = DateTime.Now;
                 chkBoxList.SelectedIndex = 0;
                 bgvConsumo2.Visible = false;
- 
+
             }
             else
             {
@@ -32,21 +32,10 @@ namespace Ejemplo
                 if (Convert.ToInt32(chkBoxList.Value) == 0)
                     CargarReportePorCliente(Convert.ToInt32(DataModule.Seguridad.UserID), txtFechaInicial.Text, txtFechaFinal.Text);
                 else CargarReportePorGrupo(Convert.ToInt32(DataModule.Seguridad.UserID), txtFechaInicial.Text, txtFechaFinal.Text);
+                
             }
         }
-
-        public void BgvConsumo_CustomColumnDisplayText(object sender, DevExpress.Web.Bootstrap.BootstrapGridViewColumnDisplayTextEventArgs e)
-        {
-            if (e.Column.FieldName == "PRICE" || e.Column.FieldName == "IMPORTE")
-            {
-                decimal currencyValue;
-
-                if (Decimal.TryParse(e.Value.ToString(), out currencyValue))
-                {
-                    e.DisplayText = string.Format("{0:c}", currencyValue);
-                }
-            }
-        }
+ 
 
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control)
         {
@@ -69,10 +58,6 @@ namespace Ejemplo
             bgvConsumo2.SettingsText.Title = "CONSUMOS DEL CLIENTE";
         }
 
-        protected void btnProcesar_Click(object sender, EventArgs e)
-        {
-            
-        }
         private void CargarReportePorGrupo(int ClienteID, string FechaIni, string FechaFin)
         {
             Params.Clear();
