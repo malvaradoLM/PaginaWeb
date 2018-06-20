@@ -135,7 +135,68 @@ fieldset[disabled] .btn-sample.active {
 <asp:LinkButton id="btnCancelar" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
   
  </asp:LinkButton>
-
+       
     </div>	
-
+    <div>
+         <dx:BootstrapGridView ID="bgvConsumo" runat="server"   KeyFieldName="ID"    >
+                <Settings ShowFooter="True" />
+                <Columns>
+                    <dx:BootstrapGridViewTextColumn FieldName="ID" ReadOnly="True" VisibleIndex="0"  HorizontalAlign="Center" >
+                                        <DataItemTemplate>
+                                            <%#Eval("ID")%>
+                                        </DataItemTemplate>
+                    </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewTextColumn FieldName="EstacionID" ReadOnly="True" VisibleIndex="1">
+                                        <DataItemTemplate>
+                                            <%#Eval("EstacionID")%>
+                                        </DataItemTemplate>
+                    </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewTextColumn FieldName="FECHA DE CARGA" ReadOnly="True" VisibleIndex="2">
+                                        <DataItemTemplate>
+                                            <%#Eval("FechaCarga")%>
+                                        </DataItemTemplate>
+                    </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewCheckColumn FieldName="FACTURADO" ReadOnly="True" VisibleIndex="3">
+                                        <DataItemTemplate>
+                                            <dx:ASPxCheckBox ID="chkRow" runat="server" ReadOnly="true" Checked='<%#Eval("Facturado")%>' >                                               
+                                            </dx:ASPxCheckBox> 
+                                        </DataItemTemplate>
+                    </dx:BootstrapGridViewCheckColumn>
+                    <dx:BootstrapGridViewTextColumn FieldName="PRODUCTO" ReadOnly="True" VisibleIndex="4">
+                                        <DataItemTemplate>
+                                            <%#Eval("Producto")%>
+                                        </DataItemTemplate>
+                    </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewTextColumn FieldName="SERIE" ReadOnly="True" VisibleIndex="5">
+                                        <DataItemTemplate>
+                                            <%#Eval("Serie")%>
+                                        </DataItemTemplate>
+                    </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewTextColumn FieldName="FOLIO" ReadOnly="True" VisibleIndex="6">
+                                        <DataItemTemplate>
+                                            <%#Eval("Folio")%>
+                                        </DataItemTemplate>
+                    </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewTextColumn FieldName="CANTIDAD" ReadOnly="True" VisibleIndex="7" UnboundType="Decimal">
+                                        <DataItemTemplate>
+                                            <%#Eval("Cantidad")%>
+                                        </DataItemTemplate>
+                    </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewTextColumn FieldName="PRECIO" ReadOnly="true" VisibleIndex="8" UnboundType="Decimal" >
+                                        <DataItemTemplate>
+                                            <%#Eval("Precio")%>
+                                        </DataItemTemplate>
+                    </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewTextColumn FieldName="IMPORTE" ReadOnly="True" VisibleIndex="9" UnboundType="Decimal">
+                                        <DataItemTemplate>
+                                            <%#Eval("Importe")%>
+                                        </DataItemTemplate>
+                    </dx:BootstrapGridViewTextColumn>
+                </Columns>
+                <GroupSummary>
+                     <dx:ASPxSummaryItem FieldName="ImporteSum" SummaryType="Sum" ShowInColumn="Importe" />
+                     <dx:ASPxSummaryItem FieldName="CantidadCont" SummaryType="Count" ShowInColumn="Cantidad" />
+               </GroupSummary>
+           </dx:BootstrapGridView>
+    </div>
 </asp:Content>
