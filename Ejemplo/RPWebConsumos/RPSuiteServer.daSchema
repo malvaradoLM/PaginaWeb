@@ -16470,7 +16470,7 @@ ORDER BY FechaCarga</SQL>
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>Grupo</Name>
-          <DataType>datUnknown</DataType>
+          <DataType>datWideString</DataType>
           <Size>0</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>
@@ -16483,7 +16483,7 @@ ORDER BY FechaCarga</SQL>
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>FechaInicial</Name>
-          <DataType>datUnknown</DataType>
+          <DataType>datWideString</DataType>
           <Size>0</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>
@@ -16496,7 +16496,7 @@ ORDER BY FechaCarga</SQL>
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>FechaFinal</Name>
-          <DataType>datUnknown</DataType>
+          <DataType>datWideString</DataType>
           <Size>0</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>

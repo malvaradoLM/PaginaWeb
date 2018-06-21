@@ -26,7 +26,9 @@ namespace Ejemplo
             int ClienteID = int.Parse(DataModule.Seguridad.UserID);
             RPSuiteServer.TCliente DatosCliente = new RPSuiteServer.TCliente();
             Session["Grupo"] = DatosCliente.Grupo;
+            DatosCliente.ClienteID = Convert.ToInt32(DataModule.Seguridad.UserID);
             DatosCliente = DataModule.DataService.getCliente(ClienteID);
+            Session["Grupo"] = DatosCliente.Grupo;
             double limiteCredito = DatosCliente.LimiteCredito;
             double saldoDisponible = DatosCliente.Saldo;
             double saldoDeudor = limiteCredito - saldoDisponible;

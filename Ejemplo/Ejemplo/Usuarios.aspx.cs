@@ -28,7 +28,6 @@ namespace Ejemplo
             dt = ds.Tables["spUsuarioWeb"];
             bgvUsuario.DataSource = dt;
             bgvUsuario.DataBind();
-           
         }
         private void FindControlPage()
         {

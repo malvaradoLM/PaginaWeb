@@ -1610,6 +1610,7 @@ namespace RPSuiteServer {
         bool UpdateUsuarioWeb(TUsuarioWeb Datos);
         bool setUsuarioWeb(TUsuarioWeb Datos);
         TConsumo ListaConsumoByFecha(int ClienteID, string FechaInicial, string FechaFinal);
+        TConsumo ListaConsumoByFechaAutoAbasto(string Grupo, string FechaInicial, string FechaFinal);
     }
     public partial class RPDataService_Proxy : RemObjects.DataAbstract.Server.DataAbstractService_Proxy, IRPDataService {
         public RPDataService_Proxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -1776,6 +1777,22 @@ namespace RPSuiteServer {
                 this.@__ClearMessage(@__LocalMessage);
             }
         }
+        public virtual TConsumo ListaConsumoByFechaAutoAbasto(string Grupo, string FechaInicial, string FechaFinal) {
+            RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
+            try {
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "ListaConsumoByFechaAutoAbasto");
+                @__LocalMessage.WriteAnsiString("Grupo", Grupo);
+                @__LocalMessage.WriteAnsiString("FechaInicial", FechaInicial);
+                @__LocalMessage.WriteAnsiString("FechaFinal", FechaFinal);
+                @__LocalMessage.FinalizeMessage();
+                this.ClientChannel.Dispatch(@__LocalMessage);
+                TConsumo _Result = ((TConsumo)(@__LocalMessage.Read("Result", typeof(TConsumo), RemObjects.SDK.StreamingFormat.Default)));
+                return _Result;
+            }
+            finally {
+                this.@__ClearMessage(@__LocalMessage);
+            }
+        }
     }
     public class CoRPDataService {
         public static IRPDataService Create(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) {
@@ -1822,6 +1839,9 @@ namespace RPSuiteServer {
         System.IAsyncResult BeginListaConsumoByFecha(int ClienteID, string FechaInicial, string FechaFinal, System.AsyncCallback @__Callback, object @__UserData);
         TConsumo EndListaConsumoByFecha(System.IAsyncResult @__AsyncResult);
         System.Threading.Tasks.Task<TConsumo> ListaConsumoByFechaAsync(int ClienteID, string FechaInicial, string FechaFinal);
+        System.IAsyncResult BeginListaConsumoByFechaAutoAbasto(string Grupo, string FechaInicial, string FechaFinal, System.AsyncCallback @__Callback, object @__UserData);
+        TConsumo EndListaConsumoByFechaAutoAbasto(System.IAsyncResult @__AsyncResult);
+        System.Threading.Tasks.Task<TConsumo> ListaConsumoByFechaAutoAbastoAsync(string Grupo, string FechaInicial, string FechaFinal);
     }
     public partial class RPDataService_AsyncProxy : RemObjects.DataAbstract.Server.DataAbstractService_AsyncProxy, IRPDataService_Async {
         public RPDataService_AsyncProxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -2107,6 +2127,34 @@ namespace RPSuiteServer {
         }
         public virtual System.Threading.Tasks.Task<TConsumo> ListaConsumoByFechaAsync(int ClienteID, string FechaInicial, string FechaFinal) {
             return System.Threading.Tasks.Task<TConsumo>.Factory.FromAsync(this.BeginListaConsumoByFecha(ClienteID, FechaInicial, FechaFinal, null, null), new System.Func<System.IAsyncResult, TConsumo>(this.EndListaConsumoByFecha));
+        }
+        public virtual System.IAsyncResult BeginListaConsumoByFechaAutoAbasto(string Grupo, string FechaInicial, string FechaFinal, System.AsyncCallback @__Callback, object @__UserData) {
+            RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
+            try {
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "ListaConsumoByFechaAutoAbasto");
+                @__LocalMessage.WriteAnsiString("Grupo", Grupo);
+                @__LocalMessage.WriteAnsiString("FechaInicial", FechaInicial);
+                @__LocalMessage.WriteAnsiString("FechaFinal", FechaFinal);
+                @__LocalMessage.FinalizeMessage();
+                return this.ClientChannel.AsyncDispatch(@__LocalMessage, @__Callback, @__UserData);
+            }
+            catch (System.Exception ex) {
+                this.@__ClearMessage(@__LocalMessage);
+                throw ex;
+            }
+        }
+        public virtual TConsumo EndListaConsumoByFechaAutoAbasto(System.IAsyncResult @__AsyncResult) {
+            RemObjects.SDK.IMessage @__LocalMessage = ((RemObjects.SDK.IClientAsyncResult)(@__AsyncResult)).Message;
+            try {
+                TConsumo Result = ((TConsumo)(@__LocalMessage.Read("Result", typeof(TConsumo), RemObjects.SDK.StreamingFormat.Default)));
+                return Result;
+            }
+            finally {
+                this.@__ClearMessage(@__LocalMessage);
+            }
+        }
+        public virtual System.Threading.Tasks.Task<TConsumo> ListaConsumoByFechaAutoAbastoAsync(string Grupo, string FechaInicial, string FechaFinal) {
+            return System.Threading.Tasks.Task<TConsumo>.Factory.FromAsync(this.BeginListaConsumoByFechaAutoAbasto(Grupo, FechaInicial, FechaFinal, null, null), new System.Func<System.IAsyncResult, TConsumo>(this.EndListaConsumoByFechaAutoAbasto));
         }
     }
     public class CoRPDataServiceAsync {

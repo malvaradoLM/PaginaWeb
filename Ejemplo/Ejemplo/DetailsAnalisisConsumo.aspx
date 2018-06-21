@@ -132,7 +132,7 @@ fieldset[disabled] .btn-sample.active {
         <asp:LinkButton  id="btnProcesar"  class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;margin-top: 1px; background-color:mediumseagreen" runat="server" Text="PROCESAR " >
     
 </asp:LinkButton>
-<asp:LinkButton id="btnCancelar" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
+<asp:LinkButton id="btnCancelar" OnClick="btnCancelar_Click" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
   
  </asp:LinkButton>
     <dx:BootstrapGridView ID="bgvConsumo2" runat="server"  KeyFieldName="OrderID">

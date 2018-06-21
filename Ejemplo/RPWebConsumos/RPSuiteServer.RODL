@@ -95,6 +95,18 @@
 </Parameter>
 </Parameters>
 </Operation>
+<Operation Name="ListaConsumoByFechaAutoAbasto" UID="{B5023EDC-94D6-4E17-AA17-071BF5BC0CC4}">
+<Parameters>
+<Parameter Name="Result" DataType="TConsumo" Flag="Result">
+</Parameter>
+<Parameter Name="Grupo" DataType="AnsiString" Flag="In" >
+</Parameter>
+<Parameter Name="FechaInicial" DataType="AnsiString" Flag="In" >
+</Parameter>
+<Parameter Name="FechaFinal" DataType="AnsiString" Flag="In" >
+</Parameter>
+</Parameters>
+</Operation>
 </Operations>
 </Interface>
 </Interfaces>
