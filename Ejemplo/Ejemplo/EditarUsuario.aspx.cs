@@ -107,7 +107,9 @@ namespace Ejemplo
             TUsuarioWeb Datos = new TUsuarioWeb();
             Datos.Nombre = txtNombre.Text;
             Datos.Usuario = txtUsuario.Text;
-            Datos.Administrador = (bool)chkAdministrador.Value;
+            if (chkAdministrador.Value != null)
+                Datos.Administrador = (bool)chkAdministrador.Value;
+            else Datos.Administrador = false;
             Datos.ClienteID = Convert.ToInt32(HiddenClienteID.Value);
             Datos.Clave = txtClave.Text;
             string resultado = "";

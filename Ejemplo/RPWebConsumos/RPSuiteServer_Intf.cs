@@ -1517,6 +1517,146 @@ namespace RPSuiteServer {
             return new TConsumo();
         }
     }
+    [System.Serializable()]
+    [RemObjects.SDK.Remotable(ActivatorClass=typeof(TAlbum_Activator))]
+    [System.Reflection.ObfuscationAttribute(Exclude=true)]
+    public partial class TAlbum : RemObjects.SDK.Types.ComplexType {
+        private int @__ConsumoID;
+        private int @__EstacionID;
+        private string @__Nombre;
+        private System.DateTime @__FechaCarga;
+        private string @__Identificacion;
+        private object @__Foto;
+        private int @__Contador;
+        private TAlbum[] @__Datos;
+        public virtual int ConsumoID {
+            get {
+                return @__ConsumoID;
+            }
+            set {
+                @__ConsumoID = value;
+                this.TriggerPropertyChanged("ConsumoID");
+            }
+        }
+        public virtual int EstacionID {
+            get {
+                return @__EstacionID;
+            }
+            set {
+                @__EstacionID = value;
+                this.TriggerPropertyChanged("EstacionID");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Nombre {
+            get {
+                return @__Nombre;
+            }
+            set {
+                @__Nombre = value;
+                this.TriggerPropertyChanged("Nombre");
+            }
+        }
+        public virtual System.DateTime FechaCarga {
+            get {
+                return @__FechaCarga;
+            }
+            set {
+                @__FechaCarga = value;
+                this.TriggerPropertyChanged("FechaCarga");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Identificacion {
+            get {
+                return @__Identificacion;
+            }
+            set {
+                @__Identificacion = value;
+                this.TriggerPropertyChanged("Identificacion");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.Variant)]
+        public virtual object Foto {
+            get {
+                return @__Foto;
+            }
+            set {
+                @__Foto = value;
+                this.TriggerPropertyChanged("Foto");
+            }
+        }
+        public virtual int Contador {
+            get {
+                return @__Contador;
+            }
+            set {
+                @__Contador = value;
+                this.TriggerPropertyChanged("Contador");
+            }
+        }
+        public virtual TAlbum[] Datos {
+            get {
+                return @__Datos;
+            }
+            set {
+                @__Datos = value;
+                this.TriggerPropertyChanged("Datos");
+            }
+        }
+        public override void ReadComplex(RemObjects.SDK.Serializer serializer) {
+            if (serializer.RecordStrictOrder) {
+                this.ConsumoID = serializer.ReadInt32("ConsumoID");
+                this.EstacionID = serializer.ReadInt32("EstacionID");
+                this.Nombre = serializer.ReadAnsiString("Nombre");
+                this.FechaCarga = serializer.ReadDateTime("FechaCarga");
+                this.Identificacion = serializer.ReadAnsiString("Identificacion");
+                this.Foto = serializer.ReadVariant("Foto");
+                this.Contador = serializer.ReadInt32("Contador");
+                this.Datos = ((TAlbum[])(serializer.Read("Datos", typeof(TAlbum[]), RemObjects.SDK.StreamingFormat.Default)));
+            }
+            else {
+                this.ConsumoID = serializer.ReadInt32("ConsumoID");
+                this.Contador = serializer.ReadInt32("Contador");
+                this.Datos = ((TAlbum[])(serializer.Read("Datos", typeof(TAlbum[]), RemObjects.SDK.StreamingFormat.Default)));
+                this.EstacionID = serializer.ReadInt32("EstacionID");
+                this.FechaCarga = serializer.ReadDateTime("FechaCarga");
+                this.Foto = serializer.ReadVariant("Foto");
+                this.Identificacion = serializer.ReadAnsiString("Identificacion");
+                this.Nombre = serializer.ReadAnsiString("Nombre");
+            }
+        }
+        public override void WriteComplex(RemObjects.SDK.Serializer serializer) {
+            if (serializer.RecordStrictOrder) {
+                serializer.WriteInt32("ConsumoID", this.ConsumoID);
+                serializer.WriteInt32("EstacionID", this.EstacionID);
+                serializer.WriteAnsiString("Nombre", this.Nombre);
+                serializer.WriteDateTime("FechaCarga", this.FechaCarga);
+                serializer.WriteAnsiString("Identificacion", this.Identificacion);
+                serializer.WriteVariant("Foto", this.Foto);
+                serializer.WriteInt32("Contador", this.Contador);
+                serializer.Write("Datos", this.Datos, typeof(TAlbum[]), RemObjects.SDK.StreamingFormat.Default);
+            }
+            else {
+                serializer.WriteInt32("ConsumoID", this.ConsumoID);
+                serializer.WriteInt32("Contador", this.Contador);
+                serializer.Write("Datos", this.Datos, typeof(TAlbum[]), RemObjects.SDK.StreamingFormat.Default);
+                serializer.WriteInt32("EstacionID", this.EstacionID);
+                serializer.WriteDateTime("FechaCarga", this.FechaCarga);
+                serializer.WriteVariant("Foto", this.Foto);
+                serializer.WriteAnsiString("Identificacion", this.Identificacion);
+                serializer.WriteAnsiString("Nombre", this.Nombre);
+            }
+        }
+    }
+    [System.Reflection.ObfuscationAttribute(Exclude=true, ApplyToMembers=false)]
+    public class TAlbum_Activator : object, RemObjects.SDK.ITypeActivator {
+        public TAlbum_Activator() {
+        }
+        public object CreateInstance() {
+            return new TAlbum();
+        }
+    }
     public interface IRPLoginService : RemObjects.DataAbstract.Server.ISimpleLoginService {
     }
     public partial class RPLoginService_Proxy : RemObjects.DataAbstract.Server.SimpleLoginService_Proxy, IRPLoginService {

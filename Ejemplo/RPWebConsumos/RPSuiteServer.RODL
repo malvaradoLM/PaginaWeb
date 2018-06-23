@@ -329,6 +329,26 @@
 </Element>
 </Elements>
 </Struct>
+<Struct Name="TAlbum" UID="{06AAB02B-823C-4EB3-9177-0729FA698A18}" AutoCreateParams="1">
+<Elements>
+<Element Name="ConsumoID" DataType="Integer">
+</Element>
+<Element Name="EstacionID" DataType="Integer">
+</Element>
+<Element Name="Nombre" DataType="AnsiString">
+</Element>
+<Element Name="FechaCarga" DataType="DateTime">
+</Element>
+<Element Name="Identificacion" DataType="AnsiString">
+</Element>
+<Element Name="Foto" DataType="Variant">
+</Element>
+<Element Name="Contador" DataType="Integer">
+</Element>
+<Element Name="Datos" DataType="AAlbum">
+</Element>
+</Elements>
+</Struct>
 </Structs>
 <Enums>
 </Enums>
@@ -348,6 +368,9 @@
 <Array Name="Aconsumo" UID="{CC2F7096-0486-4DED-8B0C-BC0628CD2DED}">
 <Documentation><![CDATA[Arreglo que se utiliza para encapsular informacion de consumos del Cliente]]></Documentation>
 <ElementType DataType="TConsumo" />
+</Array>
+<Array Name="AAlbum" UID="{183559AD-90A2-4B99-9AFA-043C63AC99CA}">
+<ElementType DataType="TAlbum" />
 </Array>
 </Arrays>
 <Uses>

@@ -140,7 +140,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -159,6 +161,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\ServersParameter.cs" />
+    <Compile Include="Common\LibraryAdministracion_Intf.cs" />
+    <Compile Include="Common\LibraryFlotillas_Intf.cs" />
+    <Compile Include="Common\LibraryWEB_Intf.cs" />
+    <Compile Include="Common\RPDataLibrary.cs" />
+    <Compile Include="Common\RPServerAccess.cs" />
+    <Compile Include="Common\RPUtils.cs" />
+    <Compile Include="Common\ServiciosLibrary_Intf.cs" />
     <Compile Include="Engine.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -244,6 +253,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\RemObjects Software\RemObjects SDK\RemObjects.SDK.targets" />
   <PropertyGroup>

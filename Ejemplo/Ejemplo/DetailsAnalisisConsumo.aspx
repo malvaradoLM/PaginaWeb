@@ -135,18 +135,21 @@ fieldset[disabled] .btn-sample.active {
 <asp:LinkButton id="btnCancelar" OnClick="btnCancelar_Click" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
   
  </asp:LinkButton>
-    <dx:BootstrapGridView ID="bgvConsumo2" runat="server"  KeyFieldName="OrderID">
+    <dx:BootstrapGridView ID="bgvConsumo2" runat="server"  KeyFieldName="ID" >
     <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
     <Settings ShowTitlePanel="true" />
     <Settings ShowGroupPanel="true"/>
     <Settings ShowFooter="True" />
+    <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
+    <SettingsBehavior AllowFocusedRow="True" />
     <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>
     <Columns>
-        <dx:BootstrapGridViewTextColumn FieldName="ID"   HorizontalAlign="Center" >
-                                       
+        <dx:BootstrapGridViewTextColumn FieldName="ID"   HorizontalAlign="Center"  >    
+                         <DataItemTemplate>
+                            <asp:LinkButton runat="server" Text='<%#Eval("ID")%>' OnClick="Unnamed_Click" ID='button1'  />
+                         </DataItemTemplate>   
                     </dx:BootstrapGridViewTextColumn>
                     <dx:BootstrapGridViewTextColumn FieldName="EstacionID" HorizontalAlign="Center" >
-                                  
                     </dx:BootstrapGridViewTextColumn>
                     <dx:BootstrapGridViewTextColumn FieldName="FechaCarga"  UnboundType="DateTime" HorizontalAlign="Center">
                                <PropertiesTextEdit DisplayFormatString="dd/MM/yyyy" />        
@@ -177,7 +180,33 @@ fieldset[disabled] .btn-sample.active {
         <dx:ASPxSummaryItem FieldName="Cantidad"  SummaryType="Sum" DisplayFormat="c"  />
         <dx:ASPxSummaryItem FieldName="Importe" SummaryType="Sum" DisplayFormat="c"  />
     </TotalSummary>
-</dx:BootstrapGridView>   
+</dx:BootstrapGridView>  
+        <div id="detallesConsumo">
+    <dx:ASPxPageControl ID="carTabPage" Width="100%" runat="server" CssClass="dxtcFixed" ActiveTabIndex="0" EnableHierarchyRecreation="True" >
+        <TabPages>
+            <dx:TabPage Text="TICKET">
+                <ContentCollection>
+                    <dx:ContentControl ID="ContentControl1" runat="server">
+                        <dx:ASPxImage runat="server" ID="Image1" ImageUrl="~/TabControl/Images/(London)-Tower-Bridge.jpg" CssClass="dxtmImage" />
+                    </dx:ContentControl>
+                </ContentCollection>
+            </dx:TabPage>
+            <dx:TabPage Text="FOTOGRAFÍA">
+                <ContentCollection>
+                    <dx:ContentControl ID="ContentControl2" runat="server">
+                        <dx:ASPxImage runat="server" ID="Image2" ImageUrl="~/TabControl/Images/(New-York)-Brooklyn-Bridge.jpg" CssClass="dxtmImage" />
+                    </dx:ContentControl>
+                </ContentCollection>
+            </dx:TabPage>
+            <dx:TabPage Text="GEOLOCALIZACIÓN">
+                <ContentCollection>
+                    <dx:ContentControl ID="ContentControl3" runat="server">
+                        <dx:ASPxImage runat="server" ID="Image3" ImageUrl="~/TabControl/Images/(Tokyo)-Tokyo-Tower.jpg" CssClass="dxtmImage" />
+                    </dx:ContentControl>
+                </ContentCollection>
+            </dx:TabPage>
+        </TabPages>
+    </dx:ASPxPageControl>	
     </div>	
-    
+</div>	
 </asp:Content>

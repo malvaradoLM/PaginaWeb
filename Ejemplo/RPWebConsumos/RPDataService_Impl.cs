@@ -379,7 +379,7 @@ namespace RPSuiteServer
                         DestroySession();
                         GetSession();
                     }
-
+                    ServiciosLibrary.TDatosEstacion dataEstacion = RPServer.RPServicios.DatosEstacion(1269);
                     result.Datos = info.ToArray();
                     return result;
                 }

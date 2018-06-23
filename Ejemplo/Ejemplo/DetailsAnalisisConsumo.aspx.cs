@@ -1,15 +1,14 @@
 ﻿using Ejemplo.Data;
 using Ejemplo.Data.Dataset;
 using RemObjects.DataAbstract.Server;
+using RPSuiteServer;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
+using ServiciosLibrary;
+using System.Web.Mvc;
 using System.Web.UI.WebControls;
-using DevExpress;
-using DevExpress.Data;
+using DevExpress.Web;
 
 namespace Ejemplo
 {
@@ -46,6 +45,7 @@ namespace Ejemplo
                     
                 }
                 cargarReporte(titulo, dt);
+               
             }
         }
  
@@ -92,5 +92,22 @@ namespace Ejemplo
         {
             Response.Redirect("Reportes.aspx", false);
         }
+        private void obtenerGeolocalizacion(int EstacionID)
+        {
+            
+            ServiciosLibrary.TDatosEstacion dataEstacion = RPServer.RPServicios.DatosEstacion(13266);
+
+        }
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+            LinkButton item = (LinkButton)sender;
+            string ID = item.Text;
+            object padre = item.Parent;
+            GridViewDataItemTemplateContainer row = (GridViewDataItemTemplateContainer)item.NamingContainer;
+            int index = row.ItemIndex;
+            string EstacionID = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "EstacionID").ToString();
+            
+        }
+
     }
 }
