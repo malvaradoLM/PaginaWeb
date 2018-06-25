@@ -115,6 +115,14 @@
 </Parameter>
 </Parameters>
 </Operation>
+<Operation Name="ListaConsumoFotosByID" UID="{D177908A-8189-4BBA-9393-0039094D1CE7}">
+<Parameters>
+<Parameter Name="Result" DataType="TAlbum" Flag="Result">
+</Parameter>
+<Parameter Name="ConsumoID" DataType="Integer" Flag="In" >
+</Parameter>
+</Parameters>
+</Operation>
 </Operations>
 </Interface>
 </Interfaces>

@@ -17300,7 +17300,7 @@ ORDER BY ID</SQL>
           <Value />
           <ParamType>daptInput</ParamType>
           <Name>ConsumoID</Name>
-          <DataType>datUnknown</DataType>
+          <DataType>datInteger</DataType>
           <Size>0</Size>
           <DecimalScale>0</DecimalScale>
           <DecimalPrecision>0</DecimalPrecision>

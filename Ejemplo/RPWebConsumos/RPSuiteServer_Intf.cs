@@ -1752,6 +1752,7 @@ namespace RPSuiteServer {
         TConsumo ListaConsumoByFecha(int ClienteID, string FechaInicial, string FechaFinal);
         TConsumo ListaConsumoByFechaAutoAbasto(string Grupo, string FechaInicial, string FechaFinal);
         TConsumo ListaConsumoByID(int ConsumoID);
+        TAlbum ListaConsumoFotosByID(int ConsumoID);
     }
     public partial class RPDataService_Proxy : RemObjects.DataAbstract.Server.DataAbstractService_Proxy, IRPDataService {
         public RPDataService_Proxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -1948,6 +1949,20 @@ namespace RPSuiteServer {
                 this.@__ClearMessage(@__LocalMessage);
             }
         }
+        public virtual TAlbum ListaConsumoFotosByID(int ConsumoID) {
+            RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
+            try {
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "ListaConsumoFotosByID");
+                @__LocalMessage.WriteInt32("ConsumoID", ConsumoID);
+                @__LocalMessage.FinalizeMessage();
+                this.ClientChannel.Dispatch(@__LocalMessage);
+                TAlbum _Result = ((TAlbum)(@__LocalMessage.Read("Result", typeof(TAlbum), RemObjects.SDK.StreamingFormat.Default)));
+                return _Result;
+            }
+            finally {
+                this.@__ClearMessage(@__LocalMessage);
+            }
+        }
     }
     public class CoRPDataService {
         public static IRPDataService Create(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) {
@@ -2000,6 +2015,9 @@ namespace RPSuiteServer {
         System.IAsyncResult BeginListaConsumoByID(int ConsumoID, System.AsyncCallback @__Callback, object @__UserData);
         TConsumo EndListaConsumoByID(System.IAsyncResult @__AsyncResult);
         System.Threading.Tasks.Task<TConsumo> ListaConsumoByIDAsync(int ConsumoID);
+        System.IAsyncResult BeginListaConsumoFotosByID(int ConsumoID, System.AsyncCallback @__Callback, object @__UserData);
+        TAlbum EndListaConsumoFotosByID(System.IAsyncResult @__AsyncResult);
+        System.Threading.Tasks.Task<TAlbum> ListaConsumoFotosByIDAsync(int ConsumoID);
     }
     public partial class RPDataService_AsyncProxy : RemObjects.DataAbstract.Server.DataAbstractService_AsyncProxy, IRPDataService_Async {
         public RPDataService_AsyncProxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -2339,6 +2357,32 @@ namespace RPSuiteServer {
         }
         public virtual System.Threading.Tasks.Task<TConsumo> ListaConsumoByIDAsync(int ConsumoID) {
             return System.Threading.Tasks.Task<TConsumo>.Factory.FromAsync(this.BeginListaConsumoByID(ConsumoID, null, null), new System.Func<System.IAsyncResult, TConsumo>(this.EndListaConsumoByID));
+        }
+        public virtual System.IAsyncResult BeginListaConsumoFotosByID(int ConsumoID, System.AsyncCallback @__Callback, object @__UserData) {
+            RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
+            try {
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "ListaConsumoFotosByID");
+                @__LocalMessage.WriteInt32("ConsumoID", ConsumoID);
+                @__LocalMessage.FinalizeMessage();
+                return this.ClientChannel.AsyncDispatch(@__LocalMessage, @__Callback, @__UserData);
+            }
+            catch (System.Exception ex) {
+                this.@__ClearMessage(@__LocalMessage);
+                throw ex;
+            }
+        }
+        public virtual TAlbum EndListaConsumoFotosByID(System.IAsyncResult @__AsyncResult) {
+            RemObjects.SDK.IMessage @__LocalMessage = ((RemObjects.SDK.IClientAsyncResult)(@__AsyncResult)).Message;
+            try {
+                TAlbum Result = ((TAlbum)(@__LocalMessage.Read("Result", typeof(TAlbum), RemObjects.SDK.StreamingFormat.Default)));
+                return Result;
+            }
+            finally {
+                this.@__ClearMessage(@__LocalMessage);
+            }
+        }
+        public virtual System.Threading.Tasks.Task<TAlbum> ListaConsumoFotosByIDAsync(int ConsumoID) {
+            return System.Threading.Tasks.Task<TAlbum>.Factory.FromAsync(this.BeginListaConsumoFotosByID(ConsumoID, null, null), new System.Func<System.IAsyncResult, TAlbum>(this.EndListaConsumoFotosByID));
         }
     }
     public class CoRPDataServiceAsync {

@@ -88,7 +88,10 @@ fieldset[disabled] .btn-sample.active {
     color: #ffffff;
     font-family: 'Roboto Condensed', sans-serif;
 }
-
+.myCustomClass {
+    border: solid 1px #458CCA; 
+    border-top-width: 11px !important;
+}
  </style>
 <div id="nav" class="container" style="margin-left:0px; margin-right:0px"><h1>Análisis de Consumo</h1></div>
     <div class="row">
@@ -129,7 +132,7 @@ fieldset[disabled] .btn-sample.active {
                     </table>
                 </div>
             </div>
-        <asp:LinkButton  id="btnProcesar"  class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;margin-top: 1px; background-color:mediumseagreen" runat="server" Text="PROCESAR " >
+        <asp:LinkButton  id="btnProcesar" OnClick="btnProcesar_Click"  class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;margin-top: 1px; background-color:mediumseagreen" runat="server" Text="PROCESAR " >
     
 </asp:LinkButton>
 <asp:LinkButton id="btnCancelar" OnClick="btnCancelar_Click" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
@@ -181,8 +184,8 @@ fieldset[disabled] .btn-sample.active {
         <dx:ASPxSummaryItem FieldName="Importe" SummaryType="Sum" DisplayFormat="c"  />
     </TotalSummary>
 </dx:BootstrapGridView>  
-        <div id="detallesConsumo">
-    <dx:ASPxPageControl ID="carTabPage" Width="100%" runat="server" CssClass="dxtcFixed" ActiveTabIndex="0" EnableHierarchyRecreation="True" >
+        <div id="detallesConsumo" runat="server" >
+    <dx:ASPxPageControl ID="carTabPage" Width="100%" runat="server" ActiveTabIndex="0" EnableHierarchyRecreation="True" CssClass="nav nav-pills" >
         <TabPages>
             <dx:TabPage Text="TICKET">
                 <ContentCollection>
@@ -194,7 +197,9 @@ fieldset[disabled] .btn-sample.active {
             <dx:TabPage Text="FOTOGRAFÍA">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl2" runat="server">
-                        <dx:ASPxImage runat="server" ID="Image2" ImageUrl="~/TabControl/Images/(New-York)-Brooklyn-Bridge.jpg" CssClass="dxtmImage" />
+                        <dx:ASPxImageSlider ID="imageSlider" runat="server" ClientInstanceName="imageSlider" CssClass="imageSlider"  EnableTheming="false" Width="100%">
+                            <ClientSideEvents Init="function(s, e) { s.Focus(); }" />
+                         </dx:ASPxImageSlider>
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>

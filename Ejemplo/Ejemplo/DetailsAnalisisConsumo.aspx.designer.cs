@@ -94,6 +94,15 @@ namespace Ejemplo {
         protected global::DevExpress.Web.Bootstrap.BootstrapGridView bgvConsumo2;
         
         /// <summary>
+        /// detallesConsumo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl detallesConsumo;
+        
+        /// <summary>
         /// carTabPage control.
         /// </summary>
         /// <remarks>
@@ -130,13 +139,13 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ContentControl ContentControl2;
         
         /// <summary>
-        /// Image2 control.
+        /// imageSlider control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxImage Image2;
+        protected global::DevExpress.Web.ASPxImageSlider imageSlider;
         
         /// <summary>
         /// ContentControl3 control.

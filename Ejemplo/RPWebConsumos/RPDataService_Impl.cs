@@ -447,6 +447,58 @@ namespace RPSuiteServer
             }
         }
 
+        public virtual TAlbum ListaConsumoFotosByID(int ConsumoID)
+        {
+            List<TAlbum> info = new List<TAlbum>();
+            TAlbum result = new TAlbum();
+
+            byte[] obj;
+            int Cont = 0;
+
+            try
+            {
+
+                IDbCommand command;
+
+                using (IDataReader rDataset = this.ServiceSchema.GetDataReader(this.Connection, "spListaConsumoFotosByID", new string[] { "ConsumoID" }, new object[] { ConsumoID }, out command))
+
+                    // Alimentamos la sesion con datos adicionales
+                    while (rDataset.Read())
+                {
+                    if (rDataset["Foto"] != null)
+                    {
+                        obj = (byte[])(rDataset["Foto"]);
+                    }
+                    else
+                    {
+                        obj = null;
+                    }
+
+                    info.Add(new TAlbum()
+                    {
+                        ConsumoID = (string.IsNullOrEmpty(rDataset["ID"].ToString()) ? 0 : (int)(rDataset["ID"])),
+                        EstacionID = (string.IsNullOrEmpty(rDataset["EstacionID"].ToString()) ? 0 : (int)(rDataset["EstacionID"])),
+                        Nombre = (string.IsNullOrEmpty(rDataset["Nombre"].ToString()) ? "" : (string)(rDataset["Nombre"])),
+                        FechaCarga = (string.IsNullOrEmpty(rDataset["FechaCarga"].ToString()) ? DateTime.Parse("01/01/1900") : (DateTime)(rDataset["FechaCarga"])),
+                        Identificacion = (string.IsNullOrEmpty(rDataset["Identificacion"].ToString()) ? "" : (string)(rDataset["Identificacion"])),
+                        Foto = obj,
+                        Contador = Cont + 1,
+                        Datos = null
+                    });
+
+                    Cont++;
+                }
+
+                result.Datos = info.ToArray();
+                return result;
+            }
+            catch (Exception ex)
+            {
+
+                return result;
+            }
+        }
+
 
     }
 }

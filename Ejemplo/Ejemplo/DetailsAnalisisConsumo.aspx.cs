@@ -10,6 +10,8 @@ using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using DevExpress.Web;
 using Ejemplo.Models;
+using System.Web.UI;
+using System.Drawing;
 
 namespace Ejemplo
 {
@@ -24,7 +26,7 @@ namespace Ejemplo
                 txtFechaFinal.Date = DateTime.Now;
                 chkBoxList.SelectedIndex = 0;
                 bgvConsumo2.Visible = false;
-
+                detallesConsumo.Visible = false;
             }
             else
             {
@@ -93,14 +95,20 @@ namespace Ejemplo
         {
             Response.Redirect("Reportes.aspx", false);
         }
+        protected void btnProcesar_Click(object sender, EventArgs e)
+        {
+            imageSlider.Items.Clear();
+            detallesConsumo.Visible = false;
+        }
         private void obtenerGeolocalizacion(int EstacionID)
         {
             
-            ServiciosLibrary.TDatosEstacion dataEstacion = RPServer.RPServicios.DatosEstacion(13266);
+           // ServiciosLibrary.TDatosEstacion dataEstacion = RPServer.RPServicios.DatosEstacion(13266);
 
         }
         protected void Unnamed_Click(object sender, EventArgs e)
         {
+            detallesConsumo.Visible = true;
             LinkButton item = (LinkButton)sender;
             string ID = item.Text;
             string EstacionID = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "EstacionID").ToString();
@@ -122,14 +130,18 @@ namespace Ejemplo
             string ReporteNombre = "TICKET WEB";
             string TipoArchivo = "PDF";
 
-            Rutinas InfoConsumoFacturaTicket = new Rutinas();
-           Ejemplo.Models.ComodinModel.BigViewModel.pathConsumoFactura resultado2 = InfoConsumoFacturaTicket.GetInfoConsumoFactura(_GasolineroID, Serie, Folio, ReporteNombre, ParametrosReporte, TipoArchivo);
+            //Rutinas InfoConsumoFacturaTicket = new Rutinas();
 
+            //Ejemplo.Models.ComodinModel.BigViewModel.pathConsumoFactura resultado2 = InfoConsumoFacturaTicket.GetInfoConsumoFactura(_GasolineroID, Serie, Folio, ReporteNombre, ParametrosReporte, TipoArchivo);
+
+            RPSuiteServer.TAlbum album = new TAlbum();
+            album = DataModule.DataService.ListaConsumoFotosByID(_ConsumoID);
+            cargarGaleria(album);
 
             if (_ConsumoID != null)
             {
                 //Buscar detalle del consumo de la factura
-                TConsumo data3 = RPServer.RPSuiteService.ListaConsumoByID(_ConsumoID);
+             //   TConsumo data3 = RPServer.RPSuiteService.ListaConsumoByID(_ConsumoID);
                 /*
                 ViewBag.ConsumoFactID = _ConsumoID;
 
@@ -254,6 +266,19 @@ namespace Ejemplo
                 */
             }
             
+        }
+
+        private void cargarGaleria(TAlbum album)
+        {
+            imageSlider.Items.Clear();
+            foreach(TAlbum item in album.Datos)
+            {
+                imageSlider.Items.Add(
+        "data:image/png;base64," + Convert.ToBase64String((Byte[])item.Foto),
+        "data:image/png;base64," + Convert.ToBase64String((Byte[])item.Foto),
+        "", "Estacion: "+item.Nombre+ " Identificacion: "+item.Identificacion+" Fecha de Carga: "+item.FechaCarga
+    );
+            }
         }
     }
 }

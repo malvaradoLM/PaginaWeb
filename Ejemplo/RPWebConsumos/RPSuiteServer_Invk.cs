@@ -203,6 +203,22 @@ namespace RPSuiteServer {
                 @__ObjectDisposer.Dispose();
             }
         }
+        public static void Invoke_ListaConsumoFotosByID(RemObjects.SDK.IROService @__Instance, RemObjects.SDK.IMessage @__Message, RemObjects.SDK.Server.IServerChannelInfo @__ServerChannelInfo, out RemObjects.SDK.Server.ResponseOptions @__oResponseOptions) {
+            RemObjects.SDK.ObjectDisposer @__ObjectDisposer = new RemObjects.SDK.ObjectDisposer(1);
+            try {
+                int ConsumoID = @__Message.ReadInt32("ConsumoID");
+                TAlbum Result;
+                Result = ((IRPDataService)(@__Instance)).ListaConsumoFotosByID(ConsumoID);
+                @__ObjectDisposer.Add(Result);
+                @__Message.InitializeResponseMessage(@__ServerChannelInfo, "RPSuiteServer", "RPDataService", "ListaConsumoFotosByIDResponse");
+                @__Message.Write("Result", Result, typeof(TAlbum), RemObjects.SDK.StreamingFormat.Default);
+                @__Message.FinalizeMessage();
+                @__oResponseOptions = RemObjects.SDK.Server.ResponseOptions.roDefault;
+            }
+            finally {
+                @__ObjectDisposer.Dispose();
+            }
+        }
     }
     [System.Reflection.ObfuscationAttribute(Exclude=true, ApplyToMembers=false)]
     public class RPDataService_Activator : object, RemObjects.SDK.Server.IServiceActivator {
