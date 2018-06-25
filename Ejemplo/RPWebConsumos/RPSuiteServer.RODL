@@ -107,6 +107,14 @@
 </Parameter>
 </Parameters>
 </Operation>
+<Operation Name="ListaConsumoByID" UID="{3A15C119-C06C-4D5C-B0CE-790FE734ECC4}">
+<Parameters>
+<Parameter Name="Result" DataType="TConsumo" Flag="Result">
+</Parameter>
+<Parameter Name="ConsumoID" DataType="Integer" Flag="In" >
+</Parameter>
+</Parameters>
+</Operation>
 </Operations>
 </Interface>
 </Interfaces>

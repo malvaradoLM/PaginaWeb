@@ -4,8 +4,10 @@ using Ejemplo.Data.Dataset;
 using RemObjects.DataAbstract.Server;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -35,7 +37,9 @@ namespace Ejemplo
             lblLimiteCredito.Text = DatosCliente.LimiteCredito.ToString("C");
             lblSaldoDisponible.Text = saldoDisponible.ToString("C");
             lblSaldoDeudor.Text = saldoDeudor.ToString("C");
+            setGasolineroID();
         }
+
         private void cargaDataTableGrafica()
         {
             Params.Clear();
@@ -62,6 +66,32 @@ namespace Ejemplo
             webChartControl.SeriesTemplate.View = new SideBySideBarSeriesView();
             webChartControl.SeriesTemplate.CrosshairLabelPattern = "{A} - {V:c}";
             webChartControl.DataBind();
+        }
+        private void setGasolineroID()
+        {
+            string line;
+            string RutaCistemIni = ConfigurationManager.AppSettings["RutaCistemIni"].ToString();
+            string path = @RutaCistemIni;
+            if (File.Exists(path))
+            {
+                // Read the file and display it line by line.
+                System.IO.StreamReader file =
+                   new System.IO.StreamReader(path);
+
+                while ((line = file.ReadLine()) != null)
+                {
+                    //Console.WriteLine(line);
+                    string strLinea = line;
+
+                    if (strLinea.Contains("GasolineroID="))
+                    {
+                        string[] linea = strLinea.Split('=');
+                        Session["GasolineroID"] = linea[1];
+                    }
+                }
+            file.Close();
+        }
+
         }
     }
 

@@ -324,13 +324,11 @@ namespace RPSuiteServer
         {
             TConsumo result = new TConsumo();
             List<TConsumo> info = new List<TConsumo>();
-            TCliente Res = new TCliente();
             try
             {
                 IDbCommand command;
 
                 using (IDataReader rDataset = this.ServiceSchema.GetDataReader(this.Connection, "spListaConsumoByFechaAutoAbasto", new string[] { "Grupo", "FechaInicial", "FechaFinal" }, new object[] { Grupo, FechaInicial, FechaFinal }, out command))
-                // using (IDataReader reader = this.ServiceSchema.GetDataReader(this.Connection, "BuscaCliente", new string[] { "ClienteID" }, new object[] { ClienteID }, out command))
 
                 {
                     while (rDataset.Read())
@@ -389,6 +387,63 @@ namespace RPSuiteServer
                 result.MensajeError = "Ocurrio un error en la conexión al sistema, favor de contactar al administrador! " +
                                     "Descripción del Error: " + ex.Message.ToString().ToString();
                 return result;
+            }
+        }
+        public virtual TConsumo ListaConsumoByID(int ConsumoID)
+        {
+            TConsumo info = new TConsumo();
+
+            try
+            {
+                info.Error = true;
+                IDbCommand command;
+
+                using (IDataReader rDataset = this.ServiceSchema.GetDataReader(this.Connection, "spListaConsumoByID", new string[] { "ConsumoID", "FechaInicial", "FechaFinal" }, new object[] { ConsumoID }, out command))
+                    // Alimentamos la sesion con datos adicionales
+                    while (rDataset.Read())
+                {
+                    info.ID = (string.IsNullOrEmpty(rDataset["ID"].ToString()) ? 0 : (int)(rDataset["ID"]));
+                    info.EstacionID = (string.IsNullOrEmpty(rDataset["EstacionID"].ToString()) ? 0 : (int)(rDataset["EstacionID"]));
+                    info.Ticket = (string.IsNullOrEmpty(rDataset["Ticket"].ToString()) ? 0 : (int)(rDataset["Ticket"]));
+                    info.Serie = (string.IsNullOrEmpty(rDataset["Serie"].ToString()) ? "" : (string)(rDataset["Serie"]));
+                    info.FechaCarga = (string.IsNullOrEmpty(rDataset["FechaCarga"].ToString()) ? DateTime.Parse("01/01/1900") : (DateTime)(rDataset["FechaCarga"]));
+                    info.Bomba = (string.IsNullOrEmpty(rDataset["Bomba"].ToString()) ? 0 : (int)(rDataset["Bomba"]));
+
+                    info.Cantidad = Convert.ToDecimal(rDataset["Cantidad"] ?? 0.0).ToString();
+                    info.Precio = (string.IsNullOrEmpty(rDataset["Precio"].ToString()) ? "" : "$" + Convert.ToDecimal(rDataset["Precio"] ?? 0.0).ToString("#,##0.00"));
+                    info.Importe = Convert.ToDecimal(rDataset["Importe"] ?? 0.0).ToString();
+
+                    info.ClienteID = (string.IsNullOrEmpty(rDataset["ClienteID"].ToString()) ? 0 : (int)(rDataset["ClienteID"]));
+                    info.VehiculoID = (string.IsNullOrEmpty(rDataset["VehiculoID"].ToString()) ? 0 : (int)(rDataset["VehiculoID"]));
+                    info.Tarjeta = (string.IsNullOrEmpty(rDataset["Tarjeta"].ToString()) ? "" : (string)(rDataset["Tarjeta"]));
+                    info.Facturado = (bool)rDataset["Facturado"];
+                    info.Kilometraje = (string.IsNullOrEmpty(rDataset["Kilometraje"].ToString()) ? 0 : (int)(rDataset["Kilometraje"]));
+                    info.Turno = (string.IsNullOrEmpty(rDataset["Turno"].ToString()) ? 0 : (int)(rDataset["Turno"]));
+                    info.FechaMovimiento = (string.IsNullOrEmpty(rDataset["FechaMovimiento"].ToString()) ? DateTime.Parse("01/01/1900") : (DateTime)(rDataset["FechaMovimiento"]));
+                    info.PathConsumoFacturaTicket = null;
+                    info.ErrorConsumoFacturaTicket = null;
+                    info.typeDevices = null;
+                    info.Datos = null;
+
+                    info.Error = false;
+                }
+
+                if (info.Error)
+                {
+                    // No se encontro informacion del cliente, destruimos la session.
+                    info.MensajeError = "No se encontro informacion del detalle de factura del cliente.";
+                    DestroySession();
+                    GetSession();
+                }
+
+                //result.Datos = info.ToArray();
+                return info;
+            }
+            catch (Exception ex)
+            {
+                info.MensajeError = "Ocurrio un error en la conexión al sistema, favor de contactar al administrador! " +
+                                    "Descripción del Error: " + ex.Message.ToString().ToString();
+                return info;
             }
         }
 
