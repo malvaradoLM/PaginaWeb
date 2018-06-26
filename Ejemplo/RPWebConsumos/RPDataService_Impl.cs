@@ -451,7 +451,6 @@ namespace RPSuiteServer
         {
             List<TAlbum> info = new List<TAlbum>();
             TAlbum result = new TAlbum();
-
             byte[] obj;
             int Cont = 0;
 

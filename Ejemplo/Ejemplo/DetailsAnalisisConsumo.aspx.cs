@@ -12,6 +12,7 @@ using DevExpress.Web;
 using Ejemplo.Models;
 using System.Web.UI;
 using System.Drawing;
+using System.Text;
 
 namespace Ejemplo
 {
@@ -48,7 +49,6 @@ namespace Ejemplo
                     
                 }
                 cargarReporte(titulo, dt);
-                obtenerGeolocalizacion(1);
             }
         }
  
@@ -102,9 +102,9 @@ namespace Ejemplo
         }
         private void obtenerGeolocalizacion(int EstacionID)
         {
-            
-           // ServiciosLibrary.TDatosEstacion dataEstacion = RPServer.RPServicios.DatosEstacion(13266);
 
+             ServiciosLibrary.TDatosEstacion dataEstacion = RPServer.RPServicios.DatosEstacion(EstacionID);
+            CargarMapa(dataEstacion.Latitud.ToString(), dataEstacion.Longitud.ToString());
         }
         protected void Unnamed_Click(object sender, EventArgs e)
         {
@@ -116,6 +116,7 @@ namespace Ejemplo
             string Folio = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "Folio").ToString();
 
             consumoReporte(Convert.ToInt32(ID),Serie,Folio);
+            obtenerGeolocalizacion(Convert.ToInt32(EstacionID));
         }
         private void consumoReporte(int _ConsumoID,string Serie, String Folio)
         {
@@ -129,7 +130,6 @@ namespace Ejemplo
             string ParametrosReporte = TipoMov + _ConsumoID + c2;
             string ReporteNombre = "TICKET WEB";
             string TipoArchivo = "PDF";
-
             //Rutinas InfoConsumoFacturaTicket = new Rutinas();
 
             //Ejemplo.Models.ComodinModel.BigViewModel.pathConsumoFactura resultado2 = InfoConsumoFacturaTicket.GetInfoConsumoFactura(_GasolineroID, Serie, Folio, ReporteNombre, ParametrosReporte, TipoArchivo);
@@ -137,7 +137,7 @@ namespace Ejemplo
             RPSuiteServer.TAlbum album = new TAlbum();
             album = DataModule.DataService.ListaConsumoFotosByID(_ConsumoID);
             cargarGaleria(album);
-
+            
             if (_ConsumoID != null)
             {
                 //Buscar detalle del consumo de la factura
@@ -278,6 +278,32 @@ namespace Ejemplo
         "data:image/png;base64," + Convert.ToBase64String((Byte[])item.Foto),
         "", "Estacion: "+item.Nombre+ " Identificacion: "+item.Identificacion+" Fecha de Carga: "+item.FechaCarga
     );
+            }
+        }
+
+        private void CargarMapa(string latitud, string longitud)
+        {
+            const string ScriptKey = "ScriptKey";
+            if (!ClientScript.IsStartupScriptRegistered(this.GetType(), ScriptKey))
+            {
+                StringBuilder fn = new StringBuilder();
+                fn.Append("var map = null; ");
+                fn.Append("function LoadMap() { ");
+                fn.Append("map = new Microsoft.Maps.Map('#myMap', { ");
+                fn.Append("credentials: \"Amj5vm4UWJ5FGig8NYp7xQLVV5RJEXMz0KGIl5BFnCVT2B1GHKsjnQ1MYZFy5_pw\" ");
+                fn.Append("}); ");
+                ////Pushpins
+                fn.Append("var pins = [];");
+                fn.Append("var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location("+latitud+","+longitud+")); ");
+                fn.Append("pins.push(pushpin); ");
+                fn.Append("map.entities.push(pins); ");
+                ///
+                fn.Append("map.setView({ ");
+                fn.Append("zoom: 12, center: new Microsoft.Maps.Location("+latitud+", "+longitud+")");
+                fn.Append("});");
+                fn.Append("};");
+                ClientScript.RegisterStartupScript(this.GetType(),
+        ScriptKey, fn.ToString(), true);
             }
         }
     }

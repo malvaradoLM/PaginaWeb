@@ -88,11 +88,122 @@ fieldset[disabled] .btn-sample.active {
     color: #ffffff;
     font-family: 'Roboto Condensed', sans-serif;
 }
-.myCustomClass {
-    border: solid 1px #458CCA; 
-    border-top-width: 11px !important;
+/* easy tabs css */
+.easytabs {
+width: 850px;
+height: auto;
+float: left;
+text-transform: capitalize;
+margin-bottom: 20px;
+}
+.easytabs ul.tabs {
+margin: 0;
+padding: 0;
+float: left;
+list-style: none;
+height: auto;
+border-bottom: 1px solid #06F;
+width: 850px;
+-moz-border-radius-topleft: 5px;
+-webkit-border-top-left-radius: 5px;
+border-top-left-radius: 5px;
+}
+.easytabs ul.tabs li {
+float: left;
+margin: 0;
+padding: 0;
+height: auto;
+width: auto;
+margin-right: 3px;
+margin-top: 1px;
+margin-bottom: -1px;
+overflow: hidden;
+position: relative;
+background: #fff url(../images/tab_inactive_bg.png) bottom left repeat-x;
+-moz-border-radius-topleft: 5px;
+-moz-border-radius-topright: 5px;
+-webkit-border-top-left-radius: 5px;
+-webkit-border-top-right-radius: 5px;
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+text-align: center;
+border-top: 1px solid #c2c2c2;
+border-left: 1px solid #c2c2c2;
+border-right: 1px solid #c2c2c2;
+border-bottom: 1px solid #06F;
+}
+.easytabs ul.tabs li a {
+text-decoration: none;
+color: #222;
+display: block;
+padding: 8px 16px;
+outline: none;
+text-align: center;
+font-size: 14px;
+line-height: 18px;
+text-transform: uppercase;
+}
+.easytabs ul.tabs li.active {
+background: #06F;
+border: 1px solid #06F;
+}
+.easytabs ul.tabs li.active a {
+font-weight: bold;
+color: #fff;
+}
+.easytabs .tab_container {
+overflow: hidden;
+clear: both;
+float: left;
+width: 808px;
+background: #fff;
+overflow: auto;
+height: auto;
+line-height: 16px;
+padding: 20px;
+border-bottom: 1px solid #06F;
+border-left: 1px solid #06F;
+border-right: 1px solid #06F;
+}
+.easytabs .tab_content {
+width: 100%;
+height: auto;
+float: left;
 }
  </style>
+<script type="text/javascript">
+    /*
+    var map = null;
+
+    function LoadMap() {
+        map = new Microsoft.Maps.Map('#myMap', {
+            credentials: "Amj5vm4UWJ5FGig8NYp7xQLVV5RJEXMz0KGIl5BFnCVT2B1GHKsjnQ1MYZFy5_pw"
+        });
+        
+        $('#btnProcesar').click(function () {
+            var url = "/Home/GetLocations";
+            $.getJSON(url, null, function (data) {
+                var pins = [];
+
+                $.each(data, function (index, LocationData) {
+                    var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(LocationData.latitude,LocationData.longitude));
+
+                    pins.push(pushpin);
+                });
+
+                map.entities.push(pins);
+
+                map.setView({
+                    zoom: 4, center: new Microsoft.Maps.Location(23.505353, 78.485292)
+                });
+            });
+        });
+        
+    };
+    */
+</script>
+<script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=LoadMap" async defer></script>
+
 <div id="nav" class="container" style="margin-left:0px; margin-right:0px"><h1>Análisis de Consumo</h1></div>
     <div class="row">
             <ol class="breadcrumb Cards-Contenido col-lg-10" style="background:initial;">
@@ -184,8 +295,8 @@ fieldset[disabled] .btn-sample.active {
         <dx:ASPxSummaryItem FieldName="Importe" SummaryType="Sum" DisplayFormat="c"  />
     </TotalSummary>
 </dx:BootstrapGridView>  
-        <div id="detallesConsumo" runat="server" >
-    <dx:ASPxPageControl ID="carTabPage" Width="100%" runat="server" ActiveTabIndex="0" EnableHierarchyRecreation="True" CssClass="nav nav-pills" >
+        <div id="detallesConsumo" runat="server"  >
+    <dx:ASPxPageControl ID="carTabPage" Width="100%" runat="server" ActiveTabIndex="2" EnableHierarchyRecreation="True"  >
         <TabPages>
             <dx:TabPage Text="TICKET">
                 <ContentCollection>
@@ -206,7 +317,7 @@ fieldset[disabled] .btn-sample.active {
             <dx:TabPage Text="GEOLOCALIZACIÓN">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl3" runat="server">
-                        <dx:ASPxImage runat="server" ID="Image3" ImageUrl="~/TabControl/Images/(Tokyo)-Tokyo-Tower.jpg" CssClass="dxtmImage" />
+                  <div id="myMap" style="position:relative; width: 100% ; height:600px;"></div>
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>
