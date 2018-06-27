@@ -306,5 +306,11 @@ namespace Ejemplo
         ScriptKey, fn.ToString(), true);
             }
         }
+
+        protected void bgvConsumo2_PageIndexChanged(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), Guid.NewGuid().ToString("N"), "ocultarDetalles();", true);
+
+        }
     }
 }

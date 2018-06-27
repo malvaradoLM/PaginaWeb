@@ -201,7 +201,15 @@ float: left;
         
     };
     */
+    function ocultarDetalles(s,e) {       
+        if (document.getElementById('<%= detallesConsumo.ClientID %>') != null) {
+            document.getElementById('<%= detallesConsumo.ClientID %>').remove("visible");
+        }
+    }
 </script>
+   
+
+
 <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=LoadMap" async defer></script>
 
 <div id="nav" class="container" style="margin-left:0px; margin-right:0px"><h1>Análisis de Consumo</h1></div>
@@ -249,7 +257,7 @@ float: left;
 <asp:LinkButton id="btnCancelar" OnClick="btnCancelar_Click" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
   
  </asp:LinkButton>
-    <dx:BootstrapGridView ID="bgvConsumo2" runat="server"  KeyFieldName="ID" >
+    <dx:BootstrapGridView ID="bgvConsumo2" runat="server"  KeyFieldName="ID"  ClientSideEvents-ToolbarItemClick="ocultarDetalles" ClientSideEvents-BeginCallback="ocultarDetalles" >
     <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
     <Settings ShowTitlePanel="true" />
     <Settings ShowGroupPanel="true"/>
@@ -295,7 +303,7 @@ float: left;
         <dx:ASPxSummaryItem FieldName="Importe" SummaryType="Sum" DisplayFormat="c"  />
     </TotalSummary>
 </dx:BootstrapGridView>  
-        <div id="detallesConsumo" runat="server"  >
+        <div id="detallesConsumo" runat="server" class="detalles"  >
     <dx:ASPxPageControl ID="carTabPage" Width="100%" runat="server" ActiveTabIndex="2" EnableHierarchyRecreation="True"  >
         <TabPages>
             <dx:TabPage Text="TICKET">
