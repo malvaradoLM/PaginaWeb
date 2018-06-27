@@ -27,7 +27,8 @@ namespace Ejemplo
                 txtFechaFinal.Date = DateTime.Now;
                 chkBoxList.SelectedIndex = 0;
                 bgvConsumo2.Visible = false;
-                detallesConsumo.Visible = false;
+               // detallesConsumo.Visible = false;
+                detallesConsumo.Attributes.CssStyle.Add("display", "none");
             }
             else
             {
@@ -39,25 +40,25 @@ namespace Ejemplo
                     dt = CargarReportePorCliente(Convert.ToInt32(DataModule.Seguridad.UserID), txtFechaInicial.Text, txtFechaFinal.Text);
                     titulo = "CONSUMO POR CLIENTE";
                 }
-                else{
+                else {
                     titulo = "CONSUMO POR GRUPO";
-                    if (Session["Grupo"] != null && Session["Grupo"].ToString() != string.Empty){ 
-                     dt= CargarReportePorGrupo(Session["Grupo"].ToString(), txtFechaInicial.Text, txtFechaFinal.Text);
-                    }else ///SI EL CLIENTE NO TIENE GRUPO, SOLO SE CARGARAN LOS REGISTRO DEL CLIENTE
-                        ///TempData["Alert"] = "El Usuario que se firmo no tiene asignado ningun grupo. Se mostraran solo los consumos asignados al usuario.";
+                    if (Session["Grupo"] != null && Session["Grupo"].ToString() != string.Empty) {
+                        dt = CargarReportePorGrupo(Session["Grupo"].ToString(), txtFechaInicial.Text, txtFechaFinal.Text);
+                    } else ///SI EL CLIENTE NO TIENE GRUPO, SOLO SE CARGARAN LOS REGISTRO DEL CLIENTE
+                           ///TempData["Alert"] = "El Usuario que se firmo no tiene asignado ningun grupo. Se mostraran solo los consumos asignados al usuario.";
                         dt = CargarReportePorCliente(Convert.ToInt32(DataModule.Seguridad.UserID), txtFechaInicial.Text, txtFechaFinal.Text);
-                    
+
                 }
                 cargarReporte(titulo, dt);
             }
         }
- 
+
 
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control)
         {
 
         }
-        private DataTable CargarReportePorCliente(int ClienteID,string FechaIni, string FechaFin)
+        private DataTable CargarReportePorCliente(int ClienteID, string FechaIni, string FechaFin)
         {
             Params.Clear();
             Data.DataModule.ParamByName(Params, "ClienteID", ClienteID);
@@ -84,7 +85,7 @@ namespace Ejemplo
             dt = ds.Tables["spListaConsumoByFechaAutoAbasto"];
             return dt;
         }
-        private void cargarReporte(string titulo,DataTable dt)
+        private void cargarReporte(string titulo, DataTable dt)
         {
             bgvConsumo2.DataSource = dt;
             bgvConsumo2.DataBind();
@@ -98,27 +99,29 @@ namespace Ejemplo
         protected void btnProcesar_Click(object sender, EventArgs e)
         {
             imageSlider.Items.Clear();
-            detallesConsumo.Visible = false;
+            //detallesConsumo.Visible = false;
+            detallesConsumo.Attributes.CssStyle.Add("display", "none");
         }
         private void obtenerGeolocalizacion(int EstacionID)
         {
 
-             ServiciosLibrary.TDatosEstacion dataEstacion = RPServer.RPServicios.DatosEstacion(EstacionID);
+            ServiciosLibrary.TDatosEstacion dataEstacion = RPServer.RPServicios.DatosEstacion(EstacionID);
             CargarMapa(dataEstacion.Latitud.ToString(), dataEstacion.Longitud.ToString());
         }
         protected void Unnamed_Click(object sender, EventArgs e)
         {
-            detallesConsumo.Visible = true;
+            //detallesConsumo.Visible = true;
+            detallesConsumo.Attributes.CssStyle.Add("display", "inline");
             LinkButton item = (LinkButton)sender;
             string ID = item.Text;
             string EstacionID = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "EstacionID").ToString();
-            string Serie =  bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "Serie").ToString();
+            string Serie = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "Serie").ToString();
             string Folio = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "Folio").ToString();
 
-            consumoReporte(Convert.ToInt32(ID),Serie,Folio);
+            consumoReporte(Convert.ToInt32(ID), Serie, Folio);
             obtenerGeolocalizacion(Convert.ToInt32(EstacionID));
         }
-        private void consumoReporte(int _ConsumoID,string Serie, String Folio)
+        private void consumoReporte(int _ConsumoID, string Serie, String Folio)
         {
 
             string _ClienteID = DataModule.Seguridad.UserID;
@@ -137,11 +140,11 @@ namespace Ejemplo
             RPSuiteServer.TAlbum album = new TAlbum();
             album = DataModule.DataService.ListaConsumoFotosByID(_ConsumoID);
             cargarGaleria(album);
-            
+
             if (_ConsumoID != null)
             {
                 //Buscar detalle del consumo de la factura
-             //   TConsumo data3 = RPServer.RPSuiteService.ListaConsumoByID(_ConsumoID);
+                //   TConsumo data3 = RPServer.RPSuiteService.ListaConsumoByID(_ConsumoID);
                 /*
                 ViewBag.ConsumoFactID = _ConsumoID;
 
@@ -265,27 +268,29 @@ namespace Ejemplo
                 }
                 */
             }
-            
+
         }
 
         private void cargarGaleria(TAlbum album)
         {
             imageSlider.Items.Clear();
-            foreach(TAlbum item in album.Datos)
+            foreach (TAlbum item in album.Datos)
             {
                 imageSlider.Items.Add(
         "data:image/png;base64," + Convert.ToBase64String((Byte[])item.Foto),
         "data:image/png;base64," + Convert.ToBase64String((Byte[])item.Foto),
-        "", "Estacion: "+item.Nombre+ " Identificacion: "+item.Identificacion+" Fecha de Carga: "+item.FechaCarga
+        "", "Estacion: " + item.Nombre + " Identificacion: " + item.Identificacion + " Fecha de Carga: " + item.FechaCarga
     );
             }
         }
 
         private void CargarMapa(string latitud, string longitud)
         {
+             carTabPage.ActiveTabIndex = 2;
             const string ScriptKey = "ScriptKey";
             if (!ClientScript.IsStartupScriptRegistered(this.GetType(), ScriptKey))
             {
+              //  carTabPage.ActiveTabIndex = 2;
                 StringBuilder fn = new StringBuilder();
                 fn.Append("var map = null; ");
                 fn.Append("function LoadMap() { ");
@@ -294,23 +299,23 @@ namespace Ejemplo
                 fn.Append("}); ");
                 ////Pushpins
                 fn.Append("var pins = [];");
-                fn.Append("var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location("+latitud+","+longitud+")); ");
+                fn.Append("var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(" + latitud + "," + longitud + ")); ");
                 fn.Append("pins.push(pushpin); ");
                 fn.Append("map.entities.push(pins); ");
+                ///Events
+                fn.Append("Microsoft.Maps.Events.addHandler(map, 'viewchange', function (e) { ");
+                fn.Append("document.getElementById('ContentPlaceHolder1_carTabPage').activePage = 0");
+                fn.Append("}); ");
                 ///
                 fn.Append("map.setView({ ");
-                fn.Append("zoom: 12, center: new Microsoft.Maps.Location("+latitud+", "+longitud+")");
+                fn.Append("zoom: 12, center: new Microsoft.Maps.Location(" + latitud + ", " + longitud + ")");
                 fn.Append("});");
                 fn.Append("};");
                 ClientScript.RegisterStartupScript(this.GetType(),
         ScriptKey, fn.ToString(), true);
             }
+            
         }
 
-        protected void bgvConsumo2_PageIndexChanged(object sender, EventArgs e)
-        {
-            ScriptManager.RegisterStartupScript(this, this.GetType(), Guid.NewGuid().ToString("N"), "ocultarDetalles();", true);
-
-        }
     }
 }

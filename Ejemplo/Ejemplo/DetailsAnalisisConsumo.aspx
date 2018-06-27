@@ -257,7 +257,7 @@ float: left;
 <asp:LinkButton id="btnCancelar" OnClick="btnCancelar_Click" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
   
  </asp:LinkButton>
-    <dx:BootstrapGridView ID="bgvConsumo2" runat="server"  KeyFieldName="ID"  ClientSideEvents-ToolbarItemClick="ocultarDetalles" ClientSideEvents-BeginCallback="ocultarDetalles" >
+    <dx:BootstrapGridView ID="bgvConsumo2" runat="server"  KeyFieldName="ID"  ClientSideEvents-BeginCallback="ocultarDetalles" >
     <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
     <Settings ShowTitlePanel="true" />
     <Settings ShowGroupPanel="true"/>
@@ -304,12 +304,12 @@ float: left;
     </TotalSummary>
 </dx:BootstrapGridView>  
         <div id="detallesConsumo" runat="server" class="detalles"  >
-    <dx:ASPxPageControl ID="carTabPage" Width="100%" runat="server" ActiveTabIndex="2" EnableHierarchyRecreation="True"  >
+    <dx:ASPxPageControl ID="carTabPage" Width="100%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"   >
         <TabPages>
             <dx:TabPage Text="TICKET">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl1" runat="server">
-                        <dx:ASPxImage runat="server" ID="Image1" ImageUrl="~/TabControl/Images/(London)-Tower-Bridge.jpg" CssClass="dxtmImage" />
+                        <dx:ASPxImage runat="server" ID="Image1"  CssClass="dxtmImage" />
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>
@@ -325,7 +325,7 @@ float: left;
             <dx:TabPage Text="GEOLOCALIZACIÓN">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl3" runat="server">
-                  <div id="myMap" style="position:relative; width: 100% ; height:600px;"></div>
+                  <div id="myMap" style="position:relative; width: 100% ; height:600px;" ></div>
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>
