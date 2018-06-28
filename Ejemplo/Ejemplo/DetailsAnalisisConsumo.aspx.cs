@@ -99,7 +99,6 @@ namespace Ejemplo
         protected void btnProcesar_Click(object sender, EventArgs e)
         {
             imageSlider.Items.Clear();
-            //detallesConsumo.Visible = false;
             detallesConsumo.Attributes.CssStyle.Add("display", "none");
         }
         private void obtenerGeolocalizacion(int EstacionID)
@@ -314,20 +313,6 @@ namespace Ejemplo
         ScriptKey, fn.ToString(), true);
             }
             
-        }
-
-        protected void carTabPage_ActiveTabChanged(object source, TabControlEventArgs e)
-        {
-            if(carTabPage.ActiveTabIndex == 2)
-            {
-                string EstacionID = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "EstacionID").ToString();
-                obtenerGeolocalizacion(Convert.ToInt32(EstacionID));
-            }
-
-        }
-
-        protected void carTabPage_TabClick(object source, TabControlCancelEventArgs e)
-        {
         }
     }
 }
