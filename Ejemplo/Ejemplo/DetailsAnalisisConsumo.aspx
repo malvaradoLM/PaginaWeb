@@ -309,7 +309,7 @@ float: left;
             <dx:TabPage Text="TICKET">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl1" runat="server">
-                        <dx:ASPxImage runat="server" ID="Image1"  CssClass="dxtmImage" />
+                 <div id="ticket" style="position:relative; width: 100% ; height:600px;" ></div>
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>

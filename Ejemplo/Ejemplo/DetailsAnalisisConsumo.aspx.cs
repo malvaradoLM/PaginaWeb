@@ -286,11 +286,12 @@ namespace Ejemplo
 
         private void CargarMapa(string latitud, string longitud)
         {
-             carTabPage.ActiveTabIndex = 2;
+
+            carTabPage.ActiveTabIndex = 2;
             const string ScriptKey = "ScriptKey";
             if (!ClientScript.IsStartupScriptRegistered(this.GetType(), ScriptKey))
             {
-              //  carTabPage.ActiveTabIndex = 2;
+                //  carTabPage.ActiveTabIndex = 2;
                 StringBuilder fn = new StringBuilder();
                 fn.Append("var map = null; ");
                 fn.Append("function LoadMap() { ");
@@ -302,14 +303,12 @@ namespace Ejemplo
                 fn.Append("var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(" + latitud + "," + longitud + ")); ");
                 fn.Append("pins.push(pushpin); ");
                 fn.Append("map.entities.push(pins); ");
-                ///Events
-                fn.Append("Microsoft.Maps.Events.addHandler(map, 'viewchange', function (e) { ");
-                fn.Append("document.getElementById('ContentPlaceHolder1_carTabPage').activePage = 0");
-                fn.Append("}); ");
-                ///
                 fn.Append("map.setView({ ");
                 fn.Append("zoom: 12, center: new Microsoft.Maps.Location(" + latitud + ", " + longitud + ")");
-                fn.Append("});");
+                fn.Append("}); ");
+                ///Cambiar Tab
+                //fn.Append(" document.getElementById('"+carTabPage.ClientID+"').attr(\"ActiveTabIndex\",\"0\"); ");
+                ///
                 fn.Append("};");
                 ClientScript.RegisterStartupScript(this.GetType(),
         ScriptKey, fn.ToString(), true);
@@ -317,5 +316,18 @@ namespace Ejemplo
             
         }
 
+        protected void carTabPage_ActiveTabChanged(object source, TabControlEventArgs e)
+        {
+            if(carTabPage.ActiveTabIndex == 2)
+            {
+                string EstacionID = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "EstacionID").ToString();
+                obtenerGeolocalizacion(Convert.ToInt32(EstacionID));
+            }
+
+        }
+
+        protected void carTabPage_TabClick(object source, TabControlCancelEventArgs e)
+        {
+        }
     }
 }
