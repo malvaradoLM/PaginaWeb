@@ -86,8 +86,14 @@ fieldset[disabled] .btn-sample.active {
     color: #ffffff;
     font-family: 'Roboto Condensed', sans-serif;
 }
-
  </style>
+    <script>
+        function validarFecha(s, e) {
+            if (s.Value == null) {
+                e.isValid == false;
+            }
+        }
+</script>
 <div id="nav" class="container" style="margin-left:0px; margin-right:0px"><h1>Facturas Pendientes de Pago</h1></div>
     <div class="row">
             <ol class="breadcrumb Cards-Contenido col-lg-10" style="background:initial;">
@@ -104,7 +110,7 @@ fieldset[disabled] .btn-sample.active {
                         <tr>
                             <td style="width:20%"><dx:ASPxLabel ID="lblFechaCorte" Text="FECHA DE CORTE" runat="server" Font-Bold="true"/></td>
                             <td>
-                                <dx:ASPxDateEdit ID="txtFechaCorte" runat="server" Font-Bold="true"/>
+                                <dx:ASPxDateEdit ID="txtFechaCorte" runat="server" Font-Bold="true" OnValidation="txtFechaCorte_Validation" ClientSideEvents-Validation="validarFecha"/>
                             </td>
                         </tr>
                         <tr>
@@ -127,8 +133,8 @@ fieldset[disabled] .btn-sample.active {
 <asp:LinkButton id="btnCancelar" OnClick="btnCancelar_Click" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
   
  </asp:LinkButton>
-        <div id="detallesTicket" runat="server">	
- <iframe id="ticket" style="position:relative; width: 100% ; height:600px;" runat="server" ></iframe>
+        <div id="detallesReporte" runat="server">	
+       <iframe id="reporteDoc" style="position:relative; width: 100% ; height:600px;" runat="server" ></iframe>
         </div>
     </div>	
 </asp:Content>

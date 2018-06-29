@@ -1,10 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/principal.Master" CodeBehind="DetailsConsumoByFecha.aspx.cs" Inherits="Ejemplo.DetailsConsumoByFecha" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/site1.Master" CodeBehind="DetailsConsumoByFecha.aspx.cs" Inherits="Ejemplo.DetailsConsumoByFecha" %>
 
 <%@ Register assembly="DevExpress.Web.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
 <%@ Register assembly="DevExpress.Web.Bootstrap.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.Bootstrap" tagprefix="dx" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <style>
 #exTab1 .tab-content {
@@ -105,13 +104,13 @@ fieldset[disabled] .btn-sample.active {
                         <tr>
                             <td style="width:20%"><dx:ASPxLabel ID="lblFechaInicial" Text="FECHA INICIAL" runat="server" Font-Bold="true"/></td>
                             <td>
-                                <dx:ASPxDateEdit ID="txtFechaInicial" runat="server" Font-Bold="true"/>
+                                <dx:ASPxDateEdit ID="txtFechaInicial" runat="server" Font-Bold="true" OnValidation="txtFechaInicial_Validation"/>
                             </td>
                         </tr>
                          <tr>
-                            <td><dx:ASPxLabel ID="lblFechaFinal" Text="FECHA FINAL" runat="server" Font-Bold="true"/></td>
+                            <td><dx:ASPxLabel ID="lblFechaFinal" Text="FECHA FINAL" runat="server"  Font-Bold="true"/></td>
                             <td>
-                            <dx:ASPxDateEdit ID="txtFechaFinal" runat="server" Font-Bold="true"/>
+                            <dx:ASPxDateEdit ID="txtFechaFinal" runat="server" Font-Bold="true" OnValidation="txtFechaFinal_Validation"/>
                             </td>
                         </tr>
                         <tr>
@@ -128,13 +127,15 @@ fieldset[disabled] .btn-sample.active {
                     </table>
                 </div>
             </div>
-        <asp:LinkButton  id="btnProcesar" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;margin-top: 1px; background-color:mediumseagreen" runat="server" Text="VER REPORTE " >
+        <asp:LinkButton  id="btnProcesar" OnClick="btnProcesar_Click" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;margin-top: 1px; background-color:mediumseagreen" runat="server" Text="VER REPORTE " >
     
 </asp:LinkButton>
-<asp:LinkButton id="btnCancelar" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
+<asp:LinkButton id="btnCancelar" OnClick="btnCancelar_Click" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
   
  </asp:LinkButton>
-
+        <div id="detallesReporte" runat="server">	
+       <iframe id="reporteDoc" style="position:relative; width: 100% ; height:600px;" runat="server" ></iframe>
+        </div>
     </div>	
 
 </asp:Content>

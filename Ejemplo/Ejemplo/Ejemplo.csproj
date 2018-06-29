@@ -269,6 +269,7 @@
     <Content Include="widgets.html" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Validaciones.cs" />
     <Compile Include="Data\DataModule.cs">
       <SubType>Component</SubType>
     </Compile>
