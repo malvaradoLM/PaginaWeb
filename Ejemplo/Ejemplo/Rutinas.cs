@@ -14,7 +14,7 @@ namespace Ejemplo
         public Ejemplo.Models.ComodinModel.BigViewModel.pathConsumoFactura GetInfoConsumoFactura(string GasolineroID, string Serie, string Folio, string ReporteNombre, string ParametrosReporte, string TipoArchivo)
         {
             Ejemplo.Models.ComodinModel.BigViewModel.pathConsumoFactura result = new Ejemplo.Models.ComodinModel.BigViewModel.pathConsumoFactura();
-            string root = ConfigurationManager.AppSettings["RutaReportes"].ToString();
+            string root = System.AppDomain.CurrentDomain.BaseDirectory+ "Reportes\\";
             try
             {
                 // If directory does not exist, don't even try 
@@ -30,7 +30,7 @@ namespace Ejemplo
 
                 if (Impresion.Ruta != "")
                 {
-                    result.pathImpresion = root + System.IO.Path.GetFileName(Impresion.Ruta);
+                    result.pathImpresion = "Reportes\\" + System.IO.Path.GetFileName(Impresion.Ruta);
                     result.ImpresionError = null;
                 }
                 else

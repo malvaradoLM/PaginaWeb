@@ -121,6 +121,15 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ContentControl ContentControl1;
         
         /// <summary>
+        /// ticket control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlIframe ticket;
+        
+        /// <summary>
         /// ContentControl2 control.
         /// </summary>
         /// <remarks>
@@ -146,5 +155,14 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ContentControl ContentControl3;
+        
+        /// <summary>
+        /// bottom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bottom;
     }
 }

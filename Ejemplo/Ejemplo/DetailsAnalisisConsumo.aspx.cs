@@ -13,6 +13,8 @@ using Ejemplo.Models;
 using System.Web.UI;
 using System.Drawing;
 using System.Text;
+using System.IO;
+using System.Reflection;
 
 namespace Ejemplo
 {
@@ -51,6 +53,7 @@ namespace Ejemplo
                 }
                 cargarReporte(titulo, dt);
             }
+            if (detallesConsumo.Visible) carTabPage.Focus();
         }
 
 
@@ -132,142 +135,14 @@ namespace Ejemplo
             string ParametrosReporte = TipoMov + _ConsumoID + c2;
             string ReporteNombre = "TICKET WEB";
             string TipoArchivo = "PDF";
-            //Rutinas InfoConsumoFacturaTicket = new Rutinas();
+            Rutinas InfoConsumoFacturaTicket = new Rutinas();
+            string path = System.AppDomain.CurrentDomain.BaseDirectory;
 
-            //Ejemplo.Models.ComodinModel.BigViewModel.pathConsumoFactura resultado2 = InfoConsumoFacturaTicket.GetInfoConsumoFactura(_GasolineroID, Serie, Folio, ReporteNombre, ParametrosReporte, TipoArchivo);
-
+            Ejemplo.Models.ComodinModel.BigViewModel.pathConsumoFactura resultado2 = InfoConsumoFacturaTicket.GetInfoConsumoFactura(_GasolineroID, Serie, Folio, ReporteNombre, ParametrosReporte, TipoArchivo);
+            ticket.Src = resultado2.pathImpresion+ "#zoom=70";
             RPSuiteServer.TAlbum album = new TAlbum();
             album = DataModule.DataService.ListaConsumoFotosByID(_ConsumoID);
             cargarGaleria(album);
-
-            if (_ConsumoID != null)
-            {
-                //Buscar detalle del consumo de la factura
-                //   TConsumo data3 = RPServer.RPSuiteService.ListaConsumoByID(_ConsumoID);
-                /*
-                ViewBag.ConsumoFactID = _ConsumoID;
-
-                string _ClienteID = Encryption.decrypt(ClienteID);
-                string _GasolineroID = @Session["GasolineroID"].ToString();
-
-                string _Serie = Encryption.decrypt(Serie);
-                string _Folio = Encryption.decrypt(Folio);
-
-                string c2 = @"""";
-                string TipoMov = @"@TipoMov = """;
-
-                string ParametrosReporte = TipoMov + _ConsumoID + c2;
-                string ReporteNombre = "TICKET WEB";
-                string TipoArchivo = "PDF";
-
-                if (data3.Error == false)
-                {
-                    if (data3 == null)
-                    {
-                        return HttpNotFound();
-                    }
-                    else
-                    {
-                        if (data3.EstacionID.ToString() != "")
-                        {
-                            // OBTENER LATITUD, LONGITUD DE ESTACION
-                            ServiciosLibrary.TDatosEstacion dataEstacion = RPServer.RPServicios.DatosEstacion(data3.EstacionID);
-
-                            double Latitud = dataEstacion.Latitud;
-                            double Longitud = dataEstacion.Longitud;
-
-                            data3.LatitudEstacion = Latitud;
-                            data3.LongitudEstacion = Longitud;
-
-                            TempData["Longitud"] = Longitud.ToString();
-                            TempData["Latitud"] = Latitud.ToString();
-                        }
-                        else
-                        {
-                            data3.LatitudEstacion = 0;
-                            data3.LongitudEstacion = 0;
-
-                            TempData["Longitud"] = "";
-                            TempData["Latitud"] = "";
-                        }
-
-                        TempData["TipoArchivo"] = "PDF";
-
-                        //GENERA CONSUMO DE LA FACTURA EN TICKET (PDF)
-                        WebRedPacifico.Models.BigViewModel.pathConsumoFactura resultado2 = InfoConsumoFacturaTicket.GetInfoConsumoFactura(_GasolineroID, _Serie, _Folio, ReporteNombre, ParametrosReporte, TipoArchivo);
-
-                        if (resultado2.pathImpresion == null && resultado2.ImpresionError == null)
-                        {
-                            TempData["Warning2"] = "El servicio web se encuentra detenido, favor de contactar al administrador! ";
-                        }
-
-                        if (resultado2.pathImpresion != null)
-                        {
-                            data3.PathConsumoFacturaTicket = resultado2.pathImpresion;
-                            data3.ErrorConsumoFacturaTicket = null;
-
-                            TempData["resultPathReporte"] = resultado2.pathImpresion;
-
-                            // EL REPORTE SE DESCARGA EN FORMATO PDF = SOLO  MOBILE DEVICES
-                            if (data3.typeDevices == "mobile")
-                            {
-                                string fileName = fileName = "Ticket_" + _ClienteID + "_" + _Serie + "_" + _Folio;
-
-                                FileStream fs = new FileStream(resultado2.pathImpresion, FileMode.Open, FileAccess.Read);
-                                //return new FileStreamResult(fs, "application/pdf");
-
-                                return File(fs, "application/pdf", fileName + ".pdf");
-                            }
-                        }
-                        else
-                        {
-                            data3.PathConsumoFacturaTicket = null;
-                            data3.ErrorConsumoFacturaTicket = resultado2.ImpresionError;
-
-                            if (resultado2.ImpresionError != "")
-                            {
-                                TempData["Error"] = resultado2.ImpresionError;
-                            }
-                            else
-                            {
-                                ViewData["Warning"] = "No existen datos para mostrar en el ticket.";
-                            }
-                        }
-
-                        //OBTENER FOTOGRAFIAS DEL CONSUMO DE LA FACTURA
-                        TAlbum data4 = RPServer.RPSuiteService.ListaConsumoFotosByID(Int32.Parse(_ConsumoID));
-
-                        if (data4.Error == false)
-                        {
-                            if (data4 == null)
-                            {
-                                return HttpNotFound();
-                            }
-                            else
-                            {
-                                viewModel.DetailsConsumoFotografias = data4.Datos;
-                            }
-                        }
-                        else
-                        {
-                            //NO EXISTEN DATOS PARA MOSTRAR LA FOTOGRAFIA O TRAE UN ERROR.
-                            TempData["Warning"] = data4.MensajeError;
-                        }
-
-                        viewModel.DetailsConsumo = data3;
-                    }
-                }
-                else
-                {
-                    TempData["TipoArchivo"] = "";
-                    TempData["Error"] = data3.MensajeError;
-
-                    TempData["Longitud"] = "";
-                    TempData["Latitud"] = "";
-                }
-                */
-            }
-
         }
 
         private void cargarGaleria(TAlbum album)
@@ -314,5 +189,6 @@ namespace Ejemplo
             }
             
         }
+
     }
 }

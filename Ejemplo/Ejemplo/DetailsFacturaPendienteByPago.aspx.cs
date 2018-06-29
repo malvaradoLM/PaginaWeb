@@ -14,6 +14,7 @@ namespace Ejemplo
             if (!IsPostBack) {
                 txtFechaCorte.Date = DateTime.Today;
                 chkBoxList.SelectedIndex = 0;
+                detallesTicket.Visible = false;
                  }
                 
         }
@@ -25,6 +26,11 @@ namespace Ejemplo
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("Reportes.aspx", false);
+        }
+
+        protected void btnProcesar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -304,20 +304,20 @@ float: left;
     </TotalSummary>
 </dx:BootstrapGridView>  
         <div id="detallesConsumo" runat="server" class="detalles"  >
-    <dx:ASPxPageControl ID="carTabPage" Width="100%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"   >
+    <dx:ASPxPageControl ID="carTabPage" Width="100%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"  Border-BorderStyle="None" CssClass="page-header" >
         <TabPages>
             <dx:TabPage Text="TICKET">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl1" runat="server">
-                 <div id="ticket" style="position:relative; width: 100% ; height:600px;" ></div>
+                 <iframe id="ticket" style="position:relative; width: 100% ; height:600px;" runat="server" ></iframe>
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>
             <dx:TabPage Text="FOTOGRAFÍA">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl2" runat="server">
-                        <dx:ASPxImageSlider ID="imageSlider" runat="server" ClientInstanceName="imageSlider" CssClass="imageSlider"  EnableTheming="false" Width="100%">
-                            <ClientSideEvents Init="function(s, e) { s.Focus(); }" />
+                        <dx:ASPxImageSlider ID="imageSlider" runat="server" ClientInstanceName="imageSlider" CssClass="imageSlider carousel"  Width="100%">
+                            <SettingsSlideShow AutoPlay="true" StopPlayingWhenPaging="true" PausePlayingWhenMouseOver="true" />
                          </dx:ASPxImageSlider>
                     </dx:ContentControl>
                 </ContentCollection>
@@ -333,4 +333,5 @@ float: left;
     </dx:ASPxPageControl>	
     </div>	
 </div>	
+    <div ID="bottom" runat="server" />
 </asp:Content>

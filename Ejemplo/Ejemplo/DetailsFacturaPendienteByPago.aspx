@@ -121,13 +121,15 @@ fieldset[disabled] .btn-sample.active {
                     </table>
                 </div>
             </div>
-        <asp:LinkButton  id="btnProcesar" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;margin-top: 1px; background-color:mediumseagreen" runat="server" Text="VER REPORTE " >
+        <asp:LinkButton  id="btnProcesar" OnClick="btnProcesar_Click" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;margin-top: 1px; background-color:mediumseagreen" runat="server" Text="VER REPORTE " >
     
 </asp:LinkButton>
 <asp:LinkButton id="btnCancelar" OnClick="btnCancelar_Click" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
   
  </asp:LinkButton>
-
+        <div id="detallesTicket" runat="server">	
+ <iframe id="ticket" style="position:relative; width: 100% ; height:600px;" runat="server" ></iframe>
+        </div>
     </div>	
 </asp:Content>
 
