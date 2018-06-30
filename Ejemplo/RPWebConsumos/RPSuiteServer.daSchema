@@ -14489,7 +14489,8 @@ WHERE
 FROM 
 	[Vehiculo] 
 WHERE 
-	ClienteID=:ClienteID </SQL>
+	ClienteID=:ClienteID and Estatus LIKE '%A%'
+	</SQL>
           <TargetTable>Vehiculo</TargetTable>
           <ConnectionType>SQLite</ConnectionType>
           <Default>False</Default>

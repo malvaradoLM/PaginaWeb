@@ -134,7 +134,7 @@ fieldset[disabled] .btn-sample.active {
   
  </asp:LinkButton>
         <div id="detallesReporte" runat="server">	
-       <iframe id="reporteDoc" style="position:relative; width: 100% ; height:600px;" runat="server" ></iframe>
+       <iframe id="reporteDoc" style="position:relative; width: 100% ; height:600px; border:0px " runat="server"  ></iframe>
         </div>
     </div>	
 </asp:Content>

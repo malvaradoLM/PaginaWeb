@@ -61,7 +61,7 @@ namespace Ejemplo
         {
             ComodinModel.FormatReport result = new ComodinModel.FormatReport();
             string root = System.AppDomain.CurrentDomain.BaseDirectory + "Reportes\\"+ReporteNombre+ "\\";
-           // string root = "C:\\Reportes";
+            //string root = "C:\\Reportes";
             try
             {
                 // If directory does not exist, don't even try 

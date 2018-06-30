@@ -33,6 +33,7 @@ namespace Ejemplo
 
         protected void btnProcesar_Click(object sender, EventArgs e)
         {
+            detallesReporte.Visible = true;
             Rutinas getReporte = new Rutinas();
             string _ClienteID = DataModule.Seguridad.UserID;
             string _GasolineroID = @Session["GasolineroID"].ToString();

@@ -1,10 +1,9 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/principal.Master" AutoEventWireup="true" CodeBehind="DetailsConsumoByVehiculo.aspx.cs" Inherits="Ejemplo.DetailsConsumoByVehiculo" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/site1.Master" AutoEventWireup="true" CodeBehind="DetailsConsumoByVehiculo.aspx.cs" Inherits="Ejemplo.DetailsConsumoByVehiculo" %>
 
 <%@ Register assembly="DevExpress.Web.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
 <%@ Register assembly="DevExpress.Web.Bootstrap.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.Bootstrap" tagprefix="dx" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <style>
 #exTab1 .tab-content {
@@ -89,7 +88,7 @@ fieldset[disabled] .btn-sample.active {
 }
 
  </style>
-<div id="nav" class="container" style="margin-left:0px; margin-right:0px"><h1>Consumos Por Vehiculo/h1></div>
+<div id="nav" class="container" style="margin-left:0px; margin-right:0px"><h1>Consumos Por Vehiculo</h1></div>
     <div class="row">
             <ol class="breadcrumb Cards-Contenido col-lg-10" style="background:initial;">
                 <li class="breadcrumb-item"><a href="Reportes.aspx">Reportes</a></li>
@@ -117,14 +116,25 @@ fieldset[disabled] .btn-sample.active {
                           <tr>
                             <td><dx:ASPxLabel ID="lblVehiculoInicial" Text="VEHICULO INICIAL" runat="server" Font-Bold="true"/></td>
                             <td>
-                            <dx:ASPxComboBox ID="cmbVehiculoInicial" runat="server" />
+                            <dx:ASPxComboBox ID="cmbVehiculoInicial" runat="server" ValueField="VehiculoID" >
+                                <Columns>
+                    <dx:ListBoxColumn FieldName="VehiculoID" />
+                    <dx:ListBoxColumn FieldName="Nombre" />
+                 <dx:ListBoxColumn FieldName="Identificacion" />
+                 </Columns>
+                                </dx:ASPxComboBox>
                             </td>
                         </tr>
                         <tr>
                             <td><dx:ASPxLabel ID="lblVehiculoFinal" Text="VEHICULO FINAL" runat="server" Font-Bold="true"/></td>
                             <td>
-                            <dx:ASPxComboBox ID="cmbVehiculoFinal" runat="server" />
-
+                            <dx:ASPxComboBox ID="cmbVehiculoFinal" runat="server" ValueField="VehiculoID" >
+                                <Columns>
+                                <dx:ListBoxColumn FieldName="VehiculoID" />
+                             <dx:ListBoxColumn FieldName="Nombre" />
+                             <dx:ListBoxColumn FieldName="Identificacion" />
+                             </Columns>
+                                </dx:ASPxComboBox>
                             </td>
                         </tr>
                         <tr>
@@ -141,13 +151,15 @@ fieldset[disabled] .btn-sample.active {
                     </table>
                 </div>
             </div>
-        <asp:LinkButton  id="btnProcesar" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;margin-top: 1px; background-color:mediumseagreen" runat="server" Text="VER REPORTE " >
+        <asp:LinkButton  id="btnProcesar" OnClick="btnProcesar_Click" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;margin-top: 1px; background-color:mediumseagreen" runat="server" Text="VER REPORTE " >
     
 </asp:LinkButton>
-<asp:LinkButton id="btnCancelar" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
+<asp:LinkButton id="btnCancelar" OnClick="btnCancelar_Click" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
   
  </asp:LinkButton>
-
+<div id="detallesReporte" runat="server">	
+       <iframe id="reporteDoc" style="position:relative; width: 100% ; height:600px;" runat="server" ></iframe>
+        </div>
     </div>	
 
 </asp:Content>
