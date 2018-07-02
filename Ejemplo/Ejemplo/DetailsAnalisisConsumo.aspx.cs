@@ -29,7 +29,7 @@ namespace Ejemplo
                 txtFechaFinal.Date = DateTime.Now;
                 chkBoxList.SelectedIndex = 0;
                 bgvConsumo2.Visible = false;
-               // detallesConsumo.Visible = false;
+                msjAlerta.Visible = false;
                 detallesConsumo.Attributes.CssStyle.Add("display", "none");
             }
             else
@@ -52,6 +52,12 @@ namespace Ejemplo
 
                 }
                 cargarReporte(titulo, dt);
+                if (dt.Rows.Count == 0)
+                {
+                    msjAlerta.Visible = true;
+                    labelAlerta.Text = "No existen registros que mostrar";
+                }
+                else msjAlerta.Visible = false;
             }
             if (detallesConsumo.Visible) carTabPage.Focus();
         }
@@ -197,9 +203,11 @@ namespace Ejemplo
            resultado  =  Clases.Validaciones.validarFecha(fecha.Value.ToString());
             if (resultado != "") e.ErrorText = resultado;
             if (txtFechaFinal.Date < txtFechaInicial.Date) e.ErrorText = "Error: La fecha inicial no puede ser mayor a la fecha final";
-            if (e.ErrorText != "") {
+            if (e.ErrorText != "")
+            {
                 e.IsValid = false;
             }
+            else e.IsValid = true;
         }
 
         protected void txtFechaFinal_Validation(object sender, ValidationEventArgs e)
@@ -210,6 +218,7 @@ namespace Ejemplo
             if (resultado != "") e.ErrorText = resultado;
             if (txtFechaFinal.Date < txtFechaInicial.Date) e.ErrorText = "Error: La fecha inicial no puede ser mayor a la fecha final";
             if (e.ErrorText != "") e.IsValid = false;
+            else e.IsValid = true;
         }
     }
 }

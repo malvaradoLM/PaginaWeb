@@ -211,7 +211,10 @@ float: left;
 
 
 <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=LoadMap" async defer></script>
-
+<div class="alert alert-warning" id="msjAlerta" runat="server">
+        <strong>Advertencia! </strong>
+        <dx:ASPxLabel ID="labelAlerta" runat="server" />
+        </div>
 <div id="nav" class="container" style="margin-left:0px; margin-right:0px"><h1>Análisis de Consumo</h1></div>
     <div class="row">
             <ol class="breadcrumb Cards-Contenido col-lg-10" style="background:initial;">
