@@ -1,10 +1,8 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/principal.Master" AutoEventWireup="true" CodeBehind="DetailsComparativoMensualByCliente.aspx.cs" Inherits="Ejemplo.DetailsComparativoMensualByCliente" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/site1.Master" AutoEventWireup="true" CodeBehind="DetailsComparativoMensualByCliente.aspx.cs" Inherits="Ejemplo.DetailsComparativoMensualByCliente" %>
 
 <%@ Register assembly="DevExpress.Web.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
 <%@ Register assembly="DevExpress.Web.Bootstrap.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.Bootstrap" tagprefix="dx" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <style>
 #exTab1 .tab-content {
@@ -110,7 +108,7 @@ fieldset[disabled] .btn-sample.active {
                         <tr>
                             <td style="width:20%"><dx:ASPxLabel ID="lblanio" Text="AÑO" runat="server" Font-Bold="true"/></td>
                             <td>
-                                <dx:ASPxSpinEdit type="number" ID="txtanio1" runat="server" style="color:black;" MinValue="1" MaxValue="99999">   
+                                <dx:ASPxSpinEdit type="number" ID="txtanio1" runat="server" style="color:black;" MinValue="1900" MaxValue="9999">   
                                 </dx:ASPxSpinEdit>
                             </td>
                         </tr>
@@ -128,11 +126,15 @@ fieldset[disabled] .btn-sample.active {
                     </table>
                 </div>
             </div>
-        <asp:LinkButton  id="btnProcesar" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;margin-top: 1px; background-color:mediumseagreen" runat="server" Text="VER REPORTE " >
+        <asp:LinkButton  id="btnProcesar" OnClick="btnProcesar_Click" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;margin-top: 1px; background-color:mediumseagreen" runat="server" Text="VER REPORTE " >
     
 </asp:LinkButton>
-<asp:LinkButton id="btnCancelar" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
+<asp:LinkButton id="btnCancelar" OnClick="btnCancelar_Click" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
   
  </asp:LinkButton>
+        <div id="detallesReporte" runat="server">	
+       <iframe id="reporteDoc" style="position:relative; width: 100% ; height:600px; border:0px" runat="server" ></iframe>
+        </div>
+    </div>	
 </asp:Content>
 

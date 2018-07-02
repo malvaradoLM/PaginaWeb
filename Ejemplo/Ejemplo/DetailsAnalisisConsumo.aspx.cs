@@ -190,5 +190,26 @@ namespace Ejemplo
             
         }
 
+        protected void txtFechaInicial_Validation(object sender, ValidationEventArgs e)
+        {
+            ASPxDateEdit fecha = (ASPxDateEdit)sender;
+            string resultado = "";
+           resultado  =  Clases.Validaciones.validarFecha(fecha.Value.ToString());
+            if (resultado != "") e.ErrorText = resultado;
+            if (txtFechaFinal.Date < txtFechaInicial.Date) e.ErrorText = "Error: La fecha inicial no puede ser mayor a la fecha final";
+            if (e.ErrorText != "") {
+                e.IsValid = false;
+            }
+        }
+
+        protected void txtFechaFinal_Validation(object sender, ValidationEventArgs e)
+        {
+            ASPxDateEdit fecha = (ASPxDateEdit)sender;
+            string resultado = "";
+            resultado = Clases.Validaciones.validarFecha(fecha.Value.ToString());
+            if (resultado != "") e.ErrorText = resultado;
+            if (txtFechaFinal.Date < txtFechaInicial.Date) e.ErrorText = "Error: La fecha inicial no puede ser mayor a la fecha final";
+            if (e.ErrorText != "") e.IsValid = false;
+        }
     }
 }

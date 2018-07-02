@@ -41,6 +41,7 @@ namespace Ejemplo
                 e.ErrorText = Validaciones.validarFecha(txtFecha.Value.ToString());
             else
                 e.ErrorText = "Error: La fecha está vacía.";
+            if (txtFechaInicial.Date > txtFechaFinal.Date) e.ErrorText = "Error: La Fecha Inicial no puede ser mayor a la Fecha Final";
             if (e.ErrorText != "") e.IsValid = false;
         }
 
@@ -51,6 +52,7 @@ namespace Ejemplo
                 e.ErrorText = Validaciones.validarFecha(txtFecha.Value.ToString());
             else
                 e.ErrorText = "Error: La fecha está vacía.";
+            if (txtFechaInicial.Date > txtFechaFinal.Date) e.ErrorText = "Error: La Fecha Inicial no puede ser mayor a la Fecha Final";
             if (e.ErrorText != "") e.IsValid = false;
         }
 
@@ -98,6 +100,7 @@ namespace Ejemplo
             //GENERA REPORTE
             ComodinModel.FormatReport resultado2 = getReporte.GetInfoReportes(ReporteNombre, _GasolineroID, ParametrosReporte, TipoArchivo);
             reporteDoc.Src = resultado2.pathFile;
+            detallesReporte.Visible = true;
         }
     }
 }

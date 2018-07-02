@@ -228,13 +228,13 @@ float: left;
                         <tr>
                             <td style="width:20%"><dx:ASPxLabel ID="lblFechaInicial" Text="FECHA INICIAL" runat="server" Font-Bold="true"/></td>
                             <td>
-                                <dx:ASPxDateEdit ID="txtFechaInicial" runat="server" Font-Bold="true"/>
+                                <dx:ASPxDateEdit ID="txtFechaInicial" runat="server" Font-Bold="true" OnValidation="txtFechaInicial_Validation"/>
                             </td>
                         </tr>
                          <tr>
                             <td><dx:ASPxLabel ID="lblFechaFinal" Text="FECHA FINAL" runat="server" Font-Bold="true"/></td>
                             <td>
-                            <dx:ASPxDateEdit ID="txtFechaFinal" runat="server" Font-Bold="true"/>
+                            <dx:ASPxDateEdit ID="txtFechaFinal" runat="server" Font-Bold="true" OnValidation="txtFechaFinal_Validation"/>
                             </td>
                         </tr>
                         <tr>
