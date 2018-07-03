@@ -21,6 +21,8 @@ namespace Ejemplo
                 txtFechaFinal.Date = DateTime.Now;
                 chkBoxList.SelectedIndex = 0;
                 detallesReporte.Visible = false;
+                msjAlerta.Visible = false;
+
             }
         }
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control)
@@ -38,7 +40,7 @@ namespace Ejemplo
             Rutinas getReporte = new Rutinas();
             string _ClienteID = DataModule.Seguridad.UserID;
             string _GasolineroID = @Session["GasolineroID"].ToString();
-
+            msjAlerta.Visible = false;
 
             string dateFecIni, dateFecFin;
 
@@ -81,6 +83,14 @@ namespace Ejemplo
             {
                 detallesReporte.Visible = true;
                 reporteDoc.Src = resultado2.pathFile;
+            }
+            else
+            {
+                if(resultado2.errorFile == "")
+                {
+                    msjAlerta.Visible = true;
+                    labelAlerta.Value = "No existen registros que mostrar";
+                }
             }
         }
 

@@ -18,6 +18,8 @@ namespace Ejemplo
                 txtFechaCorte.Date = DateTime.Today;
                 chkBoxList.SelectedIndex = 0;
                 detallesReporte.Visible = false;
+                msjAlerta.Visible = false;
+
             }
 
         }
@@ -33,6 +35,7 @@ namespace Ejemplo
 
         protected void btnProcesar_Click(object sender, EventArgs e)
         {
+            msjAlerta.Visible = false;
             detallesReporte.Visible = true;
             Rutinas getReporte = new Rutinas();
             string _ClienteID = DataModule.Seguridad.UserID;
@@ -71,7 +74,15 @@ namespace Ejemplo
             Ejemplo.Models.ComodinModel.FormatReport resultado2 = getReporte.GetInfoReportes(ReporteNombre, _GasolineroID, ParametrosReporte, TipoArchivo);
             if (resultado2.pathFile != null)
                 reporteDoc.Src = resultado2.pathFile;
-            else detallesReporte.Visible = false;
+            else
+            {
+                detallesReporte.Visible = false;
+                if (resultado2.errorFile == "")
+                {
+                    msjAlerta.Visible = true;
+                    labelAlerta.Value = "No existen registros que mostrar";
+                }
+            }
         }
 
         protected void txtFechaCorte_Validation(object sender, DevExpress.Web.ValidationEventArgs e)

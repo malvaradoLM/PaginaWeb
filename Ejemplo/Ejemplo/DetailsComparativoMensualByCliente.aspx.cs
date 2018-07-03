@@ -17,7 +17,9 @@ namespace Ejemplo
                 chkBoxList.SelectedIndex = 0;
                 txtanio1.Value = DateTime.Now.Year;
                 detallesReporte.Visible = false;
-                }
+                msjAlerta.Visible = false;
+
+            }
         }
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control)
         {
@@ -66,7 +68,15 @@ namespace Ejemplo
             if(resultado2.pathFile != "")
             {
                 reporteDoc.Src = resultado2.pathFile;
-                if (TipoArchivo == "PDF") detallesReporte.Visible = true;
+                detallesReporte.Visible = true;
+            }
+            else
+            {
+                if(resultado2.errorFile == "")
+                {
+                    msjAlerta.Visible = true;
+                    labelAlerta.Value = "No hay registros que mostrar.";
+                }
             }
         }
     }

@@ -18,6 +18,8 @@ namespace Ejemplo
                 chkBoxList.SelectedIndex = 0;
                 detallesReporte.Visible = false;
                 txtanio1.Value = DateTime.Now.Year;
+                msjAlerta.Visible = false;
+
             }
         }
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control)
@@ -68,9 +70,18 @@ namespace Ejemplo
             //GENERA REPORTE
             ComodinModel.FormatReport resultado2 = getReporte.GetInfoReportes(ReporteNombre, _GasolineroID, ParametrosReporte, TipoArchivo);
             if(resultado2.pathFile != "")
-            {           
-                if (TipoArchivo == "PDF") detallesReporte.Visible = true;
+            {
+                msjAlerta.Visible = false;
+                detallesReporte.Visible = true;
                 reporteDoc.Src = resultado2.pathFile;
+            }
+            else
+            {
+                if(resultado2.errorFile == "")
+                {
+                    msjAlerta.Visible = true;
+                    labelAlerta.Value = "No existen registros que mostrar.";
+                }
             }
         }
     }

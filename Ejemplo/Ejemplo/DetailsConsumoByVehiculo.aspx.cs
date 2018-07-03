@@ -23,6 +23,8 @@ namespace Ejemplo
                 chkBoxList.SelectedIndex = 0;
                 detallesReporte.Visible = true;
                 llenarComboBox();
+                msjAlerta.Visible = false;
+
             }
             else
             {
@@ -55,7 +57,7 @@ namespace Ejemplo
         protected void btnProcesar_Click(object sender, EventArgs e)
         {
             Rutinas getReporte = new Rutinas();
-
+            msjAlerta.Visible = false;
             string _ClienteID = DataModule.Seguridad.UserID;
             string _GasolineroID = @Session["GasolineroID"].ToString();
 
@@ -98,6 +100,14 @@ namespace Ejemplo
             {
                 detallesReporte.Visible = true;
                 reporteDoc.Src = resultado2.pathFile;
+            }
+            else
+            {
+                if(resultado2.errorFile == "")
+                {
+                    msjAlerta.Visible = true;
+                    labelAlerta.Value = "No existen registros que mostrar";
+                }
             }
         }
     }

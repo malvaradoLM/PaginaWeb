@@ -17,6 +17,8 @@ namespace Ejemplo
                 txtFechaFinal.Date = DateTime.Now;
                 chkBoxList.SelectedIndex = 0;
                 detallesReporte.Visible = false;
+                msjAlerta.Visible = false;
+
             }
 
         }
@@ -54,6 +56,7 @@ namespace Ejemplo
 
         protected void btnProcesar_Click(object sender, EventArgs e)
         {
+            msjAlerta.Visible = false;
             var viewModel = new ComodinModel.modelReportes();
             Rutinas getReporte = new Rutinas();
 
@@ -95,8 +98,20 @@ namespace Ejemplo
 
             //GENERA REPORTE
             ComodinModel.FormatReport resultado2 = getReporte.GetInfoReportes(ReporteNombre, _GasolineroID, ParametrosReporte, TipoArchivo);
-            reporteDoc.Src = resultado2.pathFile;
-            detallesReporte.Visible = true;
+            if(resultado2.pathFile != null && resultado2.pathFile != "")
+            {
+                reporteDoc.Src = resultado2.pathFile;
+                detallesReporte.Visible = true;
+            }
+            else
+            {
+                if(resultado2.errorFile == "")
+                {
+                    msjAlerta.Visible = true;
+                    labelAlerta.Value = "No existen registros que mostrar";
+                }
+            }
+           
         }
     }
 }

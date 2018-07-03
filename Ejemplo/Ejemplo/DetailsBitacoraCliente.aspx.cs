@@ -78,6 +78,7 @@ namespace Ejemplo
             {
                 if(resultado2.errorFile == "")
                 {
+                    msjAlerta.Visible = true;
                     mensajeAlerta("No existen datos para mostrar en el reporte");
                 }
             }

@@ -88,6 +88,10 @@ fieldset[disabled] .btn-sample.active {
 }
 
  </style>
+    <div class="alert alert-warning" id="msjAlerta" runat="server">
+        <strong>Advertencia! </strong>
+        <dx:ASPxLabel ID="labelAlerta" runat="server" />
+        </div>
 <div id="nav" class="container" style="margin-left:0px; margin-right:0px"><h1>Consumos Por Vehiculo</h1></div>
     <div class="row">
             <ol class="breadcrumb Cards-Contenido col-lg-10" style="background:initial;">
