@@ -273,6 +273,10 @@ namespace Ejemplo
             vehiculo.VehiculoID = listHorarios[0].VehiculoId;
             vehiculo.Viernes = listHorarios[0].Viernes;
             vehiculo.Estacion = listHorarios[0].Estacion;
+            vehiculo.ClienteID = Convert.ToInt32(DataModule.Seguridad.UserID);
+            string _GasolineroID = HttpContext.Current.Session["GasolineroID"].ToString();
+            vehiculo.GasolineroID = Convert.ToInt32(_GasolineroID);
+
             return vehiculo;
 
         }

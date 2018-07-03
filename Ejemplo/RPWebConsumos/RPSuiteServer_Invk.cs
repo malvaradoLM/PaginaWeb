@@ -219,6 +219,22 @@ namespace RPSuiteServer {
                 @__ObjectDisposer.Dispose();
             }
         }
+        public static void Invoke_cmdUpdateVehiculo(RemObjects.SDK.IROService @__Instance, RemObjects.SDK.IMessage @__Message, RemObjects.SDK.Server.IServerChannelInfo @__ServerChannelInfo, out RemObjects.SDK.Server.ResponseOptions @__oResponseOptions) {
+            RemObjects.SDK.ObjectDisposer @__ObjectDisposer = new RemObjects.SDK.ObjectDisposer(1);
+            try {
+                TVehiculo Datos = ((TVehiculo)(@__Message.Read("Datos", typeof(TVehiculo), RemObjects.SDK.StreamingFormat.Default)));
+                @__ObjectDisposer.Add(Datos);
+                bool Result;
+                Result = ((IRPDataService)(@__Instance)).cmdUpdateVehiculo(Datos);
+                @__Message.InitializeResponseMessage(@__ServerChannelInfo, "RPSuiteServer", "RPDataService", "cmdUpdateVehiculoResponse");
+                @__Message.WriteBoolean("Result", Result);
+                @__Message.FinalizeMessage();
+                @__oResponseOptions = RemObjects.SDK.Server.ResponseOptions.roDefault;
+            }
+            finally {
+                @__ObjectDisposer.Dispose();
+            }
+        }
     }
     [System.Reflection.ObfuscationAttribute(Exclude=true, ApplyToMembers=false)]
     public class RPDataService_Activator : object, RemObjects.SDK.Server.IServiceActivator {

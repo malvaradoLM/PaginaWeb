@@ -34,11 +34,6 @@ C:\Users\RedPacifico\Desktop\PaginaConsumos\Ejemplo\Ejemplo\obj\Debug\Ejemplo.Da
 C:\Users\RedPacifico\Desktop\PaginaConsumos\Ejemplo\Ejemplo\obj\Debug\Ejemplo.csproj.GenerateResource.Cache
 C:\Users\RedPacifico\Desktop\PaginaConsumos\Ejemplo\Ejemplo\obj\Debug\Ejemplo.dll.licenses
 C:\Users\RedPacifico\Desktop\PaginaConsumos\Ejemplo\Ejemplo\obj\Debug\Ejemplo.csproj.CoreCompileInputs.cache
-C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\Ejemplo\obj\Debug\Ejemplo.csprojResolveAssemblyReference.cache
-C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\Ejemplo\obj\Debug\Ejemplo.Data.DataModule.resources
-C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\Ejemplo\obj\Debug\Ejemplo.csproj.GenerateResource.Cache
-C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\Ejemplo\obj\Debug\Ejemplo.dll.licenses
-C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\Ejemplo\obj\Debug\Ejemplo.csproj.CoreCompileInputs.cache
 C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\Ejemplo\bin\ApplicationInsights.config
 C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\Ejemplo\bin\roslyn\csc.exe
 C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\Ejemplo\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -184,5 +179,10 @@ C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\Ejemplo\bin\de\Dev
 C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\Ejemplo\bin\es\DevExpress.Sparkline.v17.2.Core.resources.dll
 C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\Ejemplo\bin\ja\DevExpress.Sparkline.v17.2.Core.resources.dll
 C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\Ejemplo\bin\ru\DevExpress.Sparkline.v17.2.Core.resources.dll
+C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\Ejemplo\obj\Debug\Ejemplo.csprojResolveAssemblyReference.cache
+C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\Ejemplo\obj\Debug\Ejemplo.Data.DataModule.resources
+C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\Ejemplo\obj\Debug\Ejemplo.csproj.GenerateResource.Cache
+C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\Ejemplo\obj\Debug\Ejemplo.dll.licenses
+C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\Ejemplo\obj\Debug\Ejemplo.csproj.CoreCompileInputs.cache
 C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\Ejemplo\obj\Debug\Ejemplo.dll
 C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\Ejemplo\obj\Debug\Ejemplo.pdb

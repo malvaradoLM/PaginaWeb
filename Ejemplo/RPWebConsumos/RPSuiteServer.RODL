@@ -123,6 +123,14 @@
 </Parameter>
 </Parameters>
 </Operation>
+<Operation Name="cmdUpdateVehiculo" UID="{2881C353-76F0-4BBF-A850-C78C3FFDEC80}">
+<Parameters>
+<Parameter Name="Result" DataType="Boolean" Flag="Result">
+</Parameter>
+<Parameter Name="Datos" DataType="TVehiculo" Flag="In" >
+</Parameter>
+</Parameters>
+</Operation>
 </Operations>
 </Interface>
 </Interfaces>
@@ -260,6 +268,24 @@
 <Element Name="ProductoAutorizado" DataType="AnsiString">
 </Element>
 <Element Name="Estacion" DataType="AnsiString">
+</Element>
+<Element Name="ClienteID" DataType="Integer">
+</Element>
+<Element Name="UsuarioID" DataType="Integer">
+</Element>
+<Element Name="GasolineroID" DataType="Integer">
+</Element>
+<Element Name="Mensaje" DataType="AnsiString">
+</Element>
+<Element Name="NIP" DataType="AnsiString">
+</Element>
+<Element Name="Estatus" DataType="AnsiString">
+</Element>
+<Element Name="tipoProducto" DataType="AnsiString">
+</Element>
+<Element Name="LimiteLTTurno" DataType="AnsiString">
+</Element>
+<Element Name="LimiteMNTurno" DataType="AnsiString">
 </Element>
 </Elements>
 </Struct>

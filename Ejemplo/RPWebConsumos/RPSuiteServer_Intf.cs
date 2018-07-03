@@ -654,6 +654,15 @@ namespace RPSuiteServer {
         private string @__Domingo;
         private string @__ProductoAutorizado;
         private string @__Estacion;
+        private int @__ClienteID;
+        private int @__UsuarioID;
+        private int @__GasolineroID;
+        private string @__Mensaje;
+        private string @__NIP;
+        private string @__Estatus;
+        private string @__tipoProducto;
+        private string @__LimiteLTTurno;
+        private string @__LimiteMNTurno;
         public virtual int VehiculoID {
             get {
                 return @__VehiculoID;
@@ -836,6 +845,93 @@ namespace RPSuiteServer {
                 this.TriggerPropertyChanged("Estacion");
             }
         }
+        public virtual int ClienteID {
+            get {
+                return @__ClienteID;
+            }
+            set {
+                @__ClienteID = value;
+                this.TriggerPropertyChanged("ClienteID");
+            }
+        }
+        public virtual int UsuarioID {
+            get {
+                return @__UsuarioID;
+            }
+            set {
+                @__UsuarioID = value;
+                this.TriggerPropertyChanged("UsuarioID");
+            }
+        }
+        public virtual int GasolineroID {
+            get {
+                return @__GasolineroID;
+            }
+            set {
+                @__GasolineroID = value;
+                this.TriggerPropertyChanged("GasolineroID");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Mensaje {
+            get {
+                return @__Mensaje;
+            }
+            set {
+                @__Mensaje = value;
+                this.TriggerPropertyChanged("Mensaje");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string NIP {
+            get {
+                return @__NIP;
+            }
+            set {
+                @__NIP = value;
+                this.TriggerPropertyChanged("NIP");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Estatus {
+            get {
+                return @__Estatus;
+            }
+            set {
+                @__Estatus = value;
+                this.TriggerPropertyChanged("Estatus");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string tipoProducto {
+            get {
+                return @__tipoProducto;
+            }
+            set {
+                @__tipoProducto = value;
+                this.TriggerPropertyChanged("tipoProducto");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string LimiteLTTurno {
+            get {
+                return @__LimiteLTTurno;
+            }
+            set {
+                @__LimiteLTTurno = value;
+                this.TriggerPropertyChanged("LimiteLTTurno");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string LimiteMNTurno {
+            get {
+                return @__LimiteMNTurno;
+            }
+            set {
+                @__LimiteMNTurno = value;
+                this.TriggerPropertyChanged("LimiteMNTurno");
+            }
+        }
         public override void ReadComplex(RemObjects.SDK.Serializer serializer) {
             if (serializer.RecordStrictOrder) {
                 this.VehiculoID = serializer.ReadInt32("VehiculoID");
@@ -857,25 +953,41 @@ namespace RPSuiteServer {
                 this.Domingo = serializer.ReadAnsiString("Domingo");
                 this.ProductoAutorizado = serializer.ReadAnsiString("ProductoAutorizado");
                 this.Estacion = serializer.ReadAnsiString("Estacion");
+                this.ClienteID = serializer.ReadInt32("ClienteID");
+                this.UsuarioID = serializer.ReadInt32("UsuarioID");
+                this.GasolineroID = serializer.ReadInt32("GasolineroID");
+                this.Mensaje = serializer.ReadAnsiString("Mensaje");
+                this.Estatus = serializer.ReadAnsiString("Estatus");
+                this.tipoProducto = serializer.ReadAnsiString("tipoProducto");
+                this.LimiteLTTurno = serializer.ReadAnsiString("LimiteLTTurno");
+                this.LimiteMNTurno = serializer.ReadAnsiString("LimiteMNTurno");
             }
             else {
                 this.CargasMaximas = serializer.ReadInt32("CargasMaximas");
+                this.ClienteID = serializer.ReadInt32("ClienteID");
                 this.Domingo = serializer.ReadAnsiString("Domingo");
                 this.Estacion = serializer.ReadAnsiString("Estacion");
+                this.Estatus = serializer.ReadAnsiString("Estatus");
+                this.GasolineroID = serializer.ReadInt32("GasolineroID");
                 this.Jueves = serializer.ReadAnsiString("Jueves");
                 this.LimiteLTDia = serializer.ReadDouble("LimiteLTDia");
                 this.LimiteLTMes = serializer.ReadDouble("LimiteLTMes");
                 this.LimiteLTSemana = serializer.ReadDouble("LimiteLTSemana");
+                this.LimiteLTTurno = serializer.ReadAnsiString("LimiteLTTurno");
                 this.LimiteMNDia = serializer.ReadDouble("LimiteMNDia");
                 this.LimiteMNMes = serializer.ReadDouble("LimiteMNMes");
                 this.LimiteMNSemana = serializer.ReadDouble("LimiteMNSemana");
+                this.LimiteMNTurno = serializer.ReadAnsiString("LimiteMNTurno");
                 this.Lunes = serializer.ReadAnsiString("Lunes");
                 this.Martes = serializer.ReadAnsiString("Martes");
+                this.Mensaje = serializer.ReadAnsiString("Mensaje");
                 this.Miercoles = serializer.ReadAnsiString("Miercoles");
                 this.Nip = serializer.ReadAnsiString("Nip");
                 this.ProductoAutorizado = serializer.ReadAnsiString("ProductoAutorizado");
                 this.Sabado = serializer.ReadAnsiString("Sabado");
                 this.Status = serializer.ReadAnsiString("Status");
+                this.tipoProducto = serializer.ReadAnsiString("tipoProducto");
+                this.UsuarioID = serializer.ReadInt32("UsuarioID");
                 this.VehiculoID = serializer.ReadInt32("VehiculoID");
                 this.Viernes = serializer.ReadAnsiString("Viernes");
             }
@@ -901,25 +1013,41 @@ namespace RPSuiteServer {
                 serializer.WriteAnsiString("Domingo", this.Domingo);
                 serializer.WriteAnsiString("ProductoAutorizado", this.ProductoAutorizado);
                 serializer.WriteAnsiString("Estacion", this.Estacion);
+                serializer.WriteInt32("ClienteID", this.ClienteID);
+                serializer.WriteInt32("UsuarioID", this.UsuarioID);
+                serializer.WriteInt32("GasolineroID", this.GasolineroID);
+                serializer.WriteAnsiString("Mensaje", this.Mensaje);
+                serializer.WriteAnsiString("Estatus", this.Estatus);
+                serializer.WriteAnsiString("tipoProducto", this.tipoProducto);
+                serializer.WriteAnsiString("LimiteLTTurno", this.LimiteLTTurno);
+                serializer.WriteAnsiString("LimiteMNTurno", this.LimiteMNTurno);
             }
             else {
                 serializer.WriteInt32("CargasMaximas", this.CargasMaximas);
+                serializer.WriteInt32("ClienteID", this.ClienteID);
                 serializer.WriteAnsiString("Domingo", this.Domingo);
                 serializer.WriteAnsiString("Estacion", this.Estacion);
+                serializer.WriteAnsiString("Estatus", this.Estatus);
+                serializer.WriteInt32("GasolineroID", this.GasolineroID);
                 serializer.WriteAnsiString("Jueves", this.Jueves);
                 serializer.WriteDouble("LimiteLTDia", this.LimiteLTDia);
                 serializer.WriteDouble("LimiteLTMes", this.LimiteLTMes);
                 serializer.WriteDouble("LimiteLTSemana", this.LimiteLTSemana);
+                serializer.WriteAnsiString("LimiteLTTurno", this.LimiteLTTurno);
                 serializer.WriteDouble("LimiteMNDia", this.LimiteMNDia);
                 serializer.WriteDouble("LimiteMNMes", this.LimiteMNMes);
                 serializer.WriteDouble("LimiteMNSemana", this.LimiteMNSemana);
+                serializer.WriteAnsiString("LimiteMNTurno", this.LimiteMNTurno);
                 serializer.WriteAnsiString("Lunes", this.Lunes);
                 serializer.WriteAnsiString("Martes", this.Martes);
+                serializer.WriteAnsiString("Mensaje", this.Mensaje);
                 serializer.WriteAnsiString("Miercoles", this.Miercoles);
                 serializer.WriteAnsiString("Nip", this.Nip);
                 serializer.WriteAnsiString("ProductoAutorizado", this.ProductoAutorizado);
                 serializer.WriteAnsiString("Sabado", this.Sabado);
                 serializer.WriteAnsiString("Status", this.Status);
+                serializer.WriteAnsiString("tipoProducto", this.tipoProducto);
+                serializer.WriteInt32("UsuarioID", this.UsuarioID);
                 serializer.WriteInt32("VehiculoID", this.VehiculoID);
                 serializer.WriteAnsiString("Viernes", this.Viernes);
             }
@@ -1753,6 +1881,7 @@ namespace RPSuiteServer {
         TConsumo ListaConsumoByFechaAutoAbasto(string Grupo, string FechaInicial, string FechaFinal);
         TConsumo ListaConsumoByID(int ConsumoID);
         TAlbum ListaConsumoFotosByID(int ConsumoID);
+        bool cmdUpdateVehiculo(TVehiculo Datos);
     }
     public partial class RPDataService_Proxy : RemObjects.DataAbstract.Server.DataAbstractService_Proxy, IRPDataService {
         public RPDataService_Proxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -1963,6 +2092,20 @@ namespace RPSuiteServer {
                 this.@__ClearMessage(@__LocalMessage);
             }
         }
+        public virtual bool cmdUpdateVehiculo(TVehiculo Datos) {
+            RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
+            try {
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "cmdUpdateVehiculo");
+                @__LocalMessage.Write("Datos", Datos, typeof(TVehiculo), RemObjects.SDK.StreamingFormat.Default);
+                @__LocalMessage.FinalizeMessage();
+                this.ClientChannel.Dispatch(@__LocalMessage);
+                bool _Result = @__LocalMessage.ReadBoolean("Result");
+                return _Result;
+            }
+            finally {
+                this.@__ClearMessage(@__LocalMessage);
+            }
+        }
     }
     public class CoRPDataService {
         public static IRPDataService Create(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) {
@@ -2018,6 +2161,9 @@ namespace RPSuiteServer {
         System.IAsyncResult BeginListaConsumoFotosByID(int ConsumoID, System.AsyncCallback @__Callback, object @__UserData);
         TAlbum EndListaConsumoFotosByID(System.IAsyncResult @__AsyncResult);
         System.Threading.Tasks.Task<TAlbum> ListaConsumoFotosByIDAsync(int ConsumoID);
+        System.IAsyncResult BegincmdUpdateVehiculo(TVehiculo Datos, System.AsyncCallback @__Callback, object @__UserData);
+        bool EndcmdUpdateVehiculo(System.IAsyncResult @__AsyncResult);
+        System.Threading.Tasks.Task<bool> cmdUpdateVehiculoAsync(TVehiculo Datos);
     }
     public partial class RPDataService_AsyncProxy : RemObjects.DataAbstract.Server.DataAbstractService_AsyncProxy, IRPDataService_Async {
         public RPDataService_AsyncProxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -2383,6 +2529,32 @@ namespace RPSuiteServer {
         }
         public virtual System.Threading.Tasks.Task<TAlbum> ListaConsumoFotosByIDAsync(int ConsumoID) {
             return System.Threading.Tasks.Task<TAlbum>.Factory.FromAsync(this.BeginListaConsumoFotosByID(ConsumoID, null, null), new System.Func<System.IAsyncResult, TAlbum>(this.EndListaConsumoFotosByID));
+        }
+        public virtual System.IAsyncResult BegincmdUpdateVehiculo(TVehiculo Datos, System.AsyncCallback @__Callback, object @__UserData) {
+            RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
+            try {
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "cmdUpdateVehiculo");
+                @__LocalMessage.Write("Datos", Datos, typeof(TVehiculo), RemObjects.SDK.StreamingFormat.Default);
+                @__LocalMessage.FinalizeMessage();
+                return this.ClientChannel.AsyncDispatch(@__LocalMessage, @__Callback, @__UserData);
+            }
+            catch (System.Exception ex) {
+                this.@__ClearMessage(@__LocalMessage);
+                throw ex;
+            }
+        }
+        public virtual bool EndcmdUpdateVehiculo(System.IAsyncResult @__AsyncResult) {
+            RemObjects.SDK.IMessage @__LocalMessage = ((RemObjects.SDK.IClientAsyncResult)(@__AsyncResult)).Message;
+            try {
+                bool Result = @__LocalMessage.ReadBoolean("Result");
+                return Result;
+            }
+            finally {
+                this.@__ClearMessage(@__LocalMessage);
+            }
+        }
+        public virtual System.Threading.Tasks.Task<bool> cmdUpdateVehiculoAsync(TVehiculo Datos) {
+            return System.Threading.Tasks.Task<bool>.Factory.FromAsync(this.BegincmdUpdateVehiculo(Datos, null, null), new System.Func<System.IAsyncResult, bool>(this.EndcmdUpdateVehiculo));
         }
     }
     public class CoRPDataServiceAsync {

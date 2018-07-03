@@ -17319,7 +17319,7 @@ ORDER BY ID</SQL>
       <Name>spListaConsumoFotosByID</Name>
     </Item36>
   </Datasets>
-  <Commands IsObject="true" Count="5" IsCollection="true" ItemClass="TDASQLCommand" Type="TDASQLCommandCollection">
+  <Commands IsObject="true" Count="6" IsCollection="true" ItemClass="TDASQLCommand" Type="TDASQLCommandCollection">
     <Item0>
       <BusinessRulesServer Type="TDABusinessRuleScript" IsObject="true">
         <Script />
@@ -17912,6 +17912,760 @@ where UsuarioWebID=:UsuarioWebID</SQL>
       <Description />
       <Name>setUsuarioWeb</Name>
     </Item4>
+    <Item5>
+      <BusinessRulesServer Type="TDABusinessRuleScript" IsObject="true">
+        <Script />
+        <ScriptLanguageStr />
+        <Description />
+        <Name />
+      </BusinessRulesServer>
+      <Statements IsCollection="true" IsObject="true" Count="1" ItemClass="TDAStatement" Type="TDAStatementCollection">
+        <Item0>
+          <Connection>RPSuite</Connection>
+          <SQL>DECLARE @ClienteID_ int
+DECLARE @VehiculoID_ int
+DECLARE @GasolineroID_ int
+DECLARE @UsuarioID_ int
+DECLARE @NIP_ Varchar(8)
+DECLARE @Estatus_ VarChar(1)
+DECLARE @ProductoAutorizado_ VarChar(4)
+DECLARE @CargasMaximas_ int
+DECLARE @Estacion_ VarChar(150)
+DECLARE @LimiteLTTurno_ VarChar(15)
+DECLARE @LimiteMNTurno_ VarChar(15)
+DECLARE @LimiteLTDia_ VarChar(15)
+DECLARE @LimiteMNDia_ VarChar(15)
+DECLARE @LimiteLTSemana_ VarChar(15)
+DECLARE @LimiteMNSemana_ VarChar(15)
+DECLARE @LimiteLTMes_ VarChar(15)
+DECLARE @LimiteMNMes_ VarChar(15)
+DECLARE @Lunes_ VarChar(24)
+DECLARE @Martes_ VarChar(24)
+DECLARE @Miercoles_ VarChar(24)
+DECLARE @Jueves_ VarChar(24)
+DECLARE @Viernes_ VarChar(24)
+DECLARE @Sabado_ VarChar(24)
+DECLARE @Domingo_ VarChar(24)
+DECLARE @Mensaje_ VarChar(200)
+SELECT @ClienteID_ = (SELECT upper(:ClienteID))
+SELECT @VehiculoID_ = (SELECT upper(:VehiculoID))
+SELECT @GasolineroID_ = (SELECT upper(:GasolineroID))
+SELECT @UsuarioID_ = (SELECT upper(:UsuarioID))
+SELECT @NIP_ = (SELECT upper(:NIP))
+SELECT @Estatus_ = (SELECT upper(:Estatus))
+SELECT @ProductoAutorizado_ = (SELECT upper(:ProductoAutorizado))
+SELECT @CargasMaximas_ = (SELECT upper(:CargasMaximas))
+SELECT @Estacion_ = (SELECT upper(:Estacion))
+SELECT @LimiteLTTurno_ = (SELECT upper(:LimiteLTTurno))
+SELECT @LimiteMNTurno_ = (SELECT upper(:LimiteMNTurno))
+SELECT @LimiteLTDia_ = (SELECT upper(:LimiteLTDia))
+SELECT @LimiteMNDia_ = (SELECT upper(:LimiteMNDia))
+SELECT @LimiteLTSemana_ = (SELECT upper(:LimiteLTSemana))
+SELECT @LimiteMNSemana_ = (SELECT upper(:LimiteMNSemana))
+SELECT @LimiteLTMes_ = (SELECT upper(:LimiteLTMes))
+SELECT @LimiteMNMes_ = (SELECT upper(:LimiteMNMes))
+SELECT @Lunes_ = (SELECT upper(:Lunes))
+SELECT @Martes_ = (SELECT upper(:Martes))
+SELECT @Miercoles_ = (SELECT upper(:Miercoles))
+SELECT @Jueves_ = (SELECT upper(:Jueves))
+SELECT @Viernes_ = (SELECT upper(:Viernes))
+SELECT @Sabado_ = (SELECT upper(:Sabado))
+SELECT @Domingo_ = (SELECT upper(:Domingo))
+SELECT @Mensaje_ = (SELECT upper(:Mensaje))
+DECLARE @ClienteID_bw int
+DECLARE @VehiculoID_bw int
+DECLARE @NIP_bw Varchar(8)
+DECLARE @Estatus_bw VarChar(1)
+DECLARE @ProductoAutorizado_bw VarChar(4)
+DECLARE @CargasMaximas_bw int
+DECLARE @Estacion_bw VarChar(150)
+DECLARE @LimiteLTTurno_bw VarChar(15)
+DECLARE @LimiteMNTurno_bw VarChar(15)
+DECLARE @LimiteLTDia_bw VarChar(15)
+DECLARE @LimiteMNDia_bw VarChar(15)
+DECLARE @LimiteLTSemana_bw VarChar(15)
+DECLARE @LimiteMNSemana_bw VarChar(15)
+DECLARE @LimiteLTMes_bw VarChar(15)
+DECLARE @LimiteMNMes_bw VarChar(15)
+DECLARE @Lunes_bw VarChar(24)
+DECLARE @Martes_bw VarChar(24)
+DECLARE @Miercoles_bw VarChar(24)
+DECLARE @Jueves_bw VarChar(24)
+DECLARE @Viernes_bw VarChar(24)
+DECLARE @Sabado_bw VarChar(24)
+DECLARE @Domingo_bw VarChar(24)
+DECLARE @Mensaje_ VarChar(200)
+SELECT @ClienteID_ = (SELECT upper(:ClienteID))
+SELECT @VehiculoID_ = (SELECT upper(:VehiculoID))
+SELECT @GasolineroID_ = (SELECT upper(:GasolineroID))
+SELECT @UsuarioID_ = (SELECT upper(:UsuarioID))
+SELECT @NIP_ = (SELECT upper(:NIP))
+SELECT @Estatus_ = (SELECT upper(:Estatus))
+SELECT @ProductoAutorizado_ = (SELECT upper(:ProductoAutorizado))
+SELECT @CargasMaximas_ = (SELECT upper(:CargasMaximas))
+SELECT @Estacion_ = (SELECT upper(:Estacion))
+SELECT @LimiteLTTurno_ = (SELECT upper(:LimiteLTTurno))
+SELECT @LimiteMNTurno_ = (SELECT upper(:LimiteMNTurno))
+SELECT @LimiteLTDia_ = (SELECT upper(:LimiteLTDia))
+SELECT @LimiteMNDia_ = (SELECT upper(:LimiteMNDia))
+SELECT @LimiteLTSemana_ = (SELECT upper(:LimiteLTSemana))
+SELECT @LimiteMNSemana_ = (SELECT upper(:LimiteMNSemana))
+SELECT @LimiteLTMes_ = (SELECT upper(:LimiteLTMes))
+SELECT @LimiteMNMes_ = (SELECT upper(:LimiteMNMes))
+SELECT @Lunes_ = (SELECT upper(:Lunes))
+SELECT @Martes_ = (SELECT upper(:Martes))
+SELECT @Miercoles_ = (SELECT upper(:Miercoles))
+SELECT @Jueves_ = (SELECT upper(:Jueves))
+SELECT @Viernes_ = (SELECT upper(:Viernes))
+SELECT @Sabado_ = (SELECT upper(:Sabado))
+SELECT @Domingo_ = (SELECT upper(:Domingo))
+SELECT @Mensaje_ = (SELECT upper(:Mensaje))
+DECLARE @ClienteID_bw int
+DECLARE @VehiculoID_bw int
+DECLARE @NIP_bw Varchar(8)
+DECLARE @Estatus_bw VarChar(1)
+DECLARE @ProductoAutorizado_bw VarChar(4)
+DECLARE @CargasMaximas_bw int
+DECLARE @Estacion_bw VarChar(150)
+DECLARE @LimiteLTTurno_bw VarChar(15)
+DECLARE @LimiteMNTurno_bw VarChar(15)
+DECLARE @LimiteLTDia_bw VarChar(15)
+DECLARE @LimiteMNDia_bw VarChar(15)
+DECLARE @LimiteLTSemana_bw VarChar(15)
+DECLARE @LimiteMNSemana_bw VarChar(15)
+DECLARE @LimiteLTMes_bw VarChar(15)
+DECLARE @LimiteMNMes_bw VarChar(15)
+DECLARE @Lunes_bw VarChar(24)
+DECLARE @Martes_bw VarChar(24)
+DECLARE @Miercoles_bw VarChar(24)
+DECLARE @Jueves_bw VarChar(24)
+DECLARE @Viernes_bw VarChar(24)
+DECLARE @Sabado_bw VarChar(24)
+DECLARE @Domingo_bw VarChar(24)
+BEGIN	
+	DECLARE @Folio int 
+	DECLARE @User_Value int
+	IF (@UsuarioID_ = 0)
+	BEGIN 
+		SELECT @User_Value = @ClienteID_
+	END
+	ELSE
+	BEGIN
+		SELECT @User_Value = @UsuarioID_
+	END
+	
+	SELECT @NIP_bw=NIP, @Estatus_bw=Estatus, @ProductoAutorizado_bw=ProductoAutorizado, @CargasMaximas_bw=CargasMaximas, 
+	@Estacion_bw=Estacion, @LimiteLTTurno_bw=LimiteLTTurno, @LimiteMNTurno_bw=LimiteMNTurno, @LimiteLTDia_bw=LimiteLTDia,
+	@LimiteMNDia_bw=LimiteMNDia, @LimiteLTSemana_bw=LimiteLTSemana, @LimiteMNSemana_bw=LimiteMNSemana, @LimiteLTMes_bw=LimiteLTMes,
+	@LimiteMNMes_bw=LimiteMNMes, @Lunes_bw=Lunes, @Martes_bw=Martes, @Miercoles_bw=Miercoles, @Jueves_bw=Jueves, @Viernes_bw=Viernes,
+	@Sabado_bw=Sabado, @Domingo_bw=Domingo
+	FROM VEHICULO
+	WHERE ClienteID = @ClienteID_ AND VehiculoID = @VehiculoID_
+	
+    BEGIN TRAN UpdateVehiculo
+		BEGIN TRY
+			UPDATE Vehiculo SET NIP = @NIP_, Estatus = @Estatus_, ProductoAutorizado = @ProductoAutorizado_, CargasMaximas = @CargasMaximas_, 
+			LimiteLTTurno = CASE WHEN @LimiteLTTurno_ is null or @LimiteLTTurno_ = '' THEN 0 ELSE convert(float, @LimiteLTTurno_) END, 
+			LimiteMNTurno = CASE WHEN @LimiteMNTurno_ is null or @LimiteMNTurno_ = '' THEN 0 ELSE convert(float, @LimiteMNTurno_) END,
+			LimiteLTDia = CASE WHEN @LimiteLTDia_ is null or @LimiteLTDia_ = '' THEN 0 ELSE convert(float, @LimiteLTDia_) END,
+			LimiteMNDia = CASE WHEN @LimiteMNDia_ is null or @LimiteMNDia_ = '' THEN 0 ELSE convert(float, @LimiteMNDia_) END,
+			LimiteLTSemana = CASE WHEN @LimiteLTSemana_ is null or @LimiteLTSemana_ = '' THEN 0 ELSE convert(float, @LimiteLTSemana_) END,
+			LimiteMNSemana = CASE WHEN @LimiteMNSemana_ is null or @LimiteMNSemana_ = '' THEN 0 ELSE convert(float, @LimiteMNSemana_) END,
+			LimiteLTMes = CASE WHEN @LimiteLTMes_ is null or @LimiteLTMes_ = '' THEN 0 ELSE convert(float, @LimiteLTMes_) END,
+			LimiteMNMes = CASE WHEN @LimiteMNMes_ is null or @LimiteMNMes_ = '' THEN 0 ELSE convert(float, @LimiteMNMes_) END,
+			Lunes = CASE WHEN @Lunes_ is null or @Lunes_ = '' THEN '' ELSE @Lunes_ END, 
+			Martes = CASE WHEN @Martes_ is null or @Martes_ = '' THEN '' ELSE @Martes_ END,
+			Miercoles = CASE WHEN @Miercoles_ is null or @Miercoles_ = '' THEN '' ELSE @Miercoles_ END,
+			Jueves = CASE WHEN @Jueves_ is null or @Jueves_ = '' THEN '' ELSE @Jueves_ END,
+			Viernes = CASE WHEN @Viernes_ is null or @Viernes_ = '' THEN '' ELSE @Viernes_ END,
+			Sabado = CASE WHEN @Sabado_ is null or @Sabado_ = '' THEN '' ELSE @Sabado_ END,
+			Domingo = CASE WHEN @Domingo_ is null or @Domingo_ = '' THEN '' ELSE @Domingo_ END
+			WHERE ClienteID = @ClienteID_ AND VehiculoID = @VehiculoID_
+
+			-- OBTENER FOLIO DE BITACORAWEB		
+ 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+
+			-- VALIDA SI EXISTE FOLIO PARA WEBBITACORAID
+			IF (@Folio &lt; 0)
+			BEGIN
+				SELECT @Mensaje ='NO EXISTEN FOLIOS DISPONIBLES PARA WEBBITACORAID!'
+							END
+			ELSE
+			BEGIN
+				IF (@NIP_bw &lt;&gt; @NIP_)
+				BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+					
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','NIP',@NIP_bw, @NIP_,GETDATE(),@VehiculoID_)
+	
+					-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END	 					
+				IF (@Estatus_bw &lt;&gt; @Estatus_)
+				BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+	
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','ESTATUS',@Estatus_bw, @Estatus_,GETDATE(),@VehiculoID_)
+	
+					-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END	 		
+				IF (@ProductoAutorizado_bw &lt;&gt; @ProductoAutorizado_)
+								BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+	
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','PRODUCTO AUTORIZADO',
+					@ProductoAutorizado_bw, @ProductoAutorizado_,GETDATE(),@VehiculoID_)
+	
+					-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END	 	
+				IF (@CargasMaximas_bw &lt;&gt; @CargasMaximas_)
+				BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+	
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','CARGAS MAXIMAS',@CargasMaximas_bw, @CargasMaximas_,GETDATE(),@VehiculoID_)
+	
+					-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END	 
+				IF (@Estacion_bw &lt;&gt; @Estacion_)
+				BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+	
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','LIMITAR A ESTACION',@Estacion_bw, @Estacion_,GETDATE(),@VehiculoID_)
+	
+					-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END	 	
+				IF (@LimiteLTTurno_bw &lt;&gt; @LimiteLTTurno_)
+				BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+	
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','LIMITE LITROS TURNO',
+					@LimiteLTTurno_bw, @LimiteLTTurno_,GETDATE(),@VehiculoID_)
+					-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END	 		
+				IF (@LimiteLTDia_bw &lt;&gt; @LimiteLTDia_)
+				BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+	
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','LIMITE LITROS DIA',@LimiteLTDia_bw,@LimiteLTDia_,GETDATE(),@VehiculoID_)	
+					-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END	 
+				IF (@LimiteLTSemana_bw &lt;&gt; @LimiteLTSemana_)
+				BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+	
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','LIMITE LITROS SEMANA',
+					@LimiteLTSemana_bw,@LimiteLTSemana_,GETDATE(),@VehiculoID_)	
+					-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END	 
+				IF (@LimiteLTMes_bw &lt;&gt; @LimiteLTMes_)
+				BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+	
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','LIMITE LITROS MES',
+					@LimiteLTMes_bw,@LimiteLTMes_,GETDATE(),@VehiculoID_)	
+					-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END	 
+				IF (@LimiteMNTurno_bw &lt;&gt; @LimiteMNTurno_)
+				BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+	
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','LIMITE MONEDA NACIONAL TURNO',
+					@LimiteMNTurno_bw,@LimiteMNTurno_,GETDATE(),@VehiculoID_)	
+					-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END	
+				IF (@LimiteMNDia_bw &lt;&gt; @LimiteMNDia_)
+				BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+	
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','LIMITE MONEDA NACIONAL DIA',
+					@LimiteMNDia_bw,@LimiteMNDia_,GETDATE(),@VehiculoID_)	
+					-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END	
+				IF (@LimiteMNSemana_bw &lt;&gt; @LimiteMNSemana_)
+				BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+	
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','LIMITE MONEDA NACIONAL SEMANA',
+					@LimiteMNSemana_bw,@LimiteMNSemana_,GETDATE(),@VehiculoID_)	
+					-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END	
+				IF (@LimiteMNMes_bw &lt;&gt; @LimiteMNMes_)
+				BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+	
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','LIMITE MONEDA NACIONAL Mes',
+					@LimiteMNMes_bw,@LimiteMNMes_,GETDATE(),@VehiculoID_)	
+					-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END
+				IF (@Lunes_bw &lt;&gt; @Lunes_)
+				BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+	
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','HORARIOS DIA LUNES',
+					@Lunes_bw,@Lunes_,GETDATE(),@VehiculoID_)	
+					-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END		
+				IF (@Martes_bw &lt;&gt; @Martes_)
+				BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','HORARIOS DIA MARTES',
+					@Martes_bw,@Martes_,GETDATE(),@VehiculoID_)	
+					-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END		
+				IF (@Miercoles_bw &lt;&gt; @Miercoles_)
+				BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+	
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','HORARIOS DIA MIERCOLES',
+					@Miercoles_bw,@Miercoles_,GETDATE(),@VehiculoID_)	
+										-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END		
+				IF (@Jueves_bw &lt;&gt; @Jueves_)
+				BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+	
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','HORARIOS DIA JUEVES',
+					@Jueves_bw,@Jueves_,GETDATE(),@VehiculoID_)	
+					-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END		
+				IF (@Viernes_bw &lt;&gt; @Viernes_)
+				BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+	
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','HORARIOS DIA VIERNES',
+					@Viernes_bw,@Viernes_,GETDATE(),@VehiculoID_)	
+					-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END		
+				IF (@Sabado_bw &lt;&gt; @Sabado_)
+				BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+	
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','HORARIOS DIA SABADO',
+					@Sabado_bw,@Sabado_,GETDATE(),@VehiculoID_)	
+					-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END		
+								IF (@Domingo_bw &lt;&gt; @Domingo_)
+				BEGIN
+					-- OBTENER FOLIO DE BITACORAWEBID		
+		 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+	
+					-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+					INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@User_Value,'MODIFICACION EN EDICION DE TARJETA','HORARIOS DIA DOMINGO',
+					@Domingo_bw,@Domingo_,GETDATE(),@VehiculoID_)	
+					-- ACTUALIZA FOLIO DE WEBBITACORAID
+		 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				
+				END						
+			END
+						SELECT @Mensaje='OK'
+	    
+	       COMMIT TRAN UpdateVehiculo 
+	       		END TRY
+	       		BEGIN CATCH
+	       		SELECT @Mensaje 'Ocurrio un error' + ERROR_MESAGE() + ' en la línea ' + CONVERT(NVARCHAR(255), ERROR_LINE() ) + '.'
+	       		Rollback TRAN UpdateVehiculo		
+		END CATCH
+END</SQL>
+          <TargetTable />
+          <ConnectionType>SQLite</ConnectionType>
+          <Default>False</Default>
+          <StatementName />
+          <StatementType>stSQL</StatementType>
+          <GeneratorName />
+          <ColumnMappings IsObject="true" Count="0" IsCollection="true" Type="TDAColumnMappingCollection" ItemClass="TDAColumnMapping" />
+          <Description />
+        </Item0>
+      </Statements>
+      <Params IsObject="true" Count="25" IsCollection="true" Type="TDAParamCollection" ItemClass="TDAParam">
+        <Item0>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>ClienteID</Name>
+          <DataType>datInteger</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item0>
+        <Item1>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>VehiculoID</Name>
+          <DataType>datInteger</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item1>
+        <Item2>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>GasolineroID</Name>
+          <DataType>datInteger</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item2>
+        <Item3>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>UsuarioID</Name>
+          <DataType>datInteger</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item3>
+        <Item4>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>NIP</Name>
+          <DataType>datWideString</DataType>
+          <Size>6536</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item4>
+        <Item5>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Estatus</Name>
+          <DataType>datString</DataType>
+          <Size>1</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item5>
+        <Item6>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>ProductoAutorizado</Name>
+          <DataType>datWideString</DataType>
+          <Size>6536</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item6>
+        <Item7>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>CargasMaximas</Name>
+          <DataType>datInteger</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item7>
+        <Item8>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Estacion</Name>
+          <DataType>datWideString</DataType>
+          <Size>65536</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item8>
+        <Item9>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>LimiteLTTurno</Name>
+          <DataType>datWord</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item9>
+        <Item10>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>LimiteMNTurno</Name>
+          <DataType>datWideString</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item10>
+        <Item11>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>LimiteLTDia</Name>
+          <DataType>datWideString</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item11>
+        <Item12>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>LimiteMNDia</Name>
+          <DataType>datWideString</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item12>
+        <Item13>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>LimiteLTSemana</Name>
+          <DataType>datWideString</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item13>
+        <Item14>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>LimiteMNSemana</Name>
+          <DataType>datWideString</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item14>
+        <Item15>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>LimiteLTMes</Name>
+          <DataType>datWideString</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item15>
+        <Item16>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>LimiteMNMes</Name>
+          <DataType>datWideString</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item16>
+        <Item17>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Lunes</Name>
+          <DataType>datWideString</DataType>
+          <Size>65536</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item17>
+        <Item18>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Martes</Name>
+          <DataType>datWideString</DataType>
+          <Size>65536</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item18>
+        <Item19>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Miercoles</Name>
+          <DataType>datWideString</DataType>
+          <Size>65536</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item19>
+        <Item20>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Jueves</Name>
+          <DataType>datWideString</DataType>
+          <Size>65536</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item20>
+        <Item21>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Viernes</Name>
+          <DataType>datWideString</DataType>
+          <Size>65536</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item21>
+        <Item22>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Sabado</Name>
+          <DataType>datWideString</DataType>
+          <Size>65536</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item22>
+        <Item23>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Domingo</Name>
+          <DataType>datWideString</DataType>
+          <Size>65536</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item23>
+        <Item24>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Mensaje</Name>
+          <DataType>datWideString</DataType>
+          <Size>65536</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item24>
+      </Params>
+      <CustomAttributes />
+      <IsPublic>True</IsPublic>
+      <DynamicWhereXML />
+      <BusinessClassID />
+      <Description />
+      <Name>cmdUpdateVehiculo</Name>
+    </Item5>
   </Commands>
   <RelationShips IsObject="true" Count="0" IsCollection="true" Type="TDADatasetRelationshipCollection" ItemClass="TDADatasetRelationship" />
   <UpdateRules IsObject="true" Count="0" IsCollection="true" Type="TDAUpdateRuleCollection" ItemClass="TDAUpdateRule" />
