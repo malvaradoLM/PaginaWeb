@@ -235,7 +235,7 @@ namespace Ejemplo
             vehiculo = llenarVehiculo(ID);
             try
             {
-                if (!DataModule.DataService.UpdateVehiculo(vehiculo)) resultado = "NO SE PUDIERON GUARDAR LOS CAMBIOS";
+                if (!DataModule.DataService.cmdActualizaVehiculo(vehiculo)) resultado = "NO SE PUDIERON GUARDAR LOS CAMBIOS";
                 else resultado= "LOS CAMBIOS HAN SIDO GUARDADOS CORRECTAMENTE";          
             } 
             catch (Exception ex)
@@ -250,10 +250,17 @@ namespace Ejemplo
             RPSuiteServer.TVehiculo vehiculo = new RPSuiteServer.TVehiculo();
             var definicion = new
             { Nip = "", VehiculoId = new int(), Status = "", CargasMaximas = new int(), LimiteLTDia = new double(), LimiteLTSemana = new double(), LimiteLTMes = new double(), LimiteMNDia = new double(),
-                LimiteMNSemana = new double(), LimiteMNMes = new double(), Lunes = "", Martes = "", Miercoles="", Jueves= "", Viernes= "", Sabado= "", Domingo= "", ProductoAutorizado="", Estacion="" };
+                LimiteMNSemana = new double(), LimiteMNMes = new double(), Lunes = "", Martes = "", Miercoles = "", Jueves = "", Viernes = "", Sabado = "", Domingo = "", ProductoAutorizado = "", Estacion = "" };
             var listaDefinicion = new[] { definicion };
             var horarios = ID;
             var listHorarios = JsonConvert.DeserializeAnonymousType(horarios, listaDefinicion);
+            string _GasolineroID = HttpContext.Current.Session["GasolineroID"].ToString();
+            ///VARIABLES GENERALES
+            vehiculo.ClienteID = Convert.ToInt32(DataModule.Seguridad.UserID);
+            vehiculo.VehiculoID = listHorarios[0].VehiculoId;
+            vehiculo.GasolineroID = Convert.ToInt32(_GasolineroID);
+            vehiculo.UsuarioID = Convert.ToInt32(DataModule.Seguridad.UserID);
+            ///
             vehiculo.CargasMaximas =listHorarios[0].CargasMaximas;
             vehiculo.Domingo = listHorarios[0].Domingo;
             vehiculo.Jueves = listHorarios[0].Jueves;
@@ -270,12 +277,12 @@ namespace Ejemplo
             vehiculo.ProductoAutorizado = listHorarios[0].ProductoAutorizado;
             vehiculo.Sabado = listHorarios[0].Sabado;
             vehiculo.Status = listHorarios[0].Status;
-            vehiculo.VehiculoID = listHorarios[0].VehiculoId;
+            
             vehiculo.Viernes = listHorarios[0].Viernes;
             vehiculo.Estacion = listHorarios[0].Estacion;
-            vehiculo.ClienteID = Convert.ToInt32(DataModule.Seguridad.UserID);
-            string _GasolineroID = HttpContext.Current.Session["GasolineroID"].ToString();
-            vehiculo.GasolineroID = Convert.ToInt32(_GasolineroID);
+            
+            
+            
 
             return vehiculo;
 

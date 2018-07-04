@@ -1881,7 +1881,7 @@ namespace RPSuiteServer {
         TConsumo ListaConsumoByFechaAutoAbasto(string Grupo, string FechaInicial, string FechaFinal);
         TConsumo ListaConsumoByID(int ConsumoID);
         TAlbum ListaConsumoFotosByID(int ConsumoID);
-        bool cmdUpdateVehiculo(TVehiculo Datos);
+        bool cmdActualizaVehiculo(TVehiculo Datos);
     }
     public partial class RPDataService_Proxy : RemObjects.DataAbstract.Server.DataAbstractService_Proxy, IRPDataService {
         public RPDataService_Proxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -2092,10 +2092,10 @@ namespace RPSuiteServer {
                 this.@__ClearMessage(@__LocalMessage);
             }
         }
-        public virtual bool cmdUpdateVehiculo(TVehiculo Datos) {
+        public virtual bool cmdActualizaVehiculo(TVehiculo Datos) {
             RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
             try {
-                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "cmdUpdateVehiculo");
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "cmdActualizaVehiculo");
                 @__LocalMessage.Write("Datos", Datos, typeof(TVehiculo), RemObjects.SDK.StreamingFormat.Default);
                 @__LocalMessage.FinalizeMessage();
                 this.ClientChannel.Dispatch(@__LocalMessage);
@@ -2161,9 +2161,9 @@ namespace RPSuiteServer {
         System.IAsyncResult BeginListaConsumoFotosByID(int ConsumoID, System.AsyncCallback @__Callback, object @__UserData);
         TAlbum EndListaConsumoFotosByID(System.IAsyncResult @__AsyncResult);
         System.Threading.Tasks.Task<TAlbum> ListaConsumoFotosByIDAsync(int ConsumoID);
-        System.IAsyncResult BegincmdUpdateVehiculo(TVehiculo Datos, System.AsyncCallback @__Callback, object @__UserData);
-        bool EndcmdUpdateVehiculo(System.IAsyncResult @__AsyncResult);
-        System.Threading.Tasks.Task<bool> cmdUpdateVehiculoAsync(TVehiculo Datos);
+        System.IAsyncResult BegincmdActualizaVehiculo(TVehiculo Datos, System.AsyncCallback @__Callback, object @__UserData);
+        bool EndcmdActualizaVehiculo(System.IAsyncResult @__AsyncResult);
+        System.Threading.Tasks.Task<bool> cmdActualizaVehiculoAsync(TVehiculo Datos);
     }
     public partial class RPDataService_AsyncProxy : RemObjects.DataAbstract.Server.DataAbstractService_AsyncProxy, IRPDataService_Async {
         public RPDataService_AsyncProxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -2530,10 +2530,10 @@ namespace RPSuiteServer {
         public virtual System.Threading.Tasks.Task<TAlbum> ListaConsumoFotosByIDAsync(int ConsumoID) {
             return System.Threading.Tasks.Task<TAlbum>.Factory.FromAsync(this.BeginListaConsumoFotosByID(ConsumoID, null, null), new System.Func<System.IAsyncResult, TAlbum>(this.EndListaConsumoFotosByID));
         }
-        public virtual System.IAsyncResult BegincmdUpdateVehiculo(TVehiculo Datos, System.AsyncCallback @__Callback, object @__UserData) {
+        public virtual System.IAsyncResult BegincmdActualizaVehiculo(TVehiculo Datos, System.AsyncCallback @__Callback, object @__UserData) {
             RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
             try {
-                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "cmdUpdateVehiculo");
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "cmdActualizaVehiculo");
                 @__LocalMessage.Write("Datos", Datos, typeof(TVehiculo), RemObjects.SDK.StreamingFormat.Default);
                 @__LocalMessage.FinalizeMessage();
                 return this.ClientChannel.AsyncDispatch(@__LocalMessage, @__Callback, @__UserData);
@@ -2543,7 +2543,7 @@ namespace RPSuiteServer {
                 throw ex;
             }
         }
-        public virtual bool EndcmdUpdateVehiculo(System.IAsyncResult @__AsyncResult) {
+        public virtual bool EndcmdActualizaVehiculo(System.IAsyncResult @__AsyncResult) {
             RemObjects.SDK.IMessage @__LocalMessage = ((RemObjects.SDK.IClientAsyncResult)(@__AsyncResult)).Message;
             try {
                 bool Result = @__LocalMessage.ReadBoolean("Result");
@@ -2553,8 +2553,8 @@ namespace RPSuiteServer {
                 this.@__ClearMessage(@__LocalMessage);
             }
         }
-        public virtual System.Threading.Tasks.Task<bool> cmdUpdateVehiculoAsync(TVehiculo Datos) {
-            return System.Threading.Tasks.Task<bool>.Factory.FromAsync(this.BegincmdUpdateVehiculo(Datos, null, null), new System.Func<System.IAsyncResult, bool>(this.EndcmdUpdateVehiculo));
+        public virtual System.Threading.Tasks.Task<bool> cmdActualizaVehiculoAsync(TVehiculo Datos) {
+            return System.Threading.Tasks.Task<bool>.Factory.FromAsync(this.BegincmdActualizaVehiculo(Datos, null, null), new System.Func<System.IAsyncResult, bool>(this.EndcmdActualizaVehiculo));
         }
     }
     public class CoRPDataServiceAsync {

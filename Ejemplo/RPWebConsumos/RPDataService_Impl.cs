@@ -497,19 +497,19 @@ namespace RPSuiteServer
                 return result;
             }
         }
-        public virtual bool cmdUpdateVehiculo(TVehiculo Datos)
+        public virtual bool cmdActualizaVehiculo(TVehiculo Datos)
         {
 
 
             try
             {
-                using (IDbCommand lcommand = this.ServiceSchema.NewCommand(this.Connection, "cmdUpdateUsuario", new string[] {
+                using (IDbCommand lcommand = this.ServiceSchema.NewCommand(this.Connection, "cmdActualizaVehiculo", new string[] {
                     "ClienteID", "VehiculoID", "GasolineroID", "UsuarioID", "NIP", "Estatus", "ProductoAutorizado", "CargasMaximas", "Estacion",
-                                                                                    "LimiteLTTurno", "LimiteMNTurno", "LimiteLTDia", "LimiteMNDia", "LimiteLTSemana", "LimiteMNSemana",
+                                                                                    "LimiteLTDia", "LimiteMNDia", "LimiteLTSemana", "LimiteMNSemana",
                                                                                     "LimiteLTMes", "LimiteMNMes", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo", "Mensaje"
                 }
-                    , new object[] { Datos.ClienteID, Datos.VehiculoID, Datos.GasolineroID, Datos.UsuarioID, Datos.Nip, Datos.Status, Datos.ProductoAutorizado, Datos.CargasMaximas, Datos.Estacion, Datos.LimiteLTTurno,
-                                                                                    Datos.LimiteMNTurno, Datos.LimiteLTDia, Datos.LimiteMNDia, Datos.LimiteLTSemana, Datos.LimiteMNSemana, Datos.LimiteLTMes, Datos.LimiteMNMes, Datos.Lunes,
+                    , new object[] { Datos.ClienteID, Datos.VehiculoID, Datos.GasolineroID, Datos.UsuarioID, Datos.Nip, Datos.Status, Datos.ProductoAutorizado, Datos.CargasMaximas, Datos.Estacion, Datos.LimiteLTDia,
+                                                                                    Datos.LimiteMNDia, Datos.LimiteLTSemana, Datos.LimiteMNSemana, Datos.LimiteLTMes, Datos.LimiteMNMes, Datos.Lunes,
                                                                                     Datos.Martes, Datos.Miercoles, Datos.Jueves, Datos.Viernes, Datos.Sabado, Datos.Domingo, Datos.Mensaje
                             }))
                 {

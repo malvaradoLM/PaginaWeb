@@ -123,7 +123,7 @@
 </Parameter>
 </Parameters>
 </Operation>
-<Operation Name="cmdUpdateVehiculo" UID="{2881C353-76F0-4BBF-A850-C78C3FFDEC80}">
+<Operation Name="cmdActualizaVehiculo" UID="{2881C353-76F0-4BBF-A850-C78C3FFDEC80}">
 <Parameters>
 <Parameter Name="Result" DataType="Boolean" Flag="Result">
 </Parameter>

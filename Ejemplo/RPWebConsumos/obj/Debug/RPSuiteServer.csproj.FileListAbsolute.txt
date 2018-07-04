@@ -193,3 +193,4 @@ C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\RPWebConsumos\obj\
 C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\RPWebConsumos\obj\Debug\RPSuiteServer.csproj.CoreCompileInputs.cache
 C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\RPWebConsumos\obj\Debug\RPSuiteServer.exe
 C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\RPWebConsumos\obj\Debug\RPSuiteServer.pdb
+C:\Users\RedPacifico\Desktop\PaginaConsumos\PaginaWeb\Ejemplo\RPWebConsumos\obj\Debug\RPSuiteServer.csprojResolveAssemblyReference.cache
