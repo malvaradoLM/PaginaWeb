@@ -30,6 +30,8 @@ namespace Ejemplo
             Session["Grupo"] = DatosCliente.Grupo;
             DatosCliente.ClienteID = Convert.ToInt32(DataModule.Seguridad.UserID);
             DatosCliente = DataModule.DataService.getCliente(ClienteID);
+            RPSuiteServer.TUsuarioWeb DatosUsuario = new RPSuiteServer.TUsuarioWeb();
+            
             Session["Grupo"] = DatosCliente.Grupo;
             double limiteCredito = DatosCliente.LimiteCredito;
             double saldoDisponible = DatosCliente.Saldo;

@@ -1912,6 +1912,7 @@ namespace RPSuiteServer {
         TConsumo ListaConsumoByID(int ConsumoID);
         TAlbum ListaConsumoFotosByID(int ConsumoID);
         bool cmdActualizaVehiculo(TVehiculo Datos);
+        bool cmdActualizaUsuarioWeb(TUsuarioWeb Datos);
     }
     public partial class RPDataService_Proxy : RemObjects.DataAbstract.Server.DataAbstractService_Proxy, IRPDataService {
         public RPDataService_Proxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -2150,6 +2151,20 @@ namespace RPSuiteServer {
                 this.@__ClearMessage(@__LocalMessage);
             }
         }
+        public virtual bool cmdActualizaUsuarioWeb(TUsuarioWeb Datos) {
+            RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
+            try {
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "cmdActualizaUsuarioWeb");
+                @__LocalMessage.Write("Datos", Datos, typeof(TUsuarioWeb), RemObjects.SDK.StreamingFormat.Default);
+                @__LocalMessage.FinalizeMessage();
+                this.ClientChannel.Dispatch(@__LocalMessage);
+                bool _Result = @__LocalMessage.ReadBoolean("Result");
+                return _Result;
+            }
+            finally {
+                this.@__ClearMessage(@__LocalMessage);
+            }
+        }
     }
     public class CoRPDataService {
         public static IRPDataService Create(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) {
@@ -2211,6 +2226,9 @@ namespace RPSuiteServer {
         System.IAsyncResult BegincmdActualizaVehiculo(TVehiculo Datos, System.AsyncCallback @__Callback, object @__UserData);
         bool EndcmdActualizaVehiculo(System.IAsyncResult @__AsyncResult);
         System.Threading.Tasks.Task<bool> cmdActualizaVehiculoAsync(TVehiculo Datos);
+        System.IAsyncResult BegincmdActualizaUsuarioWeb(TUsuarioWeb Datos, System.AsyncCallback @__Callback, object @__UserData);
+        bool EndcmdActualizaUsuarioWeb(System.IAsyncResult @__AsyncResult);
+        System.Threading.Tasks.Task<bool> cmdActualizaUsuarioWebAsync(TUsuarioWeb Datos);
     }
     public partial class RPDataService_AsyncProxy : RemObjects.DataAbstract.Server.DataAbstractService_AsyncProxy, IRPDataService_Async {
         public RPDataService_AsyncProxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -2628,6 +2646,32 @@ namespace RPSuiteServer {
         }
         public virtual System.Threading.Tasks.Task<bool> cmdActualizaVehiculoAsync(TVehiculo Datos) {
             return System.Threading.Tasks.Task<bool>.Factory.FromAsync(this.BegincmdActualizaVehiculo(Datos, null, null), new System.Func<System.IAsyncResult, bool>(this.EndcmdActualizaVehiculo));
+        }
+        public virtual System.IAsyncResult BegincmdActualizaUsuarioWeb(TUsuarioWeb Datos, System.AsyncCallback @__Callback, object @__UserData) {
+            RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
+            try {
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "cmdActualizaUsuarioWeb");
+                @__LocalMessage.Write("Datos", Datos, typeof(TUsuarioWeb), RemObjects.SDK.StreamingFormat.Default);
+                @__LocalMessage.FinalizeMessage();
+                return this.ClientChannel.AsyncDispatch(@__LocalMessage, @__Callback, @__UserData);
+            }
+            catch (System.Exception ex) {
+                this.@__ClearMessage(@__LocalMessage);
+                throw ex;
+            }
+        }
+        public virtual bool EndcmdActualizaUsuarioWeb(System.IAsyncResult @__AsyncResult) {
+            RemObjects.SDK.IMessage @__LocalMessage = ((RemObjects.SDK.IClientAsyncResult)(@__AsyncResult)).Message;
+            try {
+                bool Result = @__LocalMessage.ReadBoolean("Result");
+                return Result;
+            }
+            finally {
+                this.@__ClearMessage(@__LocalMessage);
+            }
+        }
+        public virtual System.Threading.Tasks.Task<bool> cmdActualizaUsuarioWebAsync(TUsuarioWeb Datos) {
+            return System.Threading.Tasks.Task<bool>.Factory.FromAsync(this.BegincmdActualizaUsuarioWeb(Datos, null, null), new System.Func<System.IAsyncResult, bool>(this.EndcmdActualizaUsuarioWeb));
         }
     }
     public class CoRPDataServiceAsync {

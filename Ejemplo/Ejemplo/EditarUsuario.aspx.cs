@@ -76,10 +76,12 @@ namespace Ejemplo
             Datos.UsuarioWebID = Convert.ToInt32(HiddenUsuarioWebID.Value);
             Datos.Administrador = (bool)chkAdministrador.Value;
             Datos.Clave = txtClave.Text;
+            Datos.ClienteID = Convert.ToInt32(DataModule.Seguridad.UserID);
+            Datos.GasolineroID = Convert.ToInt32(Session["GasolineroID"]);
             string resultado = "";
             try
             {
-                if (!DataModule.DataService.UpdateUsuarioWeb(Datos)) resultado = "NO SE PUDIERON GUARDAR LOS CAMBIOS";
+                if (!DataModule.DataService.cmdActualizaUsuarioWeb(Datos)) resultado = "NO SE PUDIERON GUARDAR LOS CAMBIOS";
                 else resultado = "LOS CAMBIOS HAN SIDO GUARDADOS CORRECTAMENTE";
             }
             catch (Exception ex)

@@ -144,9 +144,9 @@ fieldset[disabled] .btn-sample.active {
                             </td>
                         </tr>
                          <tr>
-                            <td><dx:ASPxLabel ID="lblPlacas" Text="PLACAS" runat="server" Font-Bold="true"/></td>
+                            <td><dx:ASPxLabel ID="lblPlacas" Text="PLACAS" runat="server" Font-Bold="true" Visible="false"/></td>
                             <td> 
-                                <dx:ASPxCheckBox ID="chkPlacas" runat="server" Theme="Youthful" Enabled="false"></dx:ASPxCheckBox>
+                                <dx:ASPxCheckBox ID="chkPlacas" runat="server" Theme="Youthful" Enabled="false" Visible="false"></dx:ASPxCheckBox>
                                 <%--<dx:ASPxTextBox ID="txtPlacas" runat="server" Theme="Youthful" Width="60%" Font-Size="15px" Font-Bold="true"   Enabled="false"></dx:ASPxTextBox>--%>
                             </td>
                         </tr>

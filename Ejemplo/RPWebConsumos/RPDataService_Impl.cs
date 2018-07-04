@@ -545,6 +545,27 @@ namespace RPSuiteServer
                 return false;
             }
         }
+        public Boolean cmdActualizaUsuarioWeb(TUsuarioWeb Datos)
+        {
+            try
+            {
+
+                using (IDbCommand lcommand = this.ServiceSchema.NewCommand(this.Connection, "cmdActualizaUsuarioWeb", new string[] {
+                    "Nombre", "Usuario","Clave","Administrador","ClienteID","Mensaje","UsuarioWebID"
+                }
+                    , new object[] { Datos.Nombre,Datos.Usuario, Datos.Clave, Datos.Administrador, Datos.ClienteID,Datos.Mensaje,Datos.UsuarioWebID
+                            }))
+                {
+                    var result = lcommand.ExecuteNonQuery();
+                    return true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
 
     }
 }

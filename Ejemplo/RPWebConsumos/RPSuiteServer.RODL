@@ -139,6 +139,14 @@
 </Parameter>
 </Parameters>
 </Operation>
+<Operation Name="cmdActualizaUsuarioWeb" UID="{28D32307-83F9-4EFB-8BC2-683AD6C63C20}">
+<Parameters>
+<Parameter Name="Result" DataType="Boolean" Flag="Result">
+</Parameter>
+<Parameter Name="Datos" DataType="TUsuarioWeb" Flag="In" >
+</Parameter>
+</Parameters>
+</Operation>
 </Operations>
 </Interface>
 </Interfaces>
