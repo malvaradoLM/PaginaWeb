@@ -1071,6 +1071,8 @@ namespace RPSuiteServer {
         private string @__Clave;
         private bool @__Administrador;
         private int @__ClienteID;
+        private int @__GasolineroID;
+        private string @__Mensaje;
         public virtual int UsuarioWebID {
             get {
                 return @__UsuarioWebID;
@@ -1128,6 +1130,25 @@ namespace RPSuiteServer {
                 this.TriggerPropertyChanged("ClienteID");
             }
         }
+        public virtual int GasolineroID {
+            get {
+                return @__GasolineroID;
+            }
+            set {
+                @__GasolineroID = value;
+                this.TriggerPropertyChanged("GasolineroID");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Mensaje {
+            get {
+                return @__Mensaje;
+            }
+            set {
+                @__Mensaje = value;
+                this.TriggerPropertyChanged("Mensaje");
+            }
+        }
         public override void ReadComplex(RemObjects.SDK.Serializer serializer) {
             if (serializer.RecordStrictOrder) {
                 this.UsuarioWebID = serializer.ReadInt32("UsuarioWebID");
@@ -1136,11 +1157,15 @@ namespace RPSuiteServer {
                 this.Clave = serializer.ReadAnsiString("Clave");
                 this.Administrador = serializer.ReadBoolean("Administrador");
                 this.ClienteID = serializer.ReadInt32("ClienteID");
+                this.GasolineroID = serializer.ReadInt32("GasolineroID");
+                this.Mensaje = serializer.ReadAnsiString("Mensaje");
             }
             else {
                 this.Administrador = serializer.ReadBoolean("Administrador");
                 this.Clave = serializer.ReadAnsiString("Clave");
                 this.ClienteID = serializer.ReadInt32("ClienteID");
+                this.GasolineroID = serializer.ReadInt32("GasolineroID");
+                this.Mensaje = serializer.ReadAnsiString("Mensaje");
                 this.Nombre = serializer.ReadAnsiString("Nombre");
                 this.Usuario = serializer.ReadAnsiString("Usuario");
                 this.UsuarioWebID = serializer.ReadInt32("UsuarioWebID");
@@ -1154,11 +1179,15 @@ namespace RPSuiteServer {
                 serializer.WriteAnsiString("Clave", this.Clave);
                 serializer.WriteBoolean("Administrador", this.Administrador);
                 serializer.WriteInt32("ClienteID", this.ClienteID);
+                serializer.WriteInt32("GasolineroID", this.GasolineroID);
+                serializer.WriteAnsiString("Mensaje", this.Mensaje);
             }
             else {
                 serializer.WriteBoolean("Administrador", this.Administrador);
                 serializer.WriteAnsiString("Clave", this.Clave);
                 serializer.WriteInt32("ClienteID", this.ClienteID);
+                serializer.WriteInt32("GasolineroID", this.GasolineroID);
+                serializer.WriteAnsiString("Mensaje", this.Mensaje);
                 serializer.WriteAnsiString("Nombre", this.Nombre);
                 serializer.WriteAnsiString("Usuario", this.Usuario);
                 serializer.WriteInt32("UsuarioWebID", this.UsuarioWebID);
@@ -1877,6 +1906,7 @@ namespace RPSuiteServer {
         bool UpdateVehiculo(TVehiculo Datos);
         bool UpdateUsuarioWeb(TUsuarioWeb Datos);
         bool setUsuarioWeb(TUsuarioWeb Datos);
+        bool cmdInsertUsuarioWeb(TUsuarioWeb Datos);
         TConsumo ListaConsumoByFecha(int ClienteID, string FechaInicial, string FechaFinal);
         TConsumo ListaConsumoByFechaAutoAbasto(string Grupo, string FechaInicial, string FechaFinal);
         TConsumo ListaConsumoByID(int ConsumoID);
@@ -2032,6 +2062,20 @@ namespace RPSuiteServer {
                 this.@__ClearMessage(@__LocalMessage);
             }
         }
+        public virtual bool cmdInsertUsuarioWeb(TUsuarioWeb Datos) {
+            RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
+            try {
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "cmdInsertUsuarioWeb");
+                @__LocalMessage.Write("Datos", Datos, typeof(TUsuarioWeb), RemObjects.SDK.StreamingFormat.Default);
+                @__LocalMessage.FinalizeMessage();
+                this.ClientChannel.Dispatch(@__LocalMessage);
+                bool _Result = @__LocalMessage.ReadBoolean("Result");
+                return _Result;
+            }
+            finally {
+                this.@__ClearMessage(@__LocalMessage);
+            }
+        }
         public virtual TConsumo ListaConsumoByFecha(int ClienteID, string FechaInicial, string FechaFinal) {
             RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
             try {
@@ -2149,6 +2193,9 @@ namespace RPSuiteServer {
         System.IAsyncResult BeginsetUsuarioWeb(TUsuarioWeb Datos, System.AsyncCallback @__Callback, object @__UserData);
         bool EndsetUsuarioWeb(System.IAsyncResult @__AsyncResult);
         System.Threading.Tasks.Task<bool> setUsuarioWebAsync(TUsuarioWeb Datos);
+        System.IAsyncResult BegincmdInsertUsuarioWeb(TUsuarioWeb Datos, System.AsyncCallback @__Callback, object @__UserData);
+        bool EndcmdInsertUsuarioWeb(System.IAsyncResult @__AsyncResult);
+        System.Threading.Tasks.Task<bool> cmdInsertUsuarioWebAsync(TUsuarioWeb Datos);
         System.IAsyncResult BeginListaConsumoByFecha(int ClienteID, string FechaInicial, string FechaFinal, System.AsyncCallback @__Callback, object @__UserData);
         TConsumo EndListaConsumoByFecha(System.IAsyncResult @__AsyncResult);
         System.Threading.Tasks.Task<TConsumo> ListaConsumoByFechaAsync(int ClienteID, string FechaInicial, string FechaFinal);
@@ -2421,6 +2468,32 @@ namespace RPSuiteServer {
         }
         public virtual System.Threading.Tasks.Task<bool> setUsuarioWebAsync(TUsuarioWeb Datos) {
             return System.Threading.Tasks.Task<bool>.Factory.FromAsync(this.BeginsetUsuarioWeb(Datos, null, null), new System.Func<System.IAsyncResult, bool>(this.EndsetUsuarioWeb));
+        }
+        public virtual System.IAsyncResult BegincmdInsertUsuarioWeb(TUsuarioWeb Datos, System.AsyncCallback @__Callback, object @__UserData) {
+            RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
+            try {
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "cmdInsertUsuarioWeb");
+                @__LocalMessage.Write("Datos", Datos, typeof(TUsuarioWeb), RemObjects.SDK.StreamingFormat.Default);
+                @__LocalMessage.FinalizeMessage();
+                return this.ClientChannel.AsyncDispatch(@__LocalMessage, @__Callback, @__UserData);
+            }
+            catch (System.Exception ex) {
+                this.@__ClearMessage(@__LocalMessage);
+                throw ex;
+            }
+        }
+        public virtual bool EndcmdInsertUsuarioWeb(System.IAsyncResult @__AsyncResult) {
+            RemObjects.SDK.IMessage @__LocalMessage = ((RemObjects.SDK.IClientAsyncResult)(@__AsyncResult)).Message;
+            try {
+                bool Result = @__LocalMessage.ReadBoolean("Result");
+                return Result;
+            }
+            finally {
+                this.@__ClearMessage(@__LocalMessage);
+            }
+        }
+        public virtual System.Threading.Tasks.Task<bool> cmdInsertUsuarioWebAsync(TUsuarioWeb Datos) {
+            return System.Threading.Tasks.Task<bool>.Factory.FromAsync(this.BegincmdInsertUsuarioWeb(Datos, null, null), new System.Func<System.IAsyncResult, bool>(this.EndcmdInsertUsuarioWeb));
         }
         public virtual System.IAsyncResult BeginListaConsumoByFecha(int ClienteID, string FechaInicial, string FechaFinal, System.AsyncCallback @__Callback, object @__UserData) {
             RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();

@@ -524,6 +524,27 @@ namespace RPSuiteServer
             }
 
         }
+        public Boolean cmdInsertUsuarioWeb(TUsuarioWeb Datos)
+        {
+            try
+            {
+
+                using (IDbCommand lcommand = this.ServiceSchema.NewCommand(this.Connection, "cmdInsertUsuarioWeb", new string[] {
+                    "Nombre", "Usuario","Clave","Administrador","ClienteID","GasolineroID","Mensaje"
+                }
+                    , new object[] { Datos.Nombre,Datos.Usuario, Datos.Clave, Datos.Administrador, Datos.ClienteID,Datos.GasolineroID,Datos.Mensaje
+                            }))
+                {
+                    var result = lcommand.ExecuteNonQuery();
+                    return true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
 
     }
 }

@@ -83,6 +83,14 @@
 </Parameter>
 </Parameters>
 </Operation>
+<Operation Name="cmdInsertUsuarioWeb" UID="{809D1784-7183-4DE6-90A6-6048F1906CE2}">
+<Parameters>
+<Parameter Name="Result" DataType="Boolean" Flag="Result">
+</Parameter>
+<Parameter Name="Datos" DataType="TUsuarioWeb" Flag="In" >
+</Parameter>
+</Parameters>
+</Operation>
 <Operation Name="ListaConsumoByFecha" UID="{6B9BF3AF-9B1F-491C-BB3D-2E7D5F82BA4E}">
 <Parameters>
 <Parameter Name="Result" DataType="TConsumo" Flag="Result">
@@ -302,6 +310,10 @@
 <Element Name="Administrador" DataType="Boolean">
 </Element>
 <Element Name="ClienteID" DataType="Integer">
+</Element>
+<Element Name="GasolineroID" DataType="Integer">
+</Element>
+<Element Name="Mensaje" DataType="AnsiString">
 </Element>
 </Elements>
 </Struct>

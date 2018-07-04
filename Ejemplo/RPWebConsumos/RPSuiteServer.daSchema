@@ -17319,7 +17319,7 @@ ORDER BY ID</SQL>
       <Name>spListaConsumoFotosByID</Name>
     </Item36>
   </Datasets>
-  <Commands IsObject="true" Count="7" IsCollection="true" ItemClass="TDASQLCommand" Type="TDASQLCommandCollection">
+  <Commands IsObject="true" Count="8" IsCollection="true" ItemClass="TDASQLCommand" Type="TDASQLCommandCollection">
     <Item0>
       <BusinessRulesServer Type="TDABusinessRuleScript" IsObject="true">
         <Script />
@@ -19323,6 +19323,223 @@ BEGIN
       <Description />
       <Name>cmdActualizaVehiculo</Name>
     </Item6>
+    <Item7>
+      <BusinessRulesServer Type="TDABusinessRuleScript" IsObject="true">
+        <Script />
+        <ScriptLanguageStr />
+        <Description />
+        <Name />
+      </BusinessRulesServer>
+      <Statements IsCollection="true" IsObject="true" Count="1" ItemClass="TDAStatement" Type="TDAStatementCollection">
+        <Item0>
+          <Connection>RPSuite</Connection>
+          <SQL>DECLARE @ClienteID_ int
+DECLARE @Nombre_ Varchar(70)
+DECLARE @Usuario_ VarChar(15)
+DECLARE @Clave_ VarChar(15)
+DECLARE @Administrador_ Bit
+DECLARE @GasolineroID_ int
+DECLARE @Mensaje_ VarChar(1000)
+-- PARAMETROS DE ENTRADA
+SELECT @ClienteID_ = (SELECT upper(:ClienteID))
+SELECT @Nombre_ = (SELECT upper(:Nombre))
+SELECT @Usuario_ = (SELECT upper(:Usuario))
+SELECT @Clave_ = (SELECT upper(:Clave))
+SELECT @Administrador_ = (SELECT upper(:Administrador))
+SELECT @GasolineroID_ = (SELECT upper(:GasolineroID))
+SELECT @Mensaje_ = (SELECT upper(:Mensaje))
+BEGIN
+	-- DECLARACION DE VARIABLES LOCALES
+	DECLARE @Contador int
+	DECLARE @Cant int
+	DECLARE @Folio int 
+	DECLARE @NewUsuarioWebID int
+	
+    BEGIN TRAN InsertUsuario
+		BEGIN TRY	
+			SELECT @Cant=Count(ClienteID)
+			FROM BitacoraWeb
+			WHERE (ClienteID = @ClienteID_) AND (Campo ='Genero Nuevo Usuario')
+			GROUP BY ClienteID
+			-- VALIDA SI EXCEDIO NUM. DE USUARIOS REGISTRADOS EN BITACORAWEB
+			IF (@Cant &gt;= 5)
+			BEGIN
+				SELECT @Mensaje = 'Se ha excedio el numero de usuario registrados en BitacoraWeb!'
+			END
+			ELSE
+			BEGIN
+				SELECT @Contador=Count(UsuarioWebID) FROM UsuarioWeb
+				WHERE Nombre = @Nombre_
+				GROUP BY ClienteID
+				
+				-- VALIDA SI EXISTE EL USUARIO
+				IF (@Contador = 1)
+				BEGIN
+					SELECT @Mensaje = 'Ya existe el Nombre de usuario en sistema!'
+				END
+				ELSE
+				BEGIN
+					-- OBTENER FOLIO DE USUARIOWEB		
+					SELECT @Folio=(SELECT ISNULL(Folio, 0) FROM Folio WHERE Campo='UsuarioWebID') 
+					
+					-- VALIDA SI EXISTE FOLIO PARA USUARIOWEBID
+					IF (@Folio &lt; 0)
+					BEGIN
+						SELECT @Mensaje ='No existe Folio disponible para UsuarioWebID!'
+					END
+					ELSE
+					BEGIN		
+						-- OBTENER FOLIO DE BITACORAWEB		
+			 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+			
+						-- VALIDA SI EXISTE FOLIO PARA WEBBITACORAID
+						IF (@Folio &lt; 0)
+						BEGIN
+							SELECT @Mensaje ='No existe Folio disponible para WebBitacoraID!'
+						END
+						ELSE
+						BEGIN
+							-- OBTENER FOLIO DE USUARIOWEB			
+							SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='UsuarioWebID')
+
+							-- AGREGA REGISTRO NUEVO EN USUARIOWEB
+							INSERT INTO UsuarioWeb VALUES(@Folio,@Nombre_,@Usuario_,@Clave_,@Administrador_,@ClienteID_)
+				
+							SET @NewUsuarioWebID = @Folio
+							
+							-- ACTUALIZA FOLIO DE USUARIOWEBID	
+							UPDATE Folio SET Folio=Folio+1 WHERE Campo='UsuarioWebID' 
+
+							-- OBTENER FOLIO DE BITACORAWEBID		
+				 			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
+
+							-- AGREGA REGISTRO NUEVO EN BITACORAWEB
+							INSERT INTO BitacoraWeb VALUES(@Folio,@ClienteID_,@GasolineroID_,@NewUsuarioWebID,'ALTA DE USUARIOS','GENERO NUEVO USUARIO',NULL,'USUARIO GENERADO',GETDATE(),NULL)
+	
+							-- ACTUALIZA FOLIO DE WEBBITACORAID
+				 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				 			
+							SELECT @Mensaje = 'OK'
+						END
+					END
+				END		
+			END		
+			COMMIT TRAN InsertUsuario 
+		END TRY
+		BEGIN CATCH
+		 SELECT @Mensaje =  ERROR_MESSAGE()
+		Rollback TRAN InsertUsuario
+		END CATCH
+END</SQL>
+          <TargetTable />
+          <ConnectionType>SQLite</ConnectionType>
+          <Default>False</Default>
+          <StatementName />
+          <StatementType>stSQL</StatementType>
+          <GeneratorName />
+          <ColumnMappings IsObject="true" Count="0" IsCollection="true" Type="TDAColumnMappingCollection" ItemClass="TDAColumnMapping" />
+          <Description />
+        </Item0>
+      </Statements>
+      <Params IsObject="true" Count="7" IsCollection="true" Type="TDAParamCollection" ItemClass="TDAParam">
+        <Item0>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>ClienteID</Name>
+          <DataType>datInteger</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item0>
+        <Item1>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Nombre</Name>
+          <DataType>datWideString</DataType>
+          <Size>65536</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item1>
+        <Item2>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Usuario</Name>
+          <DataType>datWideString</DataType>
+          <Size>65536</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item2>
+        <Item3>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Clave</Name>
+          <DataType>datWideString</DataType>
+          <Size>65536</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item3>
+        <Item4>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Administrador</Name>
+          <DataType>datBoolean</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item4>
+        <Item5>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>GasolineroID</Name>
+          <DataType>datInteger</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item5>
+        <Item6>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Mensaje</Name>
+          <DataType>datWideString</DataType>
+          <Size>65536</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item6>
+      </Params>
+      <CustomAttributes />
+      <IsPublic>True</IsPublic>
+      <DynamicWhereXML />
+      <BusinessClassID />
+      <Description />
+      <Name>cmdInsertUsuarioWeb</Name>
+    </Item7>
   </Commands>
   <RelationShips IsObject="true" Count="0" IsCollection="true" Type="TDADatasetRelationshipCollection" ItemClass="TDADatasetRelationship" />
   <UpdateRules IsObject="true" Count="0" IsCollection="true" Type="TDAUpdateRuleCollection" ItemClass="TDAUpdateRule" />

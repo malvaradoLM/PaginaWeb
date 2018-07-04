@@ -112,10 +112,11 @@ namespace Ejemplo
             else Datos.Administrador = false;
             Datos.ClienteID = Convert.ToInt32(HiddenClienteID.Value);
             Datos.Clave = txtClave.Text;
+            Datos.GasolineroID = Convert.ToInt32(Session["GasolineroID"]);
             string resultado = "";
             try
             {
-                if (!DataModule.DataService.setUsuarioWeb(Datos)) resultado = "NO SE PUDIERON GUARDAR LOS CAMBIOS";
+                if (!DataModule.DataService.cmdInsertUsuarioWeb(Datos)) resultado = "NO SE PUDIERON GUARDAR LOS CAMBIOS";
                 else resultado = "LOS CAMBIOS HAN SIDO GUARDADOS CORRECTAMENTE";
             }
             catch (Exception ex)
