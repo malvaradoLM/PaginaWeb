@@ -161,8 +161,10 @@
     <Content Include="DetailsConsumoByVehiculo.aspx" />
     <Content Include="DetailsConsumoEspecial.aspx" />
     <Content Include="DetailsConsumoFiltroByDpto.aspx" />
+    <Content Include="DetailsDescargaFactura.aspx" />
     <Content Include="DetailsEdoCta.aspx" />
     <Content Include="DetailsFacturaPendienteByPago.aspx" />
+    <Content Include="DetailsListaFactura.aspx" />
     <Content Include="EditarUsuario.aspx" />
     <Content Include="EnvioInformacion.aspx" />
     <Content Include="Login.aspx" />
@@ -191,6 +193,17 @@
     </None>
     <Content Include="Data\Dataset\spConsumoDS.xss">
       <DependentUpon>spConsumoDS.xsd</DependentUpon>
+    </Content>
+    <Content Include="Data\Dataset\spFacturaCliente.xsc">
+      <DependentUpon>spFacturaCliente.xsd</DependentUpon>
+    </Content>
+    <None Include="Data\Dataset\spFacturaCliente.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>spFacturaCliente.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Data\Dataset\spFacturaCliente.xss">
+      <DependentUpon>spFacturaCliente.xsd</DependentUpon>
     </Content>
     <None Include="Data\Dataset\spRptConsumoClienteDS.xsd">
       <SubType>Designer</SubType>
@@ -280,6 +293,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>spConsumoDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dataset\spFacturaCliente.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>spFacturaCliente.xsd</DependentUpon>
     </Compile>
     <Compile Include="Data\Dataset\spRptConsumoClienteDS.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -382,6 +400,13 @@
     <Compile Include="DetailsConsumoFiltroByDpto.aspx.designer.cs">
       <DependentUpon>DetailsConsumoFiltroByDpto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DetailsDescargaFactura.aspx.cs">
+      <DependentUpon>DetailsDescargaFactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetailsDescargaFactura.aspx.designer.cs">
+      <DependentUpon>DetailsDescargaFactura.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DetailsEdoCta.aspx.cs">
       <DependentUpon>DetailsEdoCta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -395,6 +420,13 @@
     </Compile>
     <Compile Include="DetailsFacturaPendienteByPago.aspx.designer.cs">
       <DependentUpon>DetailsFacturaPendienteByPago.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetailsListaFactura.aspx.cs">
+      <DependentUpon>DetailsListaFactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetailsListaFactura.aspx.designer.cs">
+      <DependentUpon>DetailsListaFactura.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditarUsuario.aspx.cs">
       <DependentUpon>EditarUsuario.aspx</DependentUpon>

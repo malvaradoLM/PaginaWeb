@@ -288,8 +288,7 @@ float: left;
                     <dx:BootstrapGridViewTextColumn FieldName="Serie" UnboundType="String" HorizontalAlign="Center" >
                                     
                     </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewTextColumn FieldName="Folio"  UnboundType="String"  HorizontalAlign="Center">
-                                   
+                    <dx:BootstrapGridViewTextColumn FieldName="Folio"  UnboundType="String"  HorizontalAlign="Center">             
                     </dx:BootstrapGridViewTextColumn>
                     <dx:BootstrapGridViewDataColumn FieldName="Cantidad"   UnboundType="Decimal">
                                    

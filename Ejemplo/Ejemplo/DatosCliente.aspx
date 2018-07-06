@@ -157,7 +157,7 @@
                     <h2-largo style="align-self:baseline;">ESTADO DE CUENTA</h2-largo>
                     </div>
                 </asp:LinkButton>
-                <a href="javascript://" class="Largo amarillo"  onclick="location.href='/Cliente/DetailsListaFactura/NQ%3d%3d'">
+                <a href="javascript://" class="Largo amarillo"  onclick="location.href='DetailsListaFactura.aspx'">
                     <i class="glyphicon glyphicon-list-alt" style="margin-top: 15%;"></i>
                     <h2-largo>LISTADO DE FACTURAS</h2-largo>
                     

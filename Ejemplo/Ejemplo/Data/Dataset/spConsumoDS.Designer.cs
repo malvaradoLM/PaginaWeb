@@ -301,7 +301,7 @@ namespace Ejemplo.Data.Dataset {
             
             private global::System.Data.DataColumn columnImporte;
             
-            private global::System.Data.DataColumn columnCliendeID;
+            private global::System.Data.DataColumn columnClienteID;
             
             private global::System.Data.DataColumn columnVehiculoID;
             
@@ -460,9 +460,9 @@ namespace Ejemplo.Data.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CliendeIDColumn {
+            public global::System.Data.DataColumn ClienteIDColumn {
                 get {
-                    return this.columnCliendeID;
+                    return this.columnClienteID;
                 }
             }
             
@@ -651,7 +651,7 @@ namespace Ejemplo.Data.Dataset {
                         string Cantidad, 
                         string Precio, 
                         string Importe, 
-                        string CliendeID, 
+                        string ClienteID, 
                         string VehiculoID, 
                         string Tarjeta, 
                         string Nombre, 
@@ -682,7 +682,7 @@ namespace Ejemplo.Data.Dataset {
                         Cantidad,
                         Precio,
                         Importe,
-                        CliendeID,
+                        ClienteID,
                         VehiculoID,
                         Tarjeta,
                         Nombre,
@@ -733,7 +733,7 @@ namespace Ejemplo.Data.Dataset {
                 this.columnCantidad = base.Columns["Cantidad"];
                 this.columnPrecio = base.Columns["Precio"];
                 this.columnImporte = base.Columns["Importe"];
-                this.columnCliendeID = base.Columns["CliendeID"];
+                this.columnClienteID = base.Columns["ClienteID"];
                 this.columnVehiculoID = base.Columns["VehiculoID"];
                 this.columnTarjeta = base.Columns["Tarjeta"];
                 this.columnNombre = base.Columns["Nombre"];
@@ -778,8 +778,8 @@ namespace Ejemplo.Data.Dataset {
                 base.Columns.Add(this.columnPrecio);
                 this.columnImporte = new global::System.Data.DataColumn("Importe", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnImporte);
-                this.columnCliendeID = new global::System.Data.DataColumn("CliendeID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCliendeID);
+                this.columnClienteID = new global::System.Data.DataColumn("ClienteID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnClienteID);
                 this.columnVehiculoID = new global::System.Data.DataColumn("VehiculoID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVehiculoID);
                 this.columnTarjeta = new global::System.Data.DataColumn("Tarjeta", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1134,17 +1134,17 @@ namespace Ejemplo.Data.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string CliendeID {
+            public string ClienteID {
                 get {
                     try {
-                        return ((string)(this[this.tablespConsumoDS.CliendeIDColumn]));
+                        return ((string)(this[this.tablespConsumoDS.ClienteIDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CliendeID\' in table \'spConsumoDS\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ClienteID\' in table \'spConsumoDS\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablespConsumoDS.CliendeIDColumn] = value;
+                    this[this.tablespConsumoDS.ClienteIDColumn] = value;
                 }
             }
             
@@ -1556,14 +1556,14 @@ namespace Ejemplo.Data.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCliendeIDNull() {
-                return this.IsNull(this.tablespConsumoDS.CliendeIDColumn);
+            public bool IsClienteIDNull() {
+                return this.IsNull(this.tablespConsumoDS.ClienteIDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCliendeIDNull() {
-                this[this.tablespConsumoDS.CliendeIDColumn] = global::System.Convert.DBNull;
+            public void SetClienteIDNull() {
+                this[this.tablespConsumoDS.ClienteIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

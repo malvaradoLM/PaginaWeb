@@ -1,9 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/principal.Master" CodeBehind="DetailsEdoCta.aspx.cs" Inherits="Ejemplo.DetailsEdoCta" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/site1.Master" CodeBehind="DetailsEdoCta.aspx.cs" Inherits="Ejemplo.DetailsEdoCta" %>
 <%@ Register assembly="DevExpress.Web.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
 <%@ Register assembly="DevExpress.Web.Bootstrap.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.Bootstrap" tagprefix="dx" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <style>
 #exTab1 .tab-content {
@@ -140,7 +139,48 @@ fieldset[disabled] .btn-sample.active {
 <asp:LinkButton id="btnCancelar" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
   
  </asp:LinkButton>
+<dx:BootstrapGridView ID="bgvEstadoCuenta" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="UsuarioWebID" CssClassesPager-Control="true" CssClasses-Table="table table-striped table-bordered table-hover" >
+                <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
+                <Settings ShowGroupPanel="true"/>
+                <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>
+                <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
+                <SettingsDataSecurity AllowEdit="True" />
+                <SettingsBehavior AllowFocusedRow="True" />
+                <Columns>
+                    <dx:BootstrapGridViewTextColumn FieldName="ID" ReadOnly="True" VisibleIndex="0"  HorizontalAlign="Center">
+                                        <DataItemTemplate>
+                                            <%#Eval("ID")%>
+                                        </DataItemTemplate>
+                    </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewTextColumn FieldName="FechaMovimiento" ReadOnly="True" VisibleIndex="1">
+                                        <DataItemTemplate>
+                                            <%#Eval("FechaMovimiento")%>
+                                        </DataItemTemplate>
+                    </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewTextColumn FieldName="Referencia" ReadOnly="True" VisibleIndex="2">
+                                        <DataItemTemplate>
+                                            <%#Eval("Referencia")%>
+                                        </DataItemTemplate>
+                    </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewTextColumn FieldName="Cargo" ReadOnly="True" VisibleIndex="2">
+                                        <DataItemTemplate>
+                                            <%#Eval("Cargo")%>
+                                        </DataItemTemplate>
+                    </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewTextColumn FieldName="Abono" ReadOnly="True" VisibleIndex="2">
+                                        <DataItemTemplate>
+                                            <%#Eval("Abono")%>
+                                        </DataItemTemplate>
+                    </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewTextColumn FieldName="Saldo" ReadOnly="True" VisibleIndex="2">
+                                        <DataItemTemplate>
+                                            <%#Eval("Saldo")%>
+                                        </DataItemTemplate>
+                    </dx:BootstrapGridViewTextColumn>
+                    
+                </Columns>
 
+           </dx:BootstrapGridView>
     </div>	
 
 </asp:Content>

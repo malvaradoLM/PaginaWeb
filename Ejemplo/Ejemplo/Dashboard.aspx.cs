@@ -60,7 +60,6 @@ namespace Ejemplo
         private void cargarDataSourceEnChart(DataTable dt)
         {
             webChartControl.DataSource = dt;
-            // Specify data members to bind the chart's series template.
             webChartControl.SeriesDataMember = "Descripcion";
             webChartControl.SeriesTemplate.ArgumentDataMember = "Descripcion";
             webChartControl.SeriesTemplate.ValueDataMembers.AddRange(new string[] { "Importe" });
