@@ -171,6 +171,8 @@ namespace RPSuiteServer
                         { Res.LimiteCredito = (double)reader["LimiteCredito"]; }
                         if (reader["Grupo"] != DBNull.Value)
                         { Res.Grupo = (string)reader["Grupo"]; }
+                        if (reader["Saldo"] != DBNull.Value)
+                        { Res.Saldo = (double)reader["Saldo"]; }
                     }
                 }
             }
