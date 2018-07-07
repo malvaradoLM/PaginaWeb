@@ -88,13 +88,21 @@ fieldset[disabled] .btn-sample.active {
 
 }
  </style>
+    <script type="text/javascript">
+        function ocultarDetalles(s, e) {
+            if (document.getElementById('<%= detallesConsumo.ClientID %>') != null) {
+            document.getElementById('<%= detallesConsumo.ClientID %>').remove("visible");
+            }
+        }
+</script>
+    <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=LoadMap" async defer></script>
     <div>
-         <dx:ASPxPageControl ID="carTabPage" Width="100%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"  Border-BorderStyle="None" CssClass="page-header" >
+         <dx:ASPxPageControl ID="pageConsumos" Width="100%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"  Border-BorderStyle="None" CssClass="page-header" >
         <TabPages>
             <dx:TabPage Text="CONSUMOS">
                 <ContentCollection>
                         <dx:ContentControl ID="ContentControl2" runat="server">
-                            <dx:BootstrapGridView ID="bgvConsumo" runat="server"  KeyFieldName="ID"  ClientSideEvents-BeginCallback="ocultarDetalles" >
+                             <dx:BootstrapGridView ID="bgvConsumo" runat="server"  KeyFieldName="ID" ClientSideEvents-BeginCallback="ocultarDetalles"  >
     <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
     <Settings ShowTitlePanel="true" />
     <Settings ShowGroupPanel="true"/>
@@ -130,7 +138,7 @@ fieldset[disabled] .btn-sample.active {
     </TotalSummary>
 </dx:BootstrapGridView> 
                             <div id="detallesConsumo" runat="server" class="detalles"  >
-    <dx:ASPxPageControl ID="ASPxPageControl1" Width="100%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"  Border-BorderStyle="None" CssClass="page-header" >
+    <dx:ASPxPageControl ID="pageDetalles" Width="100%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"  Border-BorderStyle="None" CssClass="page-header" >
         <TabPages>
             <dx:TabPage Text="TICKET">
                 <ContentCollection>

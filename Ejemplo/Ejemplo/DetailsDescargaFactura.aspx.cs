@@ -25,6 +25,10 @@ namespace Ejemplo
             {
                 detallesConsumo.Visible = false;
             }
+            else
+            {
+                if (Session["Longitud"] != null && Session["Longitud"].ToString() != "") CargarMapa(Session["Latitud"].ToString(), Session["Longitud"].ToString());
+            }
         }
         private void cargarConsumos(string serie, string folio)
         {
@@ -41,8 +45,6 @@ namespace Ejemplo
 
         protected void button1_Click(object sender, EventArgs e)
         {
-            //detallesConsumo.Visible = true;
-            detallesConsumo.Attributes.CssStyle.Add("display", "inline");
             LinkButton item = (LinkButton)sender;
             string ID = item.Text;
             string EstacionID = bgvConsumo.GetRowValues(int.Parse(bgvConsumo.FocusedRowIndex.ToString()), "EstacionID").ToString();
@@ -54,8 +56,9 @@ namespace Ejemplo
         }
         private void CargarMapa(string latitud, string longitud)
         {
-
-            carTabPage.ActiveTabIndex = 2;
+            detallesConsumo.Visible = true;
+           // pageConsumos.ActiveTabIndex = 0;
+           pageDetalles.ActiveTabIndex = 2;
             const string ScriptKey = "ScriptKey";
             if (!ClientScript.IsStartupScriptRegistered(this.GetType(), ScriptKey))
             {
@@ -81,7 +84,6 @@ namespace Ejemplo
                 ClientScript.RegisterStartupScript(this.GetType(),
         ScriptKey, fn.ToString(), true);
             }
-
         }
         private void cargarGaleria(TAlbum album)
         {
@@ -118,9 +120,15 @@ namespace Ejemplo
         }
         private void obtenerGeolocalizacion(int EstacionID)
         {
-
             ServiciosLibrary.TDatosEstacion dataEstacion = RPServer.RPServicios.DatosEstacion(EstacionID);
             CargarMapa(dataEstacion.Latitud.ToString(), dataEstacion.Longitud.ToString());
+            Session["Latitud"] = dataEstacion.Latitud.ToString();
+            Session["Longitud"] = dataEstacion.Longitud.ToString();
+        }
+        private void cargarPdf(int value)
+        {
+           // TFacturaCliente data = RPServer.RPSuiteService.FacturaCliente(Int32.Parse(_id));
+
         }
     }
 }

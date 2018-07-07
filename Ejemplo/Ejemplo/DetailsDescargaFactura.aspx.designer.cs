@@ -13,13 +13,13 @@ namespace Ejemplo {
     public partial class DetailsDescargaFactura {
         
         /// <summary>
-        /// carTabPage control.
+        /// pageConsumos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxPageControl carTabPage;
+        protected global::DevExpress.Web.ASPxPageControl pageConsumos;
         
         /// <summary>
         /// ContentControl2 control.
@@ -49,13 +49,13 @@ namespace Ejemplo {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl detallesConsumo;
         
         /// <summary>
-        /// ASPxPageControl1 control.
+        /// pageDetalles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxPageControl ASPxPageControl1;
+        protected global::DevExpress.Web.ASPxPageControl pageDetalles;
         
         /// <summary>
         /// ContentControl1 control.

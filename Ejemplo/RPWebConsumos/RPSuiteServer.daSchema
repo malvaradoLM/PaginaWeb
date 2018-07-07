@@ -18295,7 +18295,7 @@ SELECT @Folio_ = (SELECT upper(:Folio))
 SELECT @Serie_ = (SELECT upper(:Serie))
 
 SELECT Consumo.ID, Estacion.Nombre AS Estacion, Consumo.EstacionID, Consumo.SecuenciaVenta AS Ticket, Consumo.Serie, Consumo.FechaCarga, Consumo.PosicionCarga AS Bomba, Producto.Descripcion AS Producto,
-Consumo.Cantidad, Consumo.Precio, Consumo.Importe, Consumo.ClienteID, Consumo.VehiculoID, Consumo.Tarjeta, Vehiculo.Nombre, Vehiculo.Identificacion, Consumo.Facturado, Consumo.Kilometraje, Consumo.Turno, Consumo.FechaMovimiento,Factura.Folio
+Consumo.Cantidad, Consumo.Precio, Consumo.Importe, Consumo.ClienteID, Consumo.VehiculoID, Consumo.Tarjeta, Vehiculo.Nombre, Vehiculo.Identificacion, Consumo.Facturado, Consumo.Kilometraje, Consumo.Turno, Consumo.FechaMovimiento,Factura.Folio 'Folio'
 From Consumo 
 INNER JOIN Estacion On Consumo.EstacionID = Estacion.EstacionID 
 INNER JOIN Factura  On Consumo.FacturaID = Factura.FacturaID 
