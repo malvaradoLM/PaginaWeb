@@ -411,6 +411,32 @@
 </Element>
 </Elements>
 </Struct>
+<Struct Name="TFacturaCliente" UID="{64E0DC81-105D-4D25-AD75-51D576238624}" AutoCreateParams="1">
+<Elements>
+<Element Name="Serie" DataType="AnsiString">
+</Element>
+<Element Name="Folio" DataType="AnsiString">
+</Element>
+<Element Name="Fecha" DataType="DateTime">
+</Element>
+<Element Name="SubTotal" DataType="AnsiString">
+</Element>
+<Element Name="Iva" DataType="AnsiString">
+</Element>
+<Element Name="Total" DataType="AnsiString">
+</Element>
+<Element Name="PathPDF" DataType="AnsiString">
+</Element>
+<Element Name="PathXML" DataType="AnsiString">
+</Element>
+<Element Name="FileXML" DataType="Xml">
+</Element>
+<Element Name="PathConsumoFactura" DataType="AnsiString">
+</Element>
+<Element Name="ErrorConsumoFactura" DataType="AnsiString">
+</Element>
+</Elements>
+</Struct>
 </Structs>
 <Enums>
 </Enums>
@@ -433,6 +459,9 @@
 </Array>
 <Array Name="AAlbum" UID="{183559AD-90A2-4B99-9AFA-043C63AC99CA}">
 <ElementType DataType="TAlbum" />
+</Array>
+<Array Name="AFacturaCliente" UID="{E4A98E40-3AED-4D34-8130-12C31FA8A9D4}">
+<ElementType DataType="TFacturaCliente" />
 </Array>
 </Arrays>
 <Uses>
