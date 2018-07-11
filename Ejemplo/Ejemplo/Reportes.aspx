@@ -47,7 +47,7 @@
 
     <hr>
 
-    <div class="row hidden-md hidden-sm hidden-xs">
+    <div class="row">
         <div class="col-lg-2">
             <a href="DetailsAnalisisConsumo.aspx" id="btnAnalisisConsumo1" class="Largo rojo">
                 <asp:Image ID="Image1" runat="server" ImageUrl="\Icons\png\80px\large\report-money-coins.png" CssClass="linkclass" />
@@ -139,6 +139,7 @@
         </div>
     </div>
     
+        <!--
     <div class="row hidden-lg hidden-xs">
         <div class="col-md-4 col-sm-4">
             <a href="/Reportes/DetailsAnalisisConsumo" id="btnAnalisisConsumo" class="Largo rojo">
@@ -331,6 +332,7 @@
                     <h2-largo>CONSUMO POR GRUPO</h2-largo>
                 </a>
             </div>
+            -->
    </div>
 </div>
   

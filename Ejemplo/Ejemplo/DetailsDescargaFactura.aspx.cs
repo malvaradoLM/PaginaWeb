@@ -127,7 +127,7 @@ namespace Ejemplo
         }
         private void cargarPdf(int value)
         {
-           // TFacturaCliente data = RPServer.RPSuiteService.FacturaCliente(Int32.Parse(_id));
+           // TFacturaCliente data = RPServer.RPSuiteService.FacturaCliente(value);
 
         }
     }

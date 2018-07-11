@@ -1814,6 +1814,194 @@ namespace RPSuiteServer {
             return new TAlbum();
         }
     }
+    [System.Serializable()]
+    [RemObjects.SDK.Remotable(ActivatorClass=typeof(TFacturaCliente_Activator))]
+    [System.Reflection.ObfuscationAttribute(Exclude=true)]
+    public partial class TFacturaCliente : RemObjects.SDK.Types.ComplexType {
+        private string @__Serie;
+        private string @__Folio;
+        private System.DateTime @__Fecha;
+        private string @__SubTotal;
+        private string @__Iva;
+        private string @__Total;
+        private string @__PathPDF;
+        private string @__PathXML;
+        private System.Xml.XmlNode @__FileXML;
+        private string @__PathConsumoFactura;
+        private string @__ErrorConsumoFactura;
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Serie {
+            get {
+                return @__Serie;
+            }
+            set {
+                @__Serie = value;
+                this.TriggerPropertyChanged("Serie");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Folio {
+            get {
+                return @__Folio;
+            }
+            set {
+                @__Folio = value;
+                this.TriggerPropertyChanged("Folio");
+            }
+        }
+        public virtual System.DateTime Fecha {
+            get {
+                return @__Fecha;
+            }
+            set {
+                @__Fecha = value;
+                this.TriggerPropertyChanged("Fecha");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string SubTotal {
+            get {
+                return @__SubTotal;
+            }
+            set {
+                @__SubTotal = value;
+                this.TriggerPropertyChanged("SubTotal");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Iva {
+            get {
+                return @__Iva;
+            }
+            set {
+                @__Iva = value;
+                this.TriggerPropertyChanged("Iva");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Total {
+            get {
+                return @__Total;
+            }
+            set {
+                @__Total = value;
+                this.TriggerPropertyChanged("Total");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string PathPDF {
+            get {
+                return @__PathPDF;
+            }
+            set {
+                @__PathPDF = value;
+                this.TriggerPropertyChanged("PathPDF");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string PathXML {
+            get {
+                return @__PathXML;
+            }
+            set {
+                @__PathXML = value;
+                this.TriggerPropertyChanged("PathXML");
+            }
+        }
+        public virtual System.Xml.XmlNode FileXML {
+            get {
+                return @__FileXML;
+            }
+            set {
+                @__FileXML = value;
+                this.TriggerPropertyChanged("FileXML");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string PathConsumoFactura {
+            get {
+                return @__PathConsumoFactura;
+            }
+            set {
+                @__PathConsumoFactura = value;
+                this.TriggerPropertyChanged("PathConsumoFactura");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string ErrorConsumoFactura {
+            get {
+                return @__ErrorConsumoFactura;
+            }
+            set {
+                @__ErrorConsumoFactura = value;
+                this.TriggerPropertyChanged("ErrorConsumoFactura");
+            }
+        }
+        public override void ReadComplex(RemObjects.SDK.Serializer serializer) {
+            if (serializer.RecordStrictOrder) {
+                this.Serie = serializer.ReadAnsiString("Serie");
+                this.Folio = serializer.ReadAnsiString("Folio");
+                this.Fecha = serializer.ReadDateTime("Fecha");
+                this.SubTotal = serializer.ReadAnsiString("SubTotal");
+                this.Iva = serializer.ReadAnsiString("Iva");
+                this.Total = serializer.ReadAnsiString("Total");
+                this.PathPDF = serializer.ReadAnsiString("PathPDF");
+                this.PathXML = serializer.ReadAnsiString("PathXML");
+                this.FileXML = serializer.ReadXml("FileXML");
+                this.PathConsumoFactura = serializer.ReadAnsiString("PathConsumoFactura");
+                this.ErrorConsumoFactura = serializer.ReadAnsiString("ErrorConsumoFactura");
+            }
+            else {
+                this.ErrorConsumoFactura = serializer.ReadAnsiString("ErrorConsumoFactura");
+                this.Fecha = serializer.ReadDateTime("Fecha");
+                this.FileXML = serializer.ReadXml("FileXML");
+                this.Folio = serializer.ReadAnsiString("Folio");
+                this.Iva = serializer.ReadAnsiString("Iva");
+                this.PathConsumoFactura = serializer.ReadAnsiString("PathConsumoFactura");
+                this.PathPDF = serializer.ReadAnsiString("PathPDF");
+                this.PathXML = serializer.ReadAnsiString("PathXML");
+                this.Serie = serializer.ReadAnsiString("Serie");
+                this.SubTotal = serializer.ReadAnsiString("SubTotal");
+                this.Total = serializer.ReadAnsiString("Total");
+            }
+        }
+        public override void WriteComplex(RemObjects.SDK.Serializer serializer) {
+            if (serializer.RecordStrictOrder) {
+                serializer.WriteAnsiString("Serie", this.Serie);
+                serializer.WriteAnsiString("Folio", this.Folio);
+                serializer.WriteDateTime("Fecha", this.Fecha);
+                serializer.WriteAnsiString("SubTotal", this.SubTotal);
+                serializer.WriteAnsiString("Iva", this.Iva);
+                serializer.WriteAnsiString("Total", this.Total);
+                serializer.WriteAnsiString("PathPDF", this.PathPDF);
+                serializer.WriteAnsiString("PathXML", this.PathXML);
+                serializer.WriteXml("FileXML", this.FileXML);
+                serializer.WriteAnsiString("PathConsumoFactura", this.PathConsumoFactura);
+                serializer.WriteAnsiString("ErrorConsumoFactura", this.ErrorConsumoFactura);
+            }
+            else {
+                serializer.WriteAnsiString("ErrorConsumoFactura", this.ErrorConsumoFactura);
+                serializer.WriteDateTime("Fecha", this.Fecha);
+                serializer.WriteXml("FileXML", this.FileXML);
+                serializer.WriteAnsiString("Folio", this.Folio);
+                serializer.WriteAnsiString("Iva", this.Iva);
+                serializer.WriteAnsiString("PathConsumoFactura", this.PathConsumoFactura);
+                serializer.WriteAnsiString("PathPDF", this.PathPDF);
+                serializer.WriteAnsiString("PathXML", this.PathXML);
+                serializer.WriteAnsiString("Serie", this.Serie);
+                serializer.WriteAnsiString("SubTotal", this.SubTotal);
+                serializer.WriteAnsiString("Total", this.Total);
+            }
+        }
+    }
+    [System.Reflection.ObfuscationAttribute(Exclude=true, ApplyToMembers=false)]
+    public class TFacturaCliente_Activator : object, RemObjects.SDK.ITypeActivator {
+        public TFacturaCliente_Activator() {
+        }
+        public object CreateInstance() {
+            return new TFacturaCliente();
+        }
+    }
     public interface IRPLoginService : RemObjects.DataAbstract.Server.ISimpleLoginService {
     }
     public partial class RPLoginService_Proxy : RemObjects.DataAbstract.Server.SimpleLoginService_Proxy, IRPLoginService {

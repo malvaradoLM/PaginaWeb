@@ -253,6 +253,144 @@
     <Content Include="Data\Dataset\spCatEstacionDS.xss">
       <DependentUpon>spCatEstacionDS.xsd</DependentUpon>
     </Content>
+    <Content Include="Reportes\29062018105716979.pdf" />
+    <Content Include="Reportes\29062018115115345.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\02072018090225761.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\02072018152328619.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\06072018174724203.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\09072018115646344.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\09072018120234651.xls" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\29062018115624843.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\29062018120405518.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\29062018120520815.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\29062018120536990.xls" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\29062018124154242.xls" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\29062018124207195.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\29062018152159992.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\29062018153935480.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\29062018153947988.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\29062018160626644.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\29062018161120572.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\29062018161549687.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\29062018162614967.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\29062018163633453.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\30062018090401963.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\30062018122207564.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\30062018122436767.pdf" />
+    <Content Include="Reportes\ANTIGÜEDAD DE SALDOS\30062018133227338.xls" />
+    <Content Include="Reportes\BITACORA\02072018170119148.pdf" />
+    <Content Include="Reportes\BITACORA\02072018171935194.pdf" />
+    <Content Include="Reportes\BITACORA\02072018172119936.pdf" />
+    <Content Include="Reportes\BITACORA\03072018082532379.pdf" />
+    <Content Include="Reportes\COMPARATIVO MENSUAL POR CLIENTE O GRUPO\02072018103906349.pdf" />
+    <Content Include="Reportes\COMPARATIVO MENSUAL POR CLIENTE O GRUPO\02072018104457185.pdf" />
+    <Content Include="Reportes\COMPARATIVO MENSUAL POR CLIENTE O GRUPO\02072018104528204.pdf" />
+    <Content Include="Reportes\COMPARATIVO MENSUAL POR CLIENTE O GRUPO\02072018152647787.pdf" />
+    <Content Include="Reportes\COMPARATIVO MENSUAL POR CLIENTE O GRUPO\06072018174737552.pdf" />
+    <Content Include="Reportes\COMPARATIVO MENSUAL POR CLIENTE O GRUPO\09072018104505728.pdf" />
+    <Content Include="Reportes\CONC. DE CONSUMOS X CLIENTE\02072018115240800.pdf" />
+    <Content Include="Reportes\CONC. DE CONSUMOS X CLIENTE\02072018120233198.pdf" />
+    <Content Include="Reportes\CONC. DE CONSUMOS X CLIENTE\02072018120737947.pdf" />
+    <Content Include="Reportes\CONC. DE CONSUMOS X CLIENTE\02072018152753508.pdf" />
+    <Content Include="Reportes\CONC. DE CONSUMOS X CLIENTE\09072018104539388.pdf" />
+    <Content Include="Reportes\CONSUMOS AYUNTAMIENTO\02072018161339126.pdf" />
+    <Content Include="Reportes\CONSUMOS X DEPARTAMENTO\02072018124352258.pdf" />
+    <Content Include="Reportes\CONSUMOS X DEPARTAMENTO\02072018153109025.pdf" />
+    <Content Include="Reportes\CONSUMOS X DEPARTAMENTO\02072018160913245.pdf" />
+    <Content Include="Reportes\CONSUMOS X ESTACION\02072018082119119.pdf" />
+    <Content Include="Reportes\CONSUMOS X ESTACION\02072018102354961.pdf" />
+    <Content Include="Reportes\CONSUMOS X ESTACION\30062018131401821.pdf" />
+    <Content Include="Reportes\CONSUMOS X ESTACION\30062018131433405.pdf" />
+    <Content Include="Reportes\CONSUMOS X ESTACION\30062018131741432.pdf" />
+    <Content Include="Reportes\CONSUMOS X ESTACION\30062018131753786.xls" />
+    <Content Include="Reportes\CONSUMOS X ESTACION\30062018132032182.pdf" />
+    <Content Include="Reportes\CONSUMOS X ESTACION\30062018132041354.xls" />
+    <Content Include="Reportes\CONSUMOS X ESTACION\30062018132347554.pdf" />
+    <Content Include="Reportes\CONSUMOS X ESTACION\30062018132357192.xls" />
+    <Content Include="Reportes\CONSUMOS X ESTACION\30062018132559319.pdf" />
+    <Content Include="Reportes\CONSUMOS X ESTACION\30062018132605258.xls" />
+    <Content Include="Reportes\CONSUMOS X ESTACION\30062018132616603.xls" />
+    <Content Include="Reportes\CONSUMOS X ESTACION\30062018133152124.pdf" />
+    <Content Include="Reportes\CONSUMOS X ESTACION\30062018133159729.xls" />
+    <Content Include="Reportes\CONSUMOS X ESTACION\30062018133546595.xls" />
+    <Content Include="Reportes\CONSUMOS X FECHA\02072018085330703.pdf" />
+    <Content Include="Reportes\CONSUMOS X FECHA\02072018090248208.pdf" />
+    <Content Include="Reportes\CONSUMOS X FECHA\02072018090304148.pdf" />
+    <Content Include="Reportes\CONSUMOS X FECHA\02072018090332131.pdf" />
+    <Content Include="Reportes\CONSUMOS X FECHA\02072018090633447.pdf" />
+    <Content Include="Reportes\CONSUMOS X FECHA\02072018101521011.pdf" />
+    <Content Include="Reportes\CONSUMOS X FECHA\02072018124730199.pdf" />
+    <Content Include="Reportes\CONSUMOS X FECHA\02072018124756585.xls" />
+    <Content Include="Reportes\CONSUMOS X FECHA\02072018124938157.xls" />
+    <Content Include="Reportes\CONSUMOS X FECHA\02072018152351741.pdf" />
+    <Content Include="Reportes\CONSUMOS X FECHA\03072018084310853.pdf" />
+    <Content Include="Reportes\CONSUMOS X FECHA\03072018084333803.pdf" />
+    <Content Include="Reportes\CONSUMOS X FECHA\06072018174818821.pdf" />
+    <Content Include="Reportes\CONSUMOS X PRODUCTO\02072018123421057.pdf" />
+    <Content Include="Reportes\CONSUMOS X PRODUCTO\02072018123444879.pdf" />
+    <Content Include="Reportes\CONSUMOS X PRODUCTO\02072018124444786.xls" />
+    <Content Include="Reportes\CONSUMOS X PRODUCTO\02072018124451962.pdf" />
+    <Content Include="Reportes\CONSUMOS X PRODUCTO\02072018124506812.xls" />
+    <Content Include="Reportes\CONSUMOS X PRODUCTO\02072018124515814.xls" />
+    <Content Include="Reportes\CONSUMOS X PRODUCTO\02072018153053979.pdf" />
+    <Content Include="Reportes\CONSUMOS X TARJETA\02072018090909040.pdf" />
+    <Content Include="Reportes\FILTRO X DEPARTAMENTO\02072018165053842.pdf" />
+    <Content Include="Reportes\FILTRO X DEPARTAMENTO\02072018165105822.pdf" />
+    <Content Include="Reportes\FILTRO X DEPARTAMENTO\03072018111943394.pdf" />
+    <Content Include="Reportes\TICKET WEB\02072018090211863.pdf" />
+    <Content Include="Reportes\TICKET WEB\02072018152316799.pdf" />
+    <Content Include="Reportes\TICKET WEB\06072018174706260.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018081635599.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018081907701.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018082026826.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018082228171.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018082901713.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018082932802.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018083400814.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018083519010.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018083812793.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018084652581.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018084933515.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018085211870.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018085758073.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018090201522.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018090548221.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018090721763.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018091111573.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018100233126.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018100310225.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018100346809.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018100503314.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018100818879.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018100856887.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018101149054.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018101333339.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018101351576.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018101957153.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018102304618.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018103342181.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018103447602.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018103616119.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018103632023.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018103650416.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018103705351.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018103712520.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018103736495.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018103750399.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018104058221.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018104126877.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018104139466.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018104239089.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018104555521.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018104557853.pdf" />
+    <Content Include="Reportes\TICKET WEB\07072018104738115.pdf" />
+    <Content Include="Reportes\TICKET WEB\09072018102705089.pdf" />
+    <Content Include="Reportes\TICKET WEB\09072018114316582.pdf" />
+    <Content Include="Reportes\TICKET WEB\09072018115509507.pdf" />
+    <Content Include="Reportes\TICKET WEB\29062018115944727.pdf" />
+    <Content Include="Reportes\TICKET WEB\29062018161105643.pdf" />
+    <Content Include="Reportes\TICKET WEB\30062018090338476.pdf" />
+    <Content Include="Home.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -445,6 +583,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Home.Master.cs">
+      <DependentUpon>Home.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.Master.designer.cs">
+      <DependentUpon>Home.Master</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -553,6 +698,9 @@
     <Folder Include="css\" />
     <Folder Include="fonts\" />
     <Folder Include="js\" />
+    <Folder Include="Reportes\COMPARATIVO MENSUAL POR CLIENTE Y VEHICULO\" />
+    <Folder Include="Reportes\COMPARATIVO MENSUAL POR VEHICULO\" />
+    <Folder Include="Reportes\ConsumosPorFecha\" />
     <Folder Include="sass\" />
     <Folder Include="tables\" />
   </ItemGroup>

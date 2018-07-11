@@ -21,6 +21,7 @@ namespace Ejemplo
                 txtFechaFinal.Date = DateTime.Now;
                 chkBoxList.SelectedIndex = 0;
                 msjAlerta.Visible = false;
+                detallesReporte.Visible = false;
             }
         }
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control)

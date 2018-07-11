@@ -43,19 +43,22 @@ namespace Ejemplo
             string dateFecIni = txtanio1.Value.ToString();
             string dateFecFin = txtanio1.Value.ToString();
 
-            dateFecIni = dateFecIni + "0101000000";
-            dateFecFin = dateFecFin + "1231235959";
-
+            //dateFecIni = dateFecIni + "0101000000";
+            // dateFecFin = dateFecFin + "1231235959";
+            dateFecIni = "2018";
+            dateFecFin = "2018";
             string c2 = @"""";
 
             string ClienteINI = @"@ClienteINI = """;
             string ClienteFIN = @""", @ClienteFIN = """;
-            string FechaINI = @""", @FechaINI = """;
+            //string FechaINI = @""", @FechaINI = """;
+            string FechaINI = @",@EJERCICIO = 2018";
+            string Importe = @""", @IMPORTELITROS = ";
             string FechaFIN = @""", @FechaFIN = """;
 
-            string ParametrosReporte = ClienteINI + _ClienteID + ClienteFIN + _ClienteID + FechaINI + dateFecIni + FechaFIN + dateFecFin + c2;
-            //string ReporteNombre = "COMPARATIVO MENSUAL POR CLIENTE Y VEHICULO";
-            string ReporteNombre = "COMPARATIVO MENSUAL POR VEHICULO";
+            string ParametrosReporte = ClienteINI + _ClienteID + ClienteFIN + _ClienteID + Importe + "0" + "" + FechaINI;
+            string ReporteNombre = "COMPARATIVO MENSUAL POR CLIENTE Y VEHICULO";
+            //string ReporteNombre = "COMPARATIVO MENSUAL POR VEHICULO";
             string TipoArchivo;
 
             if (chkBoxList.Value.ToString()== "1")
