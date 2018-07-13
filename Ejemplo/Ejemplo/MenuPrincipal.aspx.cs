@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Ejemplo
 {
-    public partial class Home : System.Web.UI.MasterPage
+    public partial class MenuPrincipal : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           // NombreGrupo.Text = System.Configuration.ConfigurationManager.AppSettings["Gasolinero"];
+
         }
     }
 }

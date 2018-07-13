@@ -1,9 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/principal.Master" AutoEventWireup="true" CodeBehind="DatosCliente.aspx.cs" Inherits="Ejemplo.WebForm1" EnableEventValidation="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="DatosCliente.aspx.cs" Inherits="Ejemplo.WebForm1" EnableEventValidation="false" %>
 <%@ Register assembly="DevExpress.Web.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
 <%@ Register assembly="DevExpress.Web.Bootstrap.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.Bootstrap" tagprefix="dx" %>
 
+<%--
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+    --%>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <style type="text/css">
@@ -41,7 +43,7 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-9">
                 <div class="table-responsive ">
                     <table class="table format-table" style="float:left">
                         <thead>
@@ -150,7 +152,7 @@
                     </table>
                 </div>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-3">
                 <asp:LinkButton  class="Largo verde_claro" runat= "server" OnClick="Click">
                     <div>
                     <i class="glyphicon glyphicon-usd" style="margin-top: 15%;"></i>

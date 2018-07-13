@@ -86,70 +86,24 @@ fieldset[disabled] .btn-sample.active {
 .TextForm{
     font-family:Arial, Helvetica, sans-serif;
 }
+.breadCrumbMovil{
+    margin-top:60px;
+}
  </style>
     <div class="alert alert-warning" id="msjAlerta" runat="server">
         <strong>Advertencia! </strong>
         <dx:ASPxLabel ID="labelAlerta" runat="server" />
         </div>
 <div id="nav" class="container" style="margin-left:0px; margin-right:0px">
-    <%-- 
-    <h1>Bitácora Cliente</h1></div>
-    <div class="row">
-            <ol class="breadcrumb Cards-Contenido col-lg-10" style="background:initial;">
-                <li class="breadcrumb-item"><a href="Reportes.aspx">Reportes</a></li>
-                <li class="breadcrumb-item active ">Bitácora Cliente</li>
-            </ol>
-        </div>
-    <div id="exTab1" class="container" style="margin-left:0px; margin-right:0px">	
-        <ul id="myTabs" class="nav nav-pills" style="padding:0px">
-		</ul>
-        <div class="tab-content clearfix">
-            <div class="tab-pane active" id="1a" >
-         <table style="width:100%; height:500px">
-                        <tr>
-                            <td style="width:20%"><dx:ASPxLabel ID="lblFechaInicial" Text="FECHA INICIAL" runat="server" Font-Bold="true"/></td>
-                            <td>
-                                <dx:ASPxDateEdit ID="txtFechaInicial" runat="server" Font-Bold="true" OnValidation="txtFechaInicial_Validation"/>
-                            </td>
-                        </tr>
-                         <tr>
-                            <td><dx:ASPxLabel ID="lblFechaFinal" Text="FECHA FINAL" runat="server" Font-Bold="true"/></td>
-                            <td>
-                            <dx:ASPxDateEdit ID="txtFechaFinal" runat="server" Font-Bold="true" OnValidation="txtFechaFinal_Validation"/>
-                            </td>
-                        </tr>
-                        <tr>
-                             <td><dx:ASPxLabel ID="lblCheckBoxes" Text="SELECCIONE UNA OPCION" runat="server" Font-Bold="true"/></td>
-                            <td>
-                                <dx:ASPxRadioButtonList ID="chkBoxList" runat="server" Border-BorderWidth="0">
-                                    <Items>
-                                    <dx:ListEditItem Text="FORMATO PDF" value="1"   />
-                                    <dx:ListEditItem Text="FORMATO EXCEL" value="2" />
-                                    </Items>
-                                 </dx:ASPxRadioButtonList>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        <asp:LinkButton  id="btnProcesar" OnClick="btnProcesar_Click" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;margin-top: 1px; background-color:mediumseagreen" runat="server" Text="VER REPORTE " >
-    
-</asp:LinkButton>
-<asp:LinkButton id="btnCancelar" OnClick="btnCancelar_Click" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
-  
- </asp:LinkButton>
-<div id="detallesReporte" runat="server">	
-       <iframe id="reporteDoc" style="position:relative; width: 100% ; height:600px; border:0px;" runat="server" ></iframe>
-        </div>
-        --%>
+
 
     <link href="css/breadCrumb.css" rel="stylesheet">
  
-    <div id="cssmenu" style="margin-top:20px" class="row">  
+    <div id="cssmenu" style="margin-top:60px;" class="row">  
     <ul>
         <li class="active"><a href="DetailsBitacoraCliente.aspx">Bitácora Cliente</a></li>
         <li><a href="Reportes.aspx">Reportes</a></li>
-        <li><a href="Dashboard.aspx"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
     </ul>
 </div>         
     <p>
@@ -161,7 +115,7 @@ fieldset[disabled] .btn-sample.active {
         <dx:ASPxFormLayout runat="server" ID="exampleFormLayout" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365" SettingsItems-HorizontalAlign="Center"   >
         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="500"  />
             <Items>
-            <dx:LayoutGroup Caption="PARAMETROS" SettingsItemHelpTexts-Position="Bottom" GroupBoxStyle-Border-BorderStyle="Solid" GroupBoxStyle-Caption-Font-Bold="true" GroupBoxStyle-Caption-Font-Size="Large" CssClass="TextForm" >
+            <dx:LayoutGroup Caption="PARAMETROS" SettingsItemHelpTexts-Position="Bottom"  GroupBoxStyle-Border-BorderStyle="Solid" GroupBoxStyle-Caption-Font-Bold="true" GroupBoxStyle-Caption-Font-Size="Large" CssClass="TextForm" >
                 <GroupBoxStyle Border-BorderStyle="Solid" CssClass="shadowBox">
                     <Caption Font-Bold="True">
                     </Caption>
@@ -170,7 +124,7 @@ fieldset[disabled] .btn-sample.active {
                     <dx:LayoutItem Caption="Fecha Inicial" HelpText="Porfavor, ingrese la fecha inicial">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxDateEdit ID="txtFechaInicial" runat="server" ButtonEditEllipsisImage-IconID="" Theme="Office365" Width="100%" CssClass="shadowBox"  >
+                                <dx:ASPxDateEdit ID="txtFechaInicial" runat="server" ButtonEditEllipsisImage-IconID="" Theme="Office365" Width="100%"  >
                                     <DropDownButton Image-IconID="">
                                         <Image IconID="conditionalformatting_adateoccurring_16x16">
                                         </Image>
@@ -185,7 +139,7 @@ fieldset[disabled] .btn-sample.active {
                     <dx:LayoutItem Caption="Fecha Final" HelpText="Porfavor, ingrese la fecha final">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxDateEdit ID="txtFechaFinal" runat="server" Theme="Office365" Width="100%" CssClass="shadowBox" >
+                                <dx:ASPxDateEdit ID="txtFechaFinal" runat="server" Theme="Office365" Width="100%"  >
                                     <DropDownButton>
                                         <Image IconID="conditionalformatting_adateoccurring_16x16">
                                         </Image>

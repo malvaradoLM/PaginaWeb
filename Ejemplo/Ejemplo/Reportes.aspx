@@ -37,7 +37,6 @@
 }
 </style>
     <link href="css/StylePage1.css" rel="stylesheet">
-    <link href="css/ResponsiveBootstrapTabs.css" rel="stylesheet">
     <div class="container-fluid">
     <div class="row">
         <div class="col-lg-8 col-md-8">
@@ -79,7 +78,7 @@
             </a>
         </div>
     </div>
-    <div class="row hidden-md hidden-sm hidden-xs">
+    <div class="row">
         <div class="col-lg-2">
             <a href="DetailsComparativoMensualByCliente.aspx" id="btnComparativoMensulaCte" class="Largo morado">
                 <asp:Image ID="Image6" runat="server" ImageUrl="\Icons\png\80px\calendar-customer.png" CssClass="linkclass" />
@@ -111,7 +110,7 @@
             </a>
         </div>
     </div>
-    <div class="row hidden-md hidden-sm hidden-xs">
+    <div class="row">
         <div class="col-lg-2">
             <a href="DetailsConsumoEspecial.aspx" id="btnReporteEspecialConsumos" class="Largo blueLight">
                 <asp:Image ID="Image11" runat="server" ImageUrl="\Icons\png\80px\large\report-print-banknotes.png" CssClass="linkclass" />
