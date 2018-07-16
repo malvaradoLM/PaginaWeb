@@ -73,7 +73,9 @@ namespace Ejemplo
             {
                 msjAlerta.Visible = false;
                 detallesReporte.Visible = true;
+                Ribbon.Visible = true;
                 reporteDoc.Src = resultado2.pathFile;
+                hiddenURL.Value = reporteDoc.Src;
             }
             else
             {

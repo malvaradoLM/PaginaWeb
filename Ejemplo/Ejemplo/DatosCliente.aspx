@@ -27,18 +27,31 @@
       font-size-adjust:0.50;
     background: url(ico.png) no-repeat 0px 0px;
 }
+.shadowBox{
+    padding: 5px;
+    box-shadow: 3px 8px 6px #888888;
 }
 </style>
 
     <link href="css/StylePage1.css" rel="stylesheet">
     <link href="css/ResponsiveBootstrapTabs.css" rel="stylesheet">
+    
+
+    
     <div class="row">
                 <div class="col-lg-12">
                     <div class="tablaMain">
 <form action="/Cliente/Details/NQ==" method="post"><input name="__RequestVerificationToken" type="hidden" value="LGysLb9D9kcvbU4U-vMl66yzC-gtq8Du0lmbezUctFywnteL1ldUlkQNWIY-XHbUisdhUKj9gvUy60xUpL5u706JMjrPhr74KrqGBP3who01">    <div class="container-fluid">
         <div class="row">
             <div class="col-lg-8">
-                <div class="Cards-Titulo "><h2>DATOS DEL CLIENTE</h2></div>
+                 <link href="css/breadCrumb.css" rel="stylesheet">
+ 
+    <div id="cssmenu" style="margin-top:60px;" class="row">  
+    <ul>
+        <li class="active"><a href="DatosCliente.aspx">Datos del Cliente</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+    </ul>
+</div>  
             </div>
         </div>
         <hr>
@@ -153,18 +166,18 @@
                 </div>
             </div>
             <div class="col-lg-3">
-                <asp:LinkButton  class="Largo verde_claro" runat= "server" OnClick="Click">
+                <asp:LinkButton  class="Largo verde_claro shadowBox" runat= "server" OnClick="Click">
                     <div>
                     <i class="glyphicon glyphicon-usd" style="margin-top: 15%;"></i>
                     <h2-largo style="align-self:baseline;">ESTADO DE CUENTA</h2-largo>
                     </div>
                 </asp:LinkButton>
-                <a href="javascript://" class="Largo amarillo"  onclick="location.href='DetailsListaFactura.aspx'">
+                <a href="javascript://" class="Largo amarillo shadowBox"  onclick="location.href='DetailsListaFactura.aspx'">
                     <i class="glyphicon glyphicon-list-alt" style="margin-top: 15%;"></i>
                     <h2-largo>LISTADO DE FACTURAS</h2-largo>
                     
                 </a>
-                <a href="javascript://" class="Largo azul"  onclick="location.href='EnvioInformacion.aspx'">
+                <a href="javascript://" class="Largo azul shadowBox"  onclick="location.href='EnvioInformacion.aspx'">
                     <i class="glyphicon glyphicon-send" style="margin-top: 15%;"></i>
                     <h2-largo>ENVIO DE INFORMACION</h2-largo>
                 </a>
@@ -174,8 +187,11 @@
 </form>
 
 
-
+        
                     </div>
+        
                 </div>
+        
+        
             </div>
 </asp:Content>

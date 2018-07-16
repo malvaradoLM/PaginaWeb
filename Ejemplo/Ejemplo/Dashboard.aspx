@@ -18,12 +18,21 @@
 	//});
 //};
 	</script>
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="assets/slicknav/jquery.slicknav.min.js"></script>
+    <link rel="stylesheet" href="assets/demo.css">
+    <link rel="stylesheet" href="assets/navigation-icons.css">
+    <link rel="stylesheet" href="assets/slicknav/slicknav.min.css">
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
     <%-- Inicio de Cabecera  --%>
     	<link href="css/breadCrumb.css" rel="stylesheet">
  
     <div id="cssmenu" style="margin-top:60px;" class="row">  
     <ul>
-        <li class="active"><a href="Dashboard.aspx">Resumen</a></li>
+        <li class="active"><a href="Dashboard.aspx">Dashboard</a></li>
         <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
     </ul>
 </div>         
@@ -42,14 +51,14 @@
       <div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-body">
-			<form role="form">
+			
 		<div class="panel panel-container">
 			<div class="row">
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-teal panel-widget border-right">
 						<div class="row no-padding"><em class="fa fa-xl fa-shopping-cart color-blue"></em>
 							<div class="large"><asp:Label ID="lblLimiteCredito" runat="server"/></div>
-							<div class="text-muted">Limite de Credito</div>
+							<div class="text-uppercase">Limite de Credito</div>
 						</div>
 					</div>
 				</div>
@@ -57,7 +66,7 @@
 					<div class="panel panel-blue panel-widget border-right">
 						<div class="row no-padding"><em class="fa fa-xl fa-comments color-orange"></em>
 							<div class="large"><asp:Label ID="lblSaldoDisponible" runat="server"/></div>
-							<div class="text-muted">Saldo Disponible</div>
+							<div class="text-uppercase">Saldo Disponible</div>
 						</div>
 					</div>
 				</div>
@@ -65,57 +74,22 @@
 					<div class="panel panel-orange panel-widget border-right">
 						<div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
 							<div class="large"><asp:Label ID="lblSaldoDeudor" runat="server"/></div>
-							<div class="text-muted">Saldo Deudor</div>
+							<div class="text-uppercase">Saldo Deudor</div>
 						</div>
 					</div>
 				</div>
 
 			</div><!--/.row-->
 		</div>
-       </form>
+   
 	</div>
 	</div>
    </div>
     <%-- Fin de Panel donde Estan los saldos del cliente --%>
 
-        <%-- Inicio Grafica de Consumos --%>
-      <div class="col-md-12">
-		<div class="panel panel-default">
-		    <div class="panel-body">
-			
-                <div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						
-						<ul class="pull-right panel-settings panel-button-tab-right">
-							<%--<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-								<em class="fa fa-cogs"></em>
-							</a>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li>
-										<ul class="dropdown-settings">
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 1
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 2
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 3
-											</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>--%>
-						</ul>
-						<%--<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>--%></div>
-					<div class="panel-body">
-						<div class="canvas-wrapper">
+       
                            <%-- <canvas class="main-chart" id="line-chart" height="200" width="600"></canvas>--%>
-                            <dx:WebChartControl ID="webChartControl" runat="server"  Height="600" Width="1200" >
+                            <dx:WebChartControl ID="webChartControl" runat="server"  Height="600" Width="1200" Theme="Office365" >
                                 <SeriesTemplate ArgumentDataMember="Descripcion" ValueDataMembersSerializable="Importe" LabelsVisibility="False">
             <ViewSerializable>
                 <dx:SideBySideBar3DSeriesView></dx:SideBySideBar3DSeriesView>
@@ -135,15 +109,6 @@
                             </dx:WebChartControl>
 						    <br />
                             <br />
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/.row-->
-          
-	       </div>
-	    </div>
-   </div>  
 <%-- Fin de Grafica de Consumos  --%>
 </asp:Content>
 

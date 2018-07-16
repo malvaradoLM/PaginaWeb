@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="VehiculoPage.aspx.cs" Inherits="Ejemplo.VehiculoPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="VehiculoPage.aspx.cs" Inherits="Ejemplo.VehiculoPage" %>
 
 <%@ Register Assembly="DevExpress.Web.Bootstrap.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
 <%@ Register assembly="DevExpress.Web.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
@@ -72,14 +72,26 @@ border-color: #ddd;
     font-size: 16px;
     text-transform: uppercase;
 }
+    .shadowBox{
+    padding: 5px;
+    box-shadow: 3px 8px 6px #888888;
+}
 /*end gridview */
     </style>
     <link href="css/StylePage1.css" rel="stylesheet">
 
     <div class="row">
         <div class="col-lg-9 col-md-9">
-            <div class="Cards-Titulo HexColor-3"><h2 id="lblTitulo" runat="server">VEHICULOS ACTIVOS</h2></div>
-    <dx:BootstrapGridView ID="bgvVehiculo" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="VehiculoID" CssClassesPager-Control="true" CssClasses-Table="table table-striped table-bordered table-hover">
+            <div class="Cards-Titulo HexColor-3"><h2 id="lblTitulo" runat="server" style="display:none">VEHICULOS ACTIVOS</h2></div>
+             <link href="css/breadCrumb.css" rel="stylesheet">
+ 
+    <div id="cssmenu" style="margin-top:60px;" class="row">  
+    <ul>
+        <li class="active"><a href="VehiculoPage.aspx">Vehiculos</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+    </ul>
+</div>  
+    <dx:BootstrapGridView ID="bgvVehiculo" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="VehiculoID" CssClassesPager-Control="true" CssClasses-Table="table table-striped table-bordered table-hover shadowBox">
                 <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
                 <Settings ShowGroupPanel="true"/>
                 <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>
@@ -119,8 +131,8 @@ border-color: #ddd;
 
            </dx:BootstrapGridView>
             </div>
-        <div class="col-lg-2 col-md-2">
-                 <asp:LinkButton  class="Largo amarillo Cards-Titulo HexColor-3 linkclass" id="btnAll" onclick="btnAll_Click" runat="server" >
+        <div class="col-lg-3 col-md-3">
+                 <asp:LinkButton  class="Largo amarillo Cards-Titulo HexColor-3 linkclass shadowBox" id="btnAll" onclick="btnAll_Click" runat="server" >
                       <asp:Image ID="Image1" runat="server" ImageUrl="\Icons\png\80px\large\vehicle-car.png" CssClass="linkclass" />
                     <div style="text-align:center" id="lblVehiculos" runat="server">
                      <div id="lblVehiculosActivos" runat="server" class="labelCuadro">VEHICULOS ACTIVOS</div>

@@ -64,7 +64,7 @@
         <div class="col-lg-3">
             <a href="Dashboard.aspx" id="btnResumen" class="Largo rojo shadowBox">
                 <asp:Image ID="Image1" runat="server" ImageUrl="\Icons\png\80px\large\document_chart.png" CssClass="linkclass" />
-                <h2-largo>RESUMEN</h2-largo>
+                <h2-largo>DASHBOARD</h2-largo>
             </a>
         </div>
         <div class="col-lg-3">

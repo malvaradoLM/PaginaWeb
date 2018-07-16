@@ -103,6 +103,24 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxButton btnProcesar4;
         
         /// <summary>
+        /// hiddenURL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hiddenURL;
+        
+        /// <summary>
+        /// Ribbon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRibbon Ribbon;
+        
+        /// <summary>
         /// detallesReporte control.
         /// </summary>
         /// <remarks>

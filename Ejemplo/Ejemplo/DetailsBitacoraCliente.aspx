@@ -89,7 +89,26 @@ fieldset[disabled] .btn-sample.active {
 .breadCrumbMovil{
     margin-top:60px;
 }
+.RibbonTamaño{
+        height: 30px;
+        padding: 2px;
+    box-shadow: 1px 6px 4px #888888
+}
+.buttonMargin {
+    margin-top:8%;
+    }
+.radioMargin{
+    margin-left: 0px;
+}
  </style>
+    <script>
+        function descargarDocumento() {
+            var url = document.getElementById("<%=hiddenURL.ClientID%>");
+            var descarga = url.value;
+
+        };
+
+    </script>
     <div class="alert alert-warning" id="msjAlerta" runat="server">
         <strong>Advertencia! </strong>
         <dx:ASPxLabel ID="labelAlerta" runat="server" />
@@ -106,7 +125,7 @@ fieldset[disabled] .btn-sample.active {
         <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
     </ul>
 </div>         
-    <p>
+    <p/>
 
 
 
@@ -115,7 +134,7 @@ fieldset[disabled] .btn-sample.active {
         <dx:ASPxFormLayout runat="server" ID="exampleFormLayout" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365" SettingsItems-HorizontalAlign="Center"   >
         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="500"  />
             <Items>
-            <dx:LayoutGroup Caption="PARAMETROS" SettingsItemHelpTexts-Position="Bottom"  GroupBoxStyle-Border-BorderStyle="Solid" GroupBoxStyle-Caption-Font-Bold="true" GroupBoxStyle-Caption-Font-Size="Large" CssClass="TextForm" >
+            <dx:LayoutGroup Caption="PARAMETROS" SettingsItemHelpTexts-Position="Bottom"  GroupBoxStyle-Border-BorderStyle="Solid" GroupBoxStyle-Caption-Font-Bold="true" GroupBoxStyle-Caption-Font-Size="Large" CssClass="TextForm" ColCount="2" >
                 <GroupBoxStyle Border-BorderStyle="Solid" CssClass="shadowBox">
                     <Caption Font-Bold="True">
                     </Caption>
@@ -151,7 +170,7 @@ fieldset[disabled] .btn-sample.active {
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
-                    <dx:LayoutItem Caption="Formato" HorizontalAlign="Right" RequiredMarkDisplayMode="Hidden" Width="100">
+                    <dx:LayoutItem Caption="Formato" HorizontalAlign="Left" RequiredMarkDisplayMode="Hidden" Width="100" CaptionSettings-HorizontalAlign="Left" CssClass="radioMargin">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
                                 <dx:ASPxRadioButtonList ID="chkBoxList" runat="server" Border-BorderWidth="0" Theme="Office365">
@@ -164,7 +183,7 @@ fieldset[disabled] .btn-sample.active {
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
-                    <dx:LayoutGroup Border-BorderStyle="None"  Caption=" " CssClass="noBorder" GroupBoxDecoration="None" HorizontalAlign="Right" SettingsItemCaptions-HorizontalAlign="Right" Width="100">
+                    <dx:LayoutGroup Border-BorderStyle="None"  Caption=" " CssClass="buttonMargin" GroupBoxDecoration="None" HorizontalAlign="Right" SettingsItemCaptions-HorizontalAlign="Right" Width="100" RowSpan="2">
                         <Border BorderStyle="None" />
                         <Items>
                             <dx:LayoutItem  Border-BorderWidth="0px" CssClass="noBorder" HorizontalAlign="Right" RequiredMarkDisplayMode="Hidden" ShowCaption="False" Width="100">
@@ -186,11 +205,46 @@ fieldset[disabled] .btn-sample.active {
         </Items>
             <SettingsItems HorizontalAlign="Center" />
         </dx:ASPxFormLayout>
-        <p>
-        <p>
+        <p/>
+        <p/>
+        <asp:HiddenField ID="hiddenURL" runat="server" />
+        
+        <dx:ASPxRibbon ID="Ribbon" ClientInstanceName="Ribbon" runat="server" ShowGroupLabels="False" ShowFileTab="False" Width="100%" Theme="Office365" Minimized="True" Visible="False"   >
+            <Styles TabContent-BackColor="White" GroupSeparator-BackColor="Transparent" GroupSeparator-Border-BorderStyle="None" >
+                <Item Width="100px"></Item>
+                <GroupExpandButton Width="100px" BackColor="White"></GroupExpandButton>
+                <TabContent Height="30px"/>
+            </Styles>
+            <Tabs>
+                <dx:RibbonTab Text="Menu Documento">
+                    <Groups>
+                        <dx:RibbonGroup Text="Home">
+                            <Items>
+                                <dx:RibbonButtonItem  NavigateUrl="javascript:descargarDocumento()" Name="DESCARGAR" ToolTip="DESCARGAR DOCUMENTO">
+                                    <LargeImage IconID="actions_download_32x32"></LargeImage>
+                                    <SmallImage IconID="actions_download_16x16">
+                                    </SmallImage>
+                                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                </dx:RibbonButtonItem>
+                            </Items>
+                        </dx:RibbonGroup>
+                        <dx:RibbonGroup Text="Group">
+                            <Items>
+                                <dx:RibbonButtonItem Name="EMAIL"  ToolTip="ENVIAR POR EMAIL">
+                                    <LargeImage IconID="mail_attach_32x32">
+                                    </LargeImage>
+                                    <SmallImage IconID="mail_mail_16x16">
+                                    </SmallImage>
+                                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                </dx:RibbonButtonItem>
+                            </Items>
+                        </dx:RibbonGroup>
+                    </Groups>
+                </dx:RibbonTab>
+            </Tabs>
+        </dx:ASPxRibbon>
         <div id="detallesReporte" runat="server" class="shadowBox"  >	
        <iframe id="reporteDoc" style="position:relative; width: 100% ; height:600px; border:0px;" runat="server" ></iframe>
         </div>
-    </div>	
-
+    </div>
 </asp:Content>

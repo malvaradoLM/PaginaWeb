@@ -4,6 +4,7 @@ header {
 	background:#282827;
 	margin-bottom:20px;
 	height:100px;
+	z-index:-1;
 }
 
 .wrapper {
@@ -46,8 +47,9 @@ header nav a:hover {
 
 }
 .header2 {
-	position: fixed;
+	position: fixed; 
 	height:100px;
+	z-index:-1;
 }
 
 .header2 .logo {
@@ -64,6 +66,7 @@ header nav a:hover {
 		width:100%;
 		text-align:center; /*Centramos el menu y el logotipo*/
 		line-height:100px;
+		z-index:-1;
 	}
 
 	.header2 {

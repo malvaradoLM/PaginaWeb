@@ -17,17 +17,18 @@ namespace Ejemplo
            
             RPSuiteServer.TCliente DatosCliente = new RPSuiteServer.TCliente();
             DatosCliente = DataModule.DataService.getCliente( ClienteID);
+            lblRazonSocial.Text = DatosCliente.RazonSocial;
             lblCliente.Text = DatosCliente.Nombre;
             lblDomicilio.Text = DatosCliente.Domicilio;
             lblCiudad.Text = DatosCliente.Ciudad;
             lblCP.Text = DatosCliente.CodigoPostal;
             lblStatus.Text = DatosCliente.Estatus;
-            lblRazonSocial.Text = DatosCliente.RazonSocial;
             lblColonia.Text = DatosCliente.Colonia;
             lblRFC.Text = DatosCliente.RFC;
             lblEstado.Text = DatosCliente.Estado;
             lblLimiteCredito.Text = DatosCliente.LimiteCredito.ToString("C");
-            lblID.Text = "ID." + DatosCliente.ClienteID;        
+            lblTelefono.Text = DatosCliente.Telefono;
+           // lblID.Text = "ID." + DatosCliente.ClienteID;        
         }
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control)
         {
