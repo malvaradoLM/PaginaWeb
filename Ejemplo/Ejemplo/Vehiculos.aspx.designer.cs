@@ -13,13 +13,13 @@ namespace Ejemplo {
     public partial class WebForm3 {
         
         /// <summary>
-        /// lblVehiculoID control.
+        /// exampleFormLayout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblVehiculoID;
+        protected global::DevExpress.Web.ASPxFormLayout exampleFormLayout;
         
         /// <summary>
         /// txtVehiculoID control.
@@ -31,15 +31,6 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxTextBox txtVehiculoID;
         
         /// <summary>
-        /// lblIdentificacion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblIdentificacion;
-        
-        /// <summary>
         /// txtIdentificacion control.
         /// </summary>
         /// <remarks>
@@ -47,15 +38,6 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox txtIdentificacion;
-        
-        /// <summary>
-        /// lblDepartamento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblDepartamento;
         
         /// <summary>
         /// txtDepartamento control.
@@ -67,15 +49,6 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxTextBox txtDepartamento;
         
         /// <summary>
-        /// lblNombreUsuario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblNombreUsuario;
-        
-        /// <summary>
         /// txtNombreUsuario control.
         /// </summary>
         /// <remarks>
@@ -83,15 +56,6 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox txtNombreUsuario;
-        
-        /// <summary>
-        /// lblCentrodeCosto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblCentrodeCosto;
         
         /// <summary>
         /// txtCentrodeCosto control.
@@ -103,15 +67,6 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxTextBox txtCentrodeCosto;
         
         /// <summary>
-        /// lblPlacas control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblPlacas;
-        
-        /// <summary>
         /// chkPlacas control.
         /// </summary>
         /// <remarks>
@@ -121,13 +76,13 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxCheckBox chkPlacas;
         
         /// <summary>
-        /// lblNIP control.
+        /// ASPxFormLayout1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblNIP;
+        protected global::DevExpress.Web.ASPxFormLayout ASPxFormLayout1;
         
         /// <summary>
         /// txtNIP control.
@@ -139,15 +94,6 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxTextBox txtNIP;
         
         /// <summary>
-        /// lblEstatusActual control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblEstatusActual;
-        
-        /// <summary>
         /// cmbEstatusActual control.
         /// </summary>
         /// <remarks>
@@ -157,31 +103,13 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxComboBox cmbEstatusActual;
         
         /// <summary>
-        /// lblProductoAutorizado control.
+        /// checkboxdx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblProductoAutorizado;
-        
-        /// <summary>
-        /// chProductos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chProductos;
-        
-        /// <summary>
-        /// lblCargasMaximas control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblCargasMaximas;
+        protected global::DevExpress.Web.ASPxCheckBoxList checkboxdx;
         
         /// <summary>
         /// txtCargasMaximas control.
@@ -193,15 +121,6 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxTextBox txtCargasMaximas;
         
         /// <summary>
-        /// lblLimitarEstacion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblLimitarEstacion;
-        
-        /// <summary>
         /// cmbLimitarEstacion control.
         /// </summary>
         /// <remarks>
@@ -211,13 +130,13 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxComboBox cmbLimitarEstacion;
         
         /// <summary>
-        /// lblFechaAlta control.
+        /// ASPxFormLayout2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblFechaAlta;
+        protected global::DevExpress.Web.ASPxFormLayout ASPxFormLayout2;
         
         /// <summary>
         /// txtFechaAlta control.
@@ -229,15 +148,6 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxTextBox txtFechaAlta;
         
         /// <summary>
-        /// lblFechaExpiracion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblFechaExpiracion;
-        
-        /// <summary>
         /// txtFechaExpiracion control.
         /// </summary>
         /// <remarks>
@@ -245,15 +155,6 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox txtFechaExpiracion;
-        
-        /// <summary>
-        /// lblFechaCancelacion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblFechaCancelacion;
         
         /// <summary>
         /// txtFechaCancelacion control.
@@ -265,15 +166,6 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxTextBox txtFechaCancelacion;
         
         /// <summary>
-        /// lblFechaBaja control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblFechaBaja;
-        
-        /// <summary>
         /// txtFechaBaja control.
         /// </summary>
         /// <remarks>
@@ -283,15 +175,6 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxTextBox txtFechaBaja;
         
         /// <summary>
-        /// lblFechaBloqueo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblFechaBloqueo;
-        
-        /// <summary>
         /// txtFechaBloqueo control.
         /// </summary>
         /// <remarks>
@@ -299,15 +182,6 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox txtFechaBloqueo;
-        
-        /// <summary>
-        /// lblFechaInactivacion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblFechaInactivacion;
         
         /// <summary>
         /// txtFechaInactivacion control.
@@ -733,15 +607,6 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxTextBox txtIANAcumulado;
         
         /// <summary>
-        /// horariosdiv control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl horariosdiv;
-        
-        /// <summary>
         /// tableHorarios control.
         /// </summary>
         /// <remarks>
@@ -875,5 +740,59 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell fila7;
+        
+        /// <summary>
+        /// btn1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btn1;
+        
+        /// <summary>
+        /// btn2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btn2;
+        
+        /// <summary>
+        /// btn3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btn3;
+        
+        /// <summary>
+        /// ASPxButton2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton ASPxButton2;
+        
+        /// <summary>
+        /// ASPxButton1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton ASPxButton1;
+        
+        /// <summary>
+        /// horariosdiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl horariosdiv;
     }
 }

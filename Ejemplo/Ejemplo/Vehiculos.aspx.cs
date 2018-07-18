@@ -80,6 +80,7 @@ namespace Ejemplo
             cmbLimitarEstacion.TextField = "nombre";
             cmbLimitarEstacion.DataBind();
 
+            /*
             chProductos.Items.Add("PREMIUM");
             if(productoAutorizado.Contains("1"))chProductos.Items[0].Selected = true;
             chProductos.Items.Add("MAGNA");
@@ -88,6 +89,11 @@ namespace Ejemplo
             if (productoAutorizado.Contains("3")) chProductos.Items[2].Selected = true;
             chProductos.Items.Add("OTRO");
             if (productoAutorizado.Contains("4")) chProductos.Items[3].Selected = true;
+            */
+            if (productoAutorizado.Contains("1")) checkboxdx.Items[0].Selected = true;
+            if (productoAutorizado.Contains("2")) checkboxdx.Items[1].Selected = true;
+            if (productoAutorizado.Contains("3")) checkboxdx.Items[2].Selected = true;
+            if (productoAutorizado.Contains("4")) checkboxdx.Items[3].Selected = true;
 
 
         }
@@ -100,6 +106,7 @@ namespace Ejemplo
             
             foreach (DataRow dr in query)
             {
+              
                 txtVehiculoID.Text = dr.Field<int>("VehiculoID").ToString();
                 txtIdentificacion.Text = dr.Field<string>("Identificacion");
                 txtCentrodeCosto.Text= dr.Field<string>("CentroCostos");
@@ -107,6 +114,7 @@ namespace Ejemplo
                 txtNombreUsuario.Text= dr.Field<string>("Nombre");
                 chkPlacas.Value= dr.Field<bool>("Placas");
                 productoAutorizado = dr.Field<string>("ProductoAutorizado");
+               
             }
         }
         private void FillDataSecondTab(DataTable dt)
@@ -114,12 +122,14 @@ namespace Ejemplo
             IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
             foreach (DataRow dr in query)
             {
+              
                 txtNIP.Text = dr.Field<string>("NIP").ToString();
                 cmbEstatusActual.Value= dr.Field<string>("Estatus");
                 txtCargasMaximas.Text = dr.Field<int>("CargasMaximas").ToString();
                 cmbLimitarEstacion.Value= dr.Field<string>("Estacion");
                 //txtNombreUsuario.Text = dr.Field<string>("Nombre");
                 //chkPlacas.Value = dr.Field<bool>("Placas");
+                
             }
         }
         private void FillDataThirdTab(DataTable dt)
@@ -127,12 +137,14 @@ namespace Ejemplo
             IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
             foreach (DataRow dr in query)
             {
+               
                 txtFechaAlta.Text = dr.Field<DateTime?>("FechaAlta").ToString();
                 txtFechaBaja.Text = dr.Field<DateTime?>("FechaBaja").ToString();
                 txtFechaBloqueo.Text = dr.Field<DateTime?>("FechaBloqueada").ToString();
                 txtFechaCancelacion.Text = dr.Field<DateTime?>("FechaCancelacion").ToString();
                 txtFechaExpiracion.Text = dr.Field<DateTime?>("FechaExpira").ToString();
                 txtFechaInactivacion.Text = dr.Field<DateTime?>("FechaInactiva").ToString();
+               
             
             }
         }
@@ -161,6 +173,7 @@ namespace Ejemplo
                 txtLDIDiario.Text = dr.Field<double>("LimiteMNDia") == 0 ? "SIN LIMITES" : GetValueLimite(dr.Field<double>("LimiteMNDia"), dr.Field<double>("ActualMNDia")).ToString();
                 txtLDISemanal.Text = dr.Field<double>("LimiteMNSemana") == 0 ? "SIN LIMITES" : GetValueLimite(dr.Field<double>("LimiteMNSemana"), dr.Field<double>("ActualMNSemana")).ToString();
                 txtLDIMensual.Text = dr.Field<double>("LimiteMNMes") == 0 ? "SIN LIMITES" : GetValueLimite(dr.Field<double>("LimiteMNMes"), dr.Field<double>("ActualMNMes")).ToString();
+                
             }
         }
         private void FillDataFifthTab(DataTable dt)
@@ -168,6 +181,7 @@ namespace Ejemplo
             IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
             foreach (DataRow dr in query)
             {
+                
                 txtVACDiario.Text = dr.Field<double>("ActualLTDia").ToString();
                 txtVACSemanal.Text = dr.Field<double>("ActualLTSemana").ToString();
                 txtVACMensual.Text = dr.Field<double>("ActualLTMes").ToString();
@@ -187,6 +201,7 @@ namespace Ejemplo
                 txtIANSemanal.Text = dr.Field<double>("AnteriorMNSemana").ToString();
                 txtIANMensual.Text = dr.Field<double>("AnteriorMNMes").ToString();
                 txtIANAcumulado.Text = dr.Field<double>("ActualMNTurno").ToString();
+                
             }
         }
         private double GetValueLimite(double limitedisponible, double limiteactual)
@@ -224,8 +239,8 @@ namespace Ejemplo
                         check = "";
                         Td = new HtmlTableCell();
                         if (a.ToString() == "1") check = "checked";
-                        Td.InnerHtml = "<input type='checkbox' id ='myCheck' class='fila" + posicion + " col" + string.Format("{0:00}", i) + " all'" + check + " />";
-                tableHorarios.Rows[posicion].Cells.Add(Td);
+                        Td.InnerHtml = "<input type='checkbox' id ='myCheck' class='fila" + posicion + " col" + string.Format("{0:00}", i) + " all'" + check + "  style='display: -webkit-box;' />";
+                tableHorarios.Rows[posicion].Cells.Add(Td); 
                 i++;
             }            
         }
@@ -289,6 +304,9 @@ namespace Ejemplo
 
         }
 
-
+        protected void ASPxButton2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("VehiculoPage.aspx", false);
+        }
     }
 }

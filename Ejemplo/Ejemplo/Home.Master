@@ -25,7 +25,7 @@
     <!--TopBar-->
 <header style="margin-top:-60px; z-index:100000">
 		<div class="wrapper">
-			<div class="logo">Flotillas</div>
+			<div class="logo"><a href="MenuPrincipal.aspx" style="color:#ffffff;">Flotillas</a></div>
 			
 			<nav>
 				<a href="loginPage.aspx">Cerrar Sesion</a>

@@ -76,6 +76,7 @@ border-color: #ddd;
     padding: 5px;
     box-shadow: 3px 8px 6px #888888;
 }
+
 /*end gridview */
     </style>
     <link href="css/StylePage1.css" rel="stylesheet">
@@ -91,20 +92,20 @@ border-color: #ddd;
         <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
     </ul>
 </div>  
-    <dx:BootstrapGridView ID="bgvVehiculo" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="VehiculoID" CssClassesPager-Control="true" CssClasses-Table="table table-striped table-bordered table-hover shadowBox">
-                <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
-                <Settings ShowGroupPanel="true"/>
-                <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>
+    <dx:BootstrapGridView ID="bgvVehiculo" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="VehiculoID" CssClassesPager-Control="true" CssClasses-Control="">
+                <SettingsSearchPanel Visible="true" ShowApplyButton="true"  />
+                <Settings ShowGroupPanel="true"  />
+                <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" " />
                 <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
                 <SettingsDataSecurity AllowEdit="True" />
                 <SettingsBehavior AllowFocusedRow="True" />
                 <Columns>
-                    <dx:BootstrapGridViewTextColumn FieldName="VehiculoID" ReadOnly="True" VisibleIndex="1">
+                    <dx:BootstrapGridViewTextColumn FieldName="VehiculoID" ReadOnly="True" VisibleIndex="1" Caption="ID">
                                         <DataItemTemplate>
                                             <%#Eval("VehiculoID")%>
                                         </DataItemTemplate>
                     </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewTextColumn FieldName="Nombre" ReadOnly="True" VisibleIndex="2">
+                    <dx:BootstrapGridViewTextColumn FieldName="Nombre" ReadOnly="True" VisibleIndex="2" >
                                         <DataItemTemplate>
                                             <%#Eval("Nombre")%>
                                         </DataItemTemplate>
@@ -132,7 +133,7 @@ border-color: #ddd;
            </dx:BootstrapGridView>
             </div>
         <div class="col-lg-3 col-md-3">
-                 <asp:LinkButton  class="Largo amarillo Cards-Titulo HexColor-3 linkclass shadowBox" id="btnAll" onclick="btnAll_Click" runat="server" >
+                 <asp:LinkButton  class="Largo blue Cards-Titulo HexColor-3 linkclass shadowBox" id="btnAll" onclick="btnAll_Click" runat="server" style="background: #f87c1d;" >
                       <asp:Image ID="Image1" runat="server" ImageUrl="\Icons\png\80px\large\vehicle-car.png" CssClass="linkclass" />
                     <div style="text-align:center" id="lblVehiculos" runat="server">
                      <div id="lblVehiculosActivos" runat="server" class="labelCuadro">VEHICULOS ACTIVOS</div>
