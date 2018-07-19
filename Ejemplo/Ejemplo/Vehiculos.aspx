@@ -452,7 +452,6 @@ fieldset[disabled] .btn-sample.active {
         </Items>
         </dx:ASPxFormLayout>
 			</section>
-
 			<section id="content3" class="tab-content">
 				<dx:ASPxFormLayout runat="server" ID="ASPxFormLayout2" RequiredMarkDisplayMode="None" EncodeHtml="false" UseDefaultPaddings="true" Theme="Office365"  CssClass="animacion"  >
                     <SettingsItemCaptions Location="Top" />
@@ -517,8 +516,13 @@ fieldset[disabled] .btn-sample.active {
         </Items>
         </dx:ASPxFormLayout>
 			</section>
-
 			<section id="content4" class="tab-content">
+
+
+                 
+
+
+
 				<table style="width:90%; height:500px;margin-left: 15%;" class="animacion">
                   <tr>
                       <td>
@@ -580,7 +584,7 @@ fieldset[disabled] .btn-sample.active {
                   </tr>
                   <tr>
                       <td>
-                          <table style="width:90%; height:500px;margin-left: 15%;" class="animacion">
+                          <table style="width:100%; height:200px; border:1px solid white; border-radius:15px" class="animacion">
                               <tr>
                                   <td></td>
                                   <td><h5 style="font-weight: bold;">VOLUMEN</h5></td>
@@ -689,11 +693,11 @@ fieldset[disabled] .btn-sample.active {
                   </tr>
                   <tr>
                       <td>
-                          <table style="width:90%; height:500px;margin-left: 15%;" class="animacion">
+                          <table style="width:90%; height:200px;" class="animacion">
                               <tr>
                                   <td></td>
-                                  <td><h4 style="font-weight: bold;">ANTERIOR</h4></td>
-                                  <td><h4 style="font-weight: bold;">ACTUAL</h4></td>
+                                  <td><h5 style="font-weight: bold;">ANTERIOR</h5></td>
+                                  <td><h5 style="font-weight: bold;">ACTUAL</h5></td>
                               </tr>
                         <tr>
                             <td style="width:20%"><dx:ASPxLabel ID="lblIANDiario" Text="DIARIO" runat="server" Theme="Office365" /></td>
