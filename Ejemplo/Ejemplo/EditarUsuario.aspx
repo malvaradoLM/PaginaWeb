@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site1.Master" CodeBehind="EditarUsuario.aspx.cs" Inherits="Ejemplo.EditarUsuario" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Home.Master" CodeBehind="EditarUsuario.aspx.cs" Inherits="Ejemplo.EditarUsuario" %>
 
 <%@ Register Assembly="DevExpress.Web.ASPxPivotGrid.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxPivotGrid" TagPrefix="dx" %>
 <%--  --%>
@@ -88,57 +88,109 @@ fieldset[disabled] .btn-sample.active {
     color: #ffffff;
     font-family: 'Roboto Condensed', sans-serif;
 }
+.MarginButtons{
+        margin-top: 30px;
+}
+.shadowBox{
+    padding: 5px;
+    box-shadow: 3px 8px 6px #888888;
+}
+.shadowBoxMin{
+    padding: 2px;
+    box-shadow: 1px 6px 4px #888888;
+}
+.TextForm{
+    font-family:Arial, Helvetica, sans-serif;
+}
+.breadCrumbMovil{
+    margin-top:60px;
+}
+.buttonMargin {
+    margin-top:8%;
+    }
  </style>
-
-    <div id="nav" class="container" style="margin-left:0px; margin-right:0px"><h1>USUARIOS</h1></div>
-    <div class="row">
-            <ol class="breadcrumb col-lg-10" style="background:initial">
-                <li class="breadcrumb-item"><a href="Usuarios.aspx">Usuarios</a></li>
-                <li class="breadcrumb-item active" id="lblEncabezado1" runat="server">Estado de Cuenta</li>
-            </ol>
+    <link href="css/breadCrumb.css" rel="stylesheet">
+    <link href="css/animacion.css" rel="stylesheet">
+    <div id="cssmenu" style="margin-top:60px;" class="row">  
+    <ul>
+        <li class="active"><a><asp:Label runat="server" id="etiqueta" Text="Editar Usuario"/></a></li>
+        <li><a href="Usuarios.aspx">Usuarios</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+    </ul>
+</div>  
+    
+    <div class="tab-content">
+    <dx:ASPxFormLayout runat="server" ID="exampleFormLayout" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365" SettingsItems-HorizontalAlign="Center" CssClass="animacion"   >
+        <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="500"  />
+        <SettingsItemCaptions HorizontalAlign="Center" /> 
+        <SettingsItems HorizontalAlign="Center" /> 
+            <Items>
+            <dx:LayoutGroup  Caption="USUARIO" SettingsItemHelpTexts-Position="Bottom"  GroupBoxStyle-Border-BorderStyle="Solid" GroupBoxStyle-Caption-Font-Bold="true" GroupBoxStyle-Caption-Font-Size="Large" CssClass="TextForm" ColCount="3" >
+                <GroupBoxStyle Border-BorderStyle="Solid" CssClass="shadowBox">
+                    <Caption Font-Bold="True">
+                    </Caption>
+                </GroupBoxStyle>
+                <Items>
+                    <dx:LayoutItem Caption="Nombre" HelpText="Porfavor, ingrese un nombre" RequiredMarkDisplayMode="Required" CaptionStyle-Font-Bold="true">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                            <dx:ASPxTextBox ID="txtNombre" runat="server"  Theme="Office365"></dx:ASPxTextBox>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+                    <dx:LayoutItem Caption="Usuario" HelpText="Porfavor, ingrese un nombre de usuario" RequiredMarkDisplayMode="Required" CaptionStyle-Font-Bold="true">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                             <dx:ASPxTextBox ID="txtUsuario" runat="server" Theme="Office365"></dx:ASPxTextBox>   
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+                    <dx:LayoutItem Caption="Clave" HelpText="Porfavor, ingrese una clave" RequiredMarkDisplayMode="Required" CaptionStyle-Font-Bold="true">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                               <dx:ASPxTextBox ID="txtClave" runat="server"  Theme="Office365"></dx:ASPxTextBox>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+                    <dx:LayoutItem Caption="Nivel Administrador" HelpText="Conceder privilegios de Administrador" RequiredMarkDisplayMode="Hidden" ShowCaption="False" CaptionStyle-Font-Bold="true">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                <dx:ASPxCheckBox ID="chkAdministrador" runat="server" Theme="Office365"></dx:ASPxCheckBox>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+                    <dx:LayoutItem Caption="ESPACIO BLANCO" RequiredMarkDisplayMode="Hidden" ShowCaption="False">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+                    
+                    <dx:LayoutGroup Border-BorderStyle="None"  Caption=" " CssClass="buttonMargin" GroupBoxDecoration="None" HorizontalAlign="Right" SettingsItemCaptions-HorizontalAlign="Right" Width="100" ColSpan="2" VerticalAlign="Bottom" >
+                        <SettingsItems VerticalAlign="Bottom"  />
+                        <Border BorderStyle="None" />
+                        <Items>
+                            <dx:LayoutItem  Border-BorderWidth="0px" CssClass="buttonMargin" HorizontalAlign="Right" RequiredMarkDisplayMode="Hidden" ShowCaption="False" Width="100">
+                                <LayoutItemNestedControlCollection >
+                                    <dx:LayoutItemNestedControlContainer ID="buttons" BorderStyle="None"  runat="server" ValidateRequestMode="Disabled" >
+                                        <dx:ASPxButton ID="btnCancelar4" runat="server"  Text="Cancelar" OnClick="btnCancelar_Click" Theme="Office365" Width="80" UseSubmitBehavior="False"  CausesValidation="false" CssClass="shadowBoxMin"    />
+                                        <dx:ASPxLabel ID="separator" runat="server" Text="   " />
+                                        <dx:ASPxButton ID="btnProcesar4" UseSubmitBehavior="False" OnClick="btnguardar_Click" runat="server"  Text="Guardar" Theme="Office365" Width="80" CssClass="shadowBoxMin"    />
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                                <Border BorderWidth="0px" />
+                            </dx:LayoutItem>
+                        </Items>
+                        <SettingsItemCaptions HorizontalAlign="Right" />
+                    </dx:LayoutGroup>
+                </Items>
+                <SettingsItemHelpTexts Position="Bottom" />
+            </dx:LayoutGroup>
+        </Items>
+            <SettingsItems HorizontalAlign="Center" />
+        </dx:ASPxFormLayout>
         </div>
-    <div id="exTab1" class="container" style="margin-left:0px; margin-right:0px">	
-        <ul id="myTabs" class="nav nav-pills" style="padding:0px">
-			<li id="1ali">
-          <input  id="HiddenUsuarioWebID" data-toggle="tab" class="active" runat="server" type="hidden">
+    <input  id="HiddenUsuarioWebID" data-toggle="tab" class="active" runat="server" type="hidden">
            <input  id="HiddenClienteID" data-toggle="tab" class="active" runat="server" type="hidden">
-			</li>
-		</ul>
-        <div class="tab-content clearfix">
-            <div class="tab-pane active" id="1a" >
-         <table style="width:100%; height:500px">
-                        <tr>
-                            <td style="width:20%"><dx:ASPxLabel ID="lblNombre" Text="NOMBRE" runat="server" Font-Bold="true"/></td>
-                            <td>
-                                <dx:ASPxTextBox ID="txtNombre" runat="server"  Width="60%"  Font-Size="15px" Font-Bold="true"  HorizontalAlign="Left" autocomplete="off"></dx:ASPxTextBox>
-                            </td>
-                        </tr>
-                         <tr>
-                            <td><dx:ASPxLabel ID="lblUsuario" Text="USUARIO" runat="server" Font-Bold="true"/></td>
-                            <td>
-                                <dx:ASPxTextBox ID="txtUsuario" runat="server"  Width="60%" Font-Size="15px" Font-Bold="true"  HorizontalAlign="Left" autocomplete="off"></dx:ASPxTextBox>
-                            </td>
-                        </tr>
-                         <tr>
-                            <td><dx:ASPxLabel ID="lblClave" Text="CLAVE" runat="server" Font-Bold="true"/></td>
-                            <td>
-                                <dx:ASPxTextBox ID="txtClave" runat="server"  Width="60%" Font-Size="15px" Font-Bold="true"   HorizontalAlign="Left" autocomplete="off"></dx:ASPxTextBox>
-                            </td>
-                        </tr>
-                         <tr>
-                            <td><dx:ASPxLabel ID="lblNivelAdministrador" Text="NIVEL ADMINISTRADOR" runat="server" Font-Bold="true" /></td>
-                            <td> 
-                                <dx:ASPxCheckBox ID="chkAdministrador" runat="server"></dx:ASPxCheckBox>
-                                <%--<dx:ASPxTextBox ID="txtPlacas" runat="server" Theme="Youthful" Width="60%" Font-Size="15px" Font-Bold="true"   Enabled="false"></dx:ASPxTextBox>--%>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-<asp:LinkButton  id="btnguardar" class="btn-sample btn-lg labelCuadro" OnClick="btnguardar_Click" type="button" style="float:right;margin-top: 1px; background-color:mediumseagreen" runat="server" Text="GUARDAR " >
-    <asp:Image ID="Image2" runat="server" ImageUrl="\Icons\png\16px\large\button-ok.png"   /> 
-</asp:LinkButton>
-<asp:LinkButton id="btnCancelar1" class="btn-sample btn-lg labelCuadro" OnClick="btnCancelar_Click" type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
-  <asp:Image ID="Image1" runat="server" ImageUrl="\Icons\png\16px\large\button-cancel.png"  />
- </asp:LinkButton></div>	
+
 </asp:Content>

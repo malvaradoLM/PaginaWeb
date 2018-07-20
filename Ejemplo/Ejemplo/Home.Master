@@ -32,8 +32,14 @@
 			</nav>
 		</div>
 	</header>
-
-
+<style>
+.animacion{
+        animation: fadeInScale 0.7s ease-in-out;
+}
+.animacionLoad{
+        animation: fadeInScale 0.7 ease-in;
+}
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
 
 </script>

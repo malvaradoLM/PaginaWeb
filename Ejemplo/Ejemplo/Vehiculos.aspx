@@ -313,7 +313,16 @@ fieldset[disabled] .btn-sample.active {
     </script>
     <%-- TABS CSS --%>
     <link href="css/tabs.css" rel="stylesheet" >
-		<div class="tab_container">
+    <link href="css/breadCrumb.css" rel="stylesheet">
+ 
+    <div id="cssmenu" style="margin-top:60px;" class="row">  
+    <ul>
+        <li class="active"><a href="Vehiculos.aspx">Editar Vehiculo</a></li>
+        <li><a href="VehiculoPage.aspx">Vehiculos</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+    </ul>
+</div> 
+		<div class="tab_container" style="margin-top:-30px">
 			<input id="tab1"  type="radio" name="tabs" >
 			<label for="tab1" ><i class="fa fa-car"></i><span>Datos</span></label>
 
@@ -784,7 +793,7 @@ fieldset[disabled] .btn-sample.active {
 		</div>
     <%-- TABS CSS --%>
 
-     <div class="btn-group" style="margin-left:50%; margin-top:2px;">
+     <div class="btn-group" style="margin-left:75%; margin-top:2px;">
          <dx:ASPxButton runat="server" ID="ASPxButton2"  Text="CANCELAR" Theme="Office365"  AutoPostBack="false" OnClick="ASPxButton2_Click" CssClass="shadowBox animacion">
                 </dx:ASPxButton>
          <dx:ASPxButton runat="server" ID="ASPxButton1"  Text="GUARDAR" Theme="Office365" ClientInstanceName="2" AutoPostBack="false" CssClass="shadowBox animacion">

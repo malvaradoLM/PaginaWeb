@@ -76,25 +76,31 @@ border-color: #ddd;
     padding: 5px;
     box-shadow: 3px 8px 6px #888888;
 }
+    .FloatRight{
+
+            float: right;
+    }
 
 /*end gridview */
     </style>
     <link href="css/StylePage1.css" rel="stylesheet">
+   
 
     <div class="row">
-        <div class="col-lg-9 col-md-9">
+        <div class="col-lg-8 col-md-8">
             <div class="Cards-Titulo HexColor-3"><h2 id="lblTitulo" runat="server" style="display:none">VEHICULOS ACTIVOS</h2></div>
              <link href="css/breadCrumb.css" rel="stylesheet">
  
-    <div id="cssmenu" style="margin-top:60px;" class="row">  
+    <div id="cssmenu" style="margin-top:60px;margin-left: 50px; " class="row">  
     <ul>
         <li class="active"><a href="VehiculoPage.aspx">Vehiculos</a></li>
         <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
     </ul>
 </div>  
-    <dx:BootstrapGridView ID="bgvVehiculo" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="VehiculoID" CssClassesPager-Control="true" CssClasses-Control="">
+    <dx:BootstrapGridView ID="bgvVehiculo" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="VehiculoID" CssClassesPager-Control="true" Width="80%" CssClasses-Control="FloatRight"   >
+                  <SettingsAdaptivity AdaptivityMode="HideDataCellsWindowLimit"/>
                 <SettingsSearchPanel Visible="true" ShowApplyButton="true"  />
-                <Settings ShowGroupPanel="true"  />
+                <Settings ShowGroupPanel="true" />
                 <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" " />
                 <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
                 <SettingsDataSecurity AllowEdit="True" />
@@ -102,8 +108,8 @@ border-color: #ddd;
                 <Columns>
                     <dx:BootstrapGridViewTextColumn FieldName="VehiculoID" ReadOnly="True" VisibleIndex="1" Caption="ID">
                                         <DataItemTemplate>
-                                            <%#Eval("VehiculoID")%>
-                                        </DataItemTemplate>
+                            <asp:LinkButton runat="server" Text='<%#Eval("VehiculoID")%>' OnClick="btnEditar_Click" ID='button1'  />
+                         </DataItemTemplate>   
                     </dx:BootstrapGridViewTextColumn>
                     <dx:BootstrapGridViewTextColumn FieldName="Nombre" ReadOnly="True" VisibleIndex="2" >
                                         <DataItemTemplate>

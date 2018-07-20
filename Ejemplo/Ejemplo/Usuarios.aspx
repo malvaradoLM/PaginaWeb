@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Usuarios.aspx.cs" Inherits="Ejemplo.WebForm4" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Usuarios.aspx.cs" Inherits="Ejemplo.WebForm4" %>
 <%@ Register Assembly="DevExpress.Web.Bootstrap.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
 <%@ Register assembly="DevExpress.Web.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -100,12 +100,20 @@ border-color: #ddd;
     color: #ffffff;
     font-family: 'Roboto Condensed', sans-serif;
 }
-
+.MarginTable{
+    margin-left:20%;
+}
 /*end gridview */
  </style>
-    <div class="Cards-Titulo HexColor-3"><h2 id="lblTitulo" runat="server" class="">USUARIOS</h2></div>
-    <div class="row  col-lg-12 col-md-12" >
-      <dx:BootstrapGridView ID="bgvUsuario" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="UsuarioWebID" CssClassesPager-Control="true" CssClasses-Table="table table-striped table-bordered table-hover" >
+    <link href="css/breadCrumb.css" rel="stylesheet">
+    <div id="cssmenu" style="margin-top:60px;" class="row">  
+    <ul>
+        <li class="active"><a href="Usuarios.aspx">Usuarios</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+    </ul>
+</div>  
+    <div class="row  col-lg-12 col-md-12 animacionLoad" >
+      <dx:BootstrapGridView ID="bgvUsuario" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="UsuarioWebID" CssClassesPager-Control="true" CssClasses-Table="table table-striped table-bordered table-hover" Width="60%" CssClasses-Control="MarginTable animacion" >
                 <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
                 <Settings ShowGroupPanel="true"/>
                 <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>
@@ -113,10 +121,10 @@ border-color: #ddd;
                 <SettingsDataSecurity AllowEdit="True" />
                 <SettingsBehavior AllowFocusedRow="True" />
                 <Columns>
-                    <dx:BootstrapGridViewTextColumn FieldName="UsuarioWebID" ReadOnly="True" VisibleIndex="0"  HorizontalAlign="Center">
+                    <dx:BootstrapGridViewTextColumn FieldName="ID" ReadOnly="True" VisibleIndex="0"  HorizontalAlign="Center">
                                         <DataItemTemplate>
-                                            <%#Eval("UsuarioWebID")%>
-                                        </DataItemTemplate>
+                            <asp:LinkButton runat="server" Text='<%#Eval("UsuarioWebID")%>' OnClick="btnEditar_Click" ID='button1'  />
+                         </DataItemTemplate> 
                     </dx:BootstrapGridViewTextColumn>
                     <dx:BootstrapGridViewTextColumn FieldName="Nombre" ReadOnly="True" VisibleIndex="1">
                                         <DataItemTemplate>
