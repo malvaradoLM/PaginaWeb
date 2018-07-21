@@ -58,39 +58,40 @@
         --%>
     
     <link href="css/StylePage1.css" rel="stylesheet">
-    <div class="container-fluid" style="margin-top:10%">
-
-    <div class="row">
-        <div class="col-lg-3">
+   
+    <div class="tab-content fade-in animacion" style="margin-top:10%;">
+    <div class="row fade-in">
+        <div class="col-lg-3 fade-in">
             <a href="Dashboard.aspx" id="btnResumen" class="Largo rojo shadowBox">
                 <asp:Image ID="Image1" runat="server" ImageUrl="\Icons\png\80px\large\document_chart.png" CssClass="linkclass" />
                 <h2-largo>DASHBOARD</h2-largo>
             </a>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 fade-in">
             <a href="DatosCliente.aspx" id="btnDatosCliente" class="Largo anaranjado shadowBox">
               <asp:Image ID="Image2" runat="server" ImageUrl="\Icons\png\80px\large\business-card.png" CssClass="linkclass" />
                 <h2-largo>DATOS DEL CLIENTE</h2-largo>
             </a>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 fade-in">
             <a href="VehiculoPage.aspx" id="btnVehiculos" class="Largo blue shadowBox">
                  <asp:Image ID="Image3" runat="server" ImageUrl="\Icons\png\80px\large\vehicle-car-convertible.png" CssClass="linkclass" />
                 <h2-largo>VEHICULOS</h2-largo>
             </a>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 fade-in">
             <a href="Usuarios.aspx" id="btnUsuarios" class="Largo verdeAzuloso shadowBox">
             <asp:Image ID="Image4" runat="server" ImageUrl="\Icons\png\80px\large\window-user.png" CssClass="linkclass" />
                 <h2-largo>USUARIOS</h2-largo>
             </a>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 fade-in">
             <a href="Reportes.aspx" id="btnReportes" class="Largo amarillo shadowBox">
              <asp:Image ID="Image5" runat="server" ImageUrl="\Icons\png\80px\large\report.png" CssClass="linkclass" />
                 <h2-largo>REPORTES</h2-largo>
             </a>
         </div>
+    </div>
     </div>
 
 

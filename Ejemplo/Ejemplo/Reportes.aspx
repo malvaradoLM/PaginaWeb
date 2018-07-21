@@ -56,7 +56,7 @@
 
     <div class="container-fluid">
 
-    <div class="row">
+    <div class="row fade-in animacion">
         <div class="col-lg-3">
             <a href="DetailsAnalisisConsumo.aspx" id="btnAnalisisConsumo1" class="Largo rojo shadowBox">
                 <asp:Image ID="Image1" runat="server" ImageUrl="\Icons\png\80px\large\report-money-coins.png" CssClass="linkclass" />

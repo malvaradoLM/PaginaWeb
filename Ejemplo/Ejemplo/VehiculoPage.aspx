@@ -86,7 +86,7 @@ border-color: #ddd;
     <link href="css/StylePage1.css" rel="stylesheet">
    
 
-    <div class="row">
+    <div class="row fade-in animacion">
         <div class="col-lg-8 col-md-8">
             <div class="Cards-Titulo HexColor-3"><h2 id="lblTitulo" runat="server" style="display:none">VEHICULOS ACTIVOS</h2></div>
              <link href="css/breadCrumb.css" rel="stylesheet">
@@ -97,7 +97,7 @@ border-color: #ddd;
         <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
     </ul>
 </div>  
-    <dx:BootstrapGridView ID="bgvVehiculo" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="VehiculoID" CssClassesPager-Control="true" Width="80%" CssClasses-Control="FloatRight"   >
+    <dx:BootstrapGridView ID="bgvVehiculo" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="VehiculoID" CssClassesPager-Control="true" Width="80%" CssClasses-Control="FloatRight fade-in animacion"   >
                   <SettingsAdaptivity AdaptivityMode="HideDataCellsWindowLimit"/>
                 <SettingsSearchPanel Visible="true" ShowApplyButton="true"  />
                 <Settings ShowGroupPanel="true" />
@@ -138,7 +138,7 @@ border-color: #ddd;
 
            </dx:BootstrapGridView>
             </div>
-        <div class="col-lg-3 col-md-3">
+        <div class="col-lg-3 col-md-3 fade-in animacion">
                  <asp:LinkButton  class="Largo blue Cards-Titulo HexColor-3 linkclass shadowBox" id="btnAll" onclick="btnAll_Click" runat="server" style="background: #f87c1d;" >
                       <asp:Image ID="Image1" runat="server" ImageUrl="\Icons\png\80px\large\vehicle-car.png" CssClass="linkclass" />
                     <div style="text-align:center" id="lblVehiculos" runat="server">

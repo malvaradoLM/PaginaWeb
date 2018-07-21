@@ -31,13 +31,31 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxLabel labelAlerta;
         
         /// <summary>
-        /// lblFechaInicial control.
+        /// etiqueta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblFechaInicial;
+        protected global::System.Web.UI.WebControls.Label etiqueta;
+        
+        /// <summary>
+        /// panelParametros control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRoundPanel panelParametros;
+        
+        /// <summary>
+        /// exampleFormLayout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxFormLayout exampleFormLayout;
         
         /// <summary>
         /// txtFechaInicial control.
@@ -49,15 +67,6 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxDateEdit txtFechaInicial;
         
         /// <summary>
-        /// lblFechaFinal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblFechaFinal;
-        
-        /// <summary>
         /// txtFechaFinal control.
         /// </summary>
         /// <remarks>
@@ -65,15 +74,6 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxDateEdit txtFechaFinal;
-        
-        /// <summary>
-        /// lblCheckBoxes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblCheckBoxes;
         
         /// <summary>
         /// chkBoxList control.
@@ -85,22 +85,49 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxRadioButtonList chkBoxList;
         
         /// <summary>
-        /// btnProcesar control.
+        /// buttons control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnProcesar;
+        protected global::DevExpress.Web.LayoutItemNestedControlContainer buttons;
         
         /// <summary>
-        /// btnCancelar control.
+        /// btnCancelar4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnCancelar;
+        protected global::DevExpress.Web.ASPxButton btnCancelar4;
+        
+        /// <summary>
+        /// separator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel separator;
+        
+        /// <summary>
+        /// btnProcesar4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnProcesar4;
+        
+        /// <summary>
+        /// panelConsumos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRoundPanel panelConsumos;
         
         /// <summary>
         /// bgvConsumo2 control.
@@ -110,6 +137,15 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.Bootstrap.BootstrapGridView bgvConsumo2;
+        
+        /// <summary>
+        /// panelDetallesConsumo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRoundPanel panelDetallesConsumo;
         
         /// <summary>
         /// detallesConsumo control.
@@ -137,6 +173,15 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ContentControl ContentControl1;
+        
+        /// <summary>
+        /// Ribbon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRibbon Ribbon;
         
         /// <summary>
         /// ticket control.

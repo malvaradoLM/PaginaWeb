@@ -20496,7 +20496,7 @@ BEGIN
 			-- VALIDA SI EXCEDIO NUM. DE USUARIOS REGISTRADOS EN BITACORAWEB
 			IF (@Cant &gt;= 5)
 			BEGIN
-				SELECT @Mensaje = 'Se ha excedio el numero de usuario registrados en BitacoraWeb!'
+				SELECT @Mensaje_ = 'Se ha excedio el numero de usuario registrados en BitacoraWeb!'
 			END
 			ELSE
 			BEGIN
@@ -20507,7 +20507,7 @@ BEGIN
 				-- VALIDA SI EXISTE EL USUARIO
 				IF (@Contador = 1)
 				BEGIN
-					SELECT @Mensaje = 'Ya existe el Nombre de usuario en sistema!'
+					SELECT @Mensaje_ = 'Ya existe el Nombre de usuario en sistema!'
 				END
 				ELSE
 				BEGIN
@@ -20517,7 +20517,7 @@ BEGIN
 					-- VALIDA SI EXISTE FOLIO PARA USUARIOWEBID
 					IF (@Folio &lt; 0)
 					BEGIN
-						SELECT @Mensaje ='No existe Folio disponible para UsuarioWebID!'
+						SELECT @Mensaje_ ='No existe Folio disponible para UsuarioWebID!'
 					END
 					ELSE
 					BEGIN		
@@ -20527,7 +20527,7 @@ BEGIN
 						-- VALIDA SI EXISTE FOLIO PARA WEBBITACORAID
 						IF (@Folio &lt; 0)
 						BEGIN
-							SELECT @Mensaje ='No existe Folio disponible para WebBitacoraID!'
+							SELECT @Mensaje_ ='No existe Folio disponible para WebBitacoraID!'
 						END
 						ELSE
 						BEGIN
@@ -20550,7 +20550,7 @@ BEGIN
 	
 							-- ACTUALIZA FOLIO DE WEBBITACORAID
 				 			UPDATE Folio SET Folio=Folio+1 WHERE Campo='WebBitacoraID' 				 			
-							SELECT @Mensaje = 'OK'
+							SELECT @Mensaje_ = 'OK'
 						END
 					END
 				END		
@@ -20558,7 +20558,7 @@ BEGIN
 			COMMIT TRAN InsertUsuario 
 		END TRY
 		BEGIN CATCH
-		 SELECT @Mensaje =  ERROR_MESSAGE()
+		 SELECT @Mensaje_ =  ERROR_MESSAGE()
 		Rollback TRAN InsertUsuario
 		END CATCH
 END</SQL>
@@ -20653,7 +20653,7 @@ END</SQL>
         </Item5>
         <Item6>
           <Value />
-          <ParamType>daptInput</ParamType>
+          <ParamType>daptInputOutput</ParamType>
           <Name>Mensaje</Name>
           <DataType>datWideString</DataType>
           <Size>65536</Size>

@@ -31,6 +31,9 @@ namespace Ejemplo
                 bgvConsumo2.Visible = false;
                 msjAlerta.Visible = false;
                 detallesConsumo.Attributes.CssStyle.Add("display", "none");
+                panelParametros.Collapsed = false;
+                panelConsumos.Collapsed = true;
+                panelDetallesConsumo.Collapsed = true;
             }
             else
             {
@@ -99,6 +102,8 @@ namespace Ejemplo
             bgvConsumo2.DataSource = dt;
             bgvConsumo2.DataBind();
             bgvConsumo2.SettingsText.Title = titulo;
+            panelParametros.Collapsed = true;
+            panelConsumos.Collapsed = false;
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -166,7 +171,9 @@ namespace Ejemplo
 
         private void CargarMapa(string latitud, string longitud)
         {
-
+            panelParametros.Collapsed = true;
+            panelConsumos.Collapsed = true;
+            panelDetallesConsumo.Collapsed = false;
             carTabPage.ActiveTabIndex = 2;
             const string ScriptKey = "ScriptKey";
             if (!ClientScript.IsStartupScriptRegistered(this.GetType(), ScriptKey))

@@ -30,7 +30,7 @@
     <%-- Inicio de Cabecera  --%>
     	<link href="css/breadCrumb.css" rel="stylesheet">
  
-    <div id="cssmenu" style="margin-top:60px;" class="row">  
+    <div id="cssmenu" style="margin-top:60px;" class="row fade-in">  
     <ul>
         <li class="active"><a href="Dashboard.aspx">Dashboard</a></li>
         <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
@@ -48,7 +48,7 @@
      <%-- Fin de Cabecera --%>
 
     <%-- Inicio para Saldos del Cliente --%>
-      <div class="col-md-12">
+      <div class="col-md-12 fade-in animacion">
 		<div class="panel panel-default">
 			<div class="panel-body">
 			

@@ -106,13 +106,13 @@ border-color: #ddd;
 /*end gridview */
  </style>
     <link href="css/breadCrumb.css" rel="stylesheet">
-    <div id="cssmenu" style="margin-top:60px;" class="row">  
+    <div id="cssmenu" style="margin-top:60px;" class="row fade-in">  
     <ul>
         <li class="active"><a href="Usuarios.aspx">Usuarios</a></li>
         <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
     </ul>
 </div>  
-    <div class="row  col-lg-12 col-md-12 animacionLoad" >
+    <div class="row  col-lg-12 col-md-12 fade-in" >
       <dx:BootstrapGridView ID="bgvUsuario" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="UsuarioWebID" CssClassesPager-Control="true" CssClasses-Table="table table-striped table-bordered table-hover" Width="60%" CssClasses-Control="MarginTable animacion" >
                 <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
                 <Settings ShowGroupPanel="true"/>

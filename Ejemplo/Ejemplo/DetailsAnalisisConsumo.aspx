@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/site1.Master" EnableEventValidation="true" AutoEventWireup="true" CodeBehind="DetailsAnalisisConsumo.aspx.cs" Inherits="Ejemplo.DetailsAnalisisConsumo" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" EnableEventValidation="true" AutoEventWireup="true" CodeBehind="DetailsAnalisisConsumo.aspx.cs" Inherits="Ejemplo.DetailsAnalisisConsumo" %>
 
 <%@ Register Assembly="DevExpress.Web.ASPxPivotGrid.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxPivotGrid" TagPrefix="dx" %>
 <%--  --%>
@@ -170,7 +170,27 @@ width: 100%;
 height: auto;
 float: left;
 }
+.buttonMargin {
+    margin-top:8%;
+    }
+.radioMargin{
+    margin-left: 0px;
+}
+.bordes{
+    border:none;
+}
+.tamanoDetalles{
+    height:500px;
+        margin-left: 50px;
+}
+.marginTab{
+        margin-left: 6%;
+}
+.alinearConsumos{
+        margin-left: 50px;
+}
  </style>
+
 <script type="text/javascript">
     /*
     var map = null;
@@ -207,62 +227,109 @@ float: left;
         }
     }
 </script>
-   
-
-
-<script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=LoadMap" async defer></script>
+   <link href="css/breadCrumb.css" rel="stylesheet">
+    <link href="css/animacion.css" rel="stylesheet">
+    <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=LoadMap" async defer></script>
 <div class="alert alert-warning" id="msjAlerta" runat="server">
         <strong>Advertencia! </strong>
         <dx:ASPxLabel ID="labelAlerta" runat="server" />
         </div>
-<div id="nav" class="container" style="margin-left:0px; margin-right:0px"><h1>Análisis de Consumo</h1></div>
-    <div class="row">
-            <ol class="breadcrumb Cards-Contenido col-lg-10" style="background:initial;">
-                <li class="breadcrumb-item"><a href="Reportes.aspx">Reportes</a></li>
-                <li class="breadcrumb-item active ">Análisis de Consumo</li>
-            </ol>
-        </div>
-    <div id="exTab1" class="container" style="margin-left:0px; margin-right:0px">	
-        <ul id="myTabs" class="nav nav-pills" style="padding:0px">
-		</ul>
-        <div class="tab-content clearfix">
-            <div class="tab-pane active" id="1a" >
-         <table style="width:100%; height:500px">
-                        <tr>
-                            <td style="width:20%"><dx:ASPxLabel ID="lblFechaInicial" Text="FECHA INICIAL" runat="server" Font-Bold="true"/></td>
-                            <td>
-                                <dx:ASPxDateEdit ID="txtFechaInicial" runat="server" Font-Bold="true" OnValidation="txtFechaInicial_Validation"/>
-                            </td>
-                        </tr>
-                         <tr>
-                            <td><dx:ASPxLabel ID="lblFechaFinal" Text="FECHA FINAL" runat="server" Font-Bold="true"/></td>
-                            <td>
-                            <dx:ASPxDateEdit ID="txtFechaFinal" runat="server" Font-Bold="true" OnValidation="txtFechaFinal_Validation"/>
-                            </td>
-                        </tr>
-                        <tr>
-                             <td><dx:ASPxLabel ID="lblCheckBoxes" Text="SELECCIONE UNA OPCION" runat="server" Font-Bold="true"/></td>
-                            <td>
-                                <dx:ASPxRadioButtonList ID="chkBoxList" runat="server" Border-BorderWidth="0">
+    <div id="cssmenu" style="margin-top:60px;" class="row">  
+    <ul>
+        <li class="active"><a><asp:Label runat="server" id="etiqueta" Text="Análisis de Consumo"/></a></li>
+        <li><a href="Reportes.aspx">Reportes</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+    </ul>
+</div>  
+    <div class="fade-in animacion">  
+        <dx:ASPxRoundPanel ID="panelParametros" ClientInstanceName="roundPanel" HeaderText="PARAMETROS" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >
+        <PanelCollection>
+            <dx:PanelContent>
+    <dx:ASPxFormLayout runat="server" ID="exampleFormLayout" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365" SettingsItems-HorizontalAlign="Center"   >
+         <SettingsItemCaptions Location="Top" />
+         <SettingsItems HorizontalAlign="Right"  />
+        <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="500"  />
+            <Items>
+            <dx:LayoutGroup Caption="PARAMETROS" SettingsItemHelpTexts-Position="Bottom" Border-BorderColor="White"  GroupBoxStyle-Border-BorderStyle="Ridge" GroupBoxStyle-Caption-Font-Bold="true" GroupBoxStyle-Caption-Font-Size="Large" CssClass="TextForm" ColCount="2" ShowCaption="False">
+                <GroupBoxStyle Border-BorderStyle="Solid" CssClass="shadowBox">
+                    <Caption Font-Bold="True">
+                    </Caption>
+                </GroupBoxStyle>
+                <Items>
+                    <dx:LayoutItem Caption="Fecha Inicial" HelpText="Porfavor, ingrese la fecha inicial" CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Hidden">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                 <dx:ASPxDateEdit ID="txtFechaInicial" runat="server" OnValidation="txtFechaInicial_Validation" Theme="Office365">
+                                    <DropDownButton Image-IconID="">
+                                        <Image IconID="conditionalformatting_adateoccurring_16x16">
+                                        </Image>
+                                    </DropDownButton>
+                                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" RequiredField-IsRequired="true" ErrorText="Valor inválido">
+                                        <RequiredField IsRequired="True" />
+                                    </ValidationSettings>
+                                </dx:ASPxDateEdit>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+                    <dx:LayoutItem Caption="Fecha Final" HelpText="Porfavor, ingrese la fecha final" CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Hidden">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                <dx:ASPxDateEdit ID="txtFechaFinal" runat="server" OnValidation="txtFechaFinal_Validation" Theme="Office365">
+                                    <DropDownButton>
+                                        <Image IconID="conditionalformatting_adateoccurring_16x16">
+                                        </Image>
+                                    </DropDownButton>
+                                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" RequiredField-IsRequired="true" ErrorText="Valor inválido">
+                                        <RequiredField IsRequired="True" />
+                                    </ValidationSettings>
+                                </dx:ASPxDateEdit>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem> 
+                    <dx:LayoutItem Caption="Mostrar Por" RequiredMarkDisplayMode="Hidden"  CaptionStyle-Font-Bold="true" >
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                <dx:ASPxRadioButtonList ID="chkBoxList" runat="server" Border-BorderWidth="0" Theme="Office365"  >
                                     <Items>
-                                    <dx:ListEditItem Text="MOSTRAR CONSUMOS DEL CLIENTE" value="1"   />
-                                    <dx:ListEditItem Text="MOSTRAR CONSUMOS DEL GRUPO" value="2" />
+                                    <dx:ListEditItem Text="Cliente" value="1" />
+                                    <dx:ListEditItem Text="Grupo" value="2" />
                                     </Items>
                                  </dx:ASPxRadioButtonList>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        <asp:LinkButton  id="btnProcesar" OnClick="btnProcesar_Click"  class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;margin-top: 1px; background-color:mediumseagreen" runat="server" Text="PROCESAR " >
-    
-</asp:LinkButton>
-<asp:LinkButton id="btnCancelar" OnClick="btnCancelar_Click" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
-  
- </asp:LinkButton>
-    <dx:BootstrapGridView ID="bgvConsumo2" runat="server"  KeyFieldName="ID"  ClientSideEvents-BeginCallback="ocultarDetalles" >
-    <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
-    <Settings ShowTitlePanel="true" />
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+                    <dx:LayoutGroup Border-BorderStyle="None"  Caption=" " CssClass="buttonMargin" GroupBoxDecoration="None" HorizontalAlign="Right" SettingsItemCaptions-HorizontalAlign="Right" RowSpan="1"  VerticalAlign="Bottom">
+                        <Border BorderStyle="None" />
+                        <Items>
+                            <dx:LayoutItem  Border-BorderWidth="0px"  RequiredMarkDisplayMode="Hidden" ShowCaption="False" >
+                                <LayoutItemNestedControlCollection >
+                                    <dx:LayoutItemNestedControlContainer ID="buttons" BorderStyle="None"  runat="server" ValidateRequestMode="Disabled" >
+                                        <dx:ASPxButton ID="btnCancelar4" runat="server" OnClick="btnCancelar_Click" Text="Cancelar" Theme="Office365" Width="80" UseSubmitBehavior="False"  CausesValidation="false" CssClass="shadowBoxMin"    />
+                                        <dx:ASPxLabel ID="separator" runat="server" Text="   " />
+                                        <dx:ASPxButton ID="btnProcesar4" UseSubmitBehavior="False" runat="server" OnClick="btnProcesar_Click" Text="Aceptar" Theme="Office365" Width="80" CssClass="shadowBoxMin"    />
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                                <Border BorderWidth="0px" />
+                            </dx:LayoutItem>
+                        </Items>
+                        <SettingsItemCaptions HorizontalAlign="Right" VerticalAlign="Top" />
+                    </dx:LayoutGroup>
+                </Items>
+                <SettingsItemHelpTexts Position="Bottom" />
+            </dx:LayoutGroup>
+        </Items>
+            <SettingsItems HorizontalAlign="Center" />
+        </dx:ASPxFormLayout>
+            </dx:PanelContent>
+        </PanelCollection>
+    </dx:ASPxRoundPanel>
+
+
+    <%-- Tabla Consumos--%>
+                <dx:ASPxRoundPanel ID="panelConsumos" ClientInstanceName="panelConsumos" HeaderText="CONSUMOS" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes fade-in animacion" HeaderStyle-ForeColor="Gray">
+                    <PanelCollection>
+            <dx:PanelContent>
+                <dx:BootstrapGridView ID="bgvConsumo2" runat="server"  KeyFieldName="ID"  ClientSideEvents-BeginCallback="ocultarDetalles" Width="90%" CssClasses-Control="shadowBox alinearConsumos">
     <Settings ShowGroupPanel="true"/>
     <Settings ShowFooter="True" />
     <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
@@ -305,14 +372,73 @@ float: left;
         <dx:ASPxSummaryItem FieldName="Cantidad"  SummaryType="Sum" DisplayFormat="c"  />
         <dx:ASPxSummaryItem FieldName="Importe" SummaryType="Sum" DisplayFormat="c"  />
     </TotalSummary>
-</dx:BootstrapGridView>  
-        <div id="detallesConsumo" runat="server" class="detalles"  >
-    <dx:ASPxPageControl ID="carTabPage" Width="100%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"  Border-BorderStyle="None" CssClass="page-header" >
+</dx:BootstrapGridView>
+                </dx:PanelContent>
+                </PanelCollection>   
+                </dx:ASPxRoundPanel>
+     <%-- Formulario Nuevo --%>
+</div>
+      <dx:ASPxRoundPanel ID="panelDetallesConsumo" ClientInstanceName="panelDetallesConsumo" HeaderText="DETALLES DEL CONSUMO" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes fade-in animacion" HeaderStyle-ForeColor="Gray">
+                    <PanelCollection>
+            <dx:PanelContent>
+
+<%-- Nuevos Tabs--%>
+    <link href="css/tabs.css" rel="stylesheet" >
+    <link href="css/breadCrumb.css" rel="stylesheet">
+ 
+		<div class="tab_container" style="margin-top:-30px">
+			<input id="tab1"  type="radio" name="tabs" >
+			<label for="tab1" ><i class="fa fa-file-pdf-o"></i><span>Ticket</span></label>
+
+			<input id="tab2" type="radio" name="tabs">
+			<label for="tab2" ><i class="fa fa-file-image-o"></i><span>Fotografia</span></label>
+
+			<input id="tab3" type="radio" name="tabs">
+			<label for="tab3" ><i class="fa fa-map-marker"></i><span>Geolocalizacion</span></label>
+            <section id="content1">
+                </section>
+            <section id="content2">
+                </section>
+            <section id="content3">
+                </section>
+            </div>
+<%-- Nuevos Tabs--%>
+
+
+
+
+
+
+                <div id="detallesConsumo" runat="server" class="detalles"  >
+    <dx:ASPxPageControl ID="carTabPage" Width="90%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"  Border-BorderStyle="None" CssClass="page-header alinearConsumos">
         <TabPages>
             <dx:TabPage Text="TICKET">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl1" runat="server">
-                 <iframe id="ticket" style="position:relative; width: 100% ; height:600px;" runat="server" ></iframe>
+                <dx:ASPxRibbon ID="Ribbon" ClientInstanceName="Ribbon" runat="server" ShowGroupLabels="False" ShowFileTab="False" Width="100%" Theme="Office365" Minimized="True" Visible="true"   >
+            <Styles TabContent-BackColor="White" GroupSeparator-BackColor="Transparent" GroupSeparator-Border-BorderStyle="None"  >
+                <Item Width="100px"></Item>
+                <GroupExpandButton Width="100px" BackColor="White"></GroupExpandButton>
+                <TabContent Height="30px"/>
+            </Styles>
+            <Tabs>
+                <dx:RibbonTab Text="DESCARGAR DOCUMENTO">
+                    <Groups>
+                        <dx:RibbonGroup Text="Home">
+                            <Items>
+                                <dx:RibbonButtonItem  NavigateUrl="javascript:descargarDocumento()" Name="DESCARGAR" ToolTip="DESCARGAR DOCUMENTO">
+                                    <LargeImage IconID="actions_download_32x32"></LargeImage>
+                                    <SmallImage IconID="actions_download_16x16">
+                                    </SmallImage>
+                                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                </dx:RibbonButtonItem>
+                            </Items>
+                        </dx:RibbonGroup>
+                    </Groups>
+                </dx:RibbonTab>
+            </Tabs>
+        </dx:ASPxRibbon>
+                 <iframe id="ticket" style="position:relative; width: 100% ; height:500px;" runat="server" class="shadowBox" ></iframe>
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>
@@ -328,13 +454,17 @@ float: left;
             <dx:TabPage Text="GEOLOCALIZACIÓN">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl3" runat="server">
-                  <div id="myMap" style="position:relative; width: 100% ; height:600px;" ></div>
+                  <div id="myMap" style="position:relative; width: 100% ; height:500px;" ></div>
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>
         </TabPages>
     </dx:ASPxPageControl>	
     </div>	
-</div>	
+                </dx:PanelContent>
+                        </PanelCollection>
+    </dx:ASPxRoundPanel>
+        
+
     <div ID="bottom" runat="server" />
 </asp:Content>

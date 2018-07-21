@@ -38,7 +38,7 @@
     
 
     
-    <div class="row">
+    <div class="row fade-in">
                 <div class="col-lg-12">
                     <div class="tablaMain">
 <form action="/Cliente/Details/NQ==" method="post"><input name="__RequestVerificationToken" type="hidden" value="LGysLb9D9kcvbU4U-vMl66yzC-gtq8Du0lmbezUctFywnteL1ldUlkQNWIY-XHbUisdhUKj9gvUy60xUpL5u706JMjrPhr74KrqGBP3who01">    <div class="container-fluid">
@@ -46,7 +46,7 @@
             <div class="col-lg-8">
                  <link href="css/breadCrumb.css" rel="stylesheet">
  
-    <div id="cssmenu" style="margin-top:60px;" class="row">  
+    <div id="cssmenu" style="margin-top:80px;" class="row fade-in">  
     <ul>
         <li class="active"><a href="DatosCliente.aspx">Datos del Cliente</a></li>
         <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
@@ -55,7 +55,7 @@
             </div>
         </div>
         <hr>
-        <div class="row">
+        <div class="row fade-in animacion">
             <div class="col-lg-9">
                 <div class="table-responsive ">
                     <table class="table format-table" style="float:left">
@@ -165,7 +165,7 @@
                     </table>
                 </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 fade-in">
                 <asp:LinkButton  class="Largo verde_claro shadowBox" runat= "server" OnClick="Click">
                     <div>
                     <i class="glyphicon glyphicon-usd" style="margin-top: 15%;"></i>

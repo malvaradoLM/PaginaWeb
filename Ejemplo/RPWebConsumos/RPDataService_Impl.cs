@@ -538,6 +538,7 @@ namespace RPSuiteServer
                             }))
                 {
                     var result = lcommand.ExecuteNonQuery();
+                    if (result == -1) throw new Exception("Se ha excedido el numero de usuarios registrados en Bitacora Web");
                     return true;
                 }
 
