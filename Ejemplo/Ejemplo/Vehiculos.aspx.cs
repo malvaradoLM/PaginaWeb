@@ -13,6 +13,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace Ejemplo
 {
@@ -225,10 +226,7 @@ namespace Ejemplo
             }
         }
 
-        public override void VerifyRenderingInServerForm(Control control)
-        {
-           
-        }
+
         private void ConstruirChecks(string value,int posicion)
         {          
             HtmlTableCell Td;
@@ -308,5 +306,9 @@ namespace Ejemplo
         {
             Response.Redirect("VehiculoPage.aspx", false);
         }
+
+
+
+
     }
 }

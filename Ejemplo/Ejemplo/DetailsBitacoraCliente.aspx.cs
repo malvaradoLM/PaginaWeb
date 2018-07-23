@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace Ejemplo
@@ -22,6 +23,7 @@ namespace Ejemplo
                 chkBoxList.SelectedIndex = 0;
                 msjAlerta.Visible = false;
                 detallesReporte.Visible = false;
+
             }
         }
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control)
@@ -69,13 +71,14 @@ namespace Ejemplo
 
             //GENERA REPORTE
             ComodinModel.FormatReport resultado2 = getReporte.GetInfoReportes(ReporteNombre, _GasolineroID, ParametrosReporte, TipoArchivo);
-            if(resultado2.pathFile != null && resultado2.pathFile != "")
+            if (resultado2.pathFile != null && resultado2.pathFile != "")
             {
                 msjAlerta.Visible = false;
                 detallesReporte.Visible = true;
                 Ribbon.Visible = true;
                 reporteDoc.Src = resultado2.pathFile;
                 hiddenURL.Value = reporteDoc.Src;
+              
             }
             else
             {

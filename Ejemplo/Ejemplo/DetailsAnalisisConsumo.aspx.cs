@@ -34,6 +34,8 @@ namespace Ejemplo
                 panelParametros.Collapsed = false;
                 panelConsumos.Collapsed = true;
                 panelDetallesConsumo.Collapsed = true;
+                panelConsumos.Visible = false;
+                panelDetallesConsumo.Visible = false;
             }
             else
             {
@@ -99,6 +101,7 @@ namespace Ejemplo
         }
         private void cargarReporte(string titulo, DataTable dt)
         {
+            panelConsumos.Visible = true;
             bgvConsumo2.DataSource = dt;
             bgvConsumo2.DataBind();
             bgvConsumo2.SettingsText.Title = titulo;
@@ -124,6 +127,7 @@ namespace Ejemplo
         protected void Unnamed_Click(object sender, EventArgs e)
         {
             //detallesConsumo.Visible = true;
+            panelDetallesConsumo.Visible = true;
             detallesConsumo.Attributes.CssStyle.Add("display", "inline");
             LinkButton item = (LinkButton)sender;
             string ID = item.Text;
@@ -150,6 +154,8 @@ namespace Ejemplo
             string path = System.AppDomain.CurrentDomain.BaseDirectory;
 
             Ejemplo.Models.ComodinModel.BigViewModel.pathConsumoFactura resultado2 = InfoConsumoFacturaTicket.GetInfoConsumoFactura(_GasolineroID, Serie, Folio, ReporteNombre, ParametrosReporte, TipoArchivo);
+            ticketName.Value = Serie+Folio;
+            hiddenURL.Value = resultado2.pathImpresion;
             ticket.Src = resultado2.pathImpresion+ "#zoom=70";
             RPSuiteServer.TAlbum album = new TAlbum();
             album = DataModule.DataService.ListaConsumoFotosByID(_ConsumoID);
@@ -167,6 +173,7 @@ namespace Ejemplo
         "", "Estacion: " + item.Nombre + " Identificacion: " + item.Identificacion + " Fecha de Carga: " + item.FechaCarga
     );
             }
+            imageSlider.Items.Owner.IsRendering();
         }
 
         private void CargarMapa(string latitud, string longitud)
@@ -175,6 +182,7 @@ namespace Ejemplo
             panelConsumos.Collapsed = true;
             panelDetallesConsumo.Collapsed = false;
             carTabPage.ActiveTabIndex = 2;
+
             const string ScriptKey = "ScriptKey";
             if (!ClientScript.IsStartupScriptRegistered(this.GetType(), ScriptKey))
             {
@@ -200,6 +208,8 @@ namespace Ejemplo
                 ClientScript.RegisterStartupScript(this.GetType(),
         ScriptKey, fn.ToString(), true);
             }
+            carTabPage.ActiveTabIndex = 0;
+            mapagoogle.Src = @"https://maps.google.com.mx/maps?key=AIzaSyDN_xSn-jF76JH6J_qmU50SpqF_6kNIePU&q=" + latitud+","+longitud+"&language=es&hl=es;z=14&amp;output=embed";
             
         }
 

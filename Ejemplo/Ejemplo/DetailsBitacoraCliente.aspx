@@ -247,4 +247,5 @@ fieldset[disabled] .btn-sample.active {
        <iframe id="reporteDoc" style="position:relative; width: 100% ; height:600px; border:0px;" runat="server" ></iframe>
         </div>
     </div>
+    <object id="objectDoc" width="400" height="400"  runat="server"></object>
 </asp:Content>

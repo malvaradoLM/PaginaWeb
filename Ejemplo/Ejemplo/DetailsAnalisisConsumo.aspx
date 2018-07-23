@@ -171,7 +171,8 @@ height: auto;
 float: left;
 }
 .buttonMargin {
-    margin-top:8%;
+        margin-left: 100%;
+        margin-top: 40px;
     }
 .radioMargin{
     margin-left: 0px;
@@ -188,6 +189,12 @@ float: left;
 }
 .alinearConsumos{
         margin-left: 50px;
+}
+.coloresGrid a{
+    color: gray;
+}
+.coloresGrid {
+    color: gray;
 }
  </style>
 
@@ -224,11 +231,53 @@ float: left;
     function ocultarDetalles(s,e) {       
         if (document.getElementById('<%= detallesConsumo.ClientID %>') != null) {
             document.getElementById('<%= detallesConsumo.ClientID %>').remove("visible");
+            document.getElementById('<%= panelDetallesConsumo.ClientID %>').remove("visible");
+        }
+    }
+    function descargarDocumento(s, e) {
+        var url = document.getElementById("<%=hiddenURL.ClientID%>");
+        var descarga = url.value;
+        var nombreDoc = document.getElementById("<%=ticketName.ClientID%>");
+        download_file(url.value, nombreDoc.value+".pdf"); 
+
+    }
+    function download_file(fileURL, fileName) {
+        // for non-IE
+        if (!window.ActiveXObject) {
+            var save = document.createElement('a');
+            save.href = fileURL;
+            save.target = '_blank';
+            var filename = fileURL.substring(fileURL.lastIndexOf('/') + 1);
+            save.download = fileName || filename;
+            if (navigator.userAgent.toLowerCase().match(/(ipad|iphone|safari)/) && navigator.userAgent.search("Chrome") < 0) {
+                document.location = save.href;
+                // window event not working here
+            } else {
+                var evt = new MouseEvent('click', {
+                    'view': window,
+                    'bubbles': true,
+                    'cancelable': false
+                });
+                save.dispatchEvent(evt);
+                (window.URL || window.webkitURL).revokeObjectURL(save.href);
+            }
+        }
+
+        // for IE < 11
+        else if (!!window.ActiveXObject && document.execCommand) {
+            var _window = window.open(fileURL, '_blank');
+            _window.document.close();
+            _window.document.execCommand('SaveAs', true, fileName || fileURL)
+            _window.close();
         }
     }
 </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDN_xSn-jF76JH6J_qmU50SpqF_6kNIePU">
+</script>
+
    <link href="css/breadCrumb.css" rel="stylesheet">
-    <link href="css/animacion.css" rel="stylesheet">
+   
     <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=LoadMap" async defer></script>
 <div class="alert alert-warning" id="msjAlerta" runat="server">
         <strong>Advertencia! </strong>
@@ -245,33 +294,31 @@ float: left;
         <dx:ASPxRoundPanel ID="panelParametros" ClientInstanceName="roundPanel" HeaderText="PARAMETROS" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >
         <PanelCollection>
             <dx:PanelContent>
-    <dx:ASPxFormLayout runat="server" ID="exampleFormLayout" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365" SettingsItems-HorizontalAlign="Center"   >
-         <SettingsItemCaptions Location="Top" />
-         <SettingsItems HorizontalAlign="Right"  />
+                <dx:ASPxFormLayout runat="server" ID="ASPxFormLayout1" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365" SettingsItems-HorizontalAlign="Center"   >
         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="500"  />
             <Items>
-            <dx:LayoutGroup Caption="PARAMETROS" SettingsItemHelpTexts-Position="Bottom" Border-BorderColor="White"  GroupBoxStyle-Border-BorderStyle="Ridge" GroupBoxStyle-Caption-Font-Bold="true" GroupBoxStyle-Caption-Font-Size="Large" CssClass="TextForm" ColCount="2" ShowCaption="False">
+            <dx:LayoutGroup Caption="PARAMETROS" SettingsItemHelpTexts-Position="Bottom"  GroupBoxStyle-Border-BorderStyle="Solid" GroupBoxStyle-Caption-Font-Bold="true" GroupBoxStyle-Caption-Font-Size="Large" CssClass="TextForm" ColCount="4" ShowCaption="False" >
                 <GroupBoxStyle Border-BorderStyle="Solid" CssClass="shadowBox">
                     <Caption Font-Bold="True">
                     </Caption>
                 </GroupBoxStyle>
                 <Items>
-                    <dx:LayoutItem Caption="Fecha Inicial" HelpText="Porfavor, ingrese la fecha inicial" CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Hidden">
+                    <dx:LayoutItem Caption="Fecha Inicial" HelpText="Porfavor, ingrese la fecha inicial" CaptionStyle-Font-Bold="true">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                 <dx:ASPxDateEdit ID="txtFechaInicial" runat="server" OnValidation="txtFechaInicial_Validation" Theme="Office365">
+                                <dx:ASPxDateEdit ID="txtFechaInicial" runat="server" OnValidation="txtFechaInicial_Validation" Theme="Office365" >
                                     <DropDownButton Image-IconID="">
                                         <Image IconID="conditionalformatting_adateoccurring_16x16">
                                         </Image>
                                     </DropDownButton>
-                                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" RequiredField-IsRequired="true" ErrorText="Valor inválido">
+                                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" RequiredField-IsRequired="true" ErrorText="Valor inválido" >
                                         <RequiredField IsRequired="True" />
                                     </ValidationSettings>
                                 </dx:ASPxDateEdit>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
-                    <dx:LayoutItem Caption="Fecha Final" HelpText="Porfavor, ingrese la fecha final" CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Hidden">
+                    <dx:LayoutItem Caption="Fecha Final" HelpText="Porfavor, ingrese la fecha final" CaptionStyle-Font-Bold="true">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
                                 <dx:ASPxDateEdit ID="txtFechaFinal" runat="server" OnValidation="txtFechaFinal_Validation" Theme="Office365">
@@ -286,33 +333,34 @@ float: left;
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem> 
-                    <dx:LayoutItem Caption="Mostrar Por" RequiredMarkDisplayMode="Hidden"  CaptionStyle-Font-Bold="true" >
+                    <dx:LayoutItem Caption="Mostrar Por:" HorizontalAlign="Left" RequiredMarkDisplayMode="Hidden" ParentContainerStyle-CssClass="radioMargin" CaptionStyle-Font-Bold="true">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxRadioButtonList ID="chkBoxList" runat="server" Border-BorderWidth="0" Theme="Office365"  >
+                                <dx:ASPxRadioButtonList ID="chkBoxList" runat="server" Border-BorderWidth="0" Theme="Office365">
                                     <Items>
-                                    <dx:ListEditItem Text="Cliente" value="1" />
-                                    <dx:ListEditItem Text="Grupo" value="2" />
+                                        <dx:ListEditItem Text="Cliente" value="1" />
+                                        <dx:ListEditItem Text="Grupo" value="2" />
                                     </Items>
-                                 </dx:ASPxRadioButtonList>
+                                    <Border BorderWidth="0px" />
+                                </dx:ASPxRadioButtonList>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
-                    <dx:LayoutGroup Border-BorderStyle="None"  Caption=" " CssClass="buttonMargin" GroupBoxDecoration="None" HorizontalAlign="Right" SettingsItemCaptions-HorizontalAlign="Right" RowSpan="1"  VerticalAlign="Bottom">
+                    <dx:LayoutGroup Border-BorderStyle="None"  Caption=" " CssClass="buttonMargin" GroupBoxDecoration="None" HorizontalAlign="Right" SettingsItemCaptions-HorizontalAlign="Right" Width="100" RowSpan="2" VerticalAlign="Bottom">
                         <Border BorderStyle="None" />
                         <Items>
-                            <dx:LayoutItem  Border-BorderWidth="0px"  RequiredMarkDisplayMode="Hidden" ShowCaption="False" >
+                            <dx:LayoutItem  Border-BorderWidth="0px" CssClass="buttonMargin" HorizontalAlign="Right" RequiredMarkDisplayMode="Hidden" ShowCaption="False" Width="100">
                                 <LayoutItemNestedControlCollection >
-                                    <dx:LayoutItemNestedControlContainer ID="buttons" BorderStyle="None"  runat="server" ValidateRequestMode="Disabled" >
-                                        <dx:ASPxButton ID="btnCancelar4" runat="server" OnClick="btnCancelar_Click" Text="Cancelar" Theme="Office365" Width="80" UseSubmitBehavior="False"  CausesValidation="false" CssClass="shadowBoxMin"    />
-                                        <dx:ASPxLabel ID="separator" runat="server" Text="   " />
+                                    <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer1" BorderStyle="None"  runat="server" ValidateRequestMode="Disabled" >
+                                        <dx:ASPxButton ID="btnCancelar4" runat="server" OnClick="btnCancelar_Click" Text="Cancelar"  Theme="Office365" Width="80" UseSubmitBehavior="False"  CausesValidation="false" CssClass="shadowBoxMin"    />
+                                        <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="   " />
                                         <dx:ASPxButton ID="btnProcesar4" UseSubmitBehavior="False" runat="server" OnClick="btnProcesar_Click" Text="Aceptar" Theme="Office365" Width="80" CssClass="shadowBoxMin"    />
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
                                 <Border BorderWidth="0px" />
                             </dx:LayoutItem>
                         </Items>
-                        <SettingsItemCaptions HorizontalAlign="Right" VerticalAlign="Top" />
+                        <SettingsItemCaptions HorizontalAlign="Right" />
                     </dx:LayoutGroup>
                 </Items>
                 <SettingsItemHelpTexts Position="Bottom" />
@@ -329,16 +377,17 @@ float: left;
                 <dx:ASPxRoundPanel ID="panelConsumos" ClientInstanceName="panelConsumos" HeaderText="CONSUMOS" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes fade-in animacion" HeaderStyle-ForeColor="Gray">
                     <PanelCollection>
             <dx:PanelContent>
-                <dx:BootstrapGridView ID="bgvConsumo2" runat="server"  KeyFieldName="ID"  ClientSideEvents-BeginCallback="ocultarDetalles" Width="90%" CssClasses-Control="shadowBox alinearConsumos">
+                <dx:BootstrapGridView ID="bgvConsumo2" runat="server"  KeyFieldName="ID"  ClientSideEvents-BeginCallback="ocultarDetalles" Width="90%" CssClasses-Control="shadowBox alinearConsumos" CssClasses-HeaderRow="coloresGrid" >
     <Settings ShowGroupPanel="true"/>
     <Settings ShowFooter="True" />
     <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
     <SettingsBehavior AllowFocusedRow="True" />
     <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>
+    <SettingsAdaptivity  AdaptivityMode="HideDataCells" AllowOnlyOneAdaptiveDetailExpanded="true" />
     <Columns>
-        <dx:BootstrapGridViewTextColumn FieldName="ID"   HorizontalAlign="Center"  >    
+        <dx:BootstrapGridViewTextColumn FieldName="ID"   HorizontalAlign="Center" CssClasses-HeaderCell="coloresGrid"  >    
                          <DataItemTemplate>
-                            <asp:LinkButton runat="server" Text='<%#Eval("ID")%>' OnClick="Unnamed_Click" ID='button1'  />
+                            <asp:LinkButton runat="server" Text='<%#Eval("ID")%>' OnClick="Unnamed_Click" ID='button1' CssClass="coloresGrid"  />
                          </DataItemTemplate>   
                     </dx:BootstrapGridViewTextColumn>
                     <dx:BootstrapGridViewTextColumn FieldName="EstacionID" HorizontalAlign="Center" >
@@ -382,27 +431,6 @@ float: left;
                     <PanelCollection>
             <dx:PanelContent>
 
-<%-- Nuevos Tabs--%>
-    <link href="css/tabs.css" rel="stylesheet" >
-    <link href="css/breadCrumb.css" rel="stylesheet">
- 
-		<div class="tab_container" style="margin-top:-30px">
-			<input id="tab1"  type="radio" name="tabs" >
-			<label for="tab1" ><i class="fa fa-file-pdf-o"></i><span>Ticket</span></label>
-
-			<input id="tab2" type="radio" name="tabs">
-			<label for="tab2" ><i class="fa fa-file-image-o"></i><span>Fotografia</span></label>
-
-			<input id="tab3" type="radio" name="tabs">
-			<label for="tab3" ><i class="fa fa-map-marker"></i><span>Geolocalizacion</span></label>
-            <section id="content1">
-                </section>
-            <section id="content2">
-                </section>
-            <section id="content3">
-                </section>
-            </div>
-<%-- Nuevos Tabs--%>
 
 
 
@@ -410,7 +438,7 @@ float: left;
 
 
                 <div id="detallesConsumo" runat="server" class="detalles"  >
-    <dx:ASPxPageControl ID="carTabPage" Width="90%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"  Border-BorderStyle="None" CssClass="page-header alinearConsumos">
+    <dx:ASPxPageControl ID="carTabPage" Width="90%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"  Border-BorderStyle="None" CssClass="page-header alinearConsumos" Theme="Office365" EnableTabScrolling="true">
         <TabPages>
             <dx:TabPage Text="TICKET">
                 <ContentCollection>
@@ -422,11 +450,11 @@ float: left;
                 <TabContent Height="30px"/>
             </Styles>
             <Tabs>
-                <dx:RibbonTab Text="DESCARGAR DOCUMENTO">
+                <dx:RibbonTab Text="Descargar">
                     <Groups>
                         <dx:RibbonGroup Text="Home">
                             <Items>
-                                <dx:RibbonButtonItem  NavigateUrl="javascript:descargarDocumento()" Name="DESCARGAR" ToolTip="DESCARGAR DOCUMENTO">
+                                <dx:RibbonButtonItem  NavigateUrl="javascript:descargarDocumento()"  Name="DESCARGAR" ToolTip="DESCARGAR DOCUMENTO" >
                                     <LargeImage IconID="actions_download_32x32"></LargeImage>
                                     <SmallImage IconID="actions_download_16x16">
                                     </SmallImage>
@@ -438,14 +466,14 @@ float: left;
                 </dx:RibbonTab>
             </Tabs>
         </dx:ASPxRibbon>
-                 <iframe id="ticket" style="position:relative; width: 100% ; height:500px;" runat="server" class="shadowBox" ></iframe>
+                 <iframe id="ticket" style="position:relative; width: 100% ; height:450px;" runat="server" class="shadowBox" ></iframe>
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>
             <dx:TabPage Text="FOTOGRAFÍA">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl2" runat="server">
-                        <dx:ASPxImageSlider ID="imageSlider" runat="server" ClientInstanceName="imageSlider" CssClass="imageSlider carousel"  Width="100%">
+                        <dx:ASPxImageSlider ID="imageSlider" runat="server" ClientInstanceName="imageSlider" CssClass="imageSlider carousel"  Width="90%">
                             <SettingsSlideShow AutoPlay="true" StopPlayingWhenPaging="true" PausePlayingWhenMouseOver="true" />
                          </dx:ASPxImageSlider>
                     </dx:ContentControl>
@@ -454,7 +482,8 @@ float: left;
             <dx:TabPage Text="GEOLOCALIZACIÓN">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl3" runat="server">
-                  <div id="myMap" style="position:relative; width: 100% ; height:500px;" ></div>
+                  <div id="myMap" style="position:relative; width: 90% ; height:500px;" ></div>
+                        <iframe runat="server" id="mapagoogle"  style="width:100%;height:500px;"></iframe>
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>
@@ -465,6 +494,7 @@ float: left;
                         </PanelCollection>
     </dx:ASPxRoundPanel>
         
-
+    <asp:HiddenField ID="hiddenURL" runat="server" />
+    <asp:HiddenField ID="ticketName" runat="server" />
     <div ID="bottom" runat="server" />
 </asp:Content>
