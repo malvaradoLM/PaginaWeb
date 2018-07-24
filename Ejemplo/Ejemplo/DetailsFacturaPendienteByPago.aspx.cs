@@ -19,7 +19,7 @@ namespace Ejemplo
                 chkBoxList.SelectedIndex = 0;
                 panelDetalles.Visible = false;
                 msjAlerta.Visible = false;
-                ASPxSpreadsheet1.WorkDirectory = "~/App_Data/ClienteID"+DataModule.Seguridad.UserID;
+                ASPxSpreadsheet1.WorkDirectory = "~/App_Data/WorkDirectory/ClienteID" + DataModule.Seguridad.UserID;
             }
 
         }

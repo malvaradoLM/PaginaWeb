@@ -94,6 +94,9 @@ fieldset[disabled] .btn-sample.active {
         margin-left: 100%;
         margin-top: 20px;
     }
+.radioMargin{
+       margin-top: -12px;
+}
  </style>
     <script>
         function validarFecha(s, e) {
@@ -159,22 +162,22 @@ fieldset[disabled] .btn-sample.active {
     </ul>
 </div>         
     
-    <dx:ASPxRoundPanel ID="panelParametros" ClientInstanceName="roundPanel" HeaderText="PARAMETROS" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >
+    <dx:ASPxRoundPanel ID="panelParametros" ClientInstanceName="roundPanel" HeaderText="PARAMETROS" runat="server" Width="100%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >   
         <PanelCollection>
             <dx:PanelContent>
-            <dx:ASPxFormLayout runat="server" ID="ASPxFormLayout1" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365" SettingsItems-HorizontalAlign="Center"   >
+            <dx:ASPxFormLayout runat="server" ID="ASPxFormLayout1" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365"  Width="100%"  >
         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="500"  />
             <Items>
-            <dx:LayoutGroup Caption="PARAMETROS" SettingsItemHelpTexts-Position="Bottom"  GroupBoxStyle-Border-BorderStyle="Solid" GroupBoxStyle-Caption-Font-Bold="true" GroupBoxStyle-Caption-Font-Size="Large" CssClass="TextForm" ColCount="3" ShowCaption="False" >
+            <dx:LayoutGroup Caption="PARAMETROS" SettingsItemHelpTexts-Position="Bottom"  GroupBoxStyle-Border-BorderStyle="Solid" GroupBoxStyle-Caption-Font-Bold="true" GroupBoxStyle-Caption-Font-Size="XX-Large" CssClass="TextForm"  ShowCaption="False" ColCount="3">
                 <GroupBoxStyle Border-BorderStyle="Solid" CssClass="shadowBox">
                     <Caption Font-Bold="True">
                     </Caption>
                 </GroupBoxStyle>
                 <Items>
-                    <dx:LayoutItem Caption="Fecha De Corte" HelpText="Porfavor, ingrese la fecha de corte" CaptionStyle-Font-Bold="true" >
+                    <dx:LayoutItem Caption="Fecha Corte" HelpText="Porfavor, ingrese la fecha de corte" CaptionStyle-Font-Bold="true">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxDateEdit ID="txtFechaCorte" runat="server" OnValidation="txtFechaInicial_Validation" Theme="Office365">
+                                <dx:ASPxDateEdit ID="txtFechaCorte" runat="server" OnValidation="txtFechaInicial_Validation" Theme="Office365" Width="100%" DateRangeSettings-MaxDayCount="10">
                                     <DropDownButton Image-IconID="">
                                         <Image IconID="conditionalformatting_adateoccurring_16x16">
                                         </Image>
@@ -187,12 +190,12 @@ fieldset[disabled] .btn-sample.active {
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
 
-                    <dx:LayoutItem Caption="Formato:" HorizontalAlign="Left" RequiredMarkDisplayMode="Hidden" ParentContainerStyle-CssClass="radioMargin" CaptionStyle-Font-Bold="true">
+                    <dx:LayoutItem Caption="Formato"  RequiredMarkDisplayMode="Hidden" CssClass="radioMargin" CaptionStyle-Font-Bold="true" VerticalAlign="Top">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxRadioButtonList ID="chkBoxList" runat="server" Border-BorderWidth="0" Theme="Office365">
+                                <dx:ASPxRadioButtonList ID="chkBoxList" runat="server" Border-BorderWidth="0" Theme="Office365" >
                                     <Items>
-                                        <dx:ListEditItem Text="PDF" value="1" />
+                                        <dx:ListEditItem Text="PDF" value="1"/>
                                         <dx:ListEditItem Text="XLS" value="2" />
                                     </Items>
                                     <Border BorderWidth="0px" />
@@ -228,7 +231,7 @@ fieldset[disabled] .btn-sample.active {
 
 
 
-    <dx:ASPxRoundPanel ID="panelDetalles" ClientInstanceName="roundPanel" HeaderText="DETALLES" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >
+    <dx:ASPxRoundPanel ID="panelDetalles" ClientInstanceName="roundPanel" HeaderText="DETALLES" runat="server" Width="100%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >
         <PanelCollection>
             <dx:PanelContent>
                 <div id="Div1" runat="server">	
@@ -256,7 +259,7 @@ fieldset[disabled] .btn-sample.active {
             </Tabs>
         </dx:ASPxRibbon>
                  <iframe id="reporteDoc" style="position:relative; width: 100% ; height:450px;" runat="server" class="shadowBox fade-in animacion" ></iframe>
-                    <dx:ASPxSpreadsheet ID="ASPxSpreadsheet1" runat="server" WorkDirectory="~/App_Data/WorkDirectory" CssClass="fade-in animacion" >
+                    <dx:ASPxSpreadsheet ID="ASPxSpreadsheet1" runat="server" WorkDirectory="~/App_Data/WorkDirectory" CssClass="fade-in animacion" Width="100%" >
                     <SettingsDialogs InsertLinkDialog-ShowEmailAddressSection="true" />
                     </dx:ASPxSpreadsheet>
 
