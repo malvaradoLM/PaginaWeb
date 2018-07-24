@@ -108,11 +108,10 @@ fieldset[disabled] .btn-sample.active {
             var url = document.getElementById("<%=hiddenURL.ClientID%>");
             var descarga = url.value;
             var nombreDoc = document.getElementById("<%=ticketName.ClientID%>");
-            var checkbox = document.getElementById("<%=chkBoxList.ClientID%>");
+            var checkbox = document.getElementById("ContentPlaceHolder1_panelParametros_ASPxFormLayout1_chkBoxList_RB0_I");
             var tipo = "";
-            if (checkbox.value == "1") tipo = ".pdf";
+            if (checkbox.value == "C") tipo = ".pdf";
             else tipo = ".xls";
-
             download_file(url.value, nombreDoc.value + tipo);
 
         }

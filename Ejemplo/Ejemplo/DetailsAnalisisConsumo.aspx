@@ -175,7 +175,7 @@ float: left;
         margin-top: 40px;
     }
 .radioMargin{
-    margin-left: 0px;
+    margin-top: -12px;
 }
 .bordes{
     border:none;
@@ -333,7 +333,7 @@ float: left;
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem> 
-                    <dx:LayoutItem Caption="Mostrar Por:" HorizontalAlign="Left" RequiredMarkDisplayMode="Hidden" ParentContainerStyle-CssClass="radioMargin" CaptionStyle-Font-Bold="true">
+                    <dx:LayoutItem Caption="Mostrar Por:" HorizontalAlign="Left" RequiredMarkDisplayMode="Hidden" CssClass="radioMargin" CaptionStyle-Font-Bold="true">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
                                 <dx:ASPxRadioButtonList ID="chkBoxList" runat="server" Border-BorderWidth="0" Theme="Office365">
