@@ -17,9 +17,9 @@ namespace Ejemplo
             if (!IsPostBack) {
                 txtFechaCorte.Date = DateTime.Today;
                 chkBoxList.SelectedIndex = 0;
-                detallesReporte.Visible = false;
+                panelDetalles.Visible = false;
                 msjAlerta.Visible = false;
-
+                ASPxSpreadsheet1.WorkDirectory = "~/App_Data/ClienteID"+DataModule.Seguridad.UserID;
             }
 
         }
@@ -36,7 +36,9 @@ namespace Ejemplo
         protected void btnProcesar_Click(object sender, EventArgs e)
         {
             msjAlerta.Visible = false;
-            detallesReporte.Visible = true;
+            panelDetalles.Visible = true;
+            panelParametros.Collapsed = true;
+            panelDetalles.Collapsed = false;
             Rutinas getReporte = new Rutinas();
             string _ClienteID = DataModule.Seguridad.UserID;
             string _GasolineroID = @Session["GasolineroID"].ToString();
@@ -60,7 +62,6 @@ namespace Ejemplo
 
             if (chkBoxList.Value.ToString() == "1")
             {
-                detallesReporte.Visible = true;
                 TipoArchivo = "PDF";
                 //TempData["TipoArchivo"] = "PDF";
             }
@@ -73,10 +74,26 @@ namespace Ejemplo
             //GENERA REPORTE
             Ejemplo.Models.ComodinModel.FormatReport resultado2 = getReporte.GetInfoReportes(ReporteNombre, _GasolineroID, ParametrosReporte, TipoArchivo);
             if (resultado2.pathFile != null)
-                reporteDoc.Src = resultado2.pathFile;
+            {
+                if (TipoArchivo == "PDF")
+                {
+                    reporteDoc.Src = resultado2.pathFile;
+                    ticketName.Value = fecCorte;
+                    ASPxSpreadsheet1.Visible = false;
+                }
+                else
+                {
+                    ASPxSpreadsheet1.Visible = true;
+                    ASPxSpreadsheet1.Open(Server.MapPath(""+resultado2.pathFile));
+
+                    reporteDoc.Visible = false;
+                }
+                hiddenURL.Value = reporteDoc.Src;
+                ticketName.Value = fecCorte;
+            }
             else
             {
-                detallesReporte.Visible = false;
+                panelDetalles.Visible = false;
                 if (resultado2.errorFile == "")
                 {
                     msjAlerta.Visible = true;
@@ -93,6 +110,30 @@ namespace Ejemplo
             else
                 e.ErrorText = "Error: La fecha está vacía.";
             if(e.ErrorText != "") e.IsValid = false;
+        }
+        protected void txtFechaInicial_Validation(object sender, ValidationEventArgs e)
+        {
+            e.ErrorText = "";
+            ASPxDateEdit fecha = (ASPxDateEdit)sender;
+            string resultado = "";
+            resultado = Clases.Validaciones.validarFecha(fecha.Date.ToString());
+            if (resultado != "") e.ErrorText = resultado;
+            if (e.ErrorText != "")
+            {
+                e.IsValid = false;
+            }
+            else e.IsValid = true;
+        }
+
+        protected void txtFechaFinal_Validation(object sender, ValidationEventArgs e)
+        {
+            e.ErrorText = "";
+            ASPxDateEdit fecha = (ASPxDateEdit)sender;
+            string resultado = "";
+            resultado = Clases.Validaciones.validarFecha(fecha.Date.ToString());
+            if (resultado != "") e.ErrorText = resultado;
+            if (e.ErrorText != "") e.IsValid = false;
+            else e.IsValid = true;
         }
     }
 }
