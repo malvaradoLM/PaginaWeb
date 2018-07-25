@@ -125,7 +125,7 @@
                     <dx:LayoutItem Caption="Vehiculo Inicial" HelpText="Seleccione un Vehiculo" CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Required">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxComboBox ID="cmbVehiculoInicial" runat="server" ValueField="VehiculoID" Theme="Office365">
+                                <dx:ASPxComboBox ID="cmbVehiculoInicial" runat="server" ValueField="VehiculoID" Theme="Office365" AutoPostBack="false">
                                 <Columns>
                     <dx:ListBoxColumn FieldName="VehiculoID" />
                     <dx:ListBoxColumn FieldName="Nombre" />
@@ -142,7 +142,7 @@
                      <dx:LayoutItem Caption="Vehiculo Final" HelpText="Seleccione un Vehiculo" CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Required">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxComboBox ID="cmbVehiculoFinal" runat="server" ValueField="VehiculoID" Theme="Office365">
+                                <dx:ASPxComboBox ID="cmbVehiculoFinal" runat="server" ValueField="VehiculoID" Theme="Office365" AutoPostBack="false">
                                 <Columns>
                                 <dx:ListBoxColumn FieldName="VehiculoID" />
                              <dx:ListBoxColumn FieldName="Nombre" />

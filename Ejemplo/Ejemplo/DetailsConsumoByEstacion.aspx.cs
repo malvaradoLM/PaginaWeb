@@ -22,8 +22,7 @@ namespace Ejemplo
                 chkBoxList.SelectedIndex = 0;
                 panelDetalles.Visible = false;
                 msjAlerta.Visible = false;
-
-
+                ASPxSpreadsheet1.WorkDirectory = "~/App_Data/WorkDirectory/ClienteID" + DataModule.Seguridad.UserID;
             }
         }
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control)
@@ -102,7 +101,9 @@ namespace Ejemplo
                 if (resultado2.errorFile == "")
                 {
                     msjAlerta.Visible = true;
-                    labelAlerta.Value = "No existen registros que mostrar";
+                    if (resultado2.errorFile == null || resultado2.errorFile == "")
+                        labelAlerta.Value = "No existen registros que mostrar";
+                    else labelAlerta.Value = "Error: " + resultado2.errorFile;
                 }
             }
         }

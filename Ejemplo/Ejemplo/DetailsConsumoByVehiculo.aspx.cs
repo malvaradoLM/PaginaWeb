@@ -26,8 +26,9 @@ namespace Ejemplo
                 llenarComboBox();
                 msjAlerta.Visible = false;
                 panelDetalles.Visible = false;
-
+                ASPxSpreadsheet1.WorkDirectory = "~/App_Data/WorkDirectory/ClienteID" + DataModule.Seguridad.UserID;
             }
+            llenarComboBox();
             msjAlerta.Visible = false;
         }
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control)

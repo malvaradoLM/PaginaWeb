@@ -20,9 +20,9 @@ namespace Ejemplo
                 txtFechaInicial.Date = DateTime.Now;
                 txtFechaFinal.Date = DateTime.Now;
                 chkBoxList.SelectedIndex = 0;
-                detallesReporte.Visible = false;
+                panelDetalles.Visible = false;
                 msjAlerta.Visible = false;
-
+                ASPxSpreadsheet1.WorkDirectory = "~/App_Data/WorkDirectory/ClienteID" + DataModule.Seguridad.UserID;
             }
         }
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control)
@@ -79,17 +79,37 @@ namespace Ejemplo
 
             //GENERA REPORTE
             ComodinModel.FormatReport resultado2 = getReporte.GetInfoReportes(ReporteNombre, _GasolineroID, ParametrosReporte, TipoArchivo);
-            if(resultado2.pathFile != null && resultado2.pathFile != "")
+            if (resultado2.pathFile != null)
             {
-                detallesReporte.Visible = true;
-                reporteDoc.Src = resultado2.pathFile;
+                panelDetalles.Visible = true;
+                panelParametros.Collapsed = true;
+                if (TipoArchivo == "PDF")
+                {
+                    reporteDoc.Visible = true;
+                    reporteDoc.Src = resultado2.pathFile;
+                    ticketName.Value = "documento";
+                    ASPxSpreadsheet1.Visible = false;
+                }
+                else
+                {
+                    ASPxSpreadsheet1.Visible = true;
+                    ASPxSpreadsheet1.Open(Server.MapPath("" + resultado2.pathFile));
+
+                    reporteDoc.Visible = false;
+                }
+                hiddenURL.Value = reporteDoc.Src;
+                ticketName.Value = "documento";
+
             }
             else
             {
-                if(resultado2.errorFile == "")
+                panelDetalles.Visible = false;
+                if (resultado2.errorFile == "")
                 {
                     msjAlerta.Visible = true;
-                    labelAlerta.Value = "No existen registros que mostrar";
+                    if (resultado2.errorFile == null || resultado2.errorFile == "")
+                        labelAlerta.Value = "No existen registros que mostrar";
+                    else labelAlerta.Value = "Error: " + resultado2.errorFile;
                 }
             }
         }

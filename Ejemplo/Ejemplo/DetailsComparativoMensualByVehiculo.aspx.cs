@@ -19,7 +19,6 @@ namespace Ejemplo
                 detallesReporte.Visible = false;
                 txtanio1.Value = DateTime.Now.Year;
                 msjAlerta.Visible = false;
-
             }
         }
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control)

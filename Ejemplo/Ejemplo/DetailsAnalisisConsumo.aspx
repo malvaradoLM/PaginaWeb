@@ -189,6 +189,7 @@ float: left;
 }
 .alinearConsumos{
         margin-left: 50px;
+        margin-top:0px;
 }
 .coloresGrid a{
     color: gray;
@@ -306,7 +307,7 @@ float: left;
                     <dx:LayoutItem Caption="Fecha Inicial" HelpText="Porfavor, ingrese la fecha inicial" CaptionStyle-Font-Bold="true">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxDateEdit ID="txtFechaInicial" runat="server" OnValidation="txtFechaInicial_Validation" Theme="Office365" >
+                                <dx:ASPxDateEdit ID="txtFechaInicial" runat="server" OnValidation="txtFechaInicial_Validation" Theme="Office365" EditFormatString="MM/dd/yyyy" >
                                     <DropDownButton Image-IconID="">
                                         <Image IconID="conditionalformatting_adateoccurring_16x16">
                                         </Image>
@@ -321,7 +322,7 @@ float: left;
                     <dx:LayoutItem Caption="Fecha Final" HelpText="Porfavor, ingrese la fecha final" CaptionStyle-Font-Bold="true">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxDateEdit ID="txtFechaFinal" runat="server" OnValidation="txtFechaFinal_Validation" Theme="Office365">
+                                <dx:ASPxDateEdit ID="txtFechaFinal" runat="server" OnValidation="txtFechaFinal_Validation" Theme="Office365" EditFormatString="MM/dd/yyyy">
                                     <DropDownButton>
                                         <Image IconID="conditionalformatting_adateoccurring_16x16">
                                         </Image>
@@ -450,7 +451,7 @@ float: left;
                 <TabContent Height="30px"/>
             </Styles>
             <Tabs>
-                <dx:RibbonTab Text="Descargar">
+                <dx:RibbonTab Text="Descargar" >
                     <Groups>
                         <dx:RibbonGroup Text="Home">
                             <Items>
@@ -466,7 +467,7 @@ float: left;
                 </dx:RibbonTab>
             </Tabs>
         </dx:ASPxRibbon>
-                 <iframe id="ticket" style="position:relative; width: 100% ; height:450px;" runat="server" class="shadowBox" ></iframe>
+                 <iframe id="ticket" style="position:relative; width: 100% ; height:400px;" runat="server" class="shadowBox" ></iframe>
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>

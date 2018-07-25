@@ -152,7 +152,7 @@ fieldset[disabled] .btn-sample.active {
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
-                    <dx:LayoutItem Caption="Nivel Administrador" HelpText="Conceder privilegios de Administrador" RequiredMarkDisplayMode="Hidden" ShowCaption="False" CaptionStyle-Font-Bold="true">
+                    <dx:LayoutItem Caption="Administrador" HelpText="Conceder privilegios de Administrador" RequiredMarkDisplayMode="Hidden" ShowCaption="True" CaptionStyle-Font-Bold="true">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
                                 <dx:ASPxCheckBox ID="chkAdministrador" runat="server" Theme="Office365"></dx:ASPxCheckBox>

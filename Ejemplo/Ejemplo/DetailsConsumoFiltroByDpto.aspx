@@ -1,109 +1,73 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="DetailsConsumoFiltroByDpto.aspx.cs" Inherits="Ejemplo.DetailsConsumoFiltroByDpto" %>
 <%@ Register assembly="DevExpress.Web.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
 <%@ Register assembly="DevExpress.Web.Bootstrap.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.Bootstrap" tagprefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.ASPxSpreadsheet.v17.2, Version=17.2.3.0,  PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxSpreadsheet" TagPrefix="dx" %>
 
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <style>
-#exTab1 .tab-content {
-  color : white;
-  background-color: #428bca;
-  padding : 5px 15px;
-}
-
-#exTab2 h3 {
-  color : white;
-  background-color: #428bca;
-  padding : 5px 15px;
-}
-
-/* remove border radius for the tab */
-
-#exTab1 .nav-pills > li > a {
-  border-radius: 0;
-  font-size:15px;
-}
-
-/* change border radius for the tab , apply corners on top*/
-
-#exTab3 .nav-pills > li > a {
-  border-radius: 4px 4px 0 0 ;
-}
-
-#exTab3 .tab-content {
-    color: white;
-    background-color: #428bca;
-    padding: 5px 15px;
-}
-.btn-sample { 
-  color: #ffffff; 
-  background-color: #428BCA; 
-  border-color: #E8E8E8; 
-} 
- 
-.btn-sample:hover, 
-.btn-sample:focus, 
-.btn-sample:active, 
-.btn-sample.active, 
-.open .dropdown-toggle.btn-sample { 
-  color: #ffffff; 
-  background-color: #428bca; 
-  border-color: #E8E8E8; 
-} 
- 
-.btn-sample:active, 
-.btn-sample.active, 
-.open .dropdown-toggle.btn-sample { 
-  background-image: none; 
-} 
- 
-.btn-sample.disabled, 
-.btn-sample[disabled], 
-fieldset[disabled] .btn-sample, 
-.btn-sample.disabled:hover, 
-.btn-sample[disabled]:hover, 
-fieldset[disabled] .btn-sample:hover, 
-.btn-sample.disabled:focus, 
-.btn-sample[disabled]:focus, 
-fieldset[disabled] .btn-sample:focus, 
-.btn-sample.disabled:active, 
-.btn-sample[disabled]:active, 
-fieldset[disabled] .btn-sample:active, 
-.btn-sample.disabled.active, 
-.btn-sample[disabled].active, 
-fieldset[disabled] .btn-sample.active { 
-  background-color: #428BCA; 
-  border-color: #E8E8E8; 
-} 
-.shadowBox{
-    padding: 5px;
-    box-shadow: 3px 8px 6px #888888;
-}
-.shadowBoxMin{
-    padding: 2px;
-    box-shadow: 1px 6px 4px #888888;
-}
-.TextForm{
-    font-family:Arial, Helvetica, sans-serif;
-}
-.breadCrumbMovil{
-    margin-top:60px;
+.radioMargin{
+    margin-top: -12px;
 }
 .buttonMargin {
-    margin-top:8%;
+        margin-left: 100%;
+        margin-top: 20px;
     }
-.radioMargin{
-    margin-left: 0px;
+.bordes{
+    border:none;
+}
+.parametroAlign{
+    float:unset;
 }
  </style>
+    <script>
+    function descargarDocumento(s, e) {
+        var url = document.getElementById("<%=hiddenURL.ClientID%>");
+        var descarga = url.value;
+        var nombreDoc = document.getElementById("<%=ticketName.ClientID%>");
+            var checkbox = document.getElementById("ContentPlaceHolder1_panelParametros_ASPxFormLayout1_chkBoxList_RB0_I");
+            var tipo = "";
+            if (checkbox.value == "C") tipo = ".pdf";
+            else tipo = ".xls";
+            download_file(url.value, nombreDoc.value + tipo);
+
+        }
+        function download_file(fileURL, fileName) {
+            // for non-IE
+            if (!window.ActiveXObject) {
+                var save = document.createElement('a');
+                save.href = fileURL;
+                save.target = '_blank';
+                var filename = fileURL.substring(fileURL.lastIndexOf('/') + 1);
+                save.download = fileName || filename;
+                if (navigator.userAgent.toLowerCase().match(/(ipad|iphone|safari)/) && navigator.userAgent.search("Chrome") < 0) {
+                    document.location = save.href;
+                    // window event not working here
+                } else {
+                    var evt = new MouseEvent('click', {
+                        'view': window,
+                        'bubbles': true,
+                        'cancelable': false
+                    });
+                    save.dispatchEvent(evt);
+                    (window.URL || window.webkitURL).revokeObjectURL(save.href);
+                }
+            }
+
+            // for IE < 11
+            else if (!!window.ActiveXObject && document.execCommand) {
+                var _window = window.open(fileURL, '_blank');
+                _window.document.close();
+                _window.document.execCommand('SaveAs', true, fileName || fileURL)
+                _window.close();
+            }
+        }
+        </script>
     <div class="alert alert-warning" id="msjAlerta" runat="server">
         <strong>Advertencia! </strong>
         <dx:ASPxLabel ID="labelAlerta" runat="server" />
         </div>
-<div id="nav" class="container" style="margin-left:0px; margin-right:0px">
-
-
     <link href="css/breadCrumb.css" rel="stylesheet">
  
     <div id="cssmenu" style="margin-top:60px;" class="row">  
@@ -121,10 +85,14 @@ fieldset[disabled] .btn-sample.active {
 
 
 
-        <dx:ASPxFormLayout runat="server" ID="exampleFormLayout" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365" SettingsItems-HorizontalAlign="Center"   >
+    <div class="fade-in animacion">  
+        <dx:ASPxRoundPanel ID="panelParametros" ClientInstanceName="roundPanel" HeaderText="PARAMETROS" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >
+        <PanelCollection>
+            <dx:PanelContent>
+        <dx:ASPxFormLayout runat="server" ID="ASPxFormLayout1" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365" SettingsItems-HorizontalAlign="Center"   >
         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="500"  />
             <Items>
-            <dx:LayoutGroup Caption="PARAMETROS" SettingsItemHelpTexts-Position="Bottom"  GroupBoxStyle-Border-BorderStyle="Solid" GroupBoxStyle-Caption-Font-Bold="true" GroupBoxStyle-Caption-Font-Size="Large" CssClass="TextForm" ColCount="3" >
+            <dx:LayoutGroup Caption="PARAMETROS" SettingsItemHelpTexts-Position="Bottom"  GroupBoxStyle-Border-BorderStyle="Solid" GroupBoxStyle-Caption-Font-Bold="true" GroupBoxStyle-Caption-Font-Size="Large" CssClass="TextForm" ColCount="3" ShowCaption="False" >
                 <GroupBoxStyle Border-BorderStyle="Solid" CssClass="shadowBox">
                     <Caption Font-Bold="True">
                     </Caption>
@@ -209,13 +177,51 @@ fieldset[disabled] .btn-sample.active {
         </Items>
             <SettingsItems HorizontalAlign="Center" />
         </dx:ASPxFormLayout>
-        <p>
-        <p>
-        <div id="detallesReporte" runat="server" class="shadowBox"  >	
-        <dx:
-       <iframe id="reporteDoc" style="position:relative; width: 100% ; height:600px; border:0px;" runat="server" ></iframe>
+        
+            </dx:PanelContent>
+        </PanelCollection>
+        </dx:ASPxRoundPanel>
+
+
+        <dx:ASPxRoundPanel ID="panelDetalles" ClientInstanceName="roundPanel" HeaderText="DETALLES" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >
+        <PanelCollection>
+            <dx:PanelContent>
+                <div id="Div1" runat="server">	
+       <dx:ASPxRibbon ID="Ribbon" ClientInstanceName="Ribbon" runat="server" ShowGroupLabels="False" ShowFileTab="False" Width="100%" Theme="Office365" Minimized="True" Visible="true"   >
+            <Styles TabContent-BackColor="White" GroupSeparator-BackColor="Transparent" GroupSeparator-Border-BorderStyle="None"  >
+                <Item Width="100px"></Item>
+                <GroupExpandButton Width="100px" BackColor="White"></GroupExpandButton>
+                <TabContent Height="30px"/>
+            </Styles>
+            <Tabs>
+                <dx:RibbonTab Text="Descargar">
+                    <Groups>
+                        <dx:RibbonGroup Text="Home">
+                            <Items>
+                                <dx:RibbonButtonItem  NavigateUrl="javascript:descargarDocumento()"  Name="DESCARGAR" ToolTip="DESCARGAR DOCUMENTO" >
+                                    <LargeImage IconID="actions_download_32x32"></LargeImage>
+                                    <SmallImage IconID="actions_download_16x16">
+                                    </SmallImage>
+                                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                </dx:RibbonButtonItem>
+                            </Items>
+                        </dx:RibbonGroup>
+                    </Groups>
+                </dx:RibbonTab>
+            </Tabs>
+        </dx:ASPxRibbon>
+                 <iframe id="reporteDoc" style="position:relative; width: 100% ; height:500px;" runat="server" class="shadowBox fade-in animacion" ></iframe>
+                    <dx:ASPxSpreadsheet ID="ASPxSpreadsheet1" runat="server" WorkDirectory="~/App_Data/WorkDirectory" CssClass="fade-in animacion" Width="100%" >
+                    <SettingsDialogs InsertLinkDialog-ShowEmailAddressSection="true" />
+                    </dx:ASPxSpreadsheet>
+
         </div>
-    </div>	
+            </dx:PanelContent>
+        </PanelCollection>
+    </dx:ASPxRoundPanel>
 
+    <asp:HiddenField ID="hiddenURL" runat="server" />
+    <asp:HiddenField ID="ticketName" runat="server" />
 
+        </div>
 </asp:Content>
