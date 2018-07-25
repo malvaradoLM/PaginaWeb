@@ -1,145 +1,210 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/site1.Master" AutoEventWireup="true" CodeBehind="DetailsConsumoByEstacion.aspx.cs" Inherits="Ejemplo.DetailsConsumoByEstacion" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="DetailsConsumoByEstacion.aspx.cs" Inherits="Ejemplo.DetailsConsumoByEstacion" %>
 
 <%@ Register assembly="DevExpress.Web.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
 <%@ Register assembly="DevExpress.Web.Bootstrap.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.Bootstrap" tagprefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.ASPxSpreadsheet.v17.2, Version=17.2.3.0,  PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxSpreadsheet" TagPrefix="dx" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <style>
-#exTab1 .tab-content {
-  color : white;
-  background-color: #428bca;
-  padding : 5px 15px;
+.radioMargin{
+    margin-top: -12px;
 }
-
-#exTab2 h3 {
-  color : white;
-  background-color: #428bca;
-  padding : 5px 15px;
+.buttonMargin {
+        margin-left: 100%;
+        margin-top: 20px;
+    }
+.bordes{
+    border:none;
 }
-
-/* remove border radius for the tab */
-
-#exTab1 .nav-pills > li > a {
-  border-radius: 0;
-  font-size:15px;
-}
-
-/* change border radius for the tab , apply corners on top*/
-
-#exTab3 .nav-pills > li > a {
-  border-radius: 4px 4px 0 0 ;
-}
-
-#exTab3 .tab-content {
-    color: white;
-    background-color: #428bca;
-    padding: 5px 15px;
-}
-.btn-sample { 
-  color: #ffffff; 
-  background-color: #428BCA; 
-  border-color: #E8E8E8; 
-} 
- 
-.btn-sample:hover, 
-.btn-sample:focus, 
-.btn-sample:active, 
-.btn-sample.active, 
-.open .dropdown-toggle.btn-sample { 
-  color: #ffffff; 
-  background-color: #428bca; 
-  border-color: #E8E8E8; 
-} 
- 
-.btn-sample:active, 
-.btn-sample.active, 
-.open .dropdown-toggle.btn-sample { 
-  background-image: none; 
-} 
- 
-.btn-sample.disabled, 
-.btn-sample[disabled], 
-fieldset[disabled] .btn-sample, 
-.btn-sample.disabled:hover, 
-.btn-sample[disabled]:hover, 
-fieldset[disabled] .btn-sample:hover, 
-.btn-sample.disabled:focus, 
-.btn-sample[disabled]:focus, 
-fieldset[disabled] .btn-sample:focus, 
-.btn-sample.disabled:active, 
-.btn-sample[disabled]:active, 
-fieldset[disabled] .btn-sample:active, 
-.btn-sample.disabled.active, 
-.btn-sample[disabled].active, 
-fieldset[disabled] .btn-sample.active { 
-  background-color: #428BCA; 
-  border-color: #E8E8E8; 
-} 
- 
-.btn-sample .badge { 
-  color: #428BCA; 
-  background-color: #ffffff; 
-}
-.labelCuadro
-{
-    color: #ffffff;
-    font-family: 'Roboto Condensed', sans-serif;
+.parametroAlign{
+    float:unset;
 }
 
  </style>
+     <script>
+    function descargarDocumento(s, e) {
+        var url = document.getElementById("<%=hiddenURL.ClientID%>");
+        var descarga = url.value;
+        var nombreDoc = document.getElementById("<%=ticketName.ClientID%>");
+            var checkbox = document.getElementById("ContentPlaceHolder1_panelParametros_ASPxFormLayout1_chkBoxList_RB0_I");
+            var tipo = "";
+            if (checkbox.value == "C") tipo = ".pdf";
+            else tipo = ".xls";
+            download_file(url.value, nombreDoc.value + tipo);
+
+        }
+        function download_file(fileURL, fileName) {
+            // for non-IE
+            if (!window.ActiveXObject) {
+                var save = document.createElement('a');
+                save.href = fileURL;
+                save.target = '_blank';
+                var filename = fileURL.substring(fileURL.lastIndexOf('/') + 1);
+                save.download = fileName || filename;
+                if (navigator.userAgent.toLowerCase().match(/(ipad|iphone|safari)/) && navigator.userAgent.search("Chrome") < 0) {
+                    document.location = save.href;
+                    // window event not working here
+                } else {
+                    var evt = new MouseEvent('click', {
+                        'view': window,
+                        'bubbles': true,
+                        'cancelable': false
+                    });
+                    save.dispatchEvent(evt);
+                    (window.URL || window.webkitURL).revokeObjectURL(save.href);
+                }
+            }
+
+            // for IE < 11
+            else if (!!window.ActiveXObject && document.execCommand) {
+                var _window = window.open(fileURL, '_blank');
+                _window.document.close();
+                _window.document.execCommand('SaveAs', true, fileName || fileURL)
+                _window.close();
+            }
+        }
+        </script>
+    
     <div class="alert alert-warning" id="msjAlerta" runat="server">
         <strong>Advertencia! </strong>
         <dx:ASPxLabel ID="labelAlerta" runat="server" />
         </div>
-<div id="nav" class="container" style="margin-left:0px; margin-right:0px"><h1>Consumos Por Estación</h1></div>
-    <div class="row">
-            <ol class="breadcrumb Cards-Contenido col-lg-10" style="background:initial;">
-                <li class="breadcrumb-item"><a href="Reportes.aspx">Reportes</a></li>
-                <li class="breadcrumb-item active ">Consumos por Estación</li>
-            </ol>
-        </div>
-    <div id="exTab1" class="container" style="margin-left:0px; margin-right:0px">	
-        <ul id="myTabs" class="nav nav-pills" style="padding:0px">
-		</ul>
-        <div class="tab-content clearfix">
-            <div class="tab-pane active" id="1a" >
-         <table style="width:100%; height:500px">
-                        <tr>
-                            <td style="width:20%"><dx:ASPxLabel ID="lblFechaInicial" Text="FECHA INICIAL" runat="server" Font-Bold="true"/></td>
-                            <td>
-                                <dx:ASPxDateEdit ID="txtFechaInicial" runat="server" Font-Bold="true"/>
-                            </td>
-                        </tr>
-                         <tr>
-                            <td><dx:ASPxLabel ID="lblFechaFinal" Text="FECHA FINAL" runat="server" Font-Bold="true"/></td>
-                            <td>
-                            <dx:ASPxDateEdit ID="txtFechaFinal" runat="server" Font-Bold="true"/>
-                            </td>
-                        </tr>
-                        <tr>
-                             <td><dx:ASPxLabel ID="lblCheckBoxes" Text="SELECCIONE UNA OPCION" runat="server" Font-Bold="true"/></td>
-                            <td>
-                                <dx:ASPxRadioButtonList ID="chkBoxList" runat="server" Border-BorderWidth="0">
-                                    <Items>
-                                    <dx:ListEditItem Text="FORMATO PDF" value="1"   />
-                                    <dx:ListEditItem Text="FORMATO EXCEL" value="2" />
-                                    </Items>
-                                 </dx:ASPxRadioButtonList>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        <asp:LinkButton  id="btnProcesar" OnClick="btnProcesar_Click" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;margin-top: 1px; background-color:mediumseagreen" runat="server" Text="VER REPORTE " >
-    
-</asp:LinkButton>
-<asp:LinkButton id="btnCancelar" OnClick="btnCancelar_Click" class="btn-sample btn-lg labelCuadro"  type="button" style="float:right;background-color:red; margin-right:1px; margin-top: 1px;" runat="server" Text="CANCELAR " >
-  
- </asp:LinkButton>
-   <div id="detallesReporte" runat="server">	
-       <iframe id="reporteDoc" style="position:relative; width: 100% ; height:600px; border:0px" runat="server" ></iframe>
-        </div>
-    </div>	
+     <link href="css/breadCrumb.css" rel="stylesheet">
+     <div id="cssmenu" style="margin-top:60px;" class="row">  
+    <ul>
+        <li class="active"><a href="DetailsConsumoByEstacion.aspx">Consumos Por Estacion</a></li>
+        <li><a href="Reportes.aspx">Reportes</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+    </ul>
+</div>    
 
+    <div class="fade-in animacion">  
+        <dx:ASPxRoundPanel ID="panelParametros" ClientInstanceName="roundPanel" HeaderText="PARAMETROS" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >
+        <PanelCollection>
+            <dx:PanelContent>
+                 <dx:ASPxFormLayout runat="server" ID="ASPxFormLayout1" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365" SettingsItems-HorizontalAlign="Center" CssClass="parametroAlign"  >
+        <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="500"  />
+            <Items>
+            <dx:LayoutGroup Caption="PARAMETROS" SettingsItemHelpTexts-Position="Bottom"  GroupBoxStyle-Border-BorderStyle="Solid" GroupBoxStyle-Caption-Font-Bold="true" GroupBoxStyle-Caption-Font-Size="Large" CssClass="TextForm" ColCount="4" ShowCaption="False" >
+                <GroupBoxStyle Border-BorderStyle="Solid" CssClass="shadowBox">
+                    <Caption Font-Bold="True">
+                    </Caption>
+                </GroupBoxStyle>
+                <Items>
+                    <dx:LayoutItem Caption="Fecha Inicial" HelpText="Porfavor, ingrese la fecha inicial" CaptionStyle-Font-Bold="true">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                <dx:ASPxDateEdit ID="txtFechaInicial" runat="server" OnValidation="txtFechaInicial_Validation" Theme="Office365" >
+                                    <DropDownButton Image-IconID="">
+                                        <Image IconID="conditionalformatting_adateoccurring_16x16">
+                                        </Image>
+                                    </DropDownButton>
+                                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" RequiredField-IsRequired="true" ErrorText="Valor inválido" >
+                                        <RequiredField IsRequired="True" />
+                                    </ValidationSettings>
+                                </dx:ASPxDateEdit>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+                    <dx:LayoutItem Caption="Fecha Final" HelpText="Porfavor, ingrese la fecha final" CaptionStyle-Font-Bold="true">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                <dx:ASPxDateEdit ID="txtFechaFinal" runat="server" OnValidation="txtFechaFinal_Validation" Theme="Office365">
+                                    <DropDownButton>
+                                        <Image IconID="conditionalformatting_adateoccurring_16x16">
+                                        </Image>
+                                    </DropDownButton>
+                                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" RequiredField-IsRequired="true" ErrorText="Valor inválido">
+                                        <RequiredField IsRequired="True" />
+                                    </ValidationSettings>
+                                </dx:ASPxDateEdit>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem> 
+                    <dx:LayoutItem Caption="Formato:" HorizontalAlign="Left" RequiredMarkDisplayMode="Hidden" CssClass="radioMargin" CaptionStyle-Font-Bold="true">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                <dx:ASPxRadioButtonList ID="chkBoxList" runat="server" Border-BorderWidth="0" Theme="Office365">
+                                    <Items>
+                                        <dx:ListEditItem Text="PDF" value="1" />
+                                        <dx:ListEditItem Text="XLS" value="2" />
+                                    </Items>
+                                    <Border BorderWidth="0px" />
+                                </dx:ASPxRadioButtonList>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+                    <dx:LayoutGroup Border-BorderStyle="None"  Caption=" " CssClass="buttonMargin" GroupBoxDecoration="None" HorizontalAlign="Right" SettingsItemCaptions-HorizontalAlign="Right" Width="100" RowSpan="2" VerticalAlign="Bottom">
+                        <Border BorderStyle="None" />
+                        <Items>
+                            <dx:LayoutItem  Border-BorderWidth="0px" CssClass="buttonMargin" HorizontalAlign="Right" RequiredMarkDisplayMode="Hidden" ShowCaption="False" Width="100">
+                                <LayoutItemNestedControlCollection >
+                                    <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer1" BorderStyle="None"  runat="server" ValidateRequestMode="Disabled" >
+                                        <dx:ASPxButton ID="btnCancelar4" runat="server" OnClick="btnCancelar_Click" Text="Cancelar"  Theme="Office365" Width="80" UseSubmitBehavior="False"  CausesValidation="false" CssClass="shadowBoxMin"    />
+                                        <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="   " />
+                                        <dx:ASPxButton ID="btnProcesar4" UseSubmitBehavior="False" runat="server" OnClick="btnProcesar_Click" Text="Aceptar" Theme="Office365" Width="80" CssClass="shadowBoxMin"    />
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                                <Border BorderWidth="0px" />
+                            </dx:LayoutItem>
+                        </Items>
+                        <SettingsItemCaptions HorizontalAlign="Right" />
+                    </dx:LayoutGroup>
+                </Items>
+                <SettingsItemHelpTexts Position="Bottom" />
+            </dx:LayoutGroup>
+        </Items>
+            <SettingsItems HorizontalAlign="Center" />
+        </dx:ASPxFormLayout>
+            </dx:PanelContent>
+        </PanelCollection>
+        </dx:ASPxRoundPanel>
+
+        <dx:ASPxRoundPanel ID="panelDetalles" ClientInstanceName="roundPanel" HeaderText="DETALLES" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >
+        <PanelCollection>
+            <dx:PanelContent>
+                <div id="Div1" runat="server">	
+       <dx:ASPxRibbon ID="Ribbon" ClientInstanceName="Ribbon" runat="server" ShowGroupLabels="False" ShowFileTab="False" Width="100%" Theme="Office365" Minimized="True" Visible="true"   >
+            <Styles TabContent-BackColor="White" GroupSeparator-BackColor="Transparent" GroupSeparator-Border-BorderStyle="None"  >
+                <Item Width="100px"></Item>
+                <GroupExpandButton Width="100px" BackColor="White"></GroupExpandButton>
+                <TabContent Height="30px"/>
+            </Styles>
+            <Tabs>
+                <dx:RibbonTab Text="Descargar">
+                    <Groups>
+                        <dx:RibbonGroup Text="Home">
+                            <Items>
+                                <dx:RibbonButtonItem  NavigateUrl="javascript:descargarDocumento()"  Name="DESCARGAR" ToolTip="DESCARGAR DOCUMENTO" >
+                                    <LargeImage IconID="actions_download_32x32"></LargeImage>
+                                    <SmallImage IconID="actions_download_16x16">
+                                    </SmallImage>
+                                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                </dx:RibbonButtonItem>
+                            </Items>
+                        </dx:RibbonGroup>
+                    </Groups>
+                </dx:RibbonTab>
+            </Tabs>
+        </dx:ASPxRibbon>
+                 <iframe id="reporteDoc" style="position:relative; width: 100% ; height:500px;" runat="server" class="shadowBox fade-in animacion" ></iframe>
+                    <dx:ASPxSpreadsheet ID="ASPxSpreadsheet1" runat="server" WorkDirectory="~/App_Data/WorkDirectory" CssClass="fade-in animacion" Width="100%" >
+                    <SettingsDialogs InsertLinkDialog-ShowEmailAddressSection="true" />
+                    </dx:ASPxSpreadsheet>
+
+        </div>
+            </dx:PanelContent>
+        </PanelCollection>
+    </dx:ASPxRoundPanel>
+
+    <asp:HiddenField ID="hiddenURL" runat="server" />
+    <asp:HiddenField ID="ticketName" runat="server" />
+
+        </div>
+
+
+
+
+   
 </asp:Content>

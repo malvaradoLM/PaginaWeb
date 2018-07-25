@@ -16,10 +16,10 @@ namespace Ejemplo
             if (!IsPostBack) {
                 chkBoxList.SelectedIndex = 0;
                 txtanio1.Value = DateTime.Now.Year;
-                detallesReporte.Visible = false;
+                panelDetalles.Visible = false;
                 msjAlerta.Visible = false;
-
             }
+            msjAlerta.Visible = false;
         }
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control)
         {
@@ -65,17 +65,36 @@ namespace Ejemplo
 
             //GENERA REPORTE
             ComodinModel.FormatReport resultado2 = getReporte.GetInfoReportes(ReporteNombre, _GasolineroID, ParametrosReporte, TipoArchivo);
-            if(resultado2.pathFile != "")
+            if (resultado2.pathFile != null)
             {
-                reporteDoc.Src = resultado2.pathFile;
-                detallesReporte.Visible = true;
+                panelDetalles.Visible = true;
+                panelParametros.Collapsed = true;
+                panelDetalles.Collapsed = false;
+                if (TipoArchivo == "PDF")
+                {
+                    reporteDoc.Visible = true;
+                    reporteDoc.Src = resultado2.pathFile;
+                    ticketName.Value = "documento";
+                    ASPxSpreadsheet1.Visible = false;
+                }
+                else
+                {
+                    ASPxSpreadsheet1.Visible = true;
+                    ASPxSpreadsheet1.Open(Server.MapPath("" + resultado2.pathFile));
+
+                    reporteDoc.Visible = false;
+                }
+                hiddenURL.Value = reporteDoc.Src;
+                ticketName.Value = "documento";
+
             }
             else
             {
-                if(resultado2.errorFile == "")
+                panelDetalles.Visible = false;
+                if (resultado2.errorFile == "")
                 {
                     msjAlerta.Visible = true;
-                    labelAlerta.Value = "No hay registros que mostrar.";
+                    labelAlerta.Value = "No existen registros que mostrar";
                 }
             }
         }

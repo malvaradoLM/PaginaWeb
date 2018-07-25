@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/site1.Master" AutoEventWireup="true" CodeBehind="DetailsComparativoMensualByVehiculo.aspx.cs" Inherits="Ejemplo.DetailsComparativoMensualByVehiculo" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="DetailsComparativoMensualByVehiculo.aspx.cs" Inherits="Ejemplo.DetailsComparativoMensualByVehiculo" %>
 
 <%@ Register assembly="DevExpress.Web.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
 <%@ Register assembly="DevExpress.Web.Bootstrap.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.Bootstrap" tagprefix="dx" %>

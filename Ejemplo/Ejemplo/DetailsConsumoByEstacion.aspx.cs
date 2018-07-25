@@ -1,4 +1,6 @@
-﻿using Ejemplo.Data;
+﻿using DevExpress.Web;
+using Ejemplo.Clases;
+using Ejemplo.Data;
 using Ejemplo.Models;
 using System;
 using System.Collections.Generic;
@@ -18,8 +20,9 @@ namespace Ejemplo
                 txtFechaInicial.Date = DateTime.Now;
                 txtFechaFinal.Date = DateTime.Now;
                 chkBoxList.SelectedIndex = 0;
-                detallesReporte.Visible = false;
+                panelDetalles.Visible = false;
                 msjAlerta.Visible = false;
+
 
             }
         }
@@ -71,13 +74,32 @@ namespace Ejemplo
 
             //GENERA REPORTE
             ComodinModel.FormatReport resultado2 = getReporte.GetInfoReportes(ReporteNombre, _GasolineroID, ParametrosReporte, TipoArchivo);
-            if (resultado2.pathFile != null && resultado2.pathFile != "") {
-                detallesReporte.Visible = true;
-                reporteDoc.Src = resultado2.pathFile;
+            if (resultado2.pathFile != null)
+            {
+                panelDetalles.Visible = true;
+                panelParametros.Collapsed = true;
+                if (TipoArchivo == "PDF")
+                {
+                    reporteDoc.Visible = true;
+                    reporteDoc.Src = resultado2.pathFile;
+                    ticketName.Value = "documento";
+                    ASPxSpreadsheet1.Visible = false;
+                }
+                else
+                {
+                    ASPxSpreadsheet1.Visible = true;
+                    ASPxSpreadsheet1.Open(Server.MapPath("" + resultado2.pathFile));
+
+                    reporteDoc.Visible = false;
+                }
+                hiddenURL.Value = reporteDoc.Src;
+                ticketName.Value = "documento";
+
             }
             else
             {
-                if(resultado2.errorFile == "")
+                panelDetalles.Visible = false;
+                if (resultado2.errorFile == "")
                 {
                     msjAlerta.Visible = true;
                     labelAlerta.Value = "No existen registros que mostrar";
@@ -88,6 +110,27 @@ namespace Ejemplo
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("Reportes.aspx", false);
+        }
+        protected void txtFechaFinal_Validation(object sender, DevExpress.Web.ValidationEventArgs e)
+        {
+            ASPxDateEdit txtFecha = (ASPxDateEdit)sender;
+            if (txtFecha.Value != null)
+                e.ErrorText = Validaciones.validarFecha(txtFecha.Value.ToString());
+            else
+                e.ErrorText = "Error: La fecha está vacía.";
+            if (txtFechaInicial.Date > txtFechaFinal.Date) e.ErrorText = "Error: La Fecha Inicial no puede ser mayor a la Fecha Final";
+            if (e.ErrorText != "") e.IsValid = false;
+        }
+
+        protected void txtFechaInicial_Validation(object sender, DevExpress.Web.ValidationEventArgs e)
+        {
+            ASPxDateEdit txtFecha = (ASPxDateEdit)sender;
+            if (txtFecha.Value != null)
+                e.ErrorText = Validaciones.validarFecha(txtFecha.Value.ToString());
+            else
+                e.ErrorText = "Error: La fecha está vacía.";
+            if (txtFechaInicial.Date > txtFechaFinal.Date) e.ErrorText = "Error: La Fecha Inicial no puede ser mayor a la Fecha Final";
+            if (e.ErrorText != "") e.IsValid = false;
         }
     }
 }

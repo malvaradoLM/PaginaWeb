@@ -18,8 +18,8 @@ namespace Ejemplo
                 chkBoxList.SelectedIndex = 0;
                 panelDetalles.Visible = false;
                 msjAlerta.Visible = false;
-
             }
+            msjAlerta.Visible = false;
 
         }
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control)
@@ -131,5 +131,6 @@ namespace Ejemplo
             }
 
         }
+
     }
 }
