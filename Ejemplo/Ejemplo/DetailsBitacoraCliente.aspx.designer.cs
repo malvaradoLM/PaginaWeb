@@ -31,13 +31,22 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxLabel labelAlerta;
         
         /// <summary>
-        /// exampleFormLayout control.
+        /// panelParametros control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxFormLayout exampleFormLayout;
+        protected global::DevExpress.Web.ASPxRoundPanel panelParametros;
+        
+        /// <summary>
+        /// ASPxFormLayout1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxFormLayout ASPxFormLayout1;
         
         /// <summary>
         /// txtFechaInicial control.
@@ -67,13 +76,13 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxRadioButtonList chkBoxList;
         
         /// <summary>
-        /// buttons control.
+        /// LayoutItemNestedControlContainer1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.LayoutItemNestedControlContainer buttons;
+        protected global::DevExpress.Web.LayoutItemNestedControlContainer LayoutItemNestedControlContainer1;
         
         /// <summary>
         /// btnCancelar4 control.
@@ -85,13 +94,13 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxButton btnCancelar4;
         
         /// <summary>
-        /// separator control.
+        /// ASPxLabel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel separator;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel1;
         
         /// <summary>
         /// btnProcesar4 control.
@@ -103,13 +112,22 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxButton btnProcesar4;
         
         /// <summary>
-        /// hiddenURL control.
+        /// panelDetalles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hiddenURL;
+        protected global::DevExpress.Web.ASPxRoundPanel panelDetalles;
+        
+        /// <summary>
+        /// Div1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
         
         /// <summary>
         /// Ribbon control.
@@ -121,15 +139,6 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxRibbon Ribbon;
         
         /// <summary>
-        /// detallesReporte control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl detallesReporte;
-        
-        /// <summary>
         /// reporteDoc control.
         /// </summary>
         /// <remarks>
@@ -139,12 +148,30 @@ namespace Ejemplo {
         protected global::System.Web.UI.HtmlControls.HtmlIframe reporteDoc;
         
         /// <summary>
-        /// objectDoc control.
+        /// ASPxSpreadsheet1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl objectDoc;
+        protected global::DevExpress.Web.ASPxSpreadsheet.ASPxSpreadsheet ASPxSpreadsheet1;
+        
+        /// <summary>
+        /// hiddenURL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hiddenURL;
+        
+        /// <summary>
+        /// ticketName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField ticketName;
     }
 }

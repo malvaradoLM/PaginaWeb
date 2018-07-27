@@ -1,14 +1,21 @@
-﻿using Ejemplo.Data;
+﻿using DevExpress.Web.ASPxRichEdit.Internal;
+using DevExpress.Web.Office;
+using DevExpress.XtraRichEdit;
+using Ejemplo.Data;
 using Ejemplo.Data.Dataset;
+using Ejemplo.Models;
 using RPSuiteServer;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml;
 
 namespace Ejemplo
 {
@@ -24,6 +31,8 @@ namespace Ejemplo
             if (!IsPostBack)
             {
                 detallesConsumo.Visible = false;
+                panelDetallesConsumo.Visible = false;
+                cargarPdfFactura(serie, folio);
             }
             else
             {
@@ -58,7 +67,7 @@ namespace Ejemplo
         {
             detallesConsumo.Visible = true;
            // pageConsumos.ActiveTabIndex = 0;
-           pageDetalles.ActiveTabIndex = 2;
+           carTabPage.ActiveTabIndex = 2;
             const string ScriptKey = "ScriptKey";
             if (!ClientScript.IsStartupScriptRegistered(this.GetType(), ScriptKey))
             {
@@ -84,6 +93,12 @@ namespace Ejemplo
                 ClientScript.RegisterStartupScript(this.GetType(),
         ScriptKey, fn.ToString(), true);
             }
+
+            carTabPage.ActiveTabIndex = 0;
+            panelConsumos.Collapsed = true;
+            panelDetallesConsumo.Visible = true;
+            panelDetallesConsumo.Collapsed = false;
+            mapagoogle.Src = @"https://maps.google.com.mx/maps?key=AIzaSyDN_xSn-jF76JH6J_qmU50SpqF_6kNIePU&q=" + latitud + "," + longitud + "&language=es&hl=es;z=14&amp;output=embed";
         }
         private void cargarGaleria(TAlbum album)
         {
@@ -125,9 +140,56 @@ namespace Ejemplo
             Session["Latitud"] = dataEstacion.Latitud.ToString();
             Session["Longitud"] = dataEstacion.Longitud.ToString();
         }
-        private void cargarPdf(int value)
+        private void cargarPdfFactura(string _Serie, string _Folio)
         {
-           // TFacturaCliente data = RPServer.RPSuiteService.FacturaCliente(value);
+            //GENERA FACTURA EN PDF y XML
+            Rutinas InfoFactura = new Rutinas();
+            ComodinModel.BigViewModel.pathFile resultado = InfoFactura.GetInfoFactura(_Serie, int.Parse(_Folio));
+
+            if (resultado.pathPDF == null && resultado.pathXML == null)
+            {
+                if (resultado.errorFile != "")
+                {
+                    labelAlerta.Text = resultado.errorFile;
+                }
+            }
+            else
+            {
+                if (resultado.pathPDF != null) iframePDF.Src = resultado.pathPDF + "#page=1&zoom=50";
+                if (resultado.pathXML != null) {
+
+                    StringWriter writer = new StringWriter();
+                    HttpContext.Current.Server.Execute(resultado.pathXML, writer);
+                    string html = writer.ToString();
+                    //richEdit.Open(System.AppDomain.CurrentDomain.BaseDirectory + resultado.pathXML);
+                    //  ASPxMemo.Text = Server.HtmlEncode(File.ReadAllText(Server.MapPath(resultado.pathXML)));
+                    //   xmlDiv.InnerHtml = File.ReadAllText(Server.MapPath(resultado.pathXML));
+                    //  lblXml.Text = File.ReadAllText(Server.MapPath(resultado.pathXML));
+                    XmlDocument doc = new XmlDocument();
+                    doc.LoadXml(html);
+                    XmlTextWriter writerXml = new XmlTextWriter(System.AppDomain.CurrentDomain.BaseDirectory +"data.xml", null);
+                    writerXml.Formatting = Formatting.Indented;
+                    doc.Save(writerXml);
+                    string xmlfinal = "";
+                    foreach(char c in doc.InnerXml)
+                    {
+                        xmlfinal += c;
+                        if (c == '>') xmlfinal += "\n ";
+                    }
+                    xmlClass.InnerText = xmlfinal;
+                }
+                else
+                {
+                    if (resultado.errorFile != "")
+                    {
+                        labelAlerta.Text = resultado.errorFile;
+                    }
+                }
+            }
+
+            /// data.PathPDF = resultado.pathPDF;
+            /// data.PathXML = resultado.pathXML;
+          
 
         }
     }

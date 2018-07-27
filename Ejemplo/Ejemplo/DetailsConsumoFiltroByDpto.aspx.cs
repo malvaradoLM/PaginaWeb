@@ -104,12 +104,17 @@ namespace Ejemplo
             else
             {
                 panelDetalles.Visible = false;
-                if (resultado2.errorFile == "")
+                if (resultado2 != null && resultado2.errorFile == "")
                 {
                     msjAlerta.Visible = true;
                     if (resultado2.errorFile == null || resultado2.errorFile == "")
                         labelAlerta.Value = "No existen registros que mostrar";
                     else labelAlerta.Value = "Error: " + resultado2.errorFile;
+                }
+                else
+                {
+                    labelAlerta.Value  = "Error: " + resultado2.errorFile;
+                    msjAlerta.Visible = true;
                 }
             }
         }

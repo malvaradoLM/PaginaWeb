@@ -13,6 +13,24 @@ namespace Ejemplo {
     public partial class DetailsDescargaFactura {
         
         /// <summary>
+        /// msjAlerta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msjAlerta;
+        
+        /// <summary>
+        /// labelAlerta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel labelAlerta;
+        
+        /// <summary>
         /// pageConsumos control.
         /// </summary>
         /// <remarks>
@@ -31,6 +49,15 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ContentControl ContentControl2;
         
         /// <summary>
+        /// panelConsumos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRoundPanel panelConsumos;
+        
+        /// <summary>
         /// bgvConsumo control.
         /// </summary>
         /// <remarks>
@@ -38,6 +65,15 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.Bootstrap.BootstrapGridView bgvConsumo;
+        
+        /// <summary>
+        /// panelDetallesConsumo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRoundPanel panelDetallesConsumo;
         
         /// <summary>
         /// detallesConsumo control.
@@ -49,13 +85,13 @@ namespace Ejemplo {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl detallesConsumo;
         
         /// <summary>
-        /// pageDetalles control.
+        /// carTabPage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxPageControl pageDetalles;
+        protected global::DevExpress.Web.ASPxPageControl carTabPage;
         
         /// <summary>
         /// ContentControl1 control.
@@ -65,6 +101,15 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ContentControl ContentControl1;
+        
+        /// <summary>
+        /// Ribbon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRibbon Ribbon;
         
         /// <summary>
         /// ticket control.
@@ -101,5 +146,68 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ContentControl ContentControl4;
+        
+        /// <summary>
+        /// mapagoogle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlIframe mapagoogle;
+        
+        /// <summary>
+        /// hiddenURL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hiddenURL;
+        
+        /// <summary>
+        /// ticketName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField ticketName;
+        
+        /// <summary>
+        /// ContentControl5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ContentControl ContentControl5;
+        
+        /// <summary>
+        /// iframePDF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlIframe iframePDF;
+        
+        /// <summary>
+        /// xmlClass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl xmlClass;
+        
+        /// <summary>
+        /// Xml1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Xml Xml1;
     }
 }

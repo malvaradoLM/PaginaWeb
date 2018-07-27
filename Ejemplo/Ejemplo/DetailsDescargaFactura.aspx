@@ -1,91 +1,50 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/site1.Master" CodeBehind="DetailsDescargaFactura.aspx.cs" Inherits="Ejemplo.DetailsDescargaFactura" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Home.Master" CodeBehind="DetailsDescargaFactura.aspx.cs" Inherits="Ejemplo.DetailsDescargaFactura" %>
+
+<%@ Register Assembly="DevExpress.Web.ASPxRichEdit.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxRichEdit" TagPrefix="dx" %>
 <%@ Register assembly="DevExpress.Web.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
 <%@ Register assembly="DevExpress.Web.Bootstrap.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.Bootstrap" tagprefix="dx" %>
 
 
+<%@ Register assembly="DevExpress.Web.ASPxHtmlEditor.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxHtmlEditor" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.ASPxSpellChecker.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxSpellChecker" tagprefix="dx" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <style>
-#exTab1 .tab-content {
-  color : white;
-  background-color: #428bca;
-  padding : 5px 15px;
+.buttonMargin {
+        margin-left: 100%;
+        margin-top: 40px;
+    }
+.radioMargin{
+    margin-top: -12px;
 }
-
-#exTab2 h3 {
-  color : white;
-  background-color: #428bca;
-  padding : 5px 15px;
+.bordes{
+    border:none;
 }
-
-/* remove border radius for the tab */
-
-#exTab1 .nav-pills > li > a {
-  border-radius: 0;
-  font-size:15px;
+.tamanoDetalles{
+    height:500px;
+        margin-left: 50px;
 }
-
-/* change border radius for the tab , apply corners on top*/
-
-#exTab3 .nav-pills > li > a {
-  border-radius: 4px 4px 0 0 ;
+.marginTab{
+        margin-left: 6%;
 }
-
-#exTab3 .tab-content {
-    color: white;
-    background-color: #428bca;
-    padding: 5px 15px;
+.alinearConsumos{
+        margin-left: 50px;
+        margin-top:0px;
 }
-.btn-sample { 
-  color: #ffffff; 
-  background-color: #428BCA; 
-  border-color: #E8E8E8; 
-} 
- 
-.btn-sample:hover, 
-.btn-sample:focus, 
-.btn-sample:active, 
-.btn-sample.active, 
-.open .dropdown-toggle.btn-sample { 
-  color: #ffffff; 
-  background-color: #428bca; 
-  border-color: #E8E8E8; 
-} 
- 
-.btn-sample:active, 
-.btn-sample.active, 
-.open .dropdown-toggle.btn-sample { 
-  background-image: none; 
-} 
- 
-.btn-sample.disabled, 
-.btn-sample[disabled], 
-fieldset[disabled] .btn-sample, 
-.btn-sample.disabled:hover, 
-.btn-sample[disabled]:hover, 
-fieldset[disabled] .btn-sample:hover, 
-.btn-sample.disabled:focus, 
-.btn-sample[disabled]:focus, 
-fieldset[disabled] .btn-sample:focus, 
-.btn-sample.disabled:active, 
-.btn-sample[disabled]:active, 
-fieldset[disabled] .btn-sample:active, 
-.btn-sample.disabled.active, 
-.btn-sample[disabled].active, 
-fieldset[disabled] .btn-sample.active { 
-  background-color: #428BCA; 
-  border-color: #E8E8E8; 
-} 
- 
-.btn-sample .badge { 
-  color: #428BCA; 
-  background-color: #ffffff; 
+.coloresGrid a{
+    color: gray;
 }
-.labelCuadro
-{
-
-    color: #ffffff;
-    font-family: 'Roboto Condensed', sans-serif;
-
+.coloresGrid {
+    color: gray;
+}
+.wordWrap {
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 1200px;
+    height: 800px;
 }
  </style>
     <script type="text/javascript">
@@ -95,14 +54,40 @@ fieldset[disabled] .btn-sample.active {
             }
         }
 </script>
+
+    <div class="alert alert-warning" id="msjAlerta" runat="server" visible="false">
+        <strong>Advertencia! </strong>
+        <dx:ASPxLabel ID="labelAlerta" runat="server" />
+        </div>
+     <link href="css/breadCrumb.css" rel="stylesheet">
+     <div id="cssmenu" style="margin-top:60px;" class="row">  
+    <ul>
+        <li class="active"><a href="DetailsDescargaFactura.aspx">Descarga de Facturas</a></li>
+        <li><a href="DetailsListaFactura.aspx">Listado de Facturas</a></li>
+        <li><a href="DatosCliente.aspx">Datos Cliente</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+    </ul>
+</div>    
+
+
+
+
+
     <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=LoadMap" async defer></script>
-    <div>
-         <dx:ASPxPageControl ID="pageConsumos" Width="100%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"  Border-BorderStyle="None" CssClass="page-header" >
+    <div class="fade-in animacion">
+         <dx:ASPxPageControl ID="pageConsumos" Width="100%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"  Border-BorderStyle="None" CssClass="page-header" Theme="Office365" >
         <TabPages>
             <dx:TabPage Text="CONSUMOS">
                 <ContentCollection>
                         <dx:ContentControl ID="ContentControl2" runat="server">
-                             <dx:BootstrapGridView ID="bgvConsumo" runat="server"  KeyFieldName="ID" ClientSideEvents-BeginCallback="ocultarDetalles"  >
+
+                            <dx:ASPxRoundPanel ID="panelConsumos" ClientInstanceName="panelDetallesConsumo" HeaderText="LISTA DE CONSUMOS" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes fade-in animacion" HeaderStyle-ForeColor="Gray">
+<HeaderStyle ForeColor="Gray"></HeaderStyle>
+                    <PanelCollection>
+            <dx:PanelContent>
+                                
+                                <dx:BootstrapGridView ID="bgvConsumo" runat="server"  KeyFieldName="ID" ClientSideEvents-BeginCallback="ocultarDetalles"  >
+                                    <ClientSideEvents BeginCallback="ocultarDetalles" />
     <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
     <Settings ShowTitlePanel="true" />
     <Settings ShowGroupPanel="true"/>
@@ -111,7 +96,7 @@ fieldset[disabled] .btn-sample.active {
     <SettingsBehavior AllowFocusedRow="True" />
     <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>
     <Columns>
-        <dx:BootstrapGridViewTextColumn FieldName="ID"   HorizontalAlign="Center"  >    
+        <dx:BootstrapGridViewTextColumn FieldName="ID"   HorizontalAlign="Center"   >    
                          <DataItemTemplate>
                             <asp:LinkButton runat="server" Text='<%#Eval("ID")%>' OnClick="button1_Click" ID='button1'  />
                          </DataItemTemplate>   
@@ -137,20 +122,64 @@ fieldset[disabled] .btn-sample.active {
         <dx:ASPxSummaryItem FieldName="Importe" SummaryType="Sum" DisplayFormat="c"  />
     </TotalSummary>
 </dx:BootstrapGridView> 
-                            <div id="detallesConsumo" runat="server" class="detalles"  >
-    <dx:ASPxPageControl ID="pageDetalles" Width="100%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"  Border-BorderStyle="None" CssClass="page-header" >
+
+                </dx:PanelContent>
+                        </PanelCollection>
+
+<Border BorderColor="Gray" BorderStyle="None" BorderWidth="0px"></Border>
+                </dx:ASPxRoundPanel>
+
+<dx:ASPxRoundPanel ID="panelDetallesConsumo" ClientInstanceName="panelDetallesConsumo" HeaderText="DETALLES DEL CONSUMO" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes fade-in animacion" HeaderStyle-ForeColor="Gray">
+<HeaderStyle ForeColor="Gray"></HeaderStyle>
+                    <PanelCollection>
+            <dx:PanelContent>
+
+
+
+
+
+
+
+                <div id="detallesConsumo" runat="server" class="detalles"  >
+    <dx:ASPxPageControl ID="carTabPage" Width="100%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"  Border-BorderStyle="None"  Theme="Metropolis" EnableTabScrolling="true">
         <TabPages>
             <dx:TabPage Text="TICKET">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl1" runat="server">
-                 <iframe id="ticket" style="position:relative; width: 100% ; height:600px;" runat="server" ></iframe>
+                <dx:ASPxRibbon ID="Ribbon" ClientInstanceName="Ribbon" runat="server" ShowGroupLabels="False" ShowFileTab="False" Width="100%" Theme="Office365" Minimized="True" Visible="true"   >
+            <Styles TabContent-BackColor="White" GroupSeparator-BackColor="Transparent" GroupSeparator-Border-BorderStyle="None"  >
+                <Item Width="100px"></Item>
+                <GroupExpandButton Width="100px" BackColor="White"></GroupExpandButton>
+
+<GroupSeparator Border-BorderStyle="None" BackColor="Transparent"></GroupSeparator>
+
+                <TabContent Height="30px"/>
+            </Styles>
+            <Tabs>
+                <dx:RibbonTab Text="Descargar" >
+                    <Groups>
+                        <dx:RibbonGroup Text="Home">
+                            <Items>
+                                <dx:RibbonButtonItem  NavigateUrl="javascript:descargarDocumento()"  Name="DESCARGAR" ToolTip="DESCARGAR DOCUMENTO" >
+                                    <LargeImage IconID="actions_download_32x32"></LargeImage>
+                                    <SmallImage IconID="actions_download_16x16">
+                                    </SmallImage>
+                                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                </dx:RibbonButtonItem>
+                            </Items>
+                        </dx:RibbonGroup>
+                    </Groups>
+                </dx:RibbonTab>
+            </Tabs>
+        </dx:ASPxRibbon>
+                 <iframe id="ticket" style="position:relative; width: 100% ; height:400px;" runat="server" class="shadowBox" ></iframe>
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>
             <dx:TabPage Text="FOTOGRAFÍA">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl3" runat="server">
-                        <dx:ASPxImageSlider ID="imageSlider" runat="server" ClientInstanceName="imageSlider" CssClass="imageSlider carousel"  Width="100%">
+                        <dx:ASPxImageSlider ID="imageSlider" runat="server" ClientInstanceName="imageSlider" CssClass="imageSlider carousel"  Width="90%">
                             <SettingsSlideShow AutoPlay="true" StopPlayingWhenPaging="true" PausePlayingWhenMouseOver="true" />
                          </dx:ASPxImageSlider>
                     </dx:ContentControl>
@@ -159,27 +188,51 @@ fieldset[disabled] .btn-sample.active {
             <dx:TabPage Text="GEOLOCALIZACIÓN">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl4" runat="server">
-                  <div id="myMap" style="position:relative; width: 100% ; height:600px;" ></div>
+                  <div id="myMap" style="position:relative; width: 90% ; height:500px;" ></div>
+                        <iframe runat="server" id="mapagoogle"  style="width:100%;height:500px;"></iframe>
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>
         </TabPages>
+
+<Border BorderStyle="None"></Border>
     </dx:ASPxPageControl>	
     </div>	
+                </dx:PanelContent>
+                        </PanelCollection>
+
+<Border BorderColor="Gray" BorderStyle="None" BorderWidth="0px"></Border>
+    </dx:ASPxRoundPanel>
+        
+    <asp:HiddenField ID="hiddenURL" runat="server" />
+    <asp:HiddenField ID="ticketName" runat="server" />
                         </dx:ContentControl>
                     </ContentCollection>
             </dx:TabPage>
             <dx:TabPage Text="PDF">
                 <ContentCollection>
-                    
+                    <dx:ContentControl ID="ContentControl5" runat="server">
+                  <iframe id="iframePDF" style="position:relative; width: 100% ; height:600px;" class="shadowBox" runat="server" ></iframe>
+                    </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>
             <dx:TabPage Text="XML">
                 <ContentCollection>
-                   
+                   <dx:ContentControl>
+                      
+
+
+                       <div class="wordWrap">
+                        <pre class="brush: xml" id="xmlClass" style="height:600px;" runat="server">
+                        </pre>
+                           <asp:Xml ID="Xml1" runat="server"></asp:Xml>
+                    </div>
+                   </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>
         </TabPages>
+
+<Border BorderStyle="None"></Border>
     </dx:ASPxPageControl>	
     </div>
      

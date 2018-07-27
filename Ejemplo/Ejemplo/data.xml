@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Certificado="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" Fecha="2018-07-23T17:04:38" Folio="280076" FormaPago="02" LugarExpedicion="81285" MetodoPago="PPD" Moneda="MXN" NoCertificado="00001000000404192074" Sello="ZvwTdJoJZ/swO2o9BqS/CqKZTtCQoymAFiqZ7rRmC1yzoY3A+Wf6qUOP6Sb+0Bk6HLO32i+ITDty10ywUiadlGYa25kHhf8cU/ms4ML4BHAqkXR0v1rSbu6SNqsAohSTtgpCyHIsbKLlCFgt7wQnWmJ4MC7Ev7kKlWNsN5tQPxl6ANMv1rDZC0ifgHN2Xu+34MPFz0lUh2z6sqcqn+hy8gQ9Ui6iw46RDH1PL50nqJMAPzq+ss2xvxwmfbCS+z32u380kkRMf+L6elLWszJh5Oy0f4fjkoYWH5TIBOL/n+/C8d+7HPMoxUQjGuEGJ2Up3+KPtDt37K2MHX9boFcC0A==" Serie="FEAC" SubTotal="26821.67" TipoDeComprobante="I" Total="31016.01" Version="3.3" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd">
+  <cfdi:Emisor Nombre="SERVICIOS DEL VALLE DEL FUERTE S.A. DE C.V." RegimenFiscal="601" Rfc="SVF700817JG9" />
+  <cfdi:Receptor Nombre="SERVICIOS DEL VALLE DEL FUERTE S.A. DE C.V." Rfc="SVF700817JG9" UsoCFDI="G03" />
+  <cfdi:Conceptos>
+    <cfdi:Concepto Cantidad="38.075" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="618.55" ValorUnitario="16.245568">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="603.125000" Importe="96.50" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="85.562" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="1384.09" ValorUnitario="16.176457">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="1349.437500" Importe="215.91" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="51.232" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="833.17" ValorUnitario="16.262687">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="812.437500" Importe="129.99" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="51.875" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="844.08" ValorUnitario="16.271422">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="823.062500" Importe="131.69" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="47.695" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="778.53" ValorUnitario="16.323095">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="759.187500" Importe="121.47" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="94.942" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="PREMIUM 32012" Importe="1647.50" ValorUnitario="17.352700">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="1600.562500" Importe="256.09" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="129.415" ClaveProdServ="15101505" ClaveUnidad="LTR" Descripcion="DIESEL 34006" Importe="2191.56" ValorUnitario="16.934358">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="2148.000000" Importe="343.68" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="40.000" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="648.10" ValorUnitario="16.202500">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="631.875000" Importe="101.10" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="20.000" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="324.39" ValorUnitario="16.219500">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="316.312500" Importe="50.61" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="37.228" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="604.79" ValorUnitario="16.245568">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="589.687500" Importe="94.35" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="20.000" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="324.05" ValorUnitario="16.202500">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="315.937500" Importe="50.55" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="5.335" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="86.53" ValorUnitario="16.219306">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="84.375000" Importe="13.50" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="29.044" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="472.59" ValorUnitario="16.271519">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="460.812500" Importe="73.73" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="50.969" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="831.98" ValorUnitario="16.323255">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="811.312500" Importe="129.81" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="33.827" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="562.36" ValorUnitario="16.624590">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="548.687500" Importe="87.79" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="41.700" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="679.96" ValorUnitario="16.305995">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="663.062500" Importe="106.09" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="40.398" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="674.75" ValorUnitario="16.702560">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="658.375000" Importe="105.34" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="40.000" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="648.10" ValorUnitario="16.202500">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="631.875000" Importe="101.10" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="16.051" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="259.65" ValorUnitario="16.176562">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="253.125000" Importe="40.50" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="10.753" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="173.01" ValorUnitario="16.089463">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="168.687500" Importe="26.99" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="39.085" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="650.80" ValorUnitario="16.650889">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="634.937500" Importe="101.59" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="38.922" ClaveProdServ="15101506" ClaveUnidad="LTR" Descripcion="MAGNA SIN 32011" Importe="631.64" ValorUnitario="16.228354">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="615.875000" Importe="98.54" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="210.910" ClaveProdServ="15101505" ClaveUnidad="LTR" Descripcion="DIESEL 34006" Importe="3560.71" ValorUnitario="16.882604">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="3489.750000" Importe="558.36" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="211.850" ClaveProdServ="15101505" ClaveUnidad="LTR" Descripcion="DIESEL 34006" Importe="3587.53" ValorUnitario="16.934293">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="3516.312500" Importe="562.61" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto Cantidad="224.360" ClaveProdServ="15101505" ClaveUnidad="LTR" Descripcion="DIESEL 34006" Importe="3803.25" ValorUnitario="16.951551">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="3727.812500" Importe="596.45" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos TotalImpuestosTrasladados="4194.34">
+    <cfdi:Traslados>
+      <cfdi:Traslado Importe="4194.34" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa" />
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital FechaTimbrado="2018-07-23T18:04:50" NoCertificadoSAT="00001000000404998014" RfcProvCertif="PPD101129EA3" SelloCFD="ZvwTdJoJZ/swO2o9BqS/CqKZTtCQoymAFiqZ7rRmC1yzoY3A+Wf6qUOP6Sb+0Bk6HLO32i+ITDty10ywUiadlGYa25kHhf8cU/ms4ML4BHAqkXR0v1rSbu6SNqsAohSTtgpCyHIsbKLlCFgt7wQnWmJ4MC7Ev7kKlWNsN5tQPxl6ANMv1rDZC0ifgHN2Xu+34MPFz0lUh2z6sqcqn+hy8gQ9Ui6iw46RDH1PL50nqJMAPzq+ss2xvxwmfbCS+z32u380kkRMf+L6elLWszJh5Oy0f4fjkoYWH5TIBOL/n+/C8d+7HPMoxUQjGuEGJ2Up3+KPtDt37K2MHX9boFcC0A==" SelloSAT="EnTdDEdVKV9swMP9fuOHK/tSaQKVSwMbHEJEcIrDnudbzWR5UGUqpWyBRvXTHMd/UwDkd9GqboZjeacvSSBFrj0h/3pOINuT64/P5UyI0NXM/k/H4J79JvlPC0lW4uhOj1dzWkFc6xAlQNcKr+ZQqESEzM8pHjSIs11n6MZIX2ZgFdE5h6Kg5N+ILGyltZIa2/nEibvBaC+XRqMBTqVZulYrRS98Yqmnd5J5LR4pMIdpXT7WFETHjgeuo/ArthXTJPefhg7mV7EReELpt36I3XxDEvAoIYIgVfItc8JLCgxQnHfAVarLoYbB6FigYLS/8GKcCdXNQwPJsV5vUvKyfg==" UUID="0AA2E0C9-B16F-43A4-9B62-0019BDBA3A79" Version="1.1" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/cfd/timbrefiscaldigital/TimbreFiscalDigitalv11.xsd" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" />
+  </cfdi:Complemento>
+</cfdi:Comprobante>

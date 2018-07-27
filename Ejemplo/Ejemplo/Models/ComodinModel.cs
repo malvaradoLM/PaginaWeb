@@ -476,6 +476,8 @@ namespace Ejemplo.Models
             {
                 public string pathPDF { get; set; }
                 public string pathXML { get; set; }
+
+                public string errorFile { get; set; }
             }
             public class pathConsumoFactura
             {
