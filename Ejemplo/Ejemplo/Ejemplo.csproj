@@ -171,6 +171,7 @@
     <Content Include="DetailsEdoCta.aspx" />
     <Content Include="DetailsFacturaPendienteByPago.aspx" />
     <Content Include="DetailsListaFactura.aspx" />
+    <Content Include="Documentos.aspx" />
     <Content Include="EditarUsuario.aspx" />
     <Content Include="EnvioInformacion.aspx" />
     <Content Include="ExcelPage.aspx" />
@@ -573,6 +574,13 @@
     </Compile>
     <Compile Include="DetailsListaFactura.aspx.designer.cs">
       <DependentUpon>DetailsListaFactura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Documentos.aspx.cs">
+      <DependentUpon>Documentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Documentos.aspx.designer.cs">
+      <DependentUpon>Documentos.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditarUsuario.aspx.cs">
       <DependentUpon>EditarUsuario.aspx</DependentUpon>

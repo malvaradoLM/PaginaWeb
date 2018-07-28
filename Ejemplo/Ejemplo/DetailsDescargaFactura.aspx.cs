@@ -27,6 +27,7 @@ namespace Ejemplo
             string serie, folio;
             serie = Session["Serie"].ToString();
             folio = Session["Folio"].ToString();
+            ticketName.Value = serie + folio;
             if (serie != "" && folio != "") cargarConsumos(serie, folio);
             if (!IsPostBack)
             {
@@ -155,6 +156,8 @@ namespace Ejemplo
             }
             else
             {
+                HiddenUrlPDF.Value = resultado.pathPDF;
+                HiddenUrlXML.Value = resultado.pathXML;
                 if (resultado.pathPDF != null) iframePDF.Src = resultado.pathPDF + "#page=1&zoom=50";
                 if (resultado.pathXML != null) {
 
@@ -167,9 +170,6 @@ namespace Ejemplo
                     //  lblXml.Text = File.ReadAllText(Server.MapPath(resultado.pathXML));
                     XmlDocument doc = new XmlDocument();
                     doc.LoadXml(html);
-                    XmlTextWriter writerXml = new XmlTextWriter(System.AppDomain.CurrentDomain.BaseDirectory +"data.xml", null);
-                    writerXml.Formatting = Formatting.Indented;
-                    doc.Save(writerXml);
                     string xmlfinal = "";
                     foreach(char c in doc.InnerXml)
                     {
@@ -191,6 +191,39 @@ namespace Ejemplo
             /// data.PathXML = resultado.pathXML;
           
 
+        }
+
+        protected void btnConsumosPDF_Click(object sender, EventArgs e)
+        {
+            llamarConsumoDocumento("PDF");
+        }
+        private void llamarConsumoDocumento(string formato)
+        {
+            string serie, folio;
+            serie = Session["Serie"].ToString();
+            folio = Session["Folio"].ToString();
+            string _GasolineroID = @Session["GasolineroID"].ToString();
+            string c2 = @"""";
+            string paramSerie = @"@Serie = """;
+            string paramFacturaINI = @""", @FacturaINI = """;
+            string paramFacturaFIN = @""", @FacturaFIN = """;
+
+            string ParametrosReporte = paramSerie + serie + paramFacturaINI + folio + paramFacturaFIN + folio + c2;
+            string ReporteNombre = "CONSUMOS X FACTURA";
+            string TipoArchivo = formato;
+            Rutinas InfoConsumoFactura = new Rutinas();
+            ComodinModel.BigViewModel.pathConsumoFactura resultado2 = InfoConsumoFactura.GetInfoConsumoFactura(_GasolineroID, serie, folio, ReporteNombre, ParametrosReporte, TipoArchivo);
+            if (resultado2.pathImpresion != "")
+            {
+                Session["path"] = resultado2.pathImpresion;
+                Session["formato"] = formato;
+                Response.Redirect("Documentos.aspx", false);
+            }
+        }
+
+        protected void btnConsumosExcel_Click(object sender, EventArgs e)
+        {
+            llamarConsumoDocumento("XLS");
         }
     }
 }

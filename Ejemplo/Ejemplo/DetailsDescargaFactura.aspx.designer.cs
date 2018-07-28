@@ -58,6 +58,33 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxRoundPanel panelConsumos;
         
         /// <summary>
+        /// btnTicketsPDF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnTicketsPDF;
+        
+        /// <summary>
+        /// btnConsumosExcel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnConsumosExcel;
+        
+        /// <summary>
+        /// btnConsumosPDF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnConsumosPDF;
+        
+        /// <summary>
         /// bgvConsumo control.
         /// </summary>
         /// <remarks>
@@ -184,6 +211,15 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ContentControl ContentControl5;
         
         /// <summary>
+        /// ASPxRibbon1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRibbon ASPxRibbon1;
+        
+        /// <summary>
         /// iframePDF control.
         /// </summary>
         /// <remarks>
@@ -191,6 +227,15 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlIframe iframePDF;
+        
+        /// <summary>
+        /// ASPxRibbon2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRibbon ASPxRibbon2;
         
         /// <summary>
         /// xmlClass control.
@@ -209,5 +254,23 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Xml Xml1;
+        
+        /// <summary>
+        /// HiddenUrlPDF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenUrlPDF;
+        
+        /// <summary>
+        /// HiddenUrlXML control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenUrlXML;
     }
 }

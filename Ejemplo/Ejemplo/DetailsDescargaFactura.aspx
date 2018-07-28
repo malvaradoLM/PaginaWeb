@@ -46,14 +46,70 @@
     width: 1200px;
     height: 800px;
 }
+.floatButton{
+    float:right;
+        margin-left: 1px;
+}
+.alignHeader{
+    text-align:center;
+}
  </style>
-    <script type="text/javascript">
-        function ocultarDetalles(s, e) {
-            if (document.getElementById('<%= detallesConsumo.ClientID %>') != null) {
+<script>
+    function ocultarDetalles(s, e) {
+        if (document.getElementById('<%= detallesConsumo.ClientID %>') != null) {
             document.getElementById('<%= detallesConsumo.ClientID %>').remove("visible");
+            document.getElementById('<%= panelDetallesConsumo.ClientID %>').remove("visible");
+        }
+    }
+    function descargarDocumento(s, e) {
+        var url = document.getElementById("<%=hiddenURL.ClientID%>");
+        var descarga = url.value;
+        var nombreDoc = document.getElementById("<%=ticketName.ClientID%>");
+        download_file(url.value, nombreDoc.value +".pdf");
+    }
+    function descargarDocumentoPDF(s, e) {
+        var url = document.getElementById("<%=HiddenUrlPDF.ClientID%>");
+        var descarga = url.value;
+        var nombreDoc = document.getElementById("<%=ticketName.ClientID%>");
+        download_file(url.value, nombreDoc.value + ".pdf");
+    }
+    function descargarDocumentoXML(s, e) {
+        var url = document.getElementById("<%=HiddenUrlXML.ClientID%>");
+        var descarga = url.value;
+        var nombreDoc = document.getElementById("<%=ticketName.ClientID%>");
+        download_file(url.value, nombreDoc.value + ".xml");
+    }
+    function download_file(fileURL, fileName) {
+        // for non-IE
+        if (!window.ActiveXObject) {
+            var save = document.createElement('a');
+            save.href = fileURL;
+            save.target = '_blank';
+            var filename = fileURL.substring(fileURL.lastIndexOf('/') + 1);
+            save.download = fileName || filename;
+            if (navigator.userAgent.toLowerCase().match(/(ipad|iphone|safari)/) && navigator.userAgent.search("Chrome") < 0) {
+                document.location = save.href;
+                // window event not working here
+            } else {
+                var evt = new MouseEvent('click', {
+                    'view': window,
+                    'bubbles': true,
+                    'cancelable': false
+                });
+                save.dispatchEvent(evt);
+                (window.URL || window.webkitURL).revokeObjectURL(save.href);
             }
         }
-</script>
+
+        // for IE < 11
+        else if (!!window.ActiveXObject && document.execCommand) {
+            var _window = window.open(fileURL, '_blank');
+            _window.document.close();
+            _window.document.execCommand('SaveAs', true, fileName || fileURL)
+            _window.close();
+        }
+    }
+        </script>
 
     <div class="alert alert-warning" id="msjAlerta" runat="server" visible="false">
         <strong>Advertencia! </strong>
@@ -62,7 +118,7 @@
      <link href="css/breadCrumb.css" rel="stylesheet">
      <div id="cssmenu" style="margin-top:60px;" class="row">  
     <ul>
-        <li class="active"><a href="DetailsDescargaFactura.aspx">Descarga de Facturas</a></li>
+        <li class="active"><a href="DetailsDescargaFactura.aspx">Descarga de Factura</a></li>
         <li><a href="DetailsListaFactura.aspx">Listado de Facturas</a></li>
         <li><a href="DatosCliente.aspx">Datos Cliente</a></li>
         <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
@@ -81,12 +137,14 @@
                 <ContentCollection>
                         <dx:ContentControl ID="ContentControl2" runat="server">
 
-                            <dx:ASPxRoundPanel ID="panelConsumos" ClientInstanceName="panelDetallesConsumo" HeaderText="LISTA DE CONSUMOS" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes fade-in animacion" HeaderStyle-ForeColor="Gray">
+                            <dx:ASPxRoundPanel ID="panelConsumos" ClientInstanceName="panelDetallesConsumo" HeaderText="LISTA DE CONSUMOS" runat="server" Width="100%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes fade-in animacion" HeaderStyle-ForeColor="Gray">
 <HeaderStyle ForeColor="Gray"></HeaderStyle>
                     <PanelCollection>
-            <dx:PanelContent>
-                                
-                                <dx:BootstrapGridView ID="bgvConsumo" runat="server"  KeyFieldName="ID" ClientSideEvents-BeginCallback="ocultarDetalles"  >
+            <dx:PanelContent>                       
+               <dx:ASPxButton ID="btnTicketsPDF" Text="TICKETS PDF" runat="server" Theme="Office365" CssClass="floatButton shadowBoxMin" />               
+                  <dx:ASPxButton ID="btnConsumosExcel" Text="CONSUMOS XLS" OnClick="btnConsumosExcel_Click" runat="server" Theme="Office365" CssClass="floatButton shadowBoxMin" />
+                <dx:ASPxButton ID="btnConsumosPDF" OnClick="btnConsumosPDF_Click" Text="CONSUMOS PDF" runat="server" Theme="Office365" CssClass="floatButton shadowBoxMin" />
+                                <dx:BootstrapGridView ID="bgvConsumo" runat="server"  KeyFieldName="ID" ClientSideEvents-BeginCallback="ocultarDetalles" Width="100%">
                                     <ClientSideEvents BeginCallback="ocultarDetalles" />
     <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
     <Settings ShowTitlePanel="true" />
@@ -96,7 +154,7 @@
     <SettingsBehavior AllowFocusedRow="True" />
     <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>
     <Columns>
-        <dx:BootstrapGridViewTextColumn FieldName="ID"   HorizontalAlign="Center"   >    
+        <dx:BootstrapGridViewTextColumn FieldName="ID"   HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" >    
                          <DataItemTemplate>
                             <asp:LinkButton runat="server" Text='<%#Eval("ID")%>' OnClick="button1_Click" ID='button1'  />
                          </DataItemTemplate>   
@@ -129,16 +187,10 @@
 <Border BorderColor="Gray" BorderStyle="None" BorderWidth="0px"></Border>
                 </dx:ASPxRoundPanel>
 
-<dx:ASPxRoundPanel ID="panelDetallesConsumo" ClientInstanceName="panelDetallesConsumo" HeaderText="DETALLES DEL CONSUMO" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes fade-in animacion" HeaderStyle-ForeColor="Gray">
+<dx:ASPxRoundPanel ID="panelDetallesConsumo" ClientInstanceName="panelDetallesConsumo" HeaderText="DETALLES DEL CONSUMO" runat="server" Width="100%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes fade-in animacion" HeaderStyle-ForeColor="Gray">
 <HeaderStyle ForeColor="Gray"></HeaderStyle>
                     <PanelCollection>
             <dx:PanelContent>
-
-
-
-
-
-
 
                 <div id="detallesConsumo" runat="server" class="detalles"  >
     <dx:ASPxPageControl ID="carTabPage" Width="100%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"  Border-BorderStyle="None"  Theme="Metropolis" EnableTabScrolling="true">
@@ -172,14 +224,14 @@
                 </dx:RibbonTab>
             </Tabs>
         </dx:ASPxRibbon>
-                 <iframe id="ticket" style="position:relative; width: 100% ; height:400px;" runat="server" class="shadowBox" ></iframe>
+                 <iframe id="ticket" style="position:relative; width: 100% ; height:500px;" runat="server" class="shadowBox fade-in animacion" ></iframe>
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>
             <dx:TabPage Text="FOTOGRAFÍA">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl3" runat="server">
-                        <dx:ASPxImageSlider ID="imageSlider" runat="server" ClientInstanceName="imageSlider" CssClass="imageSlider carousel"  Width="90%">
+                        <dx:ASPxImageSlider ID="imageSlider" runat="server" ClientInstanceName="imageSlider" CssClass="imageSlider carousel fade-in animacion"  Width="100%" Height="500">
                             <SettingsSlideShow AutoPlay="true" StopPlayingWhenPaging="true" PausePlayingWhenMouseOver="true" />
                          </dx:ASPxImageSlider>
                     </dx:ContentControl>
@@ -188,8 +240,8 @@
             <dx:TabPage Text="GEOLOCALIZACIÓN">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl4" runat="server">
-                  <div id="myMap" style="position:relative; width: 90% ; height:500px;" ></div>
-                        <iframe runat="server" id="mapagoogle"  style="width:100%;height:500px;"></iframe>
+                  <div id="myMap" style="position:relative; width: 100% ; height:500px;" ></div>
+                        <iframe runat="server" id="mapagoogle"  style="width:100%;height:500px;" class="shadowBox fade-in animacion"></iframe>
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>
@@ -212,17 +264,60 @@
             <dx:TabPage Text="PDF">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl5" runat="server">
-                  <iframe id="iframePDF" style="position:relative; width: 100% ; height:600px;" class="shadowBox" runat="server" ></iframe>
+                        <dx:ASPxRibbon ID="ASPxRibbon1" ClientInstanceName="Ribbon" runat="server" ShowGroupLabels="False" ShowFileTab="False" Width="100%" Theme="Office365" Minimized="True" Visible="true"   >
+            <Styles TabContent-BackColor="White" GroupSeparator-BackColor="Transparent" GroupSeparator-Border-BorderStyle="None"  >
+                <Item Width="100px"></Item>
+                <GroupExpandButton Width="100px" BackColor="White"></GroupExpandButton>
+                <TabContent Height="30px"/>
+            </Styles>
+            <Tabs>
+                <dx:RibbonTab Text="Descargar">
+                    <Groups>
+                        <dx:RibbonGroup Text="Home">
+                            <Items>
+                                <dx:RibbonButtonItem  NavigateUrl="javascript:descargarDocumentoPDF()"  Name="DESCARGAR" ToolTip="DESCARGAR DOCUMENTO" >
+                                    <LargeImage IconID="actions_download_32x32"></LargeImage>
+                                    <SmallImage IconID="actions_download_16x16">
+                                    </SmallImage>
+                                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                </dx:RibbonButtonItem>
+                            </Items>
+                        </dx:RibbonGroup>
+                    </Groups>
+                </dx:RibbonTab>
+            </Tabs>
+        </dx:ASPxRibbon>
+                  <iframe id="iframePDF" style="position:relative; width: 100% ; height:600px;" class="shadowBox fade-in animacion" runat="server" ></iframe>
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>
             <dx:TabPage Text="XML">
                 <ContentCollection>
                    <dx:ContentControl>
-                      
-
-
-                       <div class="wordWrap">
+                       <dx:ASPxRibbon ID="ASPxRibbon2" ClientInstanceName="Ribbon" runat="server" ShowGroupLabels="False" ShowFileTab="False" Width="100%" Theme="Office365" Minimized="True" Visible="true"   >
+            <Styles TabContent-BackColor="White" GroupSeparator-BackColor="Transparent" GroupSeparator-Border-BorderStyle="None"  >
+                <Item Width="100px"></Item>
+                <GroupExpandButton Width="100px" BackColor="White"></GroupExpandButton>
+                <TabContent Height="30px"/>
+            </Styles>
+            <Tabs>
+                <dx:RibbonTab Text="Descargar">
+                    <Groups>
+                        <dx:RibbonGroup Text="Home">
+                            <Items>
+                                <dx:RibbonButtonItem  NavigateUrl="javascript:descargarDocumentoXML()"  Name="DESCARGAR" ToolTip="DESCARGAR DOCUMENTO" >
+                                    <LargeImage IconID="actions_download_32x32"></LargeImage>
+                                    <SmallImage IconID="actions_download_16x16">
+                                    </SmallImage>
+                                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                </dx:RibbonButtonItem>
+                            </Items>
+                        </dx:RibbonGroup>
+                    </Groups>
+                </dx:RibbonTab>
+            </Tabs>
+        </dx:ASPxRibbon>
+                       <div class="wordWrap fade-in animacion">
                         <pre class="brush: xml" id="xmlClass" style="height:600px;" runat="server">
                         </pre>
                            <asp:Xml ID="Xml1" runat="server"></asp:Xml>
@@ -236,5 +331,6 @@
     </dx:ASPxPageControl>	
     </div>
      
-
+    <asp:HiddenField ID="HiddenUrlPDF" runat="server" />
+    <asp:HiddenField ID="HiddenUrlXML" runat="server" />
 </asp:Content>
