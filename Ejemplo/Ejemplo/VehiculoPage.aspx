@@ -98,7 +98,7 @@ border-color: #ddd;
     </ul>
 </div>  
     <dx:BootstrapGridView ID="bgvVehiculo" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="VehiculoID" CssClassesPager-Control="true" Width="80%" CssClasses-Control="FloatRight fade-in animacion"   >
-                  <SettingsAdaptivity AdaptivityMode="HideDataCellsWindowLimit"/>
+                <SettingsAdaptivity  AdaptivityMode="HideDataCells" AllowOnlyOneAdaptiveDetailExpanded="true" />
                 <SettingsSearchPanel Visible="true" ShowApplyButton="true"  />
                 <Settings ShowGroupPanel="true" />
                 <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" " />

@@ -30,6 +30,7 @@
     <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
     <SettingsBehavior AllowFocusedRow="True" />
     <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>
+    <SettingsAdaptivity  AdaptivityMode="HideDataCells" AllowOnlyOneAdaptiveDetailExpanded="true" />
     <Columns>
                     <dx:BootstrapGridViewTextColumn FieldName="Serie" HorizontalAlign="Center" >
                     </dx:BootstrapGridViewTextColumn>

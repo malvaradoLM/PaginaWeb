@@ -153,6 +153,7 @@
     <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
     <SettingsBehavior AllowFocusedRow="True" />
     <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>
+    <SettingsAdaptivity  AdaptivityMode="HideDataCells" AllowOnlyOneAdaptiveDetailExpanded="true" />
     <Columns>
         <dx:BootstrapGridViewTextColumn FieldName="ID"   HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" >    
                          <DataItemTemplate>
@@ -318,7 +319,7 @@
             </Tabs>
         </dx:ASPxRibbon>
                        <div class="wordWrap fade-in animacion">
-                        <pre class="brush: xml" id="xmlClass" style="height:600px;" runat="server">
+                        <pre class="brush: xml" id="xmlClass" style="height:600px;width:100%;"  runat="server">
                         </pre>
                            <asp:Xml ID="Xml1" runat="server"></asp:Xml>
                     </div>
