@@ -206,6 +206,17 @@
     <Content Include="Data\Dataset\spFacturaCliente.xsc">
       <DependentUpon>spFacturaCliente.xsd</DependentUpon>
     </Content>
+    <Content Include="Data\Dataset\spSaldoCliente.xsc">
+      <DependentUpon>spSaldoCliente.xsd</DependentUpon>
+    </Content>
+    <None Include="Data\Dataset\spSaldoCliente.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>spSaldoCliente.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Data\Dataset\spSaldoCliente.xss">
+      <DependentUpon>spSaldoCliente.xsd</DependentUpon>
+    </Content>
     <None Include="Data\Dataset\spFacturaCliente.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -440,6 +451,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>spConsumoDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dataset\spSaldoCliente.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>spSaldoCliente.xsd</DependentUpon>
     </Compile>
     <Compile Include="Data\Dataset\spFacturaCliente.Designer.cs">
       <AutoGen>True</AutoGen>

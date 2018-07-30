@@ -36,6 +36,9 @@
             margin-left: 30%;
              margin-top: 8%;
     }
+.alignHeader{
+    text-align:center;
+}
         </style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="assets/slicknav/jquery.slicknav.min.js"></script>
@@ -58,7 +61,13 @@
         --%>
     
     <link href="css/StylePage1.css" rel="stylesheet">
-   
+   <link href="css/breadCrumb.css" rel="stylesheet">
+ 
+    <div id="cssmenu" style="margin-top:60px;" class="row">  
+    <ul>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+    </ul>
+</div>      
     <div class="tab-content fade-in animacion" style="margin-top:10%;">
     <div class="row fade-in">
         <div class="col-lg-3 fade-in">

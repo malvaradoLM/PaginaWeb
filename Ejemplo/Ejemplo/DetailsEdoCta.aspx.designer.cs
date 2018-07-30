@@ -13,13 +13,40 @@ namespace Ejemplo {
     public partial class DetailsEdoCta {
         
         /// <summary>
-        /// lblNombre control.
+        /// msjAlerta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblNombre;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msjAlerta;
+        
+        /// <summary>
+        /// labelAlerta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel labelAlerta;
+        
+        /// <summary>
+        /// panelParametros control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRoundPanel panelParametros;
+        
+        /// <summary>
+        /// ASPxFormLayout1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxFormLayout ASPxFormLayout1;
         
         /// <summary>
         /// cmbEjercicio control.
@@ -31,40 +58,58 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxComboBox cmbEjercicio;
         
         /// <summary>
-        /// lblPeriodo control.
+        /// cmbPeriodo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblPeriodo;
+        protected global::DevExpress.Web.ASPxComboBox cmbPeriodo;
         
         /// <summary>
-        /// ASPxComboBox1 control.
+        /// LayoutItemNestedControlContainer1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox ASPxComboBox1;
+        protected global::DevExpress.Web.LayoutItemNestedControlContainer LayoutItemNestedControlContainer1;
         
         /// <summary>
-        /// btnProcesar control.
+        /// btnCancelar4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnProcesar;
+        protected global::DevExpress.Web.ASPxButton btnCancelar4;
         
         /// <summary>
-        /// btnCancelar control.
+        /// ASPxLabel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnCancelar;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel1;
+        
+        /// <summary>
+        /// btnProcesar4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnProcesar4;
+        
+        /// <summary>
+        /// panelDetalles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRoundPanel panelDetalles;
         
         /// <summary>
         /// bgvEstadoCuenta control.

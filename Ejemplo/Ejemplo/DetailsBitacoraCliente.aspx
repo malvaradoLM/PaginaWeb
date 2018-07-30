@@ -18,7 +18,7 @@
 }
 .parametroAlign{
     float:unset;
-
+}
  </style>
 <script>
     function descargarDocumento(s, e) {

@@ -305,14 +305,14 @@
                 </dx:RibbonTab>
             </Tabs>
         </dx:ASPxRibbon>
-                 <iframe id="ticket" style="position:relative; width: 100% ; height:400px;" runat="server" class="shadowBox" ></iframe>
+                 <iframe id="ticket" style="position:relative; width: 100% ; height:500px;" runat="server" class="shadowBox fade-in animacion" ></iframe>
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>
             <dx:TabPage Text="FOTOGRAFÍA">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl2" runat="server">
-                        <dx:ASPxImageSlider ID="imageSlider" runat="server" ClientInstanceName="imageSlider" CssClass="imageSlider carousel"  Width="90%">
+                        <dx:ASPxImageSlider ID="imageSlider" runat="server" ClientInstanceName="imageSlider" CssClass="imageSlider carousel fade-in animacion"  Width="100%">
                             <SettingsSlideShow AutoPlay="true" StopPlayingWhenPaging="true" PausePlayingWhenMouseOver="true" />
                          </dx:ASPxImageSlider>
                     </dx:ContentControl>
@@ -322,7 +322,7 @@
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl3" runat="server">
                   <div id="myMap" style="position:relative; width: 90% ; height:500px;" ></div>
-                        <iframe runat="server" id="mapagoogle"  style="width:100%;height:500px;"></iframe>
+                        <iframe runat="server" id="mapagoogle"  style="width:100%;height:500px;" class="fade-in animacion shadowBox"></iframe>
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>

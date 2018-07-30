@@ -21,7 +21,7 @@
 </div>    
 
 
-
+    <div class="fade-in animacion">
 <dx:BootstrapGridView ID="bgvListaFactura" runat="server"  KeyFieldName="Serie" Width="90%"   >
     <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
     <Settings ShowTitlePanel="true" />
@@ -32,19 +32,19 @@
     <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>
     <SettingsAdaptivity  AdaptivityMode="HideDataCells" AllowOnlyOneAdaptiveDetailExpanded="true" />
     <Columns>
-                    <dx:BootstrapGridViewTextColumn FieldName="Serie" HorizontalAlign="Center" >
+                    <dx:BootstrapGridViewTextColumn FieldName="Serie" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader">
                     </dx:BootstrapGridViewTextColumn>
-        <dx:BootstrapGridViewTextColumn FieldName="Folio"   HorizontalAlign="Center"  >    
+        <dx:BootstrapGridViewTextColumn FieldName="Folio"   HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" >    
                          <DataItemTemplate>
                             <asp:LinkButton runat="server" Text='<%#Eval("Folio")%>' OnClick="button1_Click" ID='button1'  />
                          </DataItemTemplate>   
                     </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewTextColumn FieldName="Fecha"  UnboundType="DateTime" HorizontalAlign="Center">
+                    <dx:BootstrapGridViewTextColumn FieldName="Fecha"  UnboundType="DateTime" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader">
                                <PropertiesTextEdit DisplayFormatString="dd/MM/yyyy" />        
                     </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewTextColumn FieldName="Subtotal" UnboundType="Decimal" HorizontalAlign="Center" />               
-                    <dx:BootstrapGridViewTextColumn FieldName="IVA"   UnboundType="Decimal" HorizontalAlign="Center" />           
-                    <dx:BootstrapGridViewTextColumn FieldName="Total" UnboundType="Decimal" HorizontalAlign="Center" />  
+                    <dx:BootstrapGridViewTextColumn FieldName="Subtotal" UnboundType="Decimal" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" />               
+                    <dx:BootstrapGridViewTextColumn FieldName="IVA"   UnboundType="Decimal" HorizontalAlign="Center"  CssClasses-HeaderCell="alignHeader"/>           
+                    <dx:BootstrapGridViewTextColumn FieldName="Total" UnboundType="Decimal" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" />  
     </Columns>
 </dx:BootstrapGridView>
     </div>

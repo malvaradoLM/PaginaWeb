@@ -84,9 +84,9 @@
                 </dx:RibbonTab>
             </Tabs>
         </dx:ASPxRibbon>
-    <iframe id="pdf" runat="server" height="800" style="width:100%;" >
+    <iframe id="pdf" runat="server" height="700" style="width:100%;" class="shadowBox fade-in animacion" >
          </iframe>
-    <dx:ASPxSpreadsheet ID="ASPxSpreadsheet1" runat="server" WorkDirectory="~/App_Data/WorkDirectory" CssClass="fade-in animacion" Width="100%" Height="800" >
+    <dx:ASPxSpreadsheet ID="ASPxSpreadsheet1" runat="server" WorkDirectory="~/App_Data/WorkDirectory" CssClass="shadowBox fade-in animacion" Width="100%" Height="700" >
                     <SettingsDialogs InsertLinkDialog-ShowEmailAddressSection="true" />
                     </dx:ASPxSpreadsheet>
     <asp:HiddenField ID="hiddenURL" runat="server" />

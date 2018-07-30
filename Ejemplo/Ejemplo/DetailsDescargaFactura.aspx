@@ -160,19 +160,19 @@
                             <asp:LinkButton runat="server" Text='<%#Eval("ID")%>' OnClick="button1_Click" ID='button1'  />
                          </DataItemTemplate>   
                     </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewTextColumn FieldName="EstacionID" HorizontalAlign="Center" />
-                    <dx:BootstrapGridViewTextColumn FieldName="Ticket"    UnboundType="String" HorizontalAlign="Center" />
-                    <dx:BootstrapGridViewTextColumn FieldName="FechaCarga"  UnboundType="DateTime" HorizontalAlign="Center">
+                    <dx:BootstrapGridViewTextColumn FieldName="EstacionID" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" />
+                    <dx:BootstrapGridViewTextColumn FieldName="Ticket"    UnboundType="String" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" />
+                    <dx:BootstrapGridViewTextColumn FieldName="FechaCarga"  UnboundType="DateTime" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader">
                                <PropertiesTextEdit DisplayFormatString="dd/MM/yyyy" />        
                     </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewTextColumn FieldName="Producto"   UnboundType="String" HorizontalAlign="Center" />
-        <dx:BootstrapGridViewTextColumn FieldName="Serie"   UnboundType="String" HorizontalAlign="Center" />        
-        <dx:BootstrapGridViewTextColumn FieldName="Folio"   UnboundType="String" HorizontalAlign="Center" />        
-                    <dx:BootstrapGridViewDataColumn FieldName="Cantidad"   UnboundType="Decimal" />
-                    <dx:BootstrapGridViewTextColumn FieldName="Precio"   UnboundType="Decimal" >
+                    <dx:BootstrapGridViewTextColumn FieldName="Producto"   UnboundType="String" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" />
+        <dx:BootstrapGridViewTextColumn FieldName="Serie"   UnboundType="String" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" />        
+        <dx:BootstrapGridViewTextColumn FieldName="Folio"   UnboundType="String" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" />        
+                    <dx:BootstrapGridViewDataColumn FieldName="Cantidad"   UnboundType="Decimal" CssClasses-HeaderCell="alignHeader" />
+                    <dx:BootstrapGridViewTextColumn FieldName="Precio"   UnboundType="Decimal"  CssClasses-HeaderCell="alignHeader">
                              <PropertiesTextEdit DisplayFormatString="c" /> 
                     </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewTextColumn FieldName="Importe"   UnboundType="Decimal" >
+                    <dx:BootstrapGridViewTextColumn FieldName="Importe"   UnboundType="Decimal" CssClasses-HeaderCell="alignHeader" >
                                  <PropertiesTextEdit DisplayFormatString="c" />    
                     </dx:BootstrapGridViewTextColumn>
     </Columns>

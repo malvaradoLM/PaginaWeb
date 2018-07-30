@@ -40,6 +40,9 @@
 .animacionLoad{
         animation: fadeInScale 0.7 ease-in;
 }
+th {
+    text-align:center;
+}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
 

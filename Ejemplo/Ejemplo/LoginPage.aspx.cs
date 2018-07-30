@@ -27,8 +27,9 @@ namespace Ejemplo
                 if (DataModule.LoginService.Login(inputUser.Value, inputPass.Value, out userinfo))
                 {
                     DataModule.Seguridad = userinfo;
-                    
-                    Response.Redirect("Dashboard.aspx", false);
+
+                    // Response.Redirect("Dashboard.aspx", false);
+                    Response.Redirect("MenuPrincipal.aspx", false);
                 }
                 else
                 {

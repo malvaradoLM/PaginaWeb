@@ -1,7 +1,7 @@
 <TDASchema>
   <UnionDataTables IsObject="true" Count="0" IsCollection="true" Type="TDAUnionDataTableCollection" ItemClass="TDAUnionDataTable" />
   <JoinDataTables IsObject="true" Count="0" IsCollection="true" Type="TDAJoinDataTableCollection" ItemClass="TDAJoinDataTable" />
-  <Datasets IsObject="true" Count="39" IsCollection="true" Type="TDADatasetCollection" ItemClass="TDADataset">
+  <Datasets IsObject="true" Count="40" IsCollection="true" Type="TDADatasetCollection" ItemClass="TDADataset">
     <Item0>
       <ReadOnly>False</ReadOnly>
       <Fields IsObject="true" Count="2" IsCollection="true" ItemClass="TDAField" Type="TDASchemaFieldCollection">
@@ -18450,6 +18450,313 @@ ORDER BY FechaCarga
       <Description />
       <Name>spListaConsumoByFolio</Name>
     </Item38>
+    <Item39>
+      <ReadOnly>False</ReadOnly>
+      <Fields IsObject="true" Count="6" IsCollection="true" ItemClass="TDAField" Type="TDASchemaFieldCollection">
+        <Item0>
+          <Name>MovimientoID</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datInteger</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>MovimientoID</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item0>
+        <Item1>
+          <Name>FechaMovimiento</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datDateTime</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>FechaMovimiento</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item1>
+        <Item2>
+          <Name>Referencia</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datWideString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Referencia</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>100</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item2>
+        <Item3>
+          <Name>Cargo</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datDecimal</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Cargo</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>4</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item3>
+        <Item4>
+          <Name>Abono</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datDecimal</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Abono</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>4</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item4>
+        <Item5>
+          <Name>Saldo</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datDecimal</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Saldo</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>4</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item5>
+      </Fields>
+      <BusinessRulesClient IsObject="true" Type="TDAClientBusinessRuleScript">
+        <CompileOnServer>False</CompileOnServer>
+        <RunOnClientAndServer>False</RunOnClientAndServer>
+        <Script />
+        <ScriptLanguageStr />
+        <Description />
+        <Name />
+      </BusinessRulesClient>
+      <BusinessRulesServer Type="TDABusinessRuleScript" IsObject="true">
+        <Script />
+        <ScriptLanguageStr />
+        <Description />
+        <Name />
+      </BusinessRulesServer>
+      <UpdateCommandName />
+      <DeleteCommandName />
+      <InsertCommandName />
+      <Statements IsCollection="true" IsObject="true" Count="1" ItemClass="TDAStatement" Type="TDAStatementCollection">
+        <Item0>
+          <Connection>RPSuite</Connection>
+          <SQL>DECLARE @ClienteID_ int
+DECLARE @Ejercicio_ int
+DECLARE @Periodo_ int
+
+DECLARE @Pendiente float
+DECLARE @SaldoInicial float
+
+SELECT @ClienteID_ = (SELECT upper(:ClienteID))
+SELECT @Ejercicio_ = (SELECT upper(:Ejercicio))
+SELECT @Periodo_ = (SELECT upper(:Periodo))
+
+SELECT @SaldoInicial = 0
+SELECT @Pendiente = 0
+
+SELECT @SaldoInicial = ISNull(SUM(Cargo - Abono), 0)
+FROM Movimiento
+WHERE (ClienteID = @ClienteID_) AND ((Ejercicio &lt; @Ejercicio_) OR ((Ejercicio = @Ejercicio_) 
+      AND (Periodo &lt; @Periodo_)))
+
+select @Pendiente = (Select isnull(SUM(Importe), 0) as Pendiente
+from Consumo
+WHERE (ClienteID = @ClienteID_) and (Facturado = 0))
+
+create table #MiSaldo(
+MovimientoID Int, 
+FechaMovimiento SmallDateTime, 
+Referencia varchar(100), 
+Cargo Money,
+Abono Money,
+Saldo Money)
+
+insert into #MiSaldo Select null as MovimientoID, null as FechaMovimiento, '-= SALDO INICIAL =-' as Referencia, @SaldoInicial as Cargo, 0 As Abono, 0
+
+insert into #MiSaldo select MovimientoID, FechaMovimiento, Referencia, Cargo, Abono, 0 
+					 from Movimiento where (ClienteID = @ClienteID_) and (Ejercicio = @Ejercicio_) and (Periodo = @Periodo_)
+					 order by FechaMovimiento
+
+insert into #MiSaldo Select null as MovimientoID, null as FechaMovimiento, '-= CONSUMOS PENDIENTES DE APLICAR =-' as Referencia, @Pendiente as Cargo, 0 As Abono, 0
+
+SELECT @Pendiente = ISNULL((SELECT SUM(IMPORTE) FROM CUPON WHERE (STATUS = 'A') AND (FACTURADO = 0) AND CLIENTEID = @ClienteID_), 0)
+
+insert into #MiSaldo Select null as MovimientoID, null as FechaMovimiento, '-= CUPONES ACTIVOS =-' as Referencia, @Pendiente as Cargo, 0 As Abono, 0
+
+Select MovimientoID AS MovimientoID,FechaMovimiento AS FechaMovimiento,Referencia AS Referencia,Cargo AS Cargo,Abono as Abono,Saldo AS Saldo
+from #MiSaldo</SQL>
+          <TargetTable />
+          <ConnectionType>SQLite</ConnectionType>
+          <Default>True</Default>
+          <StatementName />
+          <StatementType>stSQL</StatementType>
+          <GeneratorName />
+          <ColumnMappings IsObject="true" Count="0" IsCollection="true" Type="TDAColumnMappingCollection" ItemClass="TDAColumnMapping" />
+          <Description />
+        </Item0>
+      </Statements>
+      <Params IsObject="true" Count="3" IsCollection="true" Type="TDAParamCollection" ItemClass="TDAParam">
+        <Item0>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>ClienteID</Name>
+          <DataType>datInteger</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item0>
+        <Item1>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Ejercicio</Name>
+          <DataType>datInteger</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item1>
+        <Item2>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Periodo</Name>
+          <DataType>datInteger</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item2>
+      </Params>
+      <CustomAttributes />
+      <IsPublic>True</IsPublic>
+      <DynamicWhereXML />
+      <BusinessClassID />
+      <Description />
+      <Name>spSaldoCliente</Name>
+    </Item39>
   </Datasets>
   <Commands IsObject="true" Count="9" IsCollection="true" ItemClass="TDASQLCommand" Type="TDASQLCommandCollection">
     <Item0>

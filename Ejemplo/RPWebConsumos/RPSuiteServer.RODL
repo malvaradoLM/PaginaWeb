@@ -85,7 +85,7 @@
 </Operation>
 <Operation Name="cmdInsertUsuarioWeb" UID="{809D1784-7183-4DE6-90A6-6048F1906CE2}">
 <Parameters>
-<Parameter Name="Result" DataType="WideString" Flag="Result">
+<Parameter Name="Result" DataType="Boolean" Flag="Result">
 </Parameter>
 <Parameter Name="Datos" DataType="TUsuarioWeb" Flag="In" >
 </Parameter>
