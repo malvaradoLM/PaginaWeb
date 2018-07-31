@@ -13,31 +13,58 @@ namespace Ejemplo {
     public partial class EnvioInformacion {
         
         /// <summary>
-        /// lblClienteID control.
+        /// msjAlerta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblClienteID;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msjAlerta;
         
         /// <summary>
-        /// lblClienteIDvalue control.
+        /// lblTitleMensaje control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblClienteIDvalue;
+        protected global::DevExpress.Web.ASPxLabel lblTitleMensaje;
         
         /// <summary>
-        /// lblConsumo control.
+        /// labelAlerta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblConsumo;
+        protected global::DevExpress.Web.ASPxLabel labelAlerta;
+        
+        /// <summary>
+        /// panelParametros control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRoundPanel panelParametros;
+        
+        /// <summary>
+        /// ASPxFormLayout1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxFormLayout ASPxFormLayout1;
+        
+        /// <summary>
+        /// txtClienteID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxTextBox txtClienteID;
         
         /// <summary>
         /// txtConsumo control.
@@ -49,15 +76,6 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxTextBox txtConsumo;
         
         /// <summary>
-        /// lblFacturaEmitida control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblFacturaEmitida;
-        
-        /// <summary>
         /// txtFacturaEmitida control.
         /// </summary>
         /// <remarks>
@@ -65,15 +83,6 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox txtFacturaEmitida;
-        
-        /// <summary>
-        /// lblPagoRealizado control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblPagoRealizado;
         
         /// <summary>
         /// txtPagoRealizado control.
@@ -85,21 +94,48 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxTextBox txtPagoRealizado;
         
         /// <summary>
-        /// btnProcesar control.
+        /// ASPxTextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnProcesar;
+        protected global::DevExpress.Web.ASPxTextBox ASPxTextBox1;
         
         /// <summary>
-        /// btnCancelar control.
+        /// LayoutItemNestedControlContainer1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnCancelar;
+        protected global::DevExpress.Web.LayoutItemNestedControlContainer LayoutItemNestedControlContainer1;
+        
+        /// <summary>
+        /// btnCancelar4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnCancelar4;
+        
+        /// <summary>
+        /// ASPxLabel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel1;
+        
+        /// <summary>
+        /// btnProcesar4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnProcesar4;
     }
 }

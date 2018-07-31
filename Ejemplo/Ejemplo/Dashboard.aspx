@@ -86,10 +86,11 @@
 	</div>
    </div>
     <%-- Fin de Panel donde Estan los saldos del cliente --%>
-
+        </p>
        
-                           <%-- <canvas class="main-chart" id="line-chart" height="200" width="600"></canvas>--%>
-                            <dx:WebChartControl ID="webChartControl" runat="server"  Height="600" Width="1200" Theme="Office365" >
+              <div class="row">
+                  <div class="col-lg-4">
+                            <dx:WebChartControl ID="webChartControl" runat="server"  Height="300" Width="600" Theme="Office365" >
                                 <SeriesTemplate ArgumentDataMember="Descripcion" ValueDataMembersSerializable="Importe" LabelsVisibility="False">
             <ViewSerializable>
                 <dx:SideBySideBar3DSeriesView></dx:SideBySideBar3DSeriesView>
@@ -107,8 +108,8 @@
             </dx:XYDiagram3D>
         </DiagramSerializable>
                             </dx:WebChartControl>
-						    <br />
-                            <br />
+                      </div>
+            </div>
 <%-- Fin de Grafica de Consumos  --%>
 </asp:Content>
 

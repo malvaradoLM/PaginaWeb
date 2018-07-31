@@ -2002,6 +2002,105 @@ namespace RPSuiteServer {
             return new TFacturaCliente();
         }
     }
+    [System.Serializable()]
+    [RemObjects.SDK.Remotable(ActivatorClass=typeof(TMailCliente_Activator))]
+    [System.Reflection.ObfuscationAttribute(Exclude=true)]
+    public partial class TMailCliente : RemObjects.SDK.Types.ComplexType {
+        private int @__ClienteID;
+        private string @__MailConsumo;
+        private string @__MailFactura;
+        private string @__MailRecibido;
+        private string @__Mensaje;
+        public virtual int ClienteID {
+            get {
+                return @__ClienteID;
+            }
+            set {
+                @__ClienteID = value;
+                this.TriggerPropertyChanged("ClienteID");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string MailConsumo {
+            get {
+                return @__MailConsumo;
+            }
+            set {
+                @__MailConsumo = value;
+                this.TriggerPropertyChanged("MailConsumo");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string MailFactura {
+            get {
+                return @__MailFactura;
+            }
+            set {
+                @__MailFactura = value;
+                this.TriggerPropertyChanged("MailFactura");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string MailRecibido {
+            get {
+                return @__MailRecibido;
+            }
+            set {
+                @__MailRecibido = value;
+                this.TriggerPropertyChanged("MailRecibido");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Mensaje {
+            get {
+                return @__Mensaje;
+            }
+            set {
+                @__Mensaje = value;
+                this.TriggerPropertyChanged("Mensaje");
+            }
+        }
+        public override void ReadComplex(RemObjects.SDK.Serializer serializer) {
+            if (serializer.RecordStrictOrder) {
+                this.ClienteID = serializer.ReadInt32("ClienteID");
+                this.MailConsumo = serializer.ReadAnsiString("MailConsumo");
+                this.MailFactura = serializer.ReadAnsiString("MailFactura");
+                this.MailRecibido = serializer.ReadAnsiString("MailRecibido");
+                this.Mensaje = serializer.ReadAnsiString("Mensaje");
+            }
+            else {
+                this.ClienteID = serializer.ReadInt32("ClienteID");
+                this.MailConsumo = serializer.ReadAnsiString("MailConsumo");
+                this.MailFactura = serializer.ReadAnsiString("MailFactura");
+                this.MailRecibido = serializer.ReadAnsiString("MailRecibido");
+                this.Mensaje = serializer.ReadAnsiString("Mensaje");
+            }
+        }
+        public override void WriteComplex(RemObjects.SDK.Serializer serializer) {
+            if (serializer.RecordStrictOrder) {
+                serializer.WriteInt32("ClienteID", this.ClienteID);
+                serializer.WriteAnsiString("MailConsumo", this.MailConsumo);
+                serializer.WriteAnsiString("MailFactura", this.MailFactura);
+                serializer.WriteAnsiString("MailRecibido", this.MailRecibido);
+                serializer.WriteAnsiString("Mensaje", this.Mensaje);
+            }
+            else {
+                serializer.WriteInt32("ClienteID", this.ClienteID);
+                serializer.WriteAnsiString("MailConsumo", this.MailConsumo);
+                serializer.WriteAnsiString("MailFactura", this.MailFactura);
+                serializer.WriteAnsiString("MailRecibido", this.MailRecibido);
+                serializer.WriteAnsiString("Mensaje", this.Mensaje);
+            }
+        }
+    }
+    [System.Reflection.ObfuscationAttribute(Exclude=true, ApplyToMembers=false)]
+    public class TMailCliente_Activator : object, RemObjects.SDK.ITypeActivator {
+        public TMailCliente_Activator() {
+        }
+        public object CreateInstance() {
+            return new TMailCliente();
+        }
+    }
     public interface IRPLoginService : RemObjects.DataAbstract.Server.ISimpleLoginService {
     }
     public partial class RPLoginService_Proxy : RemObjects.DataAbstract.Server.SimpleLoginService_Proxy, IRPLoginService {
@@ -2101,6 +2200,7 @@ namespace RPSuiteServer {
         TAlbum ListaConsumoFotosByID(int ConsumoID);
         bool cmdActualizaVehiculo(TVehiculo Datos);
         bool cmdActualizaUsuarioWeb(TUsuarioWeb Datos);
+        string spSendInformation(int ClienteID, string MailConsumo, string MailFactura, string MailRecibido, string Mensaje);
     }
     public partial class RPDataService_Proxy : RemObjects.DataAbstract.Server.DataAbstractService_Proxy, IRPDataService {
         public RPDataService_Proxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -2353,6 +2453,24 @@ namespace RPSuiteServer {
                 this.@__ClearMessage(@__LocalMessage);
             }
         }
+        public virtual string spSendInformation(int ClienteID, string MailConsumo, string MailFactura, string MailRecibido, string Mensaje) {
+            RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
+            try {
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "spSendInformation");
+                @__LocalMessage.WriteInt32("ClienteID", ClienteID);
+                @__LocalMessage.WriteAnsiString("MailConsumo", MailConsumo);
+                @__LocalMessage.WriteAnsiString("MailFactura", MailFactura);
+                @__LocalMessage.WriteAnsiString("MailRecibido", MailRecibido);
+                @__LocalMessage.WriteAnsiString("Mensaje", Mensaje);
+                @__LocalMessage.FinalizeMessage();
+                this.ClientChannel.Dispatch(@__LocalMessage);
+                string _Result = @__LocalMessage.ReadAnsiString("Result");
+                return _Result;
+            }
+            finally {
+                this.@__ClearMessage(@__LocalMessage);
+            }
+        }
     }
     public class CoRPDataService {
         public static IRPDataService Create(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) {
@@ -2417,6 +2535,9 @@ namespace RPSuiteServer {
         System.IAsyncResult BegincmdActualizaUsuarioWeb(TUsuarioWeb Datos, System.AsyncCallback @__Callback, object @__UserData);
         bool EndcmdActualizaUsuarioWeb(System.IAsyncResult @__AsyncResult);
         System.Threading.Tasks.Task<bool> cmdActualizaUsuarioWebAsync(TUsuarioWeb Datos);
+        System.IAsyncResult BeginspSendInformation(int ClienteID, string MailConsumo, string MailFactura, string MailRecibido, string Mensaje, System.AsyncCallback @__Callback, object @__UserData);
+        string EndspSendInformation(System.IAsyncResult @__AsyncResult);
+        System.Threading.Tasks.Task<string> spSendInformationAsync(int ClienteID, string MailConsumo, string MailFactura, string MailRecibido, string Mensaje);
     }
     public partial class RPDataService_AsyncProxy : RemObjects.DataAbstract.Server.DataAbstractService_AsyncProxy, IRPDataService_Async {
         public RPDataService_AsyncProxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -2860,6 +2981,36 @@ namespace RPSuiteServer {
         }
         public virtual System.Threading.Tasks.Task<bool> cmdActualizaUsuarioWebAsync(TUsuarioWeb Datos) {
             return System.Threading.Tasks.Task<bool>.Factory.FromAsync(this.BegincmdActualizaUsuarioWeb(Datos, null, null), new System.Func<System.IAsyncResult, bool>(this.EndcmdActualizaUsuarioWeb));
+        }
+        public virtual System.IAsyncResult BeginspSendInformation(int ClienteID, string MailConsumo, string MailFactura, string MailRecibido, string Mensaje, System.AsyncCallback @__Callback, object @__UserData) {
+            RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
+            try {
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "spSendInformation");
+                @__LocalMessage.WriteInt32("ClienteID", ClienteID);
+                @__LocalMessage.WriteAnsiString("MailConsumo", MailConsumo);
+                @__LocalMessage.WriteAnsiString("MailFactura", MailFactura);
+                @__LocalMessage.WriteAnsiString("MailRecibido", MailRecibido);
+                @__LocalMessage.WriteAnsiString("Mensaje", Mensaje);
+                @__LocalMessage.FinalizeMessage();
+                return this.ClientChannel.AsyncDispatch(@__LocalMessage, @__Callback, @__UserData);
+            }
+            catch (System.Exception ex) {
+                this.@__ClearMessage(@__LocalMessage);
+                throw ex;
+            }
+        }
+        public virtual string EndspSendInformation(System.IAsyncResult @__AsyncResult) {
+            RemObjects.SDK.IMessage @__LocalMessage = ((RemObjects.SDK.IClientAsyncResult)(@__AsyncResult)).Message;
+            try {
+                string Result = @__LocalMessage.ReadAnsiString("Result");
+                return Result;
+            }
+            finally {
+                this.@__ClearMessage(@__LocalMessage);
+            }
+        }
+        public virtual System.Threading.Tasks.Task<string> spSendInformationAsync(int ClienteID, string MailConsumo, string MailFactura, string MailRecibido, string Mensaje) {
+            return System.Threading.Tasks.Task<string>.Factory.FromAsync(this.BeginspSendInformation(ClienteID, MailConsumo, MailFactura, MailRecibido, Mensaje, null, null), new System.Func<System.IAsyncResult, string>(this.EndspSendInformation));
         }
     }
     public class CoRPDataServiceAsync {

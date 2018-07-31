@@ -13,8 +13,12 @@ namespace Ejemplo
         protected void Page_Load(object sender, EventArgs e)
         {
             // RPSuiteServer.RPDataService RP = new RPSuiteServer.RPDataService();
-            int ClienteID = int.Parse(DataModule.Seguridad.UserID);
-           
+            if(DataModule.Seguridad == null)
+            {
+                Response.Write("<script>alert('LA SESION HA CADUCADO, INICIE SESION NUEVAMENTE');</script>");
+                Response.Redirect("loginpage.aspx", false);
+            }
+            int ClienteID = int.Parse(DataModule.Seguridad.UserID);       
             RPSuiteServer.TCliente DatosCliente = new RPSuiteServer.TCliente();
             DatosCliente = DataModule.DataService.getCliente( ClienteID);
             lblRazonSocial.Text = DatosCliente.RazonSocial;

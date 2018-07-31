@@ -267,6 +267,19 @@ namespace RPSuiteServer {
                 @__ObjectDisposer.Dispose();
             }
         }
+        public static void Invoke_spSendInformation(RemObjects.SDK.IROService @__Instance, RemObjects.SDK.IMessage @__Message, RemObjects.SDK.Server.IServerChannelInfo @__ServerChannelInfo, out RemObjects.SDK.Server.ResponseOptions @__oResponseOptions) {
+            int ClienteID = @__Message.ReadInt32("ClienteID");
+            string MailConsumo = @__Message.ReadAnsiString("MailConsumo");
+            string MailFactura = @__Message.ReadAnsiString("MailFactura");
+            string MailRecibido = @__Message.ReadAnsiString("MailRecibido");
+            string Mensaje = @__Message.ReadAnsiString("Mensaje");
+            string Result;
+            Result = ((IRPDataService)(@__Instance)).spSendInformation(ClienteID, MailConsumo, MailFactura, MailRecibido, Mensaje);
+            @__Message.InitializeResponseMessage(@__ServerChannelInfo, "RPSuiteServer", "RPDataService", "spSendInformationResponse");
+            @__Message.WriteAnsiString("Result", Result);
+            @__Message.FinalizeMessage();
+            @__oResponseOptions = RemObjects.SDK.Server.ResponseOptions.roDefault;
+        }
     }
     [System.Reflection.ObfuscationAttribute(Exclude=true, ApplyToMembers=false)]
     public class RPDataService_Activator : object, RemObjects.SDK.Server.IServiceActivator {

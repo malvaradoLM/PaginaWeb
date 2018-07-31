@@ -89,7 +89,7 @@ namespace Ejemplo
                 resultado = ex.Message;
             }
 
-            Response.Write("<script>window.alert('"+resultado+"');</script>");
+            Response.Write("<script>alert('"+resultado+"');</script>");
 
         }
         private void crearUsuario()

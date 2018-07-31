@@ -209,6 +209,17 @@
     <Content Include="Data\Dataset\spSaldoCliente.xsc">
       <DependentUpon>spSaldoCliente.xsd</DependentUpon>
     </Content>
+    <Content Include="Data\Dataset\spMailCliente.xsc">
+      <DependentUpon>spMailCliente.xsd</DependentUpon>
+    </Content>
+    <None Include="Data\Dataset\spMailCliente.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>spMailCliente.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Data\Dataset\spMailCliente.xss">
+      <DependentUpon>spMailCliente.xsd</DependentUpon>
+    </Content>
     <None Include="Data\Dataset\spSaldoCliente.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -451,6 +462,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>spConsumoDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dataset\spMailCliente.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>spMailCliente.xsd</DependentUpon>
     </Compile>
     <Compile Include="Data\Dataset\spSaldoCliente.Designer.cs">
       <AutoGen>True</AutoGen>

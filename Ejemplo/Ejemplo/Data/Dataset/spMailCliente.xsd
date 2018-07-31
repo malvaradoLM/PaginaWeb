@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="spMailCliente" targetNamespace="http://tempuri.org/spMailCliente.xsd" xmlns:mstns="http://tempuri.org/spMailCliente.xsd" xmlns="http://tempuri.org/spMailCliente.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="spMailCliente" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="spMailCliente" msprop:Generator_UserDSName="spMailCliente">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="spMailCliente" msprop:Generator_TableClassName="spMailClienteDataTable" msprop:Generator_TableVarName="tablespMailCliente" msprop:Generator_TablePropName="_spMailCliente" msprop:Generator_RowDeletingName="spMailClienteRowDeleting" msprop:Generator_RowChangingName="spMailClienteRowChanging" msprop:Generator_RowEvHandlerName="spMailClienteRowChangeEventHandler" msprop:Generator_RowDeletedName="spMailClienteRowDeleted" msprop:Generator_UserTableName="spMailCliente" msprop:Generator_RowChangedName="spMailClienteRowChanged" msprop:Generator_RowEvArgName="spMailClienteRowChangeEvent" msprop:Generator_RowClassName="spMailClienteRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ClienteID" msprop:Generator_ColumnVarNameInTable="columnClienteID" msprop:Generator_ColumnPropNameInRow="ClienteID" msprop:Generator_ColumnPropNameInTable="ClienteIDColumn" msprop:Generator_UserColumnName="ClienteID" type="xs:string" minOccurs="0" />
+              <xs:element name="MailConsumo" msprop:Generator_ColumnVarNameInTable="columnMailConsumo" msprop:Generator_ColumnPropNameInRow="MailConsumo" msprop:Generator_ColumnPropNameInTable="MailConsumoColumn" msprop:Generator_UserColumnName="MailConsumo" type="xs:string" minOccurs="0" />
+              <xs:element name="MailFactura" msprop:Generator_ColumnVarNameInTable="columnMailFactura" msprop:Generator_ColumnPropNameInRow="MailFactura" msprop:Generator_ColumnPropNameInTable="MailFacturaColumn" msprop:Generator_UserColumnName="MailFactura" type="xs:string" minOccurs="0" />
+              <xs:element name="MailRecibo" msprop:Generator_ColumnVarNameInTable="columnMailRecibo" msprop:Generator_ColumnPropNameInRow="MailRecibo" msprop:Generator_ColumnPropNameInTable="MailReciboColumn" msprop:Generator_UserColumnName="MailRecibo" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -569,6 +569,30 @@ namespace RPSuiteServer
                 return false;
             }
         }
+        public string spSendInformation(int ClienteID,string MailConsumo,string MailFactura,string MailRecibido,string mensaje)
+        {
+            string error = "";
+            try
+            {
+
+                using (IDbCommand lcommand = this.ServiceSchema.NewCommand(this.Connection, "spSendInformation", new string[] {
+                    "ClienteID", "MailConsumo","MailFactura","MailRecibo","Mensaje"
+                }
+                    , new object[] { ClienteID,MailConsumo, MailFactura, MailRecibido, mensaje
+                            }))
+                {
+                    var result = lcommand.ExecuteNonQuery();
+                   
+                }
+
+            }
+            catch (Exception ex)
+            {
+                error = ex.ToString();
+            }
+            return error;
+        }
+        
 
     }
 }

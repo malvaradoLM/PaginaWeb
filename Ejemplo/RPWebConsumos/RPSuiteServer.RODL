@@ -147,6 +147,22 @@
 </Parameter>
 </Parameters>
 </Operation>
+<Operation Name="spSendInformation" UID="{F4328D82-A3A5-47E2-905E-3CCCAE354C24}">
+<Parameters>
+<Parameter Name="Result" DataType="AnsiString" Flag="Result">
+</Parameter>
+<Parameter Name="ClienteID" DataType="Integer" Flag="In" >
+</Parameter>
+<Parameter Name="MailConsumo" DataType="AnsiString" Flag="In" >
+</Parameter>
+<Parameter Name="MailFactura" DataType="AnsiString" Flag="In" >
+</Parameter>
+<Parameter Name="MailRecibido" DataType="AnsiString" Flag="In" >
+</Parameter>
+<Parameter Name="Mensaje" DataType="AnsiString" Flag="In" >
+</Parameter>
+</Parameters>
+</Operation>
 </Operations>
 </Interface>
 </Interfaces>
@@ -434,6 +450,20 @@
 <Element Name="PathConsumoFactura" DataType="AnsiString">
 </Element>
 <Element Name="ErrorConsumoFactura" DataType="AnsiString">
+</Element>
+</Elements>
+</Struct>
+<Struct Name="TMailCliente" UID="{54CD3AF8-DB53-48C5-B0C3-1F78CF447C8A}" AutoCreateParams="1">
+<Elements>
+<Element Name="ClienteID" DataType="Integer">
+</Element>
+<Element Name="MailConsumo" DataType="AnsiString">
+</Element>
+<Element Name="MailFactura" DataType="AnsiString">
+</Element>
+<Element Name="MailRecibido" DataType="AnsiString">
+</Element>
+<Element Name="Mensaje" DataType="AnsiString">
 </Element>
 </Elements>
 </Struct>

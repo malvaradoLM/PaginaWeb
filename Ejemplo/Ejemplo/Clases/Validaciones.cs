@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace Ejemplo.Clases
@@ -24,6 +25,26 @@ namespace Ejemplo.Clases
             }
             else { resultado = "Error: La fecha esta vacia"; }
             return resultado;
+        }
+        public static bool validarEmail(string seMailAComprobar)
+        {
+            String sFormato;
+            sFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(seMailAComprobar, sFormato))
+            {
+                if (Regex.Replace(seMailAComprobar, sFormato, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
