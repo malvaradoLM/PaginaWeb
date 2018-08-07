@@ -280,6 +280,25 @@ namespace RPSuiteServer {
             @__Message.FinalizeMessage();
             @__oResponseOptions = RemObjects.SDK.Server.ResponseOptions.roDefault;
         }
+        public static void Invoke_dbConsumoByFecha(RemObjects.SDK.IROService @__Instance, RemObjects.SDK.IMessage @__Message, RemObjects.SDK.Server.IServerChannelInfo @__ServerChannelInfo, out RemObjects.SDK.Server.ResponseOptions @__oResponseOptions) {
+            RemObjects.SDK.ObjectDisposer @__ObjectDisposer = new RemObjects.SDK.ObjectDisposer(1);
+            try {
+                int GasolineroID = @__Message.ReadInt32("GasolineroID");
+                int ClienteID = @__Message.ReadInt32("ClienteID");
+                string FechaInicial = @__Message.ReadAnsiString("FechaInicial");
+                string FechaFinal = @__Message.ReadAnsiString("FechaFinal");
+                DConsumo Result;
+                Result = ((IRPDataService)(@__Instance)).dbConsumoByFecha(GasolineroID, ClienteID, FechaInicial, FechaFinal);
+                @__ObjectDisposer.Add(Result);
+                @__Message.InitializeResponseMessage(@__ServerChannelInfo, "RPSuiteServer", "RPDataService", "dbConsumoByFechaResponse");
+                @__Message.Write("Result", Result, typeof(DConsumo), RemObjects.SDK.StreamingFormat.Default);
+                @__Message.FinalizeMessage();
+                @__oResponseOptions = RemObjects.SDK.Server.ResponseOptions.roDefault;
+            }
+            finally {
+                @__ObjectDisposer.Dispose();
+            }
+        }
     }
     [System.Reflection.ObfuscationAttribute(Exclude=true, ApplyToMembers=false)]
     public class RPDataService_Activator : object, RemObjects.SDK.Server.IServiceActivator {

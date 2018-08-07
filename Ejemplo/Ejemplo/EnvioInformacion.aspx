@@ -18,6 +18,9 @@
 .parametroAlign{
     float:unset;
 }
+.formMargin{
+    margin-left: 7%;
+}
  </style>
     
     <link href="css/breadCrumb.css" rel="stylesheet">
@@ -35,14 +38,14 @@
     <p/>   
     
 
-    <dx:ASPxRoundPanel ID="panelParametros" ClientInstanceName="roundPanel" HeaderText="PARAMETROS" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >
+    <dx:ASPxRoundPanel ID="panelParametros" ClientInstanceName="roundPanel" HeaderText="PARAMETROS" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"  Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >
         <PanelCollection>
             <dx:PanelContent>
-    <dx:ASPxFormLayout runat="server" ID="ASPxFormLayout1" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365" SettingsItems-HorizontalAlign="Center" CssClass="parametroAlign fade-in animacion" Width="90%" >
+    <dx:ASPxFormLayout runat="server" ID="ASPxFormLayout1" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365" SettingsItems-HorizontalAlign="Center" CssClass="fade-in animacion formMargin" Width="90%"  >
         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="500"  />
         <SettingsItemCaptions Location="Top" HorizontalAlign="Center" />
             <Items>
-            <dx:LayoutGroup Caption="PARAMETROS" SettingsItemHelpTexts-Position="Bottom"  GroupBoxStyle-Border-BorderStyle="Solid" GroupBoxStyle-Caption-Font-Bold="true" GroupBoxStyle-Caption-Font-Size="Large" CssClass="TextForm" ColCount="3" ShowCaption="False" >
+            <dx:LayoutGroup Caption="PARAMETROS" SettingsItemHelpTexts-Position="Bottom"  GroupBoxStyle-Border-BorderStyle="Solid" GroupBoxStyle-Caption-Font-Bold="true" GroupBoxStyle-Caption-Font-Size="Large" CssClass="TextForm"   ColCount="3" ShowCaption="False" >
                 <GroupBoxStyle Border-BorderStyle="Solid" CssClass="shadowBox">
                     <Caption Font-Bold="True">
                     </Caption>
@@ -105,9 +108,9 @@
                             <dx:LayoutItem  Border-BorderWidth="0px" CssClass="buttonMargin"  RequiredMarkDisplayMode="Hidden" ShowCaption="False" Width="100">
                                 <LayoutItemNestedControlCollection >
                                     <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer1" BorderStyle="None"  runat="server" ValidateRequestMode="Disabled" >
-                                        <dx:ASPxButton ID="btnCancelar4" runat="server"  Text="Cancelar"  Theme="Office365" Width="80" UseSubmitBehavior="False"  CausesValidation="false" CssClass="shadowBoxMin"    />
+                                        <dx:ASPxButton ID="btnCancelar" runat="server"  Text="Cancelar"  Theme="Office365" Width="80" UseSubmitBehavior="False"  CausesValidation="false" CssClass="shadowBoxMin"    />
                                         <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="   " />
-                                        <dx:ASPxButton ID="btnProcesar4" OnClick="btnProcesar4_Click" UseSubmitBehavior="False" runat="server"  Text="Aceptar" Theme="Office365" Width="80" CssClass="shadowBoxMin"    />
+                                        <dx:ASPxButton ID="btnProcesar" OnClick="btnProcesar4_Click" UseSubmitBehavior="False" runat="server"  Text="Aceptar" Theme="Office365" Width="80" CssClass="shadowBoxMin"    />
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
                                 <Border BorderWidth="0px" />

@@ -22,6 +22,33 @@ namespace Ejemplo {
         protected global::System.Web.UI.WebControls.Label etiqueta;
         
         /// <summary>
+        /// msjAlerta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msjAlerta;
+        
+        /// <summary>
+        /// lblTitleMensaje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblTitleMensaje;
+        
+        /// <summary>
+        /// labelAlerta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel labelAlerta;
+        
+        /// <summary>
         /// exampleFormLayout control.
         /// </summary>
         /// <remarks>
@@ -76,13 +103,13 @@ namespace Ejemplo {
         protected global::DevExpress.Web.LayoutItemNestedControlContainer buttons;
         
         /// <summary>
-        /// btnCancelar4 control.
+        /// btnCancelar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnCancelar4;
+        protected global::DevExpress.Web.ASPxButton btnCancelar;
         
         /// <summary>
         /// separator control.
@@ -94,13 +121,13 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxLabel separator;
         
         /// <summary>
-        /// btnProcesar4 control.
+        /// btnProcesar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnProcesar4;
+        protected global::DevExpress.Web.ASPxButton btnProcesar;
         
         /// <summary>
         /// HiddenUsuarioWebID control.

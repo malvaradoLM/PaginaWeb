@@ -13,6 +13,33 @@ namespace Ejemplo {
     public partial class WebForm2 {
         
         /// <summary>
+        /// msjAlerta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msjAlerta;
+        
+        /// <summary>
+        /// lblTitleMensaje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblTitleMensaje;
+        
+        /// <summary>
+        /// labelAlerta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel labelAlerta;
+        
+        /// <summary>
         /// lblLimiteCredito control.
         /// </summary>
         /// <remarks>
@@ -47,5 +74,32 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.XtraCharts.Web.WebChartControl webChartControl;
+        
+        /// <summary>
+        /// webChartControlPie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.XtraCharts.Web.WebChartControl webChartControlPie;
+        
+        /// <summary>
+        /// webChartControl3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.XtraCharts.Web.WebChartControl webChartControl3;
+        
+        /// <summary>
+        /// webChartControl4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.XtraCharts.Web.WebChartControl webChartControl4;
     }
 }

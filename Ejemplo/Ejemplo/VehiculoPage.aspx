@@ -7,51 +7,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       <%--  <asp:ScriptManager ID="ScriptMgr" runat="server" EnablePageMethods="true"></asp:ScriptManager>--%>
     <style>
-/*gridview*/
-.table table  tbody  tr  td a ,
-.table table  tbody  tr  td  span {
-position: relative;
-float: left;
-padding: 6px 12px;
-margin-left: -1px;
-line-height: 1.42857143;
-color: #337ab7;
-text-decoration: none;
-background-color: #fff;
-border: 1px solid #ddd;
-}
-
-.table table > tbody > tr > td > span {
-z-index: 3;
-color: #fff;
-cursor: default;
-background-color: #337ab7;
-border-color: #337ab7;
-}
-
-.table table > tbody > tr > td:first-child > a,
-.table table > tbody > tr > td:first-child > span {
-margin-left: 0;
-border-top-left-radius: 4px;
-border-bottom-left-radius: 4px;
-}
-
-.table table > tbody > tr > td:last-child > a,
-.table table > tbody > tr > td:last-child > span {
-border-top-right-radius: 4px;
-border-bottom-right-radius: 4px;
-}
-
-.table table > tbody > tr > td > a:hover,
-.table   table > tbody > tr > td > span:hover,
-.table table > tbody > tr > td > a:focus,
-.table table > tbody > tr > td > span:focus {
-z-index: 2;
-color: #23527c;
-background-color: #eee;
-border-color: #ddd;
-
-}
 
 .linkclass
 {
@@ -79,11 +34,21 @@ border-color: #ddd;
     .FloatRight{
 
             float: right;
+            width:70%;
     }
+@media screen and (max-width: 480px) {
+  .FloatRight{
 
-/*end gridview */
+            float: right;
+            width:100%;
+    }
+    .linkclass
+{
+    width:0px;
+}
+  }
     </style>
-    <link href="css/StylePage1.css" rel="stylesheet">
+    <link href="css/StylePageMenuPrincipal.css" rel="stylesheet">
    
 
     <div class="row fade-in animacion">
@@ -97,7 +62,11 @@ border-color: #ddd;
         <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
     </ul>
 </div>  
-    <dx:BootstrapGridView ID="bgvVehiculo" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="VehiculoID" CssClassesPager-Control="true" Width="80%" CssClasses-Control="FloatRight fade-in animacion"   >
+                <div class="alert alert-warning" id="msjAlerta" runat="server" visible="false">
+        <strong><dx:ASPxLabel ID="lblTitleMensaje" runat="server" Font-Bold="true" /> </strong>
+        <dx:ASPxLabel ID="labelAlerta" runat="server" />
+        </div>
+    <dx:BootstrapGridView ID="bgvVehiculo" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="VehiculoID" CssClassesPager-Control="true"  CssClasses-Control="FloatRight fade-in animacion"   >
                 <SettingsAdaptivity  AdaptivityMode="HideDataCells" AllowOnlyOneAdaptiveDetailExpanded="true" />
                 <SettingsSearchPanel Visible="true" ShowApplyButton="true"  />
                 <Settings ShowGroupPanel="true" />

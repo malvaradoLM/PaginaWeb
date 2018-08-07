@@ -163,6 +163,20 @@
 </Parameter>
 </Parameters>
 </Operation>
+<Operation Name="dbConsumoByFecha" UID="{8464E0CD-F2E2-462A-BD80-A8ABEC999CFB}">
+<Parameters>
+<Parameter Name="Result" DataType="DConsumo" Flag="Result">
+</Parameter>
+<Parameter Name="GasolineroID" DataType="Integer" Flag="In" >
+</Parameter>
+<Parameter Name="ClienteID" DataType="Integer" Flag="In" >
+</Parameter>
+<Parameter Name="FechaInicial" DataType="AnsiString" Flag="In" >
+</Parameter>
+<Parameter Name="FechaFinal" DataType="AnsiString" Flag="In" >
+</Parameter>
+</Parameters>
+</Operation>
 </Operations>
 </Interface>
 </Interfaces>
@@ -467,6 +481,40 @@
 </Element>
 </Elements>
 </Struct>
+<Struct Name="DConsumo" UID="{1B4B10A2-26AE-430B-A78F-041DD2927DE6}" AutoCreateParams="1">
+<Elements>
+<Element Name="GasolineroID" DataType="ScriptExceptionType">
+</Element>
+<Element Name="EstacionID" DataType="Integer">
+</Element>
+<Element Name="MesCarga" DataType="Integer">
+</Element>
+<Element Name="Mes" DataType="AnsiString">
+</Element>
+<Element Name="ProductoID" DataType="Integer">
+</Element>
+<Element Name="Producto" DataType="AnsiString">
+</Element>
+<Element Name="TotConsumo" DataType="Integer">
+</Element>
+<Element Name="Importe" DataType="Decimal">
+</Element>
+<Element Name="Datos" DataType="BConsumo">
+</Element>
+</Elements>
+</Struct>
+<Struct Name="DConsumoProducto" UID="{3D2181CE-A5BB-496C-9F01-60485286FD28}" AutoCreateParams="1">
+<Elements>
+<Element Name="ProductoID" DataType="Integer">
+</Element>
+<Element Name="Producto" DataType="AnsiString">
+</Element>
+<Element Name="TotConsumo" DataType="Integer">
+</Element>
+<Element Name="Datos" DataType="BConsumoProducto">
+</Element>
+</Elements>
+</Struct>
 </Structs>
 <Enums>
 </Enums>
@@ -492,6 +540,12 @@
 </Array>
 <Array Name="AFacturaCliente" UID="{E4A98E40-3AED-4D34-8130-12C31FA8A9D4}">
 <ElementType DataType="TFacturaCliente" />
+</Array>
+<Array Name="BConsumo" UID="{01E8C835-E5FE-49A2-8093-83451497A1A8}">
+<ElementType DataType="DConsumo" />
+</Array>
+<Array Name="BConsumoProducto" UID="{B3E8BE44-4BC0-402F-9D8D-8906E8C9E766}">
+<ElementType DataType="DConsumoProducto" />
 </Array>
 </Arrays>
 <Uses>

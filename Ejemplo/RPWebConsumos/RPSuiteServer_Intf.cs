@@ -2101,6 +2101,242 @@ namespace RPSuiteServer {
             return new TMailCliente();
         }
     }
+    [System.Serializable()]
+    [RemObjects.SDK.Remotable(ActivatorClass=typeof(DConsumo_Activator))]
+    [System.Reflection.ObfuscationAttribute(Exclude=true)]
+    public partial class DConsumo : RemObjects.SDK.Types.ComplexType {
+        private ScriptExceptionType @__GasolineroID;
+        private int @__EstacionID;
+        private int @__MesCarga;
+        private string @__Mes;
+        private int @__ProductoID;
+        private string @__Producto;
+        private int @__TotConsumo;
+        private decimal @__Importe;
+        private DConsumo[] @__Datos;
+        public virtual ScriptExceptionType GasolineroID {
+            get {
+                return @__GasolineroID;
+            }
+            set {
+                @__GasolineroID = value;
+                this.TriggerPropertyChanged("GasolineroID");
+            }
+        }
+        public virtual int EstacionID {
+            get {
+                return @__EstacionID;
+            }
+            set {
+                @__EstacionID = value;
+                this.TriggerPropertyChanged("EstacionID");
+            }
+        }
+        public virtual int MesCarga {
+            get {
+                return @__MesCarga;
+            }
+            set {
+                @__MesCarga = value;
+                this.TriggerPropertyChanged("MesCarga");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Mes {
+            get {
+                return @__Mes;
+            }
+            set {
+                @__Mes = value;
+                this.TriggerPropertyChanged("Mes");
+            }
+        }
+        public virtual int ProductoID {
+            get {
+                return @__ProductoID;
+            }
+            set {
+                @__ProductoID = value;
+                this.TriggerPropertyChanged("ProductoID");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Producto {
+            get {
+                return @__Producto;
+            }
+            set {
+                @__Producto = value;
+                this.TriggerPropertyChanged("Producto");
+            }
+        }
+        public virtual int TotConsumo {
+            get {
+                return @__TotConsumo;
+            }
+            set {
+                @__TotConsumo = value;
+                this.TriggerPropertyChanged("TotConsumo");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.Decimal)]
+        public virtual decimal Importe {
+            get {
+                return @__Importe;
+            }
+            set {
+                @__Importe = value;
+                this.TriggerPropertyChanged("Importe");
+            }
+        }
+        public virtual DConsumo[] Datos {
+            get {
+                return @__Datos;
+            }
+            set {
+                @__Datos = value;
+                this.TriggerPropertyChanged("Datos");
+            }
+        }
+        public override void ReadComplex(RemObjects.SDK.Serializer serializer) {
+            if (serializer.RecordStrictOrder) {
+                this.GasolineroID = ((ScriptExceptionType)(serializer.Read("GasolineroID", typeof(ScriptExceptionType), RemObjects.SDK.StreamingFormat.Default)));
+                this.EstacionID = serializer.ReadInt32("EstacionID");
+                this.MesCarga = serializer.ReadInt32("MesCarga");
+                this.Mes = serializer.ReadAnsiString("Mes");
+                this.ProductoID = serializer.ReadInt32("ProductoID");
+                this.Producto = serializer.ReadAnsiString("Producto");
+                this.TotConsumo = serializer.ReadInt32("TotConsumo");
+                this.Importe = serializer.ReadDecimal("Importe");
+                this.Datos = ((DConsumo[])(serializer.Read("Datos", typeof(DConsumo[]), RemObjects.SDK.StreamingFormat.Default)));
+            }
+            else {
+                this.Datos = ((DConsumo[])(serializer.Read("Datos", typeof(DConsumo[]), RemObjects.SDK.StreamingFormat.Default)));
+                this.EstacionID = serializer.ReadInt32("EstacionID");
+                this.GasolineroID = ((ScriptExceptionType)(serializer.Read("GasolineroID", typeof(ScriptExceptionType), RemObjects.SDK.StreamingFormat.Default)));
+                this.Importe = serializer.ReadDecimal("Importe");
+                this.Mes = serializer.ReadAnsiString("Mes");
+                this.MesCarga = serializer.ReadInt32("MesCarga");
+                this.Producto = serializer.ReadAnsiString("Producto");
+                this.ProductoID = serializer.ReadInt32("ProductoID");
+                this.TotConsumo = serializer.ReadInt32("TotConsumo");
+            }
+        }
+        public override void WriteComplex(RemObjects.SDK.Serializer serializer) {
+            if (serializer.RecordStrictOrder) {
+                serializer.Write("GasolineroID", this.GasolineroID, typeof(ScriptExceptionType), RemObjects.SDK.StreamingFormat.Default);
+                serializer.WriteInt32("EstacionID", this.EstacionID);
+                serializer.WriteInt32("MesCarga", this.MesCarga);
+                serializer.WriteAnsiString("Mes", this.Mes);
+                serializer.WriteInt32("ProductoID", this.ProductoID);
+                serializer.WriteAnsiString("Producto", this.Producto);
+                serializer.WriteInt32("TotConsumo", this.TotConsumo);
+                serializer.WriteDecimal("Importe", this.Importe);
+                serializer.Write("Datos", this.Datos, typeof(DConsumo[]), RemObjects.SDK.StreamingFormat.Default);
+            }
+            else {
+                serializer.Write("Datos", this.Datos, typeof(DConsumo[]), RemObjects.SDK.StreamingFormat.Default);
+                serializer.WriteInt32("EstacionID", this.EstacionID);
+                serializer.Write("GasolineroID", this.GasolineroID, typeof(ScriptExceptionType), RemObjects.SDK.StreamingFormat.Default);
+                serializer.WriteDecimal("Importe", this.Importe);
+                serializer.WriteAnsiString("Mes", this.Mes);
+                serializer.WriteInt32("MesCarga", this.MesCarga);
+                serializer.WriteAnsiString("Producto", this.Producto);
+                serializer.WriteInt32("ProductoID", this.ProductoID);
+                serializer.WriteInt32("TotConsumo", this.TotConsumo);
+            }
+        }
+    }
+    [System.Reflection.ObfuscationAttribute(Exclude=true, ApplyToMembers=false)]
+    public class DConsumo_Activator : object, RemObjects.SDK.ITypeActivator {
+        public DConsumo_Activator() {
+        }
+        public object CreateInstance() {
+            return new DConsumo();
+        }
+    }
+    [System.Serializable()]
+    [RemObjects.SDK.Remotable(ActivatorClass=typeof(DConsumoProducto_Activator))]
+    [System.Reflection.ObfuscationAttribute(Exclude=true)]
+    public partial class DConsumoProducto : RemObjects.SDK.Types.ComplexType {
+        private int @__ProductoID;
+        private string @__Producto;
+        private int @__TotConsumo;
+        private DConsumoProducto[] @__Datos;
+        public virtual int ProductoID {
+            get {
+                return @__ProductoID;
+            }
+            set {
+                @__ProductoID = value;
+                this.TriggerPropertyChanged("ProductoID");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Producto {
+            get {
+                return @__Producto;
+            }
+            set {
+                @__Producto = value;
+                this.TriggerPropertyChanged("Producto");
+            }
+        }
+        public virtual int TotConsumo {
+            get {
+                return @__TotConsumo;
+            }
+            set {
+                @__TotConsumo = value;
+                this.TriggerPropertyChanged("TotConsumo");
+            }
+        }
+        public virtual DConsumoProducto[] Datos {
+            get {
+                return @__Datos;
+            }
+            set {
+                @__Datos = value;
+                this.TriggerPropertyChanged("Datos");
+            }
+        }
+        public override void ReadComplex(RemObjects.SDK.Serializer serializer) {
+            if (serializer.RecordStrictOrder) {
+                this.ProductoID = serializer.ReadInt32("ProductoID");
+                this.Producto = serializer.ReadAnsiString("Producto");
+                this.TotConsumo = serializer.ReadInt32("TotConsumo");
+                this.Datos = ((DConsumoProducto[])(serializer.Read("Datos", typeof(DConsumoProducto[]), RemObjects.SDK.StreamingFormat.Default)));
+            }
+            else {
+                this.Datos = ((DConsumoProducto[])(serializer.Read("Datos", typeof(DConsumoProducto[]), RemObjects.SDK.StreamingFormat.Default)));
+                this.Producto = serializer.ReadAnsiString("Producto");
+                this.ProductoID = serializer.ReadInt32("ProductoID");
+                this.TotConsumo = serializer.ReadInt32("TotConsumo");
+            }
+        }
+        public override void WriteComplex(RemObjects.SDK.Serializer serializer) {
+            if (serializer.RecordStrictOrder) {
+                serializer.WriteInt32("ProductoID", this.ProductoID);
+                serializer.WriteAnsiString("Producto", this.Producto);
+                serializer.WriteInt32("TotConsumo", this.TotConsumo);
+                serializer.Write("Datos", this.Datos, typeof(DConsumoProducto[]), RemObjects.SDK.StreamingFormat.Default);
+            }
+            else {
+                serializer.Write("Datos", this.Datos, typeof(DConsumoProducto[]), RemObjects.SDK.StreamingFormat.Default);
+                serializer.WriteAnsiString("Producto", this.Producto);
+                serializer.WriteInt32("ProductoID", this.ProductoID);
+                serializer.WriteInt32("TotConsumo", this.TotConsumo);
+            }
+        }
+    }
+    [System.Reflection.ObfuscationAttribute(Exclude=true, ApplyToMembers=false)]
+    public class DConsumoProducto_Activator : object, RemObjects.SDK.ITypeActivator {
+        public DConsumoProducto_Activator() {
+        }
+        public object CreateInstance() {
+            return new DConsumoProducto();
+        }
+    }
     public interface IRPLoginService : RemObjects.DataAbstract.Server.ISimpleLoginService {
     }
     public partial class RPLoginService_Proxy : RemObjects.DataAbstract.Server.SimpleLoginService_Proxy, IRPLoginService {
@@ -2201,6 +2437,7 @@ namespace RPSuiteServer {
         bool cmdActualizaVehiculo(TVehiculo Datos);
         bool cmdActualizaUsuarioWeb(TUsuarioWeb Datos);
         string spSendInformation(int ClienteID, string MailConsumo, string MailFactura, string MailRecibido, string Mensaje);
+        DConsumo dbConsumoByFecha(int GasolineroID, int ClienteID, string FechaInicial, string FechaFinal);
     }
     public partial class RPDataService_Proxy : RemObjects.DataAbstract.Server.DataAbstractService_Proxy, IRPDataService {
         public RPDataService_Proxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -2304,6 +2541,10 @@ namespace RPSuiteServer {
                 this.ClientChannel.Dispatch(@__LocalMessage);
                 TCliente _Result = ((TCliente)(@__LocalMessage.Read("Result", typeof(TCliente), RemObjects.SDK.StreamingFormat.Default)));
                 return _Result;
+            }
+            catch(Exception e)
+            {
+                return null;
             }
             finally {
                 this.@__ClearMessage(@__LocalMessage);
@@ -2471,6 +2712,23 @@ namespace RPSuiteServer {
                 this.@__ClearMessage(@__LocalMessage);
             }
         }
+        public virtual DConsumo dbConsumoByFecha(int GasolineroID, int ClienteID, string FechaInicial, string FechaFinal) {
+            RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
+            try {
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "dbConsumoByFecha");
+                @__LocalMessage.WriteInt32("GasolineroID", GasolineroID);
+                @__LocalMessage.WriteInt32("ClienteID", ClienteID);
+                @__LocalMessage.WriteAnsiString("FechaInicial", FechaInicial);
+                @__LocalMessage.WriteAnsiString("FechaFinal", FechaFinal);
+                @__LocalMessage.FinalizeMessage();
+                this.ClientChannel.Dispatch(@__LocalMessage);
+                DConsumo _Result = ((DConsumo)(@__LocalMessage.Read("Result", typeof(DConsumo), RemObjects.SDK.StreamingFormat.Default)));
+                return _Result;
+            }
+            finally {
+                this.@__ClearMessage(@__LocalMessage);
+            }
+        }
     }
     public class CoRPDataService {
         public static IRPDataService Create(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) {
@@ -2538,6 +2796,9 @@ namespace RPSuiteServer {
         System.IAsyncResult BeginspSendInformation(int ClienteID, string MailConsumo, string MailFactura, string MailRecibido, string Mensaje, System.AsyncCallback @__Callback, object @__UserData);
         string EndspSendInformation(System.IAsyncResult @__AsyncResult);
         System.Threading.Tasks.Task<string> spSendInformationAsync(int ClienteID, string MailConsumo, string MailFactura, string MailRecibido, string Mensaje);
+        System.IAsyncResult BegindbConsumoByFecha(int GasolineroID, int ClienteID, string FechaInicial, string FechaFinal, System.AsyncCallback @__Callback, object @__UserData);
+        DConsumo EnddbConsumoByFecha(System.IAsyncResult @__AsyncResult);
+        System.Threading.Tasks.Task<DConsumo> dbConsumoByFechaAsync(int GasolineroID, int ClienteID, string FechaInicial, string FechaFinal);
     }
     public partial class RPDataService_AsyncProxy : RemObjects.DataAbstract.Server.DataAbstractService_AsyncProxy, IRPDataService_Async {
         public RPDataService_AsyncProxy(RemObjects.SDK.IMessage message, RemObjects.SDK.IClientChannel clientChannel) : 
@@ -3011,6 +3272,35 @@ namespace RPSuiteServer {
         }
         public virtual System.Threading.Tasks.Task<string> spSendInformationAsync(int ClienteID, string MailConsumo, string MailFactura, string MailRecibido, string Mensaje) {
             return System.Threading.Tasks.Task<string>.Factory.FromAsync(this.BeginspSendInformation(ClienteID, MailConsumo, MailFactura, MailRecibido, Mensaje, null, null), new System.Func<System.IAsyncResult, string>(this.EndspSendInformation));
+        }
+        public virtual System.IAsyncResult BegindbConsumoByFecha(int GasolineroID, int ClienteID, string FechaInicial, string FechaFinal, System.AsyncCallback @__Callback, object @__UserData) {
+            RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
+            try {
+                @__LocalMessage.InitializeRequestMessage(this.ClientChannel, "RPSuiteServer", this.ActiveInterfaceName, "dbConsumoByFecha");
+                @__LocalMessage.WriteInt32("GasolineroID", GasolineroID);
+                @__LocalMessage.WriteInt32("ClienteID", ClienteID);
+                @__LocalMessage.WriteAnsiString("FechaInicial", FechaInicial);
+                @__LocalMessage.WriteAnsiString("FechaFinal", FechaFinal);
+                @__LocalMessage.FinalizeMessage();
+                return this.ClientChannel.AsyncDispatch(@__LocalMessage, @__Callback, @__UserData);
+            }
+            catch (System.Exception ex) {
+                this.@__ClearMessage(@__LocalMessage);
+                throw ex;
+            }
+        }
+        public virtual DConsumo EnddbConsumoByFecha(System.IAsyncResult @__AsyncResult) {
+            RemObjects.SDK.IMessage @__LocalMessage = ((RemObjects.SDK.IClientAsyncResult)(@__AsyncResult)).Message;
+            try {
+                DConsumo Result = ((DConsumo)(@__LocalMessage.Read("Result", typeof(DConsumo), RemObjects.SDK.StreamingFormat.Default)));
+                return Result;
+            }
+            finally {
+                this.@__ClearMessage(@__LocalMessage);
+            }
+        }
+        public virtual System.Threading.Tasks.Task<DConsumo> dbConsumoByFechaAsync(int GasolineroID, int ClienteID, string FechaInicial, string FechaFinal) {
+            return System.Threading.Tasks.Task<DConsumo>.Factory.FromAsync(this.BegindbConsumoByFecha(GasolineroID, ClienteID, FechaInicial, FechaFinal, null, null), new System.Func<System.IAsyncResult, DConsumo>(this.EnddbConsumoByFecha));
         }
     }
     public class CoRPDataServiceAsync {

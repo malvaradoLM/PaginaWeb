@@ -315,9 +315,14 @@ fieldset[disabled] .btn-sample.active {
     <link href="css/tabs.css" rel="stylesheet" >
     <link href="css/breadCrumb.css" rel="stylesheet">
  
+    <div class="alert alert-warning" id="msjAlerta" runat="server" visible="false">
+        <strong><dx:ASPxLabel ID="lblTitleMensaje" runat="server" Font-Bold="true" /> </strong>
+        <dx:ASPxLabel ID="labelAlerta" runat="server" />
+        </div>
+            
     <div id="cssmenu" style="margin-top:60px;" class="row">  
     <ul>
-        <li class="active"><a href="Vehiculos.aspx">Editar Vehiculo</a></li>
+        <li class="active"><a>Editar Vehiculo</a></li>
         <li><a href="VehiculoPage.aspx">Vehiculos</a></li>
         <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
     </ul>
@@ -340,6 +345,8 @@ fieldset[disabled] .btn-sample.active {
 
             <input id="tab6" type="radio" name="tabs">
 			<label for="tab6" ><i class="fa fa-clock-o"></i><span>Horarios</span></label>
+            <input id="tab7" type="radio" name="tabs">
+			<label for="tab7" ><i class="fa fa-clock-o"></i><span>Album</span></label>
             
 
 			<section id="content1" >
@@ -389,10 +396,10 @@ fieldset[disabled] .btn-sample.active {
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
-                    <dx:LayoutItem Caption="Placas"  ShowCaption="False" CssClass="caption" CaptionStyle-Font-Size="Medium">
+                    <dx:LayoutItem Caption="Tanque"  ShowCaption="True" CssClass="caption" CaptionStyle-Font-Size="Medium" CaptionStyle-Font-Bold="true">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                            <dx:ASPxCheckBox ID="chkPlacas" runat="server" Theme="Office365" Enabled="false" Visible="false"></dx:ASPxCheckBox>
+                           <dx:ASPxTextBox ID="txtTanque" runat="server" Theme="Office365" Enabled="false"></dx:ASPxTextBox>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
@@ -790,13 +797,15 @@ fieldset[disabled] .btn-sample.active {
                 </div>
                 
 			</section>
+            <section id="content7" >
+            </section>
 		</div>
     <%-- TABS CSS --%>
 
      <div class="btn-group" style="margin-left:75%; margin-top:2px;">
          <dx:ASPxButton runat="server" ID="ASPxButton2"  Text="CANCELAR" Theme="Office365"  AutoPostBack="false" OnClick="ASPxButton2_Click" CssClass="shadowBox animacion">
                 </dx:ASPxButton>
-         <dx:ASPxButton runat="server" ID="ASPxButton1"  Text="GUARDAR" Theme="Office365" ClientInstanceName="2" AutoPostBack="false" CssClass="shadowBox animacion">
+         <dx:ASPxButton runat="server" ID="btnProcesar"  Text="GUARDAR" Theme="Office365" ClientInstanceName="2" AutoPostBack="false" CssClass="shadowBox animacion">
                     <ClientSideEvents Click="leerTabla" />
                 </dx:ASPxButton>
      </div> 
@@ -817,6 +826,7 @@ fieldset[disabled] .btn-sample.active {
 			</li>
     <li id="6ali"><a href="#6a" data-toggle="tab">CONTROL DE HORARIOS</a>
 			</li>
+
 		</ul>
 
 

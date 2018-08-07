@@ -27,10 +27,19 @@
       font-size-adjust:0.50;
     background: url(ico.png) no-repeat 0px 0px;
 }
+  .MarginBreadCumb{
+          margin-top: 80px;
+  }
+ }
 .shadowBox{
     padding: 5px;
     box-shadow: 3px 8px 6px #888888;
 }
+@media screen and (max-width: 480px) {
+  .MarginBreadCumb{
+          margin-top: 100px;
+  }
+ }
 </style>
 
     <link href="css/StylePage1.css" rel="stylesheet">
@@ -46,28 +55,34 @@
             <div class="col-lg-8">
                  <link href="css/breadCrumb.css" rel="stylesheet">
  
-    <div id="cssmenu" style="margin-top:80px;" class="row fade-in">  
+    <div id="cssmenu" class="row fade-in MarginBreadCumb">  
     <ul>
         <li class="active"><a href="DatosCliente.aspx">Datos del Cliente</a></li>
         <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
     </ul>
 </div>  
+                 <div class="alert alert-warning" id="msjAlerta" runat="server" visible="false">
+        <strong><dx:ASPxLabel ID="lblTitleMensaje" runat="server" Font-Bold="true" /> </strong>
+        <dx:ASPxLabel ID="labelAlerta" runat="server" />
+        </div>
             </div>
         </div>
         <hr>
+
+
         <div class="row fade-in animacion">
-            <div class="col-lg-9">
+            <div class="col-sm-9">
                 <div class="table-responsive ">
-                    <table class="table format-table" style="float:left">
+                    <table class="table format-table" style="float:left" ">
                         <thead>
-                            <tr id="FormatRow2">
+                            <tr id="FormatRow4">
                                 <th colspan="2">                        
                                     <div class="details-cards">
                                         <div class="Descriptivos Transparencia HexColor-3"><h5>NOMBRE</h5></div>
-                                        <div class="SubTitulos HexColor-3"><h3><dx:ASPxLabel ID="lblCliente" runat="server" Text="Cliente" Font-Size="Medium">
+                                        <div class="SubTitulos HexColor-3"><h3><dx:ASPxLabel ID="lblCliente" runat="server" Text="Cliente" >
                                     </dx:ASPxLabel></h3></div>
                                         <div id="formatDiv">
-                                            <div class="Cards-ContadorPequeno HexColor-3"><h5><dx:ASPxLabel ID="lblID" runat="server" Text="ID" Font-Size="Medium">
+                                            <div class="Cards-ContadorPequeno HexColor-3"><h5><dx:ASPxLabel ID="lblID" runat="server" Text="ID" >
                                     </dx:ASPxLabel></h5></div>
                                         </div>
                                     </div>
@@ -76,96 +91,96 @@
                             </tr>      
                         </thead>    
                         <tbody>
-                            <tr id="FormatRow1">
+                            <tr>
                                 <td class="columna1" align="right" style="width: 30%;">
-                                    <div class="Cards-Titulos Transparencia HexColor-3"><h5>RAZON SOCIAL</h5></div>
+                                    <div><h6>RAZON SOCIAL</h6></div>
                                 </td>
                                 <td align="left" style="width: 70%;">
-                                    <div class="Cards-ContadorPequeno HexColor-3"><h5><dx:ASPxLabel ID="lblRazonSocial" runat="server" Text="Razon Social" Font-Size="Medium">
-                                        </dx:ASPxLabel></h5</div>
+                                    <div class="Cards-ContadorPequeno HexColor-3"><h6><dx:ASPxLabel ID="lblRazonSocial" runat="server" Text="Razon Social" >
+                                        </dx:ASPxLabel></h6</div>
                                 </td>
                             </tr>
-                            <tr id="FormatRow2">
+                            <tr">
                                 <td class="columna1" align="right" style="width: 30%;">
-                                    <div class="Cards-Titulos Transparencia HexColor-3"><h5>DOMICILIO</h5></div>
+                                    <div class="Cards-Titulos Transparencia HexColor-3"><h6>DOMICILIO</h6></div>
                                 </td>
                                 <td align="left" style="width: 70%;">
-                                    <div class="Cards-ContadorPequeno HexColor-3"><h5><dx:ASPxLabel ID="lblDomicilio" runat="server" Text="Domicilio" Font-Size="Medium">
-                                        </dx:ASPxLabel></h5></div>
+                                    <div class="Cards-ContadorPequeno HexColor-3"><h6><dx:ASPxLabel ID="lblDomicilio" runat="server" Text="Domicilio" >
+                                        </dx:ASPxLabel></h6></div>
                                 </td>
                             </tr>
-                            <tr id="FormatRow1">
+                            <tr>
                                 <td class="columna1" align="right" style="width: 30%;">
                                     <div class="Cards-Titulos Transparencia HexColor-3"><h5>COLONIA</h5></div>
                                 </td>
                                 <td align="left" style="width: 70%;">
-                                    <div class="Cards-ContadorPequeno HexColor-3"><h5><dx:ASPxLabel ID="lblColonia" runat="server" Text="Colonia" Font-Size="Medium">
-                                        </dx:ASPxLabel></h5</div>
+                                    <div class="Cards-ContadorPequeno HexColor-3"><h6><dx:ASPxLabel ID="lblColonia" runat="server" Text="Colonia" >
+                                        </dx:ASPxLabel></h6</div>
                                 </td>
                             </tr>
-                            <tr id="FormatRow2">
+                            <tr>
                                 <td class="columna1" align="right" style="width: 30%;">
-                                    <div class="Cards-Titulos Transparencia HexColor-3"><h5>CIUDAD</h5></div>
+                                    <div class="Cards-Titulos Transparencia HexColor-3"><h6>CIUDAD</h6></div>
                                 </td>
                                 <td align="left" style="width: 70%;">
-                                    <div class="Cards-ContadorPequeno HexColor-3"><h5><dx:ASPxLabel ID="lblCiudad" runat="server" Text="Ciudad" Font-Size="Medium"></dx:ASPxLabel></h5></div>
+                                    <div class="Cards-ContadorPequeno HexColor-3"><h6><dx:ASPxLabel ID="lblCiudad" runat="server" Text="Ciudad" ></dx:ASPxLabel></h6></div>
                                 </td>
                             </tr>
-                            <tr id="FormatRow1">
+                            <tr>
                                 <td class="columna1" align="right" style="width: 30%;">
-                                    <div class="Cards-Titulos Transparencia HexColor-3"><h5>ESTADO</h5></div>
+                                    <div class="Cards-Titulos Transparencia HexColor-3"><h6>ESTADO</h6></div>
                                 </td>
                                 <td align="left" style="width: 70%;">
-                                    <div class="Cards-ContadorPequeno HexColor-3"><h5><dx:ASPxLabel ID="lblEstado" runat="server" Text="Ciudad" Font-Size="Medium"></dx:ASPxLabel></h5></div>
+                                    <div class="Cards-ContadorPequeno HexColor-3"><h6><dx:ASPxLabel ID="lblEstado" runat="server" Text="Ciudad" ></dx:ASPxLabel></h6></div>
                                 </td>
                             </tr>
-                            <tr id="FormatRow2">
+                            <tr">
                                 <td class="columna1" align="right" style="width: 30%;">
-                                    <div class="Cards-Titulos Transparencia HexColor-3"><h5>TELEFONO</h5></div>
+                                    <div class="Cards-Titulos Transparencia HexColor-3"><h6>TELEFONO</h6></div>
                                 </td>
                                 <td align="left" style="width: 70%;">
-                                    <div class="Cards-ContadorPequeno HexColor-3"><h5><dx:ASPxLabel ID="lblTelefono" runat="server" Text="Telefono" Font-Size="Medium"></dx:ASPxLabel></h5></div>
+                                    <div class="Cards-ContadorPequeno HexColor-3"><h6><dx:ASPxLabel ID="lblTelefono" runat="server" Text="Telefono" ></dx:ASPxLabel></h6></div>
                                 </td>
                             </tr>
-                            <tr id="FormatRow1">
+                            <tr>
                                 <td class="columna1" align="right" style="width: 30%;">
-                                    <div class="Cards-Titulos Transparencia HexColor-3"><h5>CODIGO POSTAL</h5></div>
+                                    <div class="Cards-Titulos Transparencia HexColor-3"><h6>CODIGO POSTAL</h6></div>
                                 </td>
                                 <td align="left" style="width: 70%;">
-                                    <div class="Cards-ContadorPequeno HexColor-3"><h5><dx:ASPxLabel ID="lblCP" runat="server" Text="CP" Font-Size="Medium"></dx:ASPxLabel></h5></div>
+                                    <div class="Cards-ContadorPequeno HexColor-3"><h6><dx:ASPxLabel ID="lblCP" runat="server" Text="CP" ></dx:ASPxLabel></h6></div>
                                 </td>
                             </tr>
-                            <tr id="FormatRow2">
+                            <tr>
                                 <td class="columna1" align="right" style="width: 30%;">
-                                    <div class="Cards-Titulos Transparencia HexColor-3"><h5>R.F.C.</h5></div>
+                                    <div class="Cards-Titulos Transparencia HexColor-3"><h6>R.F.C.</h6></div>
                                 </td>
                                 <td align="left" style="width: 70%;">
-                                    <div class="Cards-ContadorPequeno HexColor-3"><h5><dx:ASPxLabel ID="lblRFC" runat="server" Text="RFC" Font-Size="Medium">
-                                        </dx:ASPxLabel></h5</div>
+                                    <div class="Cards-ContadorPequeno HexColor-3"><h6><dx:ASPxLabel ID="lblRFC" runat="server" Text="RFC" >
+                                        </dx:ASPxLabel></h6</div>
                                 </td>
                             </tr>
-                            <tr id="FormatRow1">
+                            <tr>
                                 <td class="columna1" align="right" style="width: 30%;">
-                                    <div class="Cards-Titulos Transparencia HexColor-3"><h5>LIMITE DE CREDITO</h5></div>
+                                    <div class="Cards-Titulos Transparencia HexColor-3"><h6>LIMITE DE CREDITO</h6></div>
                                 </td>
                                 <td align="left" style="width: 70%;">
-                                    <div class="Cards-ContadorPequeno HexColor-3"><h5><dx:ASPxLabel ID="lblLimiteCredito" runat="server" Text="Límite de Credito" Font-Size="Medium">
-                                        </dx:ASPxLabel></h5</div>
+                                    <div class="Cards-ContadorPequeno HexColor-3"><h6><dx:ASPxLabel ID="lblLimiteCredito" runat="server" Text="Límite de Credito" >
+                                        </dx:ASPxLabel></h6</div>
                                 </td>
                             </tr>
-                            <tr id="FormatRow2">
+                            <tr>
                                 <td class="columna1" align="right" style="width: 30%;">
-                                    <div class="Cards-Titulos Transparencia HexColor-3"><h5>ESTATUS</h5></div>
+                                    <div class="Cards-Titulos Transparencia HexColor-3"><h6>ESTATUS</h6></div>
                                 </td>
                                 <td align="left" style="width: 70%;">
-                                            <div class="Cards-ContadorPequeno HexColor-3"><h5><dx:ASPxLabel ID="lblStatus" runat="server" Text="Status" Font-Size="Medium"></dx:ASPxLabel></h5></div>
+                                            <div class="Cards-ContadorPequeno HexColor-3"><h6><dx:ASPxLabel ID="lblStatus" runat="server" Text="Status" ></dx:ASPxLabel></h6></div>
                                 </td>
                             </tr>
                         </tbody>    
                     </table>
                 </div>
             </div>
-            <div class="col-lg-3 fade-in">
+            <div class="col-sm-3 fade-in">
                 <asp:LinkButton  class="Largo verde_claro shadowBox" runat= "server" OnClick="Click">
                     <div>
                     <i class="glyphicon glyphicon-usd" style="margin-top: 15%;"></i>

@@ -13,6 +13,33 @@ namespace Ejemplo {
     public partial class WebForm3 {
         
         /// <summary>
+        /// msjAlerta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msjAlerta;
+        
+        /// <summary>
+        /// lblTitleMensaje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblTitleMensaje;
+        
+        /// <summary>
+        /// labelAlerta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel labelAlerta;
+        
+        /// <summary>
         /// exampleFormLayout control.
         /// </summary>
         /// <remarks>
@@ -67,13 +94,13 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxTextBox txtCentrodeCosto;
         
         /// <summary>
-        /// chkPlacas control.
+        /// txtTanque control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox chkPlacas;
+        protected global::DevExpress.Web.ASPxTextBox txtTanque;
         
         /// <summary>
         /// ASPxFormLayout1 control.
@@ -778,13 +805,13 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxButton ASPxButton2;
         
         /// <summary>
-        /// ASPxButton1 control.
+        /// btnProcesar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton ASPxButton1;
+        protected global::DevExpress.Web.ASPxButton btnProcesar;
         
         /// <summary>
         /// horariosdiv control.

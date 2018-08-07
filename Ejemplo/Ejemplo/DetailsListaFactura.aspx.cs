@@ -1,4 +1,5 @@
-﻿using Ejemplo.Data;
+﻿using Ejemplo.Clases;
+using Ejemplo.Data;
 using Ejemplo.Data.Dataset;
 using RemObjects.DataAbstract.Server;
 using System;
@@ -29,17 +30,25 @@ namespace Ejemplo
             Data.DataModule.ParamByName(Params, "ClienteID", ClienteID);
             spFacturaCliente ds = new spFacturaCliente();
             DataModule.FillDataSet(ds, "spFacturaCliente", Params.ToArray());
-            DataTable dt = new DataTable();
+            DataTable dt = null;
             dt = ds.Tables["spFacturaCliente"];
             IEnumerable<DataRow> queryenum = from dts in dt.AsEnumerable() select dts;
             foreach (DataRow dr in queryenum)
             {
                 double Subtotal =  dr.Field<double>("Subtotal");
             }
-            if (dt != null){
-                bgvListaFactura.DataSource = dt;
-                bgvListaFactura.DataBind();
-                 }
+            if (ds != null){
+                if(dt.Rows.Count > 0)
+                {
+                    bgvListaFactura.DataSource = dt;
+                    bgvListaFactura.DataBind();
+                }else
+                    mensaje("No se han encontrado registros", labelCssClases.Advertencia, "Advertencia");
+            }
+            else
+            {
+                mensaje("No se pudieron cargar los registros, verifique su conexión e intente nuevamente", labelCssClases.Peligro, "Error");
+            }
 
         }
 
@@ -51,6 +60,13 @@ namespace Ejemplo
             Session["Serie"] = serie;
             Session["Folio"] = folio;
             Response.Redirect("DetailsDescargaFactura.aspx", false);
+        }
+        private void mensaje(string contenido, string tipo, string titulo)
+        {
+            msjAlerta.Attributes["class"] = tipo;
+            labelAlerta.Text = contenido;
+            lblTitleMensaje.Text = titulo;
+            msjAlerta.Visible = true;
         }
     }
 }

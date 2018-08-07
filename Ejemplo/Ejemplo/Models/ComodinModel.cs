@@ -484,6 +484,12 @@ namespace Ejemplo.Models
                 public string pathImpresion { get; set; }
                 public string ImpresionError { get; set; }
             }
+            public class resultChartConsumosMes
+            {
+                public string Mes { get; set; }
+                public string Producto { get; set; }
+                public Decimal Importe { get; set; }
+            }
         }
     }
 }

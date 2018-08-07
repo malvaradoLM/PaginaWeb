@@ -1,4 +1,5 @@
-﻿using Ejemplo.Data;
+﻿using Ejemplo.Clases;
+using Ejemplo.Data;
 using Ejemplo.Data.Dataset;
 using RemObjects.DataAbstract.Server;
 using System;
@@ -52,6 +53,7 @@ namespace Ejemplo
         
         private void cargar()
         {
+            msjAlerta.Visible = false;
             Params.Clear();
             Data.DataModule.ParamByName(Params, "ClienteID", DataModule.Seguridad.UserID);
             Data.DataModule.ParamByName(Params, "Periodo", cmbPeriodo.Value);
@@ -70,8 +72,8 @@ namespace Ejemplo
             }
             else
             {
-                msjAlerta.InnerText = "No se encontraron registros";
-                msjAlerta.Visible = true;
+                mensaje("No se encontraron registros", labelCssClases.Advertencia, "Advertencia");
+                panelDetalles.Visible = false;
             }
         }
         private DataTable calcularSaldos(DataTable dt)
@@ -85,6 +87,13 @@ namespace Ejemplo
             }
 
             return dt;
+        }
+        private void mensaje(string contenido, string tipo, string titulo)
+        {
+            msjAlerta.Attributes["class"] = tipo;
+            labelAlerta.Text = contenido;
+            lblTitleMensaje.Text = titulo;
+            msjAlerta.Visible = true;
         }
     }
 }

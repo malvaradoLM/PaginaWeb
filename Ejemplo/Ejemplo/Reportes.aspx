@@ -6,18 +6,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <style type="text/css">
-.rojo{background:#F44336;}
-.azul{background:#2196F3;}
-.amarillo{background:#FFC107;}
-.verde_claro{background:#4CAF50;}
-.anaranjado{background:#FF5722;}
-.morado{background:#673AB7;}
-.cyan{background:#00BCD4;}
-.verdeDash{background:#009688;}
-.grisClaro{background:#D3D3D3;}
-.verde{background:#4CAF50;}
-.verdeFourence{background:#05D640;}
-.blueLight{background:#00BCD4;}
 .ico::after{
     content: '';
     display: block;
@@ -38,8 +26,13 @@
     padding: 5px;
     box-shadow: 3px 8px 6px #888888;
 }
+@media screen and (max-width: 480px) {
+  .linkclass
+{
+    width:0px;
+}}
 </style>
-    <link href="css/StylePage1.css" rel="stylesheet">
+    <link href="css/StylePageMenuPrincipal.css" rel="stylesheet">
 
     <div id="nav" class="container" style="margin-left:0px; margin-right:0px">
 
@@ -94,7 +87,7 @@
             </a>
         </div>
         <div class="col-lg-3">
-            <a href="DetailsComparativoMensualByVehiculo.aspx" id="btnComparativoMensulaVehiculo" class="Largo verdeFourence shadowBox">
+            <a href="DetailsComparativoMensualByVehiculoEnConstruccion.aspx" id="btnComparativoMensulaVehiculo" class="Largo verdeFourence shadowBox">
                 <asp:Image ID="Image7" runat="server" ImageUrl="\Icons\png\80px\large\vehicle-van-side-time.png" CssClass="linkclass" />
                 <h2-largo>COMPARATIVO MENSUAL POR VEHICULO</h2-largo>
             </a>

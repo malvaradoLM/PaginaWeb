@@ -67,7 +67,16 @@ namespace Ejemplo.Data
             {
                 TableRequestInfo rInfo = new TableRequestInfo();
                 rInfo.Parameters = Parametros;
-                Instance.remoteDataAdapter.Fill(ds, TableName, rInfo, true);
+                try
+                {
+                    Instance.remoteDataAdapter.Fill(ds, TableName, rInfo, true);
+                }
+                catch(Exception e)
+                {
+                    string exception = e.ToString();
+
+                }
+                
             } else
             {
                 Instance.remoteDataAdapter.Fill(ds, new string[] { TableName }, true);

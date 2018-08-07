@@ -592,7 +592,40 @@ namespace RPSuiteServer
             }
             return error;
         }
-        
+
+
+        public virtual DConsumo dbConsumoByFecha(int GasolineroID, int ClienteID, string FechaInicial, string FechaFinal)
+        {
+            List<DConsumo> info = new List<DConsumo>();
+            DConsumo result = new DConsumo();
+            IDbCommand command;
+            try
+            {
+                using (IDataReader rDataset = this.ServiceSchema.GetDataReader(this.Connection, "dbConsumoByFecha", new string[] { "GasolineroID", "ClienteID", "FechaInicial", "FechaFinal" }, new object[] { GasolineroID, ClienteID, FechaInicial, FechaFinal }, out command))
+                    // Alimentamos la sesion con datos adicionales
+                    while (rDataset.Read())
+                    {
+                        info.Add(new DConsumo()
+                        {
+                            EstacionID = (string.IsNullOrEmpty(rDataset["EstacionID"].ToString()) ? 0 : (int)(rDataset["EstacionID"])),
+                            MesCarga = (string.IsNullOrEmpty(rDataset["MesCarga"].ToString()) ? 0 : (int)(rDataset["MesCarga"])),
+                            Mes = (string.IsNullOrEmpty(rDataset["Mes"].ToString()) ? "" : (string)(rDataset["Mes"])),
+                            ProductoID = (string.IsNullOrEmpty(rDataset["ProductoID"].ToString()) ? 0 : (int)(rDataset["ProductoID"])),
+                            Producto = (string.IsNullOrEmpty(rDataset["Producto"].ToString()) ? "" : (string)(rDataset["Producto"])),
+                            TotConsumo = (string.IsNullOrEmpty(rDataset["TotConsumo"].ToString()) ? 0 : (int)(rDataset["TotConsumo"])),
+                            Importe = Convert.ToDecimal(rDataset["Importe"] ?? 0),
+                        });
+                    }
+
+                result.Datos = info.ToArray();
+                return result;
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+        }
+
 
     }
 }

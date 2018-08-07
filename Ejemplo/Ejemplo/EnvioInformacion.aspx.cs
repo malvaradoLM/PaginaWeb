@@ -7,6 +7,7 @@ using RPSuiteServer;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Web.UI.WebControls;
 
 namespace Ejemplo
 {
@@ -15,12 +16,23 @@ namespace Ejemplo
         private List<DataParameter> Params = new List<DataParameter>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if(!IsPostBack)
             {
                 msjAlerta.Visible = false;
                 cargarDatos();
             }
+            privilegios();
             
+        }
+        /// <summary>
+        /// Deshabilita el boton de guardar si no se tiene permiso de administrador.
+        /// </summary>
+        private void privilegios()
+        {
+            if(DataModule.Seguridad.Privileges == null)
+            {
+                btnProcesar.Visible = false;
+            }
         }
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control)
         {

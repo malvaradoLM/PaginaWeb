@@ -69,9 +69,11 @@ namespace RPSuiteServer
             //dataService.Activate(this.SessionID, false);
 
             IDbCommand lcommand;
-            var reader = dataService.ServiceSchema.GetDataReader(localConnection, "spLogin", new string[] { "Usuario", "Clave" }, new object[] { userId, password }, out lcommand);
+            var reader = dataService.ServiceSchema.GetDataReader(localConnection, "spLoginCliente", new string[] { "Usuario", "Clave" }, new object[] { userId, password }, out lcommand);
             Boolean lIsLoginSuccessful = (((System.Data.Common.DbDataReader)reader).HasRows);
-
+            IDataReader result = reader;
+            string usuario = "";
+            
             if (lIsLoginSuccessful)
             {
                 // This is an example of setting user-specific session information
@@ -79,6 +81,14 @@ namespace RPSuiteServer
 
                 userInfo = new UserInfo();
                 userInfo.UserID = userId;
+                if (reader.Read())//Leer si el usuario tiene permiso Administrativo
+                {
+                    if (reader.GetInt32(6) != 0)
+                    {
+                        userInfo.Privileges = new string[1];
+                        userInfo.Privileges[0] = "Administrador";
+                    }
+                }
             }
             else
             {

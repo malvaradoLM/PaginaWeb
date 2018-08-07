@@ -20,7 +20,6 @@ namespace Ejemplo
         {
             try
             {
-
               //  DataClass proxy = new DataClass();
                 RemObjects.DataAbstract.Server.UserInfo userinfo = new RemObjects.DataAbstract.Server.UserInfo();
                 //proxy.LoginAccess(inputUsuario.Value, inputPassword.Value, out userinfo);

@@ -112,13 +112,13 @@ namespace Ejemplo {
         protected global::DevExpress.Web.LayoutItemNestedControlContainer LayoutItemNestedControlContainer1;
         
         /// <summary>
-        /// btnCancelar4 control.
+        /// btnCancelar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnCancelar4;
+        protected global::DevExpress.Web.ASPxButton btnCancelar;
         
         /// <summary>
         /// ASPxLabel1 control.
@@ -130,12 +130,12 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxLabel ASPxLabel1;
         
         /// <summary>
-        /// btnProcesar4 control.
+        /// btnProcesar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnProcesar4;
+        protected global::DevExpress.Web.ASPxButton btnProcesar;
     }
 }

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="spConsumoByFecha" targetNamespace="http://tempuri.org/spConsumoByFecha.xsd" xmlns:mstns="http://tempuri.org/spConsumoByFecha.xsd" xmlns="http://tempuri.org/spConsumoByFecha.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="spConsumoByFecha" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="spConsumoByFecha" msprop:Generator_UserDSName="spConsumoByFecha">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="spConsumoByFecha" msprop:Generator_TableClassName="spConsumoByFechaDataTable" msprop:Generator_TableVarName="tablespConsumoByFecha" msprop:Generator_TablePropName="_spConsumoByFecha" msprop:Generator_RowDeletingName="spConsumoByFechaRowDeleting" msprop:Generator_RowChangingName="spConsumoByFechaRowChanging" msprop:Generator_RowEvHandlerName="spConsumoByFechaRowChangeEventHandler" msprop:Generator_RowDeletedName="spConsumoByFechaRowDeleted" msprop:Generator_UserTableName="spConsumoByFecha" msprop:Generator_RowChangedName="spConsumoByFechaRowChanged" msprop:Generator_RowEvArgName="spConsumoByFechaRowChangeEvent" msprop:Generator_RowClassName="spConsumoByFechaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GasolineroID" msprop:Generator_ColumnVarNameInTable="columnGasolineroID" msprop:Generator_ColumnPropNameInRow="GasolineroID" msprop:Generator_ColumnPropNameInTable="GasolineroIDColumn" msprop:Generator_UserColumnName="GasolineroID" type="xs:string" minOccurs="0" />
+              <xs:element name="EstacionID" msprop:Generator_ColumnVarNameInTable="columnEstacionID" msprop:Generator_ColumnPropNameInRow="EstacionID" msprop:Generator_ColumnPropNameInTable="EstacionIDColumn" msprop:Generator_UserColumnName="EstacionID" type="xs:string" minOccurs="0" />
+              <xs:element name="MesCarga" msprop:Generator_ColumnVarNameInTable="columnMesCarga" msprop:Generator_ColumnPropNameInRow="MesCarga" msprop:Generator_ColumnPropNameInTable="MesCargaColumn" msprop:Generator_UserColumnName="MesCarga" type="xs:string" minOccurs="0" />
+              <xs:element name="Mes" msprop:Generator_ColumnVarNameInTable="columnMes" msprop:Generator_ColumnPropNameInRow="Mes" msprop:Generator_ColumnPropNameInTable="MesColumn" msprop:Generator_UserColumnName="Mes" type="xs:string" minOccurs="0" />
+              <xs:element name="ProductoID" msprop:Generator_ColumnVarNameInTable="columnProductoID" msprop:Generator_ColumnPropNameInRow="ProductoID" msprop:Generator_ColumnPropNameInTable="ProductoIDColumn" msprop:Generator_UserColumnName="ProductoID" type="xs:string" minOccurs="0" />
+              <xs:element name="Producto" msprop:Generator_ColumnVarNameInTable="columnProducto" msprop:Generator_ColumnPropNameInRow="Producto" msprop:Generator_ColumnPropNameInTable="ProductoColumn" msprop:Generator_UserColumnName="Producto" type="xs:string" minOccurs="0" />
+              <xs:element name="TotConsumo" msprop:Generator_ColumnVarNameInTable="columnTotConsumo" msprop:Generator_ColumnPropNameInRow="TotConsumo" msprop:Generator_ColumnPropNameInTable="TotConsumoColumn" msprop:Generator_UserColumnName="TotConsumo" type="xs:string" minOccurs="0" />
+              <xs:element name="Importe" msprop:Generator_ColumnVarNameInTable="columnImporte" msprop:Generator_ColumnPropNameInRow="Importe" msprop:Generator_ColumnPropNameInTable="ImporteColumn" msprop:Generator_UserColumnName="Importe" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -52,49 +52,7 @@ fieldset[disabled] .btn-sample.active {
   background-color: #ffffff; 
 }
 /*gridview*/
-.table table  tbody  tr  td a ,
-.table table  tbody  tr  td  span {
-position: relative;
-float: left;
-padding: 6px 12px;
-margin-left: -1px;
-line-height: 1.42857143;
-color: #337ab7;
-text-decoration: none;
-background-color: #fff;
-border: 1px solid #ddd;
-}
 
-.table table > tbody > tr > td > span {
-z-index: 3;
-color: #fff;
-cursor: default;
-background-color: #337ab7;
-border-color: #337ab7;
-}
-
-.table table > tbody > tr > td:first-child > a,
-.table table > tbody > tr > td:first-child > span {
-margin-left: 0;
-border-top-left-radius: 4px;
-border-bottom-left-radius: 4px;
-}
-
-.table table > tbody > tr > td:last-child > a,
-.table table > tbody > tr > td:last-child > span {
-border-top-right-radius: 4px;
-border-bottom-right-radius: 4px;
-}
-
-.table table > tbody > tr > td > a:hover,
-.table   table > tbody > tr > td > span:hover,
-.table table > tbody > tr > td > a:focus,
-.table table > tbody > tr > td > span:focus {
-z-index: 2;
-color: #23527c;
-background-color: #eee;
-border-color: #ddd;
-}
 .labelCuadro
 {
     color: #ffffff;
@@ -102,6 +60,20 @@ border-color: #ddd;
 }
 .MarginTable{
     margin-left:20%;
+}
+    .FloatRight{
+
+            width:70%;
+    }
+@media screen and (max-width: 480px) {
+  .FloatRight{
+
+            width:100%;
+            float: right;
+    }
+    .linkclass
+{
+    width:0px;
 }
 /*end gridview */
  </style>
@@ -112,8 +84,13 @@ border-color: #ddd;
         <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
     </ul>
 </div>  
+    <div class="alert alert-warning" id="msjAlerta" runat="server" visible="false">
+        <strong><dx:ASPxLabel ID="lblTitleMensaje" runat="server" Font-Bold="true" /> </strong>
+        <dx:ASPxLabel ID="labelAlerta" runat="server" />
+        </div>
+
     <div class="row  col-lg-12 col-md-12 fade-in" >
-      <dx:BootstrapGridView ID="bgvUsuario" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="UsuarioWebID" CssClassesPager-Control="true" CssClasses-Table="table table-striped table-bordered table-hover" Width="60%" CssClasses-Control="MarginTable animacion" >
+      <dx:BootstrapGridView ID="bgvUsuario" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="UsuarioWebID" CssClassesPager-Control="true"  CssClasses-Control="MarginTable animacion FloatRight" >
                 <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
                 <Settings ShowGroupPanel="true"/>
                 <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>

@@ -51,7 +51,7 @@ th {
 
 	
    	<!--Inicio-->
-	 <div class="container" style="height: -webkit-fill-available;">
+	 <div class="container" style="height: auto">
 
 		<div class="row container-fluid">
 	

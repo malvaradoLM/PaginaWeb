@@ -13,15 +13,7 @@
     padding: 2px;
     box-shadow: 1px 6px 4px #888888;
 }
-    .Absolute-Center {
-      width: 100%;
-      height: 100%;
-      margin: auto;
-      position: absolute;
-      top: 0; left: 0; bottom: 0; right: 0;
-      height: -webkit-fill-available;
 
-}
     .linkclass
 {
     margin-left: 33%;
@@ -39,6 +31,25 @@
 .alignHeader{
     text-align:center;
 }
+  .MarginBreadCumb{
+          margin-top: 60px;
+  }
+@media screen and (max-width: 480px) {
+  .linkclass
+{
+    width:0px;
+}
+  .MarginBreadCumb{
+          margin-top: 10px;
+  }
+ }
+@media screen and (min-device-width: 481px) and (max-device-width: 740px){
+.linkclass
+{
+    width:0px;
+}
+
+  }
         </style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="assets/slicknav/jquery.slicknav.min.js"></script>
@@ -47,7 +58,6 @@
     <link rel="stylesheet" href="assets/slicknav/slicknav.min.css">
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <%-- 
     <div class="container" style="height: webkit-fill-available; margin-top:40%;">
     <nav class="menu-navigation-icons">
@@ -60,41 +70,41 @@
     </div>
         --%>
     
-    <link href="css/StylePage1.css" rel="stylesheet">
+    <link href="css/StylePageMenuPrincipal.css" rel="stylesheet">
    <link href="css/breadCrumb.css" rel="stylesheet">
  
-    <div id="cssmenu" style="margin-top:60px;" class="row">  
+    <div id="cssmenu" class="row MarginBreadCumb">  
     <ul>
         <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
     </ul>
 </div>      
     <div class="tab-content fade-in animacion" style="margin-top:10%;">
-    <div class="row fade-in">
-        <div class="col-lg-3 fade-in">
-            <a href="Dashboard.aspx" id="btnResumen" class="Largo rojo shadowBox">
+    <div class="row fade-in align-items-center"">
+        <div class="col-sm-3 fade-in">
+            <a href="Dashboard.aspx" id="btnResumen" class="Largo rojo shadowBox AlturaMobil">
                 <asp:Image ID="Image1" runat="server" ImageUrl="\Icons\png\80px\large\document_chart.png" CssClass="linkclass" />
                 <h2-largo>DASHBOARD</h2-largo>
             </a>
         </div>
-        <div class="col-lg-3 fade-in">
+        <div class="col-sm-3 fade-in">
             <a href="DatosCliente.aspx" id="btnDatosCliente" class="Largo anaranjado shadowBox">
               <asp:Image ID="Image2" runat="server" ImageUrl="\Icons\png\80px\large\business-card.png" CssClass="linkclass" />
                 <h2-largo>DATOS DEL CLIENTE</h2-largo>
             </a>
         </div>
-        <div class="col-lg-3 fade-in">
+        <div class="col-sm-3 fade-in">
             <a href="VehiculoPage.aspx" id="btnVehiculos" class="Largo blue shadowBox">
                  <asp:Image ID="Image3" runat="server" ImageUrl="\Icons\png\80px\large\vehicle-car-convertible.png" CssClass="linkclass" />
                 <h2-largo>VEHICULOS</h2-largo>
             </a>
         </div>
-        <div class="col-lg-3 fade-in">
+        <div class="col-sm-3 fade-in">
             <a href="Usuarios.aspx" id="btnUsuarios" class="Largo verdeAzuloso shadowBox">
             <asp:Image ID="Image4" runat="server" ImageUrl="\Icons\png\80px\large\window-user.png" CssClass="linkclass" />
                 <h2-largo>USUARIOS</h2-largo>
             </a>
         </div>
-        <div class="col-lg-3 fade-in">
+        <div class="col-sm-3 fade-in">
             <a href="Reportes.aspx" id="btnReportes" class="Largo amarillo shadowBox">
              <asp:Image ID="Image5" runat="server" ImageUrl="\Icons\png\80px\large\report.png" CssClass="linkclass" />
                 <h2-largo>REPORTES</h2-largo>

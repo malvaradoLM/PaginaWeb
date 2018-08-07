@@ -35,6 +35,20 @@
 .coloresGrid {
     color: gray;
 }
+    .FloatRight{
+
+            width:90%;
+    }
+@media screen and (max-width: 480px) {
+  .FloatRight{
+
+            width:100%;
+            float: right;
+    }
+    .linkclass
+{
+    width:0px;
+}
  </style>
 
 <script type="text/javascript">
@@ -131,6 +145,7 @@
 </div>  
     <div class="fade-in animacion">  
         <dx:ASPxRoundPanel ID="panelParametros" ClientInstanceName="roundPanel" HeaderText="PARAMETROS" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >
+<HeaderStyle ForeColor="Gray"></HeaderStyle>
         <PanelCollection>
             <dx:PanelContent>
                 <dx:ASPxFormLayout runat="server" ID="ASPxFormLayout1" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365" SettingsItems-HorizontalAlign="Center"   >
@@ -156,6 +171,8 @@
                                 </dx:ASPxDateEdit>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
+
+<CaptionStyle Font-Bold="True"></CaptionStyle>
                     </dx:LayoutItem>
                     <dx:LayoutItem Caption="Fecha Final" HelpText="Porfavor, ingrese la fecha final" CaptionStyle-Font-Bold="true">
                         <LayoutItemNestedControlCollection>
@@ -171,6 +188,8 @@
                                 </dx:ASPxDateEdit>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
+
+<CaptionStyle Font-Bold="True"></CaptionStyle>
                     </dx:LayoutItem> 
                     <dx:LayoutItem Caption="Mostrar Por:" HorizontalAlign="Left" RequiredMarkDisplayMode="Hidden" CssClass="radioMargin" CaptionStyle-Font-Bold="true">
                         <LayoutItemNestedControlCollection>
@@ -184,6 +203,8 @@
                                 </dx:ASPxRadioButtonList>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
+
+<CaptionStyle Font-Bold="True"></CaptionStyle>
                     </dx:LayoutItem>
                     <dx:LayoutGroup Border-BorderStyle="None"  Caption=" " CssClass="buttonMargin" GroupBoxDecoration="None" HorizontalAlign="Right" SettingsItemCaptions-HorizontalAlign="Right" Width="100" RowSpan="2" VerticalAlign="Bottom">
                         <Border BorderStyle="None" />
@@ -209,60 +230,80 @@
         </dx:ASPxFormLayout>
             </dx:PanelContent>
         </PanelCollection>
+
+<Border BorderColor="Gray" BorderStyle="None" BorderWidth="0px"></Border>
     </dx:ASPxRoundPanel>
 
 
     <%-- Tabla Consumos--%>
-                <dx:ASPxRoundPanel ID="panelConsumos" ClientInstanceName="panelConsumos" HeaderText="CONSUMOS" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes fade-in animacion" HeaderStyle-ForeColor="Gray">
+                <dx:ASPxRoundPanel ID="panelConsumos" ClientInstanceName="panelConsumos" HeaderText="CONSUMOS" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes fade-in animacion"  HeaderStyle-ForeColor="Gray">
+<HeaderStyle ForeColor="Gray"></HeaderStyle>
                     <PanelCollection>
             <dx:PanelContent>
-                <dx:BootstrapGridView ID="bgvConsumo2" runat="server"  KeyFieldName="ID"  ClientSideEvents-BeginCallback="ocultarDetalles" Width="90%" CssClasses-Control="shadowBox alinearConsumos" CssClasses-HeaderRow="coloresGrid" >
-    <Settings ShowGroupPanel="true"/>
-    <Settings ShowFooter="True" />
-    <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
+                <dx:BootstrapGridView ID="bgvConsumo2" runat="server"  KeyFieldName="ID"  ClientSideEvents-BeginCallback="ocultarDetalles" Width="90%" CssClasses-Control="shadowBox alinearConsumos FloatRight" CssClasses-HeaderRow="coloresGrid" >
+    <Settings ShowFooter="True" GroupSummaryTextSeparator=" Litros - Importe: " ShowGroupedColumns="true" ShowGroupButtons="true" ShowGroupPanel="true" />
     <SettingsBehavior AllowFocusedRow="True" />
-    <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>
-    <SettingsAdaptivity  AdaptivityMode="HideDataCells" AllowOnlyOneAdaptiveDetailExpanded="true" />
+<CssClasses HeaderRow="coloresGrid" Control="shadowBox alinearConsumos FloatRight"></CssClasses>
+
+    <Settings ShowGroupPanel="true" ShowColumnHeaders="true"/>
+    <SettingsAdaptivity  AdaptivityMode="HideDataCells" AllowOnlyOneAdaptiveDetailExpanded="true"  />
+    <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
+    <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel="Arrastre una cabecera aquí para Agrupar"/>
     <Columns>
-        <dx:BootstrapGridViewTextColumn FieldName="ID"   HorizontalAlign="Center" CssClasses-HeaderCell="coloresGrid"  >    
+        <dx:BootstrapGridViewTextColumn FieldName="ID"   HorizontalAlign="Center" CssClasses-HeaderCell="coloresGrid" VisibleIndex="1"  >    
+                         <CssClasses HeaderCell="coloresGrid" />
                          <DataItemTemplate>
                             <asp:LinkButton runat="server" Text='<%#Eval("ID")%>' OnClick="Unnamed_Click" ID='button1' CssClass="coloresGrid"  />
                          </DataItemTemplate>   
                     </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewTextColumn FieldName="EstacionID" HorizontalAlign="Center" >
+                    <dx:BootstrapGridViewTextColumn FieldName="EstacionID" HorizontalAlign="Center" VisibleIndex="2"  >
                     </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewTextColumn FieldName="FechaCarga"  UnboundType="DateTime" HorizontalAlign="Center">
+                    <dx:BootstrapGridViewTextColumn FieldName="VehiculoID" HorizontalAlign="Center" VisibleIndex="3"  >
+                    </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewTextColumn FieldName="Identificacion" HorizontalAlign="Center" VisibleIndex="4" >
+                    </dx:BootstrapGridViewTextColumn>
+                      <dx:BootstrapGridViewTextColumn FieldName="Nombre" HorizontalAlign="Center" VisibleIndex="5" >
+                    </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewTextColumn FieldName="FechaCarga"  UnboundType="DateTime" HorizontalAlign="Center" VisibleIndex="6">
                                <PropertiesTextEdit DisplayFormatString="dd/MM/yyyy" />        
                     </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewCheckColumn FieldName="Facturado"    UnboundType="Boolean" HorizontalAlign="Center">
+                    <dx:BootstrapGridViewCheckColumn FieldName="Facturado"    UnboundType="Boolean" HorizontalAlign="Center" VisibleIndex="7">
                                     
                     </dx:BootstrapGridViewCheckColumn>
-                    <dx:BootstrapGridViewTextColumn FieldName="Producto"   UnboundType="String" HorizontalAlign="Center">
+                    <dx:BootstrapGridViewTextColumn FieldName="Producto"   UnboundType="String" HorizontalAlign="Center" VisibleIndex="8">
                                     
                     </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewTextColumn FieldName="Serie" UnboundType="String" HorizontalAlign="Center" >
+                    <dx:BootstrapGridViewTextColumn FieldName="Serie" UnboundType="String" HorizontalAlign="Center" VisibleIndex="9" >
                                     
                     </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewTextColumn FieldName="Folio"  UnboundType="String"  HorizontalAlign="Center">
+                    <dx:BootstrapGridViewTextColumn FieldName="Folio"  UnboundType="String"  HorizontalAlign="Center" VisibleIndex="10">
                                    
                     </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewDataColumn FieldName="Cantidad"   UnboundType="Decimal">
+                    <dx:BootstrapGridViewDataColumn FieldName="Cantidad"   UnboundType="Decimal" VisibleIndex="11">
                                    
                     </dx:BootstrapGridViewDataColumn>
-                    <dx:BootstrapGridViewTextColumn FieldName="Precio"   UnboundType="Decimal" >
+                    <dx:BootstrapGridViewTextColumn FieldName="Precio"   UnboundType="Decimal" VisibleIndex="12" >
                              <PropertiesTextEdit DisplayFormatString="c" /> 
                     </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewTextColumn FieldName="Importe"   UnboundType="Decimal" >
+                    <dx:BootstrapGridViewTextColumn FieldName="Importe"   UnboundType="Decimal" VisibleIndex="13" >
                                  <PropertiesTextEdit DisplayFormatString="c" />    
                     </dx:BootstrapGridViewTextColumn>
     </Columns>
+
+<ClientSideEvents BeginCallback="ocultarDetalles"></ClientSideEvents>
     <TotalSummary>
-        <dx:ASPxSummaryItem FieldName="Cantidad"  SummaryType="Sum" DisplayFormat="c"  />
+        <dx:ASPxSummaryItem FieldName="Cantidad"  SummaryType="Sum"  />
         <dx:ASPxSummaryItem FieldName="Importe" SummaryType="Sum" DisplayFormat="c"  />
     </TotalSummary>
+    <GroupSummary>
+        <dx:ASPxSummaryItem  FieldName="Cantidad" SummaryType="Sum"/>
+        <dx:ASPxSummaryItem  FieldName="Importe" SummaryType="Sum" DisplayFormat="c"/>
+    </GroupSummary>
 </dx:BootstrapGridView>
                 </dx:PanelContent>
                 </PanelCollection>   
+
+<Border BorderColor="Gray" BorderStyle="None" BorderWidth="0px"></Border>
                 </dx:ASPxRoundPanel>
      <%-- Formulario Nuevo --%>
 </div>

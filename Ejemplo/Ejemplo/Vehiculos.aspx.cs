@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraPivotGrid;
+using Ejemplo.Clases;
 using Ejemplo.Data;
 using Ejemplo.Data.Dataset;
 using HtmlAgilityPack;
@@ -31,15 +32,21 @@ namespace Ejemplo
             DataModule.FillDataSet(ds, "spCatVehiculo", Params.ToArray());
             DataTable dt = new DataTable();
             dt = ds.Tables["spCatVehiculo"];
-            FillDataFirstTab(dt);
-            FillCombos();
-            FillComboEstacion();
-            FillDataSecondTab(dt);
-            FillDataThirdTab(dt);
-            FillDataFourthTab(dt);
-            FillDataFifthTab(dt);
-            FillDataSixthTab(dt);
+            if (dt.Rows.Count != 0)
+            {
+                FillDataFirstTab(dt);
+                FillCombos();
+                FillComboEstacion();
+                FillDataSecondTab(dt);
+                FillDataThirdTab(dt);
+                FillDataFourthTab(dt);
+                FillDataFifthTab(dt);
+                FillDataSixthTab(dt);
+            }
+            else mensaje("No se pudo cargar el Vehiculo, intente nuevamente", labelCssClases.Advertencia, "Advertencia");
             
+            ///Si no es Administrador se deshabilita boton.
+            if (DataModule.Seguridad.Privileges == null) btnProcesar.Visible = false;
 
         }
 
@@ -68,33 +75,37 @@ namespace Ejemplo
             DataModule.FillDataSet(ds, "spCatEstacion", null);
             DataTable dt = new DataTable();
             dt = ds.Tables["spCatEstacion"];
-
-            IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
-            lista.Add(new ValuesCombo() { id = "", nombre = ""});///Para elegir no limitar a una estacion
-            foreach (DataRow dr in query)
+            if (dt.Rows.Count != 0)
             {
-                lista.Add(new ValuesCombo() { id = dr.Field<int>("EstacionID").ToString(), nombre = dr.Field<int>("EstacionID").ToString() +"-"+ dr.Field<string>("Nombre") });
-                
-            }
-            cmbLimitarEstacion.DataSource = lista;
-            cmbLimitarEstacion.ValueField = "id";
-            cmbLimitarEstacion.TextField = "nombre";
-            cmbLimitarEstacion.DataBind();
+                IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
+                lista.Add(new ValuesCombo() { id = "", nombre = "" });///Para elegir no limitar a una estacion
+                foreach (DataRow dr in query)
+                {
+                    lista.Add(new ValuesCombo() { id = dr.Field<int>("EstacionID").ToString(), nombre = dr.Field<int>("EstacionID").ToString() + "-" + dr.Field<string>("Nombre") });
 
-            /*
-            chProductos.Items.Add("PREMIUM");
-            if(productoAutorizado.Contains("1"))chProductos.Items[0].Selected = true;
-            chProductos.Items.Add("MAGNA");
-            if (productoAutorizado.Contains("2")) chProductos.Items[1].Selected = true;
-            chProductos.Items.Add("DIESEL");
-            if (productoAutorizado.Contains("3")) chProductos.Items[2].Selected = true;
-            chProductos.Items.Add("OTRO");
-            if (productoAutorizado.Contains("4")) chProductos.Items[3].Selected = true;
-            */
-            if (productoAutorizado.Contains("1")) checkboxdx.Items[0].Selected = true;
-            if (productoAutorizado.Contains("2")) checkboxdx.Items[1].Selected = true;
-            if (productoAutorizado.Contains("3")) checkboxdx.Items[2].Selected = true;
-            if (productoAutorizado.Contains("4")) checkboxdx.Items[3].Selected = true;
+                }
+                cmbLimitarEstacion.DataSource = lista;
+                cmbLimitarEstacion.ValueField = "id";
+                cmbLimitarEstacion.TextField = "nombre";
+                cmbLimitarEstacion.DataBind();
+
+                /*
+                chProductos.Items.Add("PREMIUM");
+                if(productoAutorizado.Contains("1"))chProductos.Items[0].Selected = true;
+                chProductos.Items.Add("MAGNA");
+                if (productoAutorizado.Contains("2")) chProductos.Items[1].Selected = true;
+                chProductos.Items.Add("DIESEL");
+                if (productoAutorizado.Contains("3")) chProductos.Items[2].Selected = true;
+                chProductos.Items.Add("OTRO");
+                if (productoAutorizado.Contains("4")) chProductos.Items[3].Selected = true;
+                */
+                if (productoAutorizado.Contains("1")) checkboxdx.Items[0].Selected = true;
+                if (productoAutorizado.Contains("2")) checkboxdx.Items[1].Selected = true;
+                if (productoAutorizado.Contains("3")) checkboxdx.Items[2].Selected = true;
+                if (productoAutorizado.Contains("4")) checkboxdx.Items[3].Selected = true;
+            }
+            else mensaje("No se pudieron cargar las estaciones, intente nuevamente", labelCssClases.Advertencia, "Advertencia");
+            
 
 
         }
@@ -113,7 +124,7 @@ namespace Ejemplo
                 txtCentrodeCosto.Text= dr.Field<string>("CentroCostos");
                 txtDepartamento.Text= dr.Field<string>("Departamento");
                 txtNombreUsuario.Text= dr.Field<string>("Nombre");
-                chkPlacas.Value= dr.Field<bool>("Placas");
+                //chkPlacas.Value= dr.Field<bool>("Placas");
                 productoAutorizado = dr.Field<string>("ProductoAutorizado");
                
             }
@@ -250,7 +261,7 @@ namespace Ejemplo
             try
             {
                 if (!DataModule.DataService.cmdActualizaVehiculo(vehiculo)) resultado = "NO SE PUDIERON GUARDAR LOS CAMBIOS";
-                else resultado= "LOS CAMBIOS HAN SIDO GUARDADOS CORRECTAMENTE";          
+                else resultado= "LOS CAMBIOS HAN SIDO GUARDADOS CORRECTAMENTE";      
             } 
             catch (Exception ex)
             {
@@ -307,7 +318,13 @@ namespace Ejemplo
             Response.Redirect("VehiculoPage.aspx", false);
         }
 
-
+        private void mensaje(string contenido, string tipo, string titulo)
+        {
+            msjAlerta.Attributes["class"] = tipo;
+            labelAlerta.Text = contenido;
+            lblTitleMensaje.Text = titulo;
+            msjAlerta.Visible = true;
+        }
 
 
     }

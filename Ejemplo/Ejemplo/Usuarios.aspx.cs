@@ -9,6 +9,7 @@ using Ejemplo.Data;
 using Ejemplo.Data.Dataset;
 using RemObjects.DataAbstract.Server;
 using System.Data;
+using Ejemplo.Clases;
 
 namespace Ejemplo
 {
@@ -20,14 +21,25 @@ namespace Ejemplo
         protected void Page_Load(object sender, EventArgs e)
         {
             Params.Clear();
+            if (!IsPostBack) msjAlerta.Visible = false;
             ClienteID = DataModule.Seguridad.UserID;
             Data.DataModule.ParamByName(Params, "ClienteID", DataModule.Seguridad.UserID);
             spVehiculoDS ds = new spVehiculoDS();
             DataModule.FillDataSet(ds, "spUsuarioWeb", Params.ToArray());
             DataTable dt = new DataTable();
             dt = ds.Tables["spUsuarioWeb"];
-            bgvUsuario.DataSource = dt;
-            bgvUsuario.DataBind();
+            if(dt.Rows.Count != 0)
+            {
+                bgvUsuario.DataSource = dt;
+                bgvUsuario.DataBind();
+            }
+            else
+            {
+                mensaje("No se han encontrado registros, intente nuevamente", labelCssClases.Advertencia, "Advertencia");
+            }
+            
+            ///Deshabilita boton Crear Nuevo si no tiene permisos
+            if (DataModule.Seguridad.Privileges == null) btnNuevo1.Visible = false;
         }
         private void FindControlPage()
         {
@@ -62,6 +74,13 @@ namespace Ejemplo
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        private void mensaje(string contenido, string tipo, string titulo)
+        {
+            msjAlerta.Attributes["class"] = tipo;
+            labelAlerta.Text = contenido;
+            lblTitleMensaje.Text = titulo;
+            msjAlerta.Visible = true;
         }
     }
 }

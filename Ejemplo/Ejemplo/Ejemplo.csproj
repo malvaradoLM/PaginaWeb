@@ -155,6 +155,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="404.aspx" />
     <Content Include="DetailsAnalisisConsumo.aspx" />
     <Content Include="DetailsBitacoraCliente.aspx" />
     <Content Include="DetailsComparativoMensualByCliente.aspx" />
@@ -174,6 +175,184 @@
     <Content Include="Documentos.aspx" />
     <Content Include="EditarUsuario.aspx" />
     <Content Include="EnvioInformacion.aspx" />
+    <Content Include="Icons\ico\access-card.ico" />
+    <Content Include="Icons\ico\account-book.ico" />
+    <Content Include="Icons\ico\battery-computer.ico" />
+    <Content Include="Icons\ico\bill-credit-card-down.ico" />
+    <Content Include="Icons\ico\bill-credit-card-product.ico" />
+    <Content Include="Icons\ico\bill-pin.ico" />
+    <Content Include="Icons\ico\business-card.ico" />
+    <Content Include="Icons\ico\button-cancel.ico" />
+    <Content Include="Icons\ico\button-ok.ico" />
+    <Content Include="Icons\ico\calendar-customer.ico" />
+    <Content Include="Icons\ico\calendar-list.ico" />
+    <Content Include="Icons\ico\company-building-filter.ico" />
+    <Content Include="Icons\ico\company-building-list.ico" />
+    <Content Include="Icons\ico\delivery-list.ico" />
+    <Content Include="Icons\ico\document-corner-text-calendar.ico" />
+    <Content Include="Icons\ico\document_chart.ico" />
+    <Content Include="Icons\ico\invoice-banknote.ico" />
+    <Content Include="Icons\ico\local-gas-station-payment.ico" />
+    <Content Include="Icons\ico\people-customers.ico" />
+    <Content Include="Icons\ico\report-money-coins.ico" />
+    <Content Include="Icons\ico\report-print-banknotes.ico" />
+    <Content Include="Icons\ico\report.ico" />
+    <Content Include="Icons\ico\user-add.ico" />
+    <Content Include="Icons\ico\vehicle-car-convertible.ico" />
+    <Content Include="Icons\ico\vehicle-car.ico" />
+    <Content Include="Icons\ico\vehicle-van-side-time.ico" />
+    <Content Include="Icons\ico\warning.ico" />
+    <Content Include="Icons\ico\window-user.ico" />
+    <Content Include="Icons\png\1024px\large\bill-pin.png" />
+    <Content Include="Icons\png\1024px\large\button-cancel.png" />
+    <Content Include="Icons\png\1024px\large\button-ok.png" />
+    <Content Include="Icons\png\1024px\large\report-money-coins.png" />
+    <Content Include="Icons\png\1024px\large\user-add.png" />
+    <Content Include="Icons\png\128px\large\user-add.png" />
+    <Content Include="Icons\png\16px\calendar-customer.png" />
+    <Content Include="Icons\png\16px\large\account-book.png" />
+    <Content Include="Icons\png\16px\large\bill-credit-card-down.png" />
+    <Content Include="Icons\png\16px\large\bill-credit-card-product.png" />
+    <Content Include="Icons\png\16px\large\bill-pin.png" />
+    <Content Include="Icons\png\16px\large\button-cancel.png" />
+    <Content Include="Icons\png\16px\large\button-ok.png" />
+    <Content Include="Icons\png\16px\large\calendar-list.png" />
+    <Content Include="Icons\png\16px\large\company-building-filter.png" />
+    <Content Include="Icons\png\16px\large\company-building-list.png" />
+    <Content Include="Icons\png\16px\large\delivery-list.png" />
+    <Content Include="Icons\png\16px\large\report-money-coins.png" />
+    <Content Include="Icons\png\16px\large\report-print-banknotes.png" />
+    <Content Include="Icons\png\16px\large\user-add.png" />
+    <Content Include="Icons\png\16px\large\vehicle-van-side-time.png" />
+    <Content Include="Icons\png\16px\local-gas-station-payment.png" />
+    <Content Include="Icons\png\1x\document-corner-text-calendar.png" />
+    <Content Include="Icons\png\1x\large\access-card.png" />
+    <Content Include="Icons\png\1x\small\access-card.png" />
+    <Content Include="Icons\png\2048px\large\bill-pin.png" />
+    <Content Include="Icons\png\2048px\large\button-cancel.png" />
+    <Content Include="Icons\png\2048px\large\button-ok.png" />
+    <Content Include="Icons\png\2048px\large\calendar-list.png" />
+    <Content Include="Icons\png\2048px\large\report-money-coins.png" />
+    <Content Include="Icons\png\2048px\large\user-add.png" />
+    <Content Include="Icons\png\20px\large\user-add.png" />
+    <Content Include="Icons\png\24px\large\user-add.png" />
+    <Content Include="Icons\png\256px\large\user-add.png" />
+    <Content Include="Icons\png\32px\large\user-add.png" />
+    <Content Include="Icons\png\40px\large\user-add.png" />
+    <Content Include="Icons\png\48px\large\bill-pin.png" />
+    <Content Include="Icons\png\48px\large\button-cancel.png" />
+    <Content Include="Icons\png\48px\large\button-ok.png" />
+    <Content Include="Icons\png\48px\large\report-money-coins.png" />
+    <Content Include="Icons\png\48px\large\user-add.png" />
+    <Content Include="Icons\png\512px\large\user-add.png" />
+    <Content Include="Icons\png\60px\large\bill-pin.png" />
+    <Content Include="Icons\png\60px\large\button-cancel.png" />
+    <Content Include="Icons\png\60px\large\button-ok.png" />
+    <Content Include="Icons\png\60px\large\report-money-coins.png" />
+    <Content Include="Icons\png\60px\large\user-add.png" />
+    <Content Include="Icons\png\64px\calendar-customer.png" />
+    <Content Include="Icons\png\64px\large\account-book.png" />
+    <Content Include="Icons\png\64px\large\bill-credit-card-down.png" />
+    <Content Include="Icons\png\64px\large\bill-credit-card-product.png" />
+    <Content Include="Icons\png\64px\large\bill-pin.png" />
+    <Content Include="Icons\png\64px\large\button-cancel.png" />
+    <Content Include="Icons\png\64px\large\button-ok.png" />
+    <Content Include="Icons\png\64px\large\calendar-list.png" />
+    <Content Include="Icons\png\64px\large\company-building-filter.png" />
+    <Content Include="Icons\png\64px\large\company-building-list.png" />
+    <Content Include="Icons\png\64px\large\delivery-list.png" />
+    <Content Include="Icons\png\64px\large\report-money-coins.png" />
+    <Content Include="Icons\png\64px\large\report-print-banknotes.png" />
+    <Content Include="Icons\png\64px\large\user-add.png" />
+    <Content Include="Icons\png\64px\large\vehicle-van-side-time.png" />
+    <Content Include="Icons\png\64px\local-gas-station-payment.png" />
+    <Content Include="Icons\png\768px\large\bill-pin.png" />
+    <Content Include="Icons\png\768px\large\button-cancel.png" />
+    <Content Include="Icons\png\768px\large\button-ok.png" />
+    <Content Include="Icons\png\768px\large\report-money-coins.png" />
+    <Content Include="Icons\png\768px\large\user-add.png" />
+    <Content Include="Icons\png\80px\calendar-customer.png" />
+    <Content Include="Icons\png\80px\large\account-book.png" />
+    <Content Include="Icons\png\80px\large\battery-computer.png" />
+    <Content Include="Icons\png\80px\large\bill-credit-card-down.png" />
+    <Content Include="Icons\png\80px\large\bill-credit-card-product.png" />
+    <Content Include="Icons\png\80px\large\bill-pin.png" />
+    <Content Include="Icons\png\80px\large\business-card.png" />
+    <Content Include="Icons\png\80px\large\button-cancel.png" />
+    <Content Include="Icons\png\80px\large\button-ok.png" />
+    <Content Include="Icons\png\80px\large\calendar-list.png" />
+    <Content Include="Icons\png\80px\large\company-building-filter.png" />
+    <Content Include="Icons\png\80px\large\company-building-list.png" />
+    <Content Include="Icons\png\80px\large\delivery-list.png" />
+    <Content Include="Icons\png\80px\large\document_chart.png" />
+    <Content Include="Icons\png\80px\large\emoticon-sad.png" />
+    <Content Include="Icons\png\80px\large\invoice-banknote.png" />
+    <Content Include="Icons\png\80px\large\people-customers.png" />
+    <Content Include="Icons\png\80px\large\report-money-coins.png" />
+    <Content Include="Icons\png\80px\large\report-print-banknotes.png" />
+    <Content Include="Icons\png\80px\large\report.png" />
+    <Content Include="Icons\png\80px\large\user-add.png" />
+    <Content Include="Icons\png\80px\large\vehicle-car-convertible.png" />
+    <Content Include="Icons\png\80px\large\vehicle-car.png" />
+    <Content Include="Icons\png\80px\large\vehicle-van-side-time.png" />
+    <Content Include="Icons\png\80px\large\warning.png" />
+    <Content Include="Icons\png\80px\large\window-user.png" />
+    <Content Include="Icons\png\80px\local-gas-station-payment.png" />
+    <Content Include="Icons\png\96px\large\battery-computer.png" />
+    <Content Include="Icons\png\96px\large\invoice-banknote.png" />
+    <Content Include="Icons\png\96px\large\user-add.png" />
+    <Content Include="Icons\png\96px\large\vehicle-car.png" />
+    <Content Include="Icons\svg\calendar-customer.svg" />
+    <Content Include="Icons\svg\large\account-book.svg" />
+    <Content Include="Icons\svg\large\battery-computer.svg" />
+    <Content Include="Icons\svg\large\bill-credit-card-down.svg" />
+    <Content Include="Icons\svg\large\bill-credit-card-product.svg" />
+    <Content Include="Icons\svg\large\bill-pin.svg" />
+    <Content Include="Icons\svg\large\business-card.svg" />
+    <Content Include="Icons\svg\large\button-cancel.svg" />
+    <Content Include="Icons\svg\large\button-ok.svg" />
+    <Content Include="Icons\svg\large\calendar-list.svg" />
+    <Content Include="Icons\svg\large\company-building-filter.svg" />
+    <Content Include="Icons\svg\large\company-building-list.svg" />
+    <Content Include="Icons\svg\large\delivery-list.svg" />
+    <Content Include="Icons\svg\large\document_chart.svg" />
+    <Content Include="Icons\svg\large\invoice-banknote.svg" />
+    <Content Include="Icons\svg\large\people-customers.svg" />
+    <Content Include="Icons\svg\large\report-money-coins.svg" />
+    <Content Include="Icons\svg\large\report-print-banknotes.svg" />
+    <Content Include="Icons\svg\large\report.svg" />
+    <Content Include="Icons\svg\large\user-add.svg" />
+    <Content Include="Icons\svg\large\vehicle-car-convertible.svg" />
+    <Content Include="Icons\svg\large\vehicle-car.svg" />
+    <Content Include="Icons\svg\large\vehicle-van-side-time.svg" />
+    <Content Include="Icons\svg\large\warning.svg" />
+    <Content Include="Icons\svg\large\window-user.svg" />
+    <Content Include="Icons\svg\local-gas-station-payment.svg" />
+    <Content Include="Icons\svg\small\account-book.svg" />
+    <Content Include="Icons\svg\small\battery-computer.svg" />
+    <Content Include="Icons\svg\small\bill-credit-card-down.svg" />
+    <Content Include="Icons\svg\small\bill-credit-card-product.svg" />
+    <Content Include="Icons\svg\small\bill-pin.svg" />
+    <Content Include="Icons\svg\small\business-card.svg" />
+    <Content Include="Icons\svg\small\button-cancel.svg" />
+    <Content Include="Icons\svg\small\button-ok.svg" />
+    <Content Include="Icons\svg\small\calendar-list.svg" />
+    <Content Include="Icons\svg\small\company-building-filter.svg" />
+    <Content Include="Icons\svg\small\company-building-list.svg" />
+    <Content Include="Icons\svg\small\delivery-list.svg" />
+    <Content Include="Icons\svg\small\document_chart.svg" />
+    <Content Include="Icons\svg\small\invoice-banknote.svg" />
+    <Content Include="Icons\svg\small\people-customers.svg" />
+    <Content Include="Icons\svg\small\report-money-coins.svg" />
+    <Content Include="Icons\svg\small\report-print-banknotes.svg" />
+    <Content Include="Icons\svg\small\report.svg" />
+    <Content Include="Icons\svg\small\user-add.svg" />
+    <Content Include="Icons\svg\small\vehicle-car-convertible.svg" />
+    <Content Include="Icons\svg\small\vehicle-car.svg" />
+    <Content Include="Icons\svg\small\vehicle-van-side-time.svg" />
+    <Content Include="Icons\svg\small\warning.svg" />
+    <Content Include="Icons\svg\small\window-user.svg" />
+    <Content Include="Oops.aspx" />
     <Content Include="ExcelPage.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="LoginPage.aspx" />
@@ -194,6 +373,28 @@
     </Content>
     <Content Include="Data\Dataset\spConsumoDS.xsc">
       <DependentUpon>spConsumoDS.xsd</DependentUpon>
+    </Content>
+    <Content Include="Data\Dataset\spConsumoByFecha.xsc">
+      <DependentUpon>spConsumoByFecha.xsd</DependentUpon>
+    </Content>
+    <None Include="Data\Dataset\spConsumoByFecha.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>spConsumoByFecha.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Data\Dataset\spConsumoByFecha.xss">
+      <DependentUpon>spConsumoByFecha.xsd</DependentUpon>
+    </Content>
+    <Content Include="Data\Dataset\spConsumoByProducto.xsc">
+      <DependentUpon>spConsumoByProducto.xsd</DependentUpon>
+    </Content>
+    <None Include="Data\Dataset\spConsumoByProducto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>spConsumoByProducto.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Data\Dataset\spConsumoByProducto.xss">
+      <DependentUpon>spConsumoByProducto.xsd</DependentUpon>
     </Content>
     <None Include="Data\Dataset\spConsumoDS.xsd">
       <SubType>Designer</SubType>
@@ -451,12 +652,31 @@
     <Content Include="widgets.html" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\ChartsData.cs" />
+    <Compile Include="Clases\labelCssClases.cs" />
     <Compile Include="Clases\Validaciones.cs" />
     <Compile Include="Data\DataModule.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Data\DataModule.Designer.cs">
       <DependentUpon>DataModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dataset\spConsumoByFecha.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>spConsumoByFecha.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dataset\spConsumoByProducto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>spConsumoByProducto.xsd</DependentUpon>
     </Compile>
     <Compile Include="Data\Dataset\spConsumoDS.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -627,6 +847,13 @@
     </Compile>
     <Compile Include="EnvioInformacion.aspx.designer.cs">
       <DependentUpon>EnvioInformacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Oops.aspx.cs">
+      <DependentUpon>Oops.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Oops.aspx.designer.cs">
+      <DependentUpon>Oops.aspx</DependentUpon>
     </Compile>
     <Compile Include="ExcelPage.aspx.cs">
       <DependentUpon>ExcelPage.aspx</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using Ejemplo.Data;
+﻿using Ejemplo.Clases;
+using Ejemplo.Data;
 using Ejemplo.Data.Dataset;
 using RemObjects.DataAbstract.Server;
 using RPSuiteServer;
@@ -9,6 +10,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Ejemplo
 {
@@ -27,6 +30,8 @@ namespace Ejemplo
             }
             Session.Remove("UsuarioWebID");
             Session.Remove("CLienteID");
+            ///Deshabilita boton guardar si no es admin
+            if (DataModule.Seguridad.Privileges == null) btnProcesar.Visible = false;
         }
         private void modificarUsuario()
         {
@@ -38,14 +43,22 @@ namespace Ejemplo
             DataModule.FillDataSet(ds, "spCatUsuarioWeb", Params.ToArray());
             DataTable dt = new DataTable();
             dt = ds.Tables["spCatUsuarioWeb"];
-            IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
-            foreach (DataRow dr in query)
+            if(dt.Rows.Count != 0)
             {
-                txtNombre.Text = dr.Field<string>("Nombre");
-                txtUsuario.Text = dr.Field<string>("Usuario");
-                txtClave.Text = dr.Field<string>("Clave");
-                chkAdministrador.Value = dr.Field<bool>("Administrador");
+                IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
+                foreach (DataRow dr in query)
+                {
+                    txtNombre.Text = dr.Field<string>("Nombre");
+                    txtUsuario.Text = dr.Field<string>("Usuario");
+                    txtClave.Text = dr.Field<string>("Clave");
+                    chkAdministrador.Value = dr.Field<bool>("Administrador");
+                }
             }
+            else
+            {
+                mensaje("No se pudo cargar la información del usuario, intente nuevamente", labelCssClases.Peligro, "Error");
+            }
+            
         }
         protected void btnguardar_Click(object sender, EventArgs e)
         {
@@ -79,17 +92,24 @@ namespace Ejemplo
             Datos.ClienteID = Convert.ToInt32(DataModule.Seguridad.UserID);
             Datos.GasolineroID = Convert.ToInt32(Session["GasolineroID"]);
             string resultado = "";
+            string alerta = "";
             try
             {
-                if (!DataModule.DataService.cmdActualizaUsuarioWeb(Datos)) resultado = "NO SE PUDIERON GUARDAR LOS CAMBIOS";
-                else resultado = "LOS CAMBIOS HAN SIDO GUARDADOS CORRECTAMENTE";
+                if (!DataModule.DataService.cmdActualizaUsuarioWeb(Datos)) {
+                    resultado = "NO SE PUDIERON GUARDAR LOS CAMBIOS";
+                    alerta = labelCssClases.Peligro;
+                } 
+                else{
+                    resultado = "LOS CAMBIOS HAN SIDO GUARDADOS CORRECTAMENTE";
+                    alerta = labelCssClases.Exito;
+                }
             }
             catch (Exception ex)
             {
                 resultado = ex.Message;
             }
 
-            Response.Write("<script>alert('"+resultado+"');</script>");
+            mensaje(resultado, alerta, "Modificar");
 
         }
         private void crearUsuario()
@@ -116,19 +136,36 @@ namespace Ejemplo
             Datos.Clave = txtClave.Text;
             Datos.GasolineroID = Convert.ToInt32(Session["GasolineroID"]);
             string resultado = "";
+            string alerta = "";
             try
             {
-                if (!DataModule.DataService.cmdInsertUsuarioWeb(Datos)) resultado = "NO SE PUDIERON GUARDAR LOS CAMBIOS";
-                else resultado = "LOS CAMBIOS HAN SIDO GUARDADOS CORRECTAMENTE";
+                if (!DataModule.DataService.cmdInsertUsuarioWeb(Datos))
+                {
+                    resultado = "No se pudieron guardar los cambios, verifique su red o su limite de usuarios";
+                    alerta = labelCssClases.Peligro;
+                }
+                else {
+                    resultado = "Los cambios han sido guardados correctamente";
+                    alerta = labelCssClases.Exito;
+                }
             }
             catch (Exception ex)
             {
                 resultado = ex.Message;
             }
 
-            Response.Write("<script>window.alert('" + resultado + "');</script>");
-            if(!resultado.Contains("NO")) Response.Redirect("Usuarios.aspx", false);
+            MessageBox.Show(resultado);
+            if(resultado.Contains("NO")) Response.Redirect("Usuarios.aspx", false);
+            else Response.Redirect("Usuarios.aspx", false);
+          
 
+        }
+        private void mensaje(string contenido, string tipo, string titulo)
+        {
+            msjAlerta.Attributes["class"] = tipo;
+            labelAlerta.Text = contenido;
+            lblTitleMensaje.Text = titulo;
+            msjAlerta.Visible = true;
         }
     }
 }
