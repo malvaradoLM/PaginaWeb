@@ -13,8 +13,9 @@ namespace Ejemplo
         protected void Page_Load(object sender, EventArgs e)
         {
            // NombreGrupo.Text = System.Configuration.ConfigurationManager.AppSettings["Gasolinero"];
-           if(DataModule.Seguridad == null)
+           if(DataModule.Seguridad == null || Session["GasolineroID"] == null)
             {
+                Session["Caducada"] = "Sesion Caducada";
                 Response.Redirect("loginpage.aspx", true);
             }
         }

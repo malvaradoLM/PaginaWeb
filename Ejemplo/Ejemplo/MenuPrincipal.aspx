@@ -40,7 +40,8 @@
     width:0px;
 }
   .MarginBreadCumb{
-          margin-top: 10px;
+          margin-top: 0px;
+          visibility:hidden;
   }
  }
 @media screen and (min-device-width: 481px) and (max-device-width: 740px){
@@ -75,7 +76,7 @@
  
     <div id="cssmenu" class="row MarginBreadCumb">  
     <ul>
-        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Inicio</a></li>
     </ul>
 </div>      
     <div class="tab-content fade-in animacion" style="margin-top:10%;">
@@ -108,6 +109,24 @@
             <a href="Reportes.aspx" id="btnReportes" class="Largo amarillo shadowBox">
              <asp:Image ID="Image5" runat="server" ImageUrl="\Icons\png\80px\large\report.png" CssClass="linkclass" />
                 <h2-largo>REPORTES</h2-largo>
+            </a>
+        </div>
+        <div class="col-sm-3 fade-in">
+            <a href="DetailsEdoCta.aspx" id="btnEstadoCuenta" class="Largo morado shadowBox">
+             <asp:Image ID="Image6" runat="server" ImageUrl="\Icons\png\80px\large\bank-banknotes.png" CssClass="linkclass" />
+                <h2-largo>ESTADO DE CUENTA</h2-largo>
+            </a>
+        </div>
+        <div class="col-sm-3 fade-in">
+            <a href="DetailsListaFactura.aspx" id="btnListaFacturas" class="Largo magenta shadowBox">
+             <asp:Image ID="Image7" runat="server" ImageUrl="\Icons\png\80px\large\list-attach.png" CssClass="linkclass" />
+                <h2-largo>LISTADO DE FACTURAS</h2-largo>
+            </a>
+        </div>
+        <div class="col-sm-3 fade-in">
+            <a href="EnvioInformacion.aspx" id="btnEnvioInformacion" class="Largo cyan shadowBox">
+             <asp:Image ID="Image8" runat="server" ImageUrl="\Icons\png\80px\large\address-book-email.png" CssClass="linkclass" />
+                <h2-largo>ENVIO DE INFORMACIÓN</h2-largo>
             </a>
         </div>
     </div>

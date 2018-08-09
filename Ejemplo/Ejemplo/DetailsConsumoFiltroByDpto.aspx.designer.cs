@@ -139,15 +139,6 @@ namespace Ejemplo {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
         
         /// <summary>
-        /// Ribbon control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxRibbon Ribbon;
-        
-        /// <summary>
         /// reporteDoc control.
         /// </summary>
         /// <remarks>

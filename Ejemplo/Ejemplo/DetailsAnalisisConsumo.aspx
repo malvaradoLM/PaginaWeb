@@ -39,6 +39,10 @@
 
             width:90%;
     }
+    .descargarButton{
+        float:right;
+        margin-bottom:5px;
+    }
 @media screen and (max-width: 480px) {
   .FloatRight{
 
@@ -49,6 +53,7 @@
 {
     width:0px;
 }
+    }
  </style>
 
 <script type="text/javascript">
@@ -140,7 +145,7 @@
     <ul>
         <li class="active"><a><asp:Label runat="server" id="etiqueta" Text="Análisis de Consumo"/></a></li>
         <li><a href="Reportes.aspx">Reportes</a></li>
-        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Inicio</a></li>
     </ul>
 </div>  
     <div class="fade-in animacion">  
@@ -323,29 +328,7 @@
             <dx:TabPage Text="TICKET">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl1" runat="server">
-                <dx:ASPxRibbon ID="Ribbon" ClientInstanceName="Ribbon" runat="server" ShowGroupLabels="False" ShowFileTab="False" Width="100%" Theme="Office365" Minimized="True" Visible="true"   >
-            <Styles TabContent-BackColor="White" GroupSeparator-BackColor="Transparent" GroupSeparator-Border-BorderStyle="None"  >
-                <Item Width="100px"></Item>
-                <GroupExpandButton Width="100px" BackColor="White"></GroupExpandButton>
-                <TabContent Height="30px"/>
-            </Styles>
-            <Tabs>
-                <dx:RibbonTab Text="Descargar" >
-                    <Groups>
-                        <dx:RibbonGroup Text="Home">
-                            <Items>
-                                <dx:RibbonButtonItem  NavigateUrl="javascript:descargarDocumento()"  Name="DESCARGAR" ToolTip="DESCARGAR DOCUMENTO" >
-                                    <LargeImage IconID="actions_download_32x32"></LargeImage>
-                                    <SmallImage IconID="actions_download_16x16">
-                                    </SmallImage>
-                                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                                </dx:RibbonButtonItem>
-                            </Items>
-                        </dx:RibbonGroup>
-                    </Groups>
-                </dx:RibbonTab>
-            </Tabs>
-        </dx:ASPxRibbon>
+                 <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumento" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" />
                  <iframe id="ticket" style="position:relative; width: 100% ; height:500px;" runat="server" class="shadowBox fade-in animacion" ></iframe>
                     </dx:ContentControl>
                 </ContentCollection>
@@ -362,7 +345,7 @@
             <dx:TabPage Text="GEOLOCALIZACIÓN">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl3" runat="server">
-                  <div id="myMap" style="position:relative; width: 90% ; height:500px;" ></div>
+                      <%--  <div id="myMap" style="position:relative; width: 90% ; height:500px;"></div> --%> 
                         <iframe runat="server" id="mapagoogle"  style="width:100%;height:500px;" class="fade-in animacion shadowBox"></iframe>
                     </dx:ContentControl>
                 </ContentCollection>

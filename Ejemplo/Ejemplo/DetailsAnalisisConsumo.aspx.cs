@@ -184,6 +184,7 @@ namespace Ejemplo
             carTabPage.ActiveTabIndex = 2;
 
             const string ScriptKey = "ScriptKey";
+            /*
             if (!ClientScript.IsStartupScriptRegistered(this.GetType(), ScriptKey))
             {
                 //  carTabPage.ActiveTabIndex = 2;
@@ -208,6 +209,7 @@ namespace Ejemplo
                 ClientScript.RegisterStartupScript(this.GetType(),
         ScriptKey, fn.ToString(), true);
             }
+            */
             carTabPage.ActiveTabIndex = 0;
             mapagoogle.Src = @"https://maps.google.com.mx/maps?key=AIzaSyDN_xSn-jF76JH6J_qmU50SpqF_6kNIePU&q=" + latitud+","+longitud+"&language=es&hl=es;z=14&amp;output=embed";
             

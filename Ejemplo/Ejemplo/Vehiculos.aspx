@@ -324,7 +324,9 @@ fieldset[disabled] .btn-sample.active {
     <ul>
         <li class="active"><a>Editar Vehiculo</a></li>
         <li><a href="VehiculoPage.aspx">Vehiculos</a></li>
-        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Inicio
+
+            </a></li>
     </ul>
 </div> 
 		<div class="tab_container" style="margin-top:-30px">

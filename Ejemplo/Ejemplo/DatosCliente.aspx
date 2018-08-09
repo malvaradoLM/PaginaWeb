@@ -58,7 +58,7 @@
     <div id="cssmenu" class="row fade-in MarginBreadCumb">  
     <ul>
         <li class="active"><a href="DatosCliente.aspx">Datos del Cliente</a></li>
-        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Inicio</a></li>
     </ul>
 </div>  
                  <div class="alert alert-warning" id="msjAlerta" runat="server" visible="false">
@@ -71,13 +71,13 @@
 
 
         <div class="row fade-in animacion">
-            <div class="col-sm-9">
+            <div class="col-sm-12">
                 <div class="table-responsive ">
                     <table class="table format-table" style="float:left" ">
                         <thead>
                             <tr id="FormatRow4">
                                 <th colspan="2">                        
-                                    <div class="details-cards">
+                                    <div class="details-cards" style="margin-left: -300px; text-decoration:solid;">
                                         <div class="Descriptivos Transparencia HexColor-3"><h5>NOMBRE</h5></div>
                                         <div class="SubTitulos HexColor-3"><h3><dx:ASPxLabel ID="lblCliente" runat="server" Text="Cliente" >
                                     </dx:ASPxLabel></h3></div>
@@ -111,7 +111,7 @@
                             </tr>
                             <tr>
                                 <td class="columna1" align="right" style="width: 30%;">
-                                    <div class="Cards-Titulos Transparencia HexColor-3"><h5>COLONIA</h5></div>
+                                    <div class="Cards-Titulos Transparencia HexColor-3"><h6>COLONIA</h6></div>
                                 </td>
                                 <td align="left" style="width: 70%;">
                                     <div class="Cards-ContadorPequeno HexColor-3"><h6><dx:ASPxLabel ID="lblColonia" runat="server" Text="Colonia" >
@@ -179,23 +179,6 @@
                         </tbody>    
                     </table>
                 </div>
-            </div>
-            <div class="col-sm-3 fade-in">
-                <asp:LinkButton  class="Largo verde_claro shadowBox" runat= "server" OnClick="Click">
-                    <div>
-                    <i class="glyphicon glyphicon-usd" style="margin-top: 15%;"></i>
-                    <h2-largo style="align-self:baseline;">ESTADO DE CUENTA</h2-largo>
-                    </div>
-                </asp:LinkButton>
-                <a href="javascript://" class="Largo amarillo shadowBox"  onclick="location.href='DetailsListaFactura.aspx'">
-                    <i class="glyphicon glyphicon-list-alt" style="margin-top: 15%;"></i>
-                    <h2-largo>LISTADO DE FACTURAS</h2-largo>
-                    
-                </a>
-                <a href="javascript://" class="Largo azul shadowBox"  onclick="location.href='EnvioInformacion.aspx'">
-                    <i class="glyphicon glyphicon-send" style="margin-top: 15%;"></i>
-                    <h2-largo>ENVIO DE INFORMACION</h2-largo>
-                </a>
             </div>
         </div>
     </div>

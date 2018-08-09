@@ -123,7 +123,8 @@ a.wide h2-Largo, a.box h2-Largo, a.Largo h2-Largo{
 .grisClaro{background:#D3D3D3;}
 .verdeFourence{background:#05D640;}
 .blueLight{background:#00BCD4;}
-
+.azulFuerte{background:#004d99;}
+.grisOscuro{background:#47476b;}
 
 
 /* ============================================================ navbar style ============================================================================ */
@@ -158,8 +159,7 @@ a.wide h2-Largo, a.box h2-Largo, a.Largo h2-Largo{
 }
 
 @media (max-width: 480px) {
-  .rojo{background:#F44336;height: 80px;}
-  
+ .rojo{background:#F44336;height: 80px;}
 .lime{background:#61b812;height: 80px;}
 .orange{background:#e76022;height: 80px;}
 .blue{background:#1E90FF;height: 80px;}
@@ -167,7 +167,6 @@ a.wide h2-Largo, a.box h2-Largo, a.Largo h2-Largo{
 .yellow{background:#dbb701;height: 80px;}
 .bluefish{background:#02b9e3;height: 80px;}
 .magenta{background:#d22a4e;height: 80px;}
-
 .rojo{background:#F44336;height: 80px;}
 .azul{background:#2196F3;height: 80px;}
 .amarillo{background:#FFC107;height: 80px;}
@@ -182,4 +181,6 @@ a.wide h2-Largo, a.box h2-Largo, a.Largo h2-Largo{
 .verde{background:#4CAF50; height: 80px;}
 .verdeFourence{background:#05D640; height: 80px;}
 .blueLight{background:#00BCD4; height: 80px}
+.azulFuerte{background:#004d99; height: 80px}
+.grisOscuro{background:#47476b; height:80px}
 }

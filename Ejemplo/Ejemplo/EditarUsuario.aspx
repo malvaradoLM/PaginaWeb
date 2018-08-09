@@ -115,7 +115,7 @@ fieldset[disabled] .btn-sample.active {
     <ul>
         <li class="active"><a><asp:Label runat="server" id="etiqueta" Text="Editar Usuario"/></a></li>
         <li><a href="Usuarios.aspx">Usuarios</a></li>
-        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Inicio</a></li>
     </ul>
 </div>  
 

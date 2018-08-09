@@ -130,6 +130,7 @@ namespace Ejemplo
 
             Ejemplo.Models.ComodinModel.BigViewModel.pathConsumoFactura resultado2 = InfoConsumoFacturaTicket.GetInfoConsumoFactura(_GasolineroID, Serie, Folio, ReporteNombre, ParametrosReporte, TipoArchivo);
             ticket.Src = resultado2.pathImpresion + "#zoom=70";
+            hiddenURL.Value = resultado2.pathImpresion;
             RPSuiteServer.TAlbum album = new TAlbum();
             album = DataModule.DataService.ListaConsumoFotosByID(_ConsumoID);
             cargarGaleria(album);

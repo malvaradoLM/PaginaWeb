@@ -178,6 +178,7 @@ namespace RPSuiteServer
             }
             catch (Exception ex)
             {
+                Session["Caducada"] = "Si";
                 Res.ClienteID = -1;
             }
             return Res;

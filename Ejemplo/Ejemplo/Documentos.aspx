@@ -5,6 +5,15 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+        .descargarButton{
+        float:right;
+            margin-top: 9%;
+ }
+    .marginSpread{
+        margin-top:40px;
+    }
+        </style>
 <script>
 
     function descargarDocumento(s, e) {
@@ -57,37 +66,13 @@
         <li class="active"><a>Documento</a></li>
         <li><a href="DetailsDescargaFactura.aspx">Descarga de Factura</a></li>
         <li><a href="DetailsListaFactura.aspx">Listado de Facturas</a></li>
-        <li><a href="DatosCliente.aspx">Datos Cliente</a></li>
-        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Inicio</a></li>
     </ul>
 </div>    
-     <dx:ASPxRibbon ID="Ribbon" ClientInstanceName="Ribbon" runat="server" ShowGroupLabels="False" ShowFileTab="False" Width="100%" Theme="Office365" Minimized="True" Visible="true"   >
-            <Styles TabContent-BackColor="White" GroupSeparator-BackColor="Transparent" GroupSeparator-Border-BorderStyle="None"  >
-                <Item Width="100px"></Item>
-                <GroupExpandButton Width="100px" BackColor="White"></GroupExpandButton>
-                <TabContent Height="30px"/>
-            </Styles>
-            <Tabs>
-                <dx:RibbonTab Text="Descargar">
-                    <Groups>
-                        <dx:RibbonGroup Text="Home">
-                            <Items>
-                                <dx:RibbonButtonItem  NavigateUrl="javascript:descargarDocumento()"  Name="DESCARGAR" ToolTip="DESCARGAR DOCUMENTO" >
-                                    <LargeImage IconID="actions_download_32x32"></LargeImage>
-                                    <SmallImage IconID="actions_download_16x16">
-                                    </SmallImage>
-                                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                                </dx:RibbonButtonItem>
-                            </Items>
-                        </dx:RibbonGroup>
-                    </Groups>
-                </dx:RibbonTab>
-            </Tabs>
-        </dx:ASPxRibbon>
+     <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumento" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" />
     <iframe id="pdf" runat="server" height="700" style="width:100%;" class="shadowBox fade-in animacion" >
          </iframe>
-    <dx:ASPxSpreadsheet ID="ASPxSpreadsheet1" runat="server" WorkDirectory="~/App_Data/WorkDirectory" CssClass="shadowBox fade-in animacion" Width="100%" Height="700" >
-                    <SettingsDialogs InsertLinkDialog-ShowEmailAddressSection="true" />
+    <dx:ASPxSpreadsheet ID="ASPxSpreadsheet1" runat="server" WorkDirectory="~/App_Data/WorkDirectory" CssClass="shadowBox fade-in animacion marginSpread" Width="100%" Height="700" ReadOnly="true" RibbonMode="None" >
                     </dx:ASPxSpreadsheet>
     <asp:HiddenField ID="hiddenURL" runat="server" />
     <asp:HiddenField ID="ticketName" runat="server" />

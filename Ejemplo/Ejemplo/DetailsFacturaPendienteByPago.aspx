@@ -97,6 +97,13 @@ fieldset[disabled] .btn-sample.active {
 .radioMargin{
        margin-top: -12px;
 }
+    .descargarButton{
+        float:right;
+        margin-bottom:5px;
+ }
+    .marginSpread{
+        margin-top:40px;
+    }
  </style>
     <script>
         function validarFecha(s, e) {
@@ -157,11 +164,11 @@ fieldset[disabled] .btn-sample.active {
     <ul>
         <li class="active"><a href="DetailsFacturaPendienteByPago.aspx">Facturas Pendientes De Pago</a></li>
         <li><a href="Reportes.aspx">Reportes</a></li>
-        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Inicio</a></li>
     </ul>
 </div>         
     
-    <dx:ASPxRoundPanel ID="panelParametros" ClientInstanceName="roundPanel" HeaderText="PARAMETROS" runat="server" Width="100%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >   
+    <dx:ASPxRoundPanel ID="panelParametros" ClientInstanceName="roundPanel" HeaderText="PARAMETROS" runat="server" Width="100%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes fade-in animacion" HeaderStyle-ForeColor="Gray" >   
         <PanelCollection>
             <dx:PanelContent>
             <dx:ASPxFormLayout runat="server" ID="ASPxFormLayout1" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365"  Width="100%"  >
@@ -233,35 +240,14 @@ fieldset[disabled] .btn-sample.active {
     <dx:ASPxRoundPanel ID="panelDetalles" ClientInstanceName="roundPanel" HeaderText="DETALLES" runat="server" Width="100%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >
         <PanelCollection>
             <dx:PanelContent>
+                <div>
+    <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumento" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" />
+</div>
                 <div id="Div1" runat="server">	
-       <dx:ASPxRibbon ID="Ribbon" ClientInstanceName="Ribbon" runat="server" ShowGroupLabels="False" ShowFileTab="False" Width="100%" Theme="Office365" Minimized="True" Visible="true"   >
-            <Styles TabContent-BackColor="White" GroupSeparator-BackColor="Transparent" GroupSeparator-Border-BorderStyle="None"  >
-                <Item Width="100px"></Item>
-                <GroupExpandButton Width="100px" BackColor="White"></GroupExpandButton>
-                <TabContent Height="30px"/>
-            </Styles>
-            <Tabs>
-                <dx:RibbonTab Text="Descargar">
-                    <Groups>
-                        <dx:RibbonGroup Text="Home">
-                            <Items>
-                                <dx:RibbonButtonItem  NavigateUrl="javascript:descargarDocumento()"  Name="DESCARGAR" ToolTip="DESCARGAR DOCUMENTO" >
-                                    <LargeImage IconID="actions_download_32x32"></LargeImage>
-                                    <SmallImage IconID="actions_download_16x16">
-                                    </SmallImage>
-                                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                                </dx:RibbonButtonItem>
-                            </Items>
-                        </dx:RibbonGroup>
-                    </Groups>
-                </dx:RibbonTab>
-            </Tabs>
-        </dx:ASPxRibbon>
-                 <iframe id="reporteDoc" style="position:relative; width: 100% ; height:450px;" runat="server" class="shadowBox fade-in animacion" ></iframe>
-                    <dx:ASPxSpreadsheet ID="ASPxSpreadsheet1" runat="server" WorkDirectory="~/App_Data/WorkDirectory" CssClass="fade-in animacion" Width="100%" >
+                 <iframe id="reporteDoc" style="position:relative; width: 100% ; height:500px;" runat="server" class="shadowBox fade-in animacion" ></iframe>
+                    <dx:ASPxSpreadsheet ID="ASPxSpreadsheet1" runat="server" WorkDirectory="~/App_Data/WorkDirectory" CssClass="fade-in animacion marginSpread" Width="100%" ReadOnly="true" RibbonMode="None" >
                     <SettingsDialogs InsertLinkDialog-ShowEmailAddressSection="true" />
                     </dx:ASPxSpreadsheet>
-
         </div>
             </dx:PanelContent>
         </PanelCollection>

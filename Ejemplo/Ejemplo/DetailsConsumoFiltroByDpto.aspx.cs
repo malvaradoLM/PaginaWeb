@@ -97,7 +97,7 @@ namespace Ejemplo
 
                     reporteDoc.Visible = false;
                 }
-                hiddenURL.Value = reporteDoc.Src;
+                hiddenURL.Value = resultado2.pathFile;
                 ticketName.Value = "documento";
 
             }

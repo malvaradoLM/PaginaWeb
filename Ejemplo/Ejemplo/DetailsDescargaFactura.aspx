@@ -53,6 +53,10 @@
 .alignHeader{
     text-align:center;
 }
+    .descargarButton{
+        float:right;
+        margin-bottom:5px;
+    }
  </style>
 <script>
     function ocultarDetalles(s, e) {
@@ -120,8 +124,7 @@
     <ul>
         <li class="active"><a href="DetailsDescargaFactura.aspx">Descarga de Factura</a></li>
         <li><a href="DetailsListaFactura.aspx">Listado de Facturas</a></li>
-        <li><a href="DatosCliente.aspx">Datos Cliente</a></li>
-        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Inicio</a></li>
     </ul>
 </div>    
 
@@ -199,32 +202,7 @@
             <dx:TabPage Text="TICKET">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl1" runat="server">
-                <dx:ASPxRibbon ID="Ribbon" ClientInstanceName="Ribbon" runat="server" ShowGroupLabels="False" ShowFileTab="False" Width="100%" Theme="Office365" Minimized="True" Visible="true"   >
-            <Styles TabContent-BackColor="White" GroupSeparator-BackColor="Transparent" GroupSeparator-Border-BorderStyle="None"  >
-                <Item Width="100px"></Item>
-                <GroupExpandButton Width="100px" BackColor="White"></GroupExpandButton>
-
-<GroupSeparator Border-BorderStyle="None" BackColor="Transparent"></GroupSeparator>
-
-                <TabContent Height="30px"/>
-            </Styles>
-            <Tabs>
-                <dx:RibbonTab Text="Descargar" >
-                    <Groups>
-                        <dx:RibbonGroup Text="Home">
-                            <Items>
-                                <dx:RibbonButtonItem  NavigateUrl="javascript:descargarDocumento()"  Name="DESCARGAR" ToolTip="DESCARGAR DOCUMENTO" >
-                                    <LargeImage IconID="actions_download_32x32"></LargeImage>
-                                    <SmallImage IconID="actions_download_16x16">
-                                    </SmallImage>
-                                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                                </dx:RibbonButtonItem>
-                            </Items>
-                        </dx:RibbonGroup>
-                    </Groups>
-                </dx:RibbonTab>
-            </Tabs>
-        </dx:ASPxRibbon>
+                  <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumento" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" />
                  <iframe id="ticket" style="position:relative; width: 100% ; height:500px;" runat="server" class="shadowBox fade-in animacion" ></iframe>
                     </dx:ContentControl>
                 </ContentCollection>
@@ -265,29 +243,7 @@
             <dx:TabPage Text="PDF">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl5" runat="server">
-                        <dx:ASPxRibbon ID="ASPxRibbon1" ClientInstanceName="Ribbon" runat="server" ShowGroupLabels="False" ShowFileTab="False" Width="100%" Theme="Office365" Minimized="True" Visible="true"   >
-            <Styles TabContent-BackColor="White" GroupSeparator-BackColor="Transparent" GroupSeparator-Border-BorderStyle="None"  >
-                <Item Width="100px"></Item>
-                <GroupExpandButton Width="100px" BackColor="White"></GroupExpandButton>
-                <TabContent Height="30px"/>
-            </Styles>
-            <Tabs>
-                <dx:RibbonTab Text="Descargar">
-                    <Groups>
-                        <dx:RibbonGroup Text="Home">
-                            <Items>
-                                <dx:RibbonButtonItem  NavigateUrl="javascript:descargarDocumentoPDF()"  Name="DESCARGAR" ToolTip="DESCARGAR DOCUMENTO" >
-                                    <LargeImage IconID="actions_download_32x32"></LargeImage>
-                                    <SmallImage IconID="actions_download_16x16">
-                                    </SmallImage>
-                                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                                </dx:RibbonButtonItem>
-                            </Items>
-                        </dx:RibbonGroup>
-                    </Groups>
-                </dx:RibbonTab>
-            </Tabs>
-        </dx:ASPxRibbon>
+              <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumentoPDF" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" />
                   <iframe id="iframePDF" style="position:relative; width: 100% ; height:600px;" class="shadowBox fade-in animacion" runat="server" ></iframe>
                     </dx:ContentControl>
                 </ContentCollection>
@@ -295,29 +251,7 @@
             <dx:TabPage Text="XML">
                 <ContentCollection>
                    <dx:ContentControl>
-                       <dx:ASPxRibbon ID="ASPxRibbon2" ClientInstanceName="Ribbon" runat="server" ShowGroupLabels="False" ShowFileTab="False" Width="100%" Theme="Office365" Minimized="True" Visible="true"   >
-            <Styles TabContent-BackColor="White" GroupSeparator-BackColor="Transparent" GroupSeparator-Border-BorderStyle="None"  >
-                <Item Width="100px"></Item>
-                <GroupExpandButton Width="100px" BackColor="White"></GroupExpandButton>
-                <TabContent Height="30px"/>
-            </Styles>
-            <Tabs>
-                <dx:RibbonTab Text="Descargar">
-                    <Groups>
-                        <dx:RibbonGroup Text="Home">
-                            <Items>
-                                <dx:RibbonButtonItem  NavigateUrl="javascript:descargarDocumentoXML()"  Name="DESCARGAR" ToolTip="DESCARGAR DOCUMENTO" >
-                                    <LargeImage IconID="actions_download_32x32"></LargeImage>
-                                    <SmallImage IconID="actions_download_16x16">
-                                    </SmallImage>
-                                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                                </dx:RibbonButtonItem>
-                            </Items>
-                        </dx:RibbonGroup>
-                    </Groups>
-                </dx:RibbonTab>
-            </Tabs>
-        </dx:ASPxRibbon>
+                   <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumentoXML" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" />
                        <div class="wordWrap fade-in animacion">
                         <pre class="brush: xml" id="xmlClass" style="height:600px;width:100%;"  runat="server">
                         </pre>

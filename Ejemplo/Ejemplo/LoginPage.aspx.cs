@@ -1,4 +1,5 @@
-﻿using Ejemplo.Data;
+﻿using Ejemplo.Clases;
+using Ejemplo.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,15 @@ namespace Ejemplo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Session["Caducada"] != null)
+            {
+                mensaje("La sesión ha caducado, inicie nuevamente", labelCssClases.Advertencia, "Advertencia");
+                Session["Caducada"] = null;
+            }
+            else
+            {
+                msjAlerta.Visible = true;
+            }
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
@@ -27,8 +36,8 @@ namespace Ejemplo
                 {
                     DataModule.Seguridad = userinfo;
 
-                    // Response.Redirect("Dashboard.aspx", false);
-                    Response.Redirect("MenuPrincipal.aspx", false);
+                     Response.Redirect("Dashboard.aspx", false);
+                   // Response.Redirect("MenuPrincipal.aspx", false);
                 }
                 else
                 {
@@ -42,6 +51,13 @@ namespace Ejemplo
                 //ShowMessage(ex.Message.ToString());
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void mensaje(string contenido, string tipo, string titulo)
+        {
+            msjAlerta.Attributes["class"] = tipo;
+            labelAlerta.Text = contenido;
+            lblTitleMensaje.Text = titulo;
+            msjAlerta.Visible = true;
         }
     }
 }

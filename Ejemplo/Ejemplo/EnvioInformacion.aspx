@@ -27,8 +27,7 @@
     <div id="cssmenu" style="margin-top:60px;" class="row">  
     <ul>
         <li class="active"><a href="EnvioInformacion.aspx">Envío de Información</a></li>
-        <li><a href="DatosCliente.aspx">Datos del Cliente</a></li>
-        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Inicio</a></li>
     </ul>
 </div>
     <div class="alert alert-warning" id="msjAlerta" runat="server" visible="false">

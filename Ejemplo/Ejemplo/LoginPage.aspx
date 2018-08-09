@@ -7,6 +7,7 @@
 <head runat="server">
     <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/General.css" rel="stylesheet" />
 	<title>RedPacifico</title>
     <%--
 	<link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -50,11 +51,15 @@
 		</div><!-- /.col-->
 	</div><!-- /.row -->	
     --%>
-    <form class="login" runat="server">
+    <div class="alert alert-warning" id="msjAlerta" runat="server" visible="false">
+        <strong><dx:ASPxLabel ID="lblTitleMensaje" runat="server" Font-Bold="true" /> </strong>
+        <dx:ASPxLabel ID="labelAlerta" runat="server" />
+        </div>
+    <form class="login shadowBoxMin" runat="server">
     <h1 class="login-title">FLOTILLAS</h1>
-    <input type="text" class="login-input" placeholder="Usuario" autofocus="autofocus" runat="server" id="inputUser" />
-    <input type="password" class="login-input" placeholder="Password" runat="server" id="inputPass" />
-    <asp:Button runat="server" OnClick="btnAceptar_Click" Text="INICIAR SESION" CssClass="login-button" />
+    <input type="text" class="login-input" placeholder="Usuario" autofocus="autofocus" runat="server" id="inputUser" style="width: 100%;" />
+    <input type="password" class="login-input" placeholder="Password" runat="server" id="inputPass" style="width: 100%;" />
+    <asp:Button runat="server" OnClick="btnAceptar_Click" Text="INICIAR SESION" CssClass="login-button shadowBoxMin" />
   </form>
 
 <script src="js/jquery-1.11.1.min.js"></script>

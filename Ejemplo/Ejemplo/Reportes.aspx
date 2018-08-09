@@ -42,7 +42,7 @@
     <div id="cssmenu" style="margin-top:60px;" class="row">  
     <ul>
         <li class="active"><a href="Reportes.aspx">Reportes</a></li>
-        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Inicio</a></li>
     </ul>
 </div>         
     <p/>
@@ -63,7 +63,7 @@
             </a>
         </div>
         <div class="col-lg-3">
-            <a href="DetailsConsumoByFecha.aspx" id="btnConsumoPorFecha1" class="Largo grisClaro shadowBox">
+            <a href="DetailsConsumoByFecha.aspx" id="btnConsumoPorFecha1" class="Largo azulFuerte shadowBox">
                  <asp:Image ID="Image3" runat="server" ImageUrl="\Icons\png\80px\large\calendar-list.png" CssClass="linkclass" />
                 <h2-largo>CONSUMO POR FECHA</h2-largo>
             </a>
@@ -87,7 +87,7 @@
             </a>
         </div>
         <div class="col-lg-3">
-            <a href="DetailsComparativoMensualByVehiculoEnConstruccion.aspx" id="btnComparativoMensulaVehiculo" class="Largo verdeFourence shadowBox">
+            <a href="DetailsComparativoMensualByVehiculoEnConstruccion.aspx" id="btnComparativoMensulaVehiculo" class="Largo grisOscuro shadowBox">
                 <asp:Image ID="Image7" runat="server" ImageUrl="\Icons\png\80px\large\vehicle-van-side-time.png" CssClass="linkclass" />
                 <h2-largo>COMPARATIVO MENSUAL POR VEHICULO</h2-largo>
             </a>

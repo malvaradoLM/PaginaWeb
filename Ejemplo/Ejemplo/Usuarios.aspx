@@ -81,7 +81,7 @@ fieldset[disabled] .btn-sample.active {
     <div id="cssmenu" style="margin-top:60px;" class="row fade-in">  
     <ul>
         <li class="active"><a href="Usuarios.aspx">Usuarios</a></li>
-        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Inicio</a></li>
     </ul>
 </div>  
     <div class="alert alert-warning" id="msjAlerta" runat="server" visible="false">
