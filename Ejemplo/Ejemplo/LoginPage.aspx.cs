@@ -21,7 +21,7 @@ namespace Ejemplo
             }
             else
             {
-                msjAlerta.Visible = true;
+                msjAlerta.Visible = false;
             }
         }
 

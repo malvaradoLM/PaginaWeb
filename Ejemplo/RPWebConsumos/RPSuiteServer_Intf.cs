@@ -663,6 +663,10 @@ namespace RPSuiteServer {
         private string @__tipoProducto;
         private string @__LimiteLTTurno;
         private string @__LimiteMNTurno;
+        private string @__Departamento;
+        private string @__NombreUsuario;
+        private string @__CentroCosto;
+        private double @__Tanque;
         public virtual int VehiculoID {
             get {
                 return @__VehiculoID;
@@ -932,6 +936,45 @@ namespace RPSuiteServer {
                 this.TriggerPropertyChanged("LimiteMNTurno");
             }
         }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string Departamento {
+            get {
+                return @__Departamento;
+            }
+            set {
+                @__Departamento = value;
+                this.TriggerPropertyChanged("Departamento");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string NombreUsuario {
+            get {
+                return @__NombreUsuario;
+            }
+            set {
+                @__NombreUsuario = value;
+                this.TriggerPropertyChanged("NombreUsuario");
+            }
+        }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.AnsiString)]
+        public virtual string CentroCosto {
+            get {
+                return @__CentroCosto;
+            }
+            set {
+                @__CentroCosto = value;
+                this.TriggerPropertyChanged("CentroCosto");
+            }
+        }
+        public virtual double Tanque {
+            get {
+                return @__Tanque;
+            }
+            set {
+                @__Tanque = value;
+                this.TriggerPropertyChanged("Tanque");
+            }
+        }
         public override void ReadComplex(RemObjects.SDK.Serializer serializer) {
             if (serializer.RecordStrictOrder) {
                 this.VehiculoID = serializer.ReadInt32("VehiculoID");
@@ -961,10 +1004,16 @@ namespace RPSuiteServer {
                 this.tipoProducto = serializer.ReadAnsiString("tipoProducto");
                 this.LimiteLTTurno = serializer.ReadAnsiString("LimiteLTTurno");
                 this.LimiteMNTurno = serializer.ReadAnsiString("LimiteMNTurno");
+                this.Departamento = serializer.ReadAnsiString("Departamento");
+                this.NombreUsuario = serializer.ReadAnsiString("NombreUsuario");
+                this.CentroCosto = serializer.ReadAnsiString("CentroCosto");
+                this.Tanque = serializer.ReadDouble("Tanque");
             }
             else {
                 this.CargasMaximas = serializer.ReadInt32("CargasMaximas");
+                this.CentroCosto = serializer.ReadAnsiString("CentroCosto");
                 this.ClienteID = serializer.ReadInt32("ClienteID");
+                this.Departamento = serializer.ReadAnsiString("Departamento");
                 this.Domingo = serializer.ReadAnsiString("Domingo");
                 this.Estacion = serializer.ReadAnsiString("Estacion");
                 this.Estatus = serializer.ReadAnsiString("Estatus");
@@ -983,9 +1032,11 @@ namespace RPSuiteServer {
                 this.Mensaje = serializer.ReadAnsiString("Mensaje");
                 this.Miercoles = serializer.ReadAnsiString("Miercoles");
                 this.Nip = serializer.ReadAnsiString("Nip");
+                this.NombreUsuario = serializer.ReadAnsiString("NombreUsuario");
                 this.ProductoAutorizado = serializer.ReadAnsiString("ProductoAutorizado");
                 this.Sabado = serializer.ReadAnsiString("Sabado");
                 this.Status = serializer.ReadAnsiString("Status");
+                this.Tanque = serializer.ReadDouble("Tanque");
                 this.tipoProducto = serializer.ReadAnsiString("tipoProducto");
                 this.UsuarioID = serializer.ReadInt32("UsuarioID");
                 this.VehiculoID = serializer.ReadInt32("VehiculoID");
@@ -1021,10 +1072,16 @@ namespace RPSuiteServer {
                 serializer.WriteAnsiString("tipoProducto", this.tipoProducto);
                 serializer.WriteAnsiString("LimiteLTTurno", this.LimiteLTTurno);
                 serializer.WriteAnsiString("LimiteMNTurno", this.LimiteMNTurno);
+                serializer.WriteAnsiString("Departamento", this.Departamento);
+                serializer.WriteAnsiString("NombreUsuario", this.NombreUsuario);
+                serializer.WriteAnsiString("CentroCosto", this.CentroCosto);
+                serializer.WriteDouble("Tanque", this.Tanque);
             }
             else {
                 serializer.WriteInt32("CargasMaximas", this.CargasMaximas);
+                serializer.WriteAnsiString("CentroCosto", this.CentroCosto);
                 serializer.WriteInt32("ClienteID", this.ClienteID);
+                serializer.WriteAnsiString("Departamento", this.Departamento);
                 serializer.WriteAnsiString("Domingo", this.Domingo);
                 serializer.WriteAnsiString("Estacion", this.Estacion);
                 serializer.WriteAnsiString("Estatus", this.Estatus);
@@ -1043,9 +1100,11 @@ namespace RPSuiteServer {
                 serializer.WriteAnsiString("Mensaje", this.Mensaje);
                 serializer.WriteAnsiString("Miercoles", this.Miercoles);
                 serializer.WriteAnsiString("Nip", this.Nip);
+                serializer.WriteAnsiString("NombreUsuario", this.NombreUsuario);
                 serializer.WriteAnsiString("ProductoAutorizado", this.ProductoAutorizado);
                 serializer.WriteAnsiString("Sabado", this.Sabado);
                 serializer.WriteAnsiString("Status", this.Status);
+                serializer.WriteDouble("Tanque", this.Tanque);
                 serializer.WriteAnsiString("tipoProducto", this.tipoProducto);
                 serializer.WriteInt32("UsuarioID", this.UsuarioID);
                 serializer.WriteInt32("VehiculoID", this.VehiculoID);
@@ -2541,10 +2600,6 @@ namespace RPSuiteServer {
                 this.ClientChannel.Dispatch(@__LocalMessage);
                 TCliente _Result = ((TCliente)(@__LocalMessage.Read("Result", typeof(TCliente), RemObjects.SDK.StreamingFormat.Default)));
                 return _Result;
-            }
-            catch(Exception e)
-            {
-                return null;
             }
             finally {
                 this.@__ClearMessage(@__LocalMessage);

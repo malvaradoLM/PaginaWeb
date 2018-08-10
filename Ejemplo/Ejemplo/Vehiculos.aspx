@@ -272,6 +272,10 @@ fieldset[disabled] .btn-sample.active {
                 , "LimiteMNMes": document.getElementById('<%=txtLAIMensual.ClientID%>_I').value
                 , "ProductoAutorizado": getProductoAutorizado()
                 , "VehiculoID": document.getElementById('<%=txtVehiculoID.ClientID%>_I').value
+                , "Departamento": document.getElementById('<%=txtDepartamento.ClientID%>_I').value
+                , "NombreUsuario": document.getElementById('<%=txtNombreUsuario.ClientID%>_I').value
+                , "CentroCosto": document.getElementById('<%=txtCentrodeCosto.ClientID%>_I').value
+                , "Tanque": document.getElementById('<%=txtTanque.ClientID%>_I').value
                 , "Lunes": TableData[0]["Valor"]
                 , "Martes": TableData[1]["Valor"]
                 , "Miercoles": TableData[2]["Valor"]
@@ -380,28 +384,28 @@ fieldset[disabled] .btn-sample.active {
                     <dx:LayoutItem Caption="Departamento" VerticalAlign="Middle" CaptionStyle-Font-Bold="true" CssClass="caption" CaptionStyle-Font-Size="Medium">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                           <dx:ASPxTextBox ID="txtDepartamento" runat="server" Theme="Office365" Enabled="false"></dx:ASPxTextBox>
+                           <dx:ASPxTextBox ID="txtDepartamento" runat="server" Theme="Office365" ></dx:ASPxTextBox>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
                     <dx:LayoutItem Caption="Nombre/Usuario" VerticalAlign="Middle" CaptionStyle-Font-Bold="true" CssClass="caption" CaptionStyle-Font-Size="Medium">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                           <dx:ASPxTextBox ID="txtNombreUsuario" runat="server" Theme="Office365" Enabled="false"></dx:ASPxTextBox>
+                           <dx:ASPxTextBox ID="txtNombreUsuario" runat="server" Theme="Office365"></dx:ASPxTextBox>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
                     <dx:LayoutItem Caption="Centro Costo"  CaptionStyle-Font-Bold="true" CssClass="caption" CaptionStyle-Font-Size="Medium">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                           <dx:ASPxTextBox ID="txtCentrodeCosto" runat="server" Theme="Office365" Enabled="false"></dx:ASPxTextBox>
+                           <dx:ASPxTextBox ID="txtCentrodeCosto" runat="server" Theme="Office365" ></dx:ASPxTextBox>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
                     <dx:LayoutItem Caption="Tanque"  ShowCaption="True" CssClass="caption" CaptionStyle-Font-Size="Medium" CaptionStyle-Font-Bold="true">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                           <dx:ASPxTextBox ID="txtTanque" runat="server" Theme="Office365" Enabled="false"></dx:ASPxTextBox>
+                           <dx:ASPxTextBox ID="txtTanque" runat="server" Theme="Office365" ></dx:ASPxTextBox>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>

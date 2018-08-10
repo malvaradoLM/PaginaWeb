@@ -1,4 +1,5 @@
-﻿using DevExpress.Web.ASPxRichEdit.Internal;
+﻿using DevExpress.Web;
+using DevExpress.Web.ASPxRichEdit.Internal;
 using DevExpress.Web.Office;
 using DevExpress.XtraRichEdit;
 using Ejemplo.Data;
@@ -14,6 +15,7 @@ using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Xml;
 
@@ -96,8 +98,7 @@ namespace Ejemplo
             }
 
             carTabPage.ActiveTabIndex = 0;
-            panelConsumos.Collapsed = true;
-            panelDetallesConsumo.Visible = true;
+            //panelDetallesConsumo.Visible = true;
             panelDetallesConsumo.Collapsed = false;
             mapagoogle.Src = @"https://maps.google.com.mx/maps?key=AIzaSyDN_xSn-jF76JH6J_qmU50SpqF_6kNIePU&q=" + latitud + "," + longitud + "&language=es&hl=es;z=14&amp;output=embed";
         }
@@ -225,6 +226,24 @@ namespace Ejemplo
         protected void btnConsumosExcel_Click(object sender, EventArgs e)
         {
             llamarConsumoDocumento("XLS");
+        }
+
+        protected void ticket_Load(object sender, EventArgs e)
+        {
+            HtmlIframe nuevo = (HtmlIframe)sender;
+            nuevo.Src = ticket.Src;
+        }
+
+        protected void imageSlider_Load(object sender, EventArgs e)
+        {
+            ASPxImageSlider nuevo = (ASPxImageSlider)sender;
+            nuevo.Items.AddRange(imageSlider.Items);
+        }
+
+        protected void mapagoogle_Load(object sender, EventArgs e)
+        {
+            HtmlIframe nuevo = (HtmlIframe)sender;
+            nuevo.Src = mapagoogle.Src;
         }
     }
 }

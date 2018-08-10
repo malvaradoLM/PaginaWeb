@@ -19,7 +19,10 @@
     float:unset;
 }
 .formMargin{
-    margin-left: 7%;
+    width: 50%;
+}
+.floatLeft{
+    float:left;
 }
  </style>
     
@@ -37,30 +40,37 @@
     <p/>   
     
 
-    <dx:ASPxRoundPanel ID="panelParametros" ClientInstanceName="roundPanel" HeaderText="PARAMETROS" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"  Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >
+    <dx:ASPxRoundPanel ID="panelParametros" ClientInstanceName="roundPanel" HeaderText="PARAMETROS" runat="server" Width="100%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >
         <PanelCollection>
             <dx:PanelContent>
-    <dx:ASPxFormLayout runat="server" ID="ASPxFormLayout1" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365" SettingsItems-HorizontalAlign="Center" CssClass="fade-in animacion formMargin" Width="90%"  >
+        <dx:ASPxFormLayout runat="server" ID="ASPxFormLayout1" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365" SettingsItems-HorizontalAlign="Center"   >
         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="500"  />
-        <SettingsItemCaptions Location="Top" HorizontalAlign="Center" />
+        <SettingsItemCaptions Location="Top" />
+        <SettingsItems HorizontalAlign="Center" />
             <Items>
-            <dx:LayoutGroup Caption="PARAMETROS" SettingsItemHelpTexts-Position="Bottom"  GroupBoxStyle-Border-BorderStyle="Solid" GroupBoxStyle-Caption-Font-Bold="true" GroupBoxStyle-Caption-Font-Size="Large" CssClass="TextForm"   ColCount="3" ShowCaption="False" >
+            <dx:LayoutGroup Caption="PARAMETROS" SettingsItemHelpTexts-Position="Bottom" Width="300"  GroupBoxStyle-Border-BorderStyle="Solid" GroupBoxStyle-Caption-Font-Bold="true" GroupBoxStyle-Caption-Font-Size="Large" CssClass="TextForm" ColCount="1" ShowCaption="False" >
                 <GroupBoxStyle Border-BorderStyle="Solid" CssClass="shadowBox">
                     <Caption Font-Bold="True">
                     </Caption>
                 </GroupBoxStyle>
                 <Items>
-                    <dx:LayoutItem Caption="Cliente"  CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Hidden">
+                    <dx:LayoutItem Caption="Cliente"  CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Hidden" CssClass="floatLeft">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                        <dx:ASPxTextBox ID="txtClienteID" Text="CLIENTE ID" runat="server"  Theme="Office365" ReadOnly="true"/>
+                        <dx:ASPxTextBox ID="txtClienteID" Text="CLIENTE ID" runat="server"  Theme="Office365" ReadOnly="true" Width="150%" />
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
-                    <dx:LayoutItem Caption="Consumo"  CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Hidden">
+                    <dx:LayoutItem Caption="XXXX"  CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Hidden" ShowCaption="False" >
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxTextBox ID="txtConsumo" runat="server" NullText="EMAIL DE CONSUMO" Theme="Office365" >
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+                    <dx:LayoutItem Caption="Consumo"  CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Hidden" CssClass="floatLeft">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                <dx:ASPxTextBox ID="txtConsumo" runat="server" NullText="EMAIL DE CONSUMO" Theme="Office365" Width="150%" >
                                     <ValidationSettings SetFocusOnError="True" ValidationGroup="EditForm" Display="Dynamic" ErrorTextPosition="Bottom">
                                                         <RequiredField IsRequired="false" />
                                                         <RegularExpression ErrorText="Formato Inválido" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
@@ -70,10 +80,16 @@
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem> 
-                    <dx:LayoutItem Caption="Factura Emitida"  CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Hidden">
+                    <dx:LayoutItem Caption="XXXX"  CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Hidden" ShowCaption="False">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+                    <dx:LayoutItem Caption="Factura Emitida"  CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Hidden" CssClass="floatLeft" >
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>  
-                                <dx:ASPxTextBox ID="txtFacturaEmitida" runat="server" NullText="EMAIL DE LA FACTURA" Theme="Office365"> 
+                                <dx:ASPxTextBox ID="txtFacturaEmitida" runat="server" NullText="EMAIL DE LA FACTURA" Theme="Office365" Width="150%"> 
                                     <ValidationSettings SetFocusOnError="True" ValidationGroup="EditForm" Display="Dynamic" ErrorTextPosition="Bottom">
                                                         <RequiredField IsRequired="false" />
                                                         <RegularExpression ErrorText="Formato Inválido" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
@@ -82,10 +98,16 @@
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem> 
-                    <dx:LayoutItem Caption="Pago Realizado"  CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Hidden">
+                    <dx:LayoutItem Caption="XXXX"  CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Hidden" ShowCaption="False">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+                    <dx:LayoutItem Caption="Pago Realizado"  CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Hidden" CssClass="floatLeft">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>  
-                           <dx:ASPxTextBox ID="txtPagoRealizado" runat="server" NullText="EMAIL DEL PAGO"  Theme="Office365">  
+                           <dx:ASPxTextBox ID="txtPagoRealizado" runat="server" NullText="EMAIL DEL PAGO"  Theme="Office365" Width="150%">  
                                <ValidationSettings SetFocusOnError="True" ValidationGroup="EditForm" Display="Dynamic" ErrorTextPosition="Bottom">
                                                         <RequiredField IsRequired="false" />
                                                         <RegularExpression ErrorText="Formato Inválido" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
@@ -94,13 +116,25 @@
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem> 
-                    <dx:LayoutItem Caption="Pago Realizado"  CaptionStyle-Font-Bold="true" ShowCaption="False" RequiredMarkDisplayMode="Hidden">
+                    <dx:LayoutItem Caption="XXXX"  CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Hidden" ShowCaption="False">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+                    <dx:LayoutItem Caption="Pago Realizado"  CaptionStyle-Font-Bold="true" ShowCaption="False" RequiredMarkDisplayMode="Hidden" CssClass="floatLeft">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>  
-                           <dx:ASPxTextBox ID="ASPxTextBox1" runat="server" NullText="EMAIL DEL PAGO" NullTextStyle-BackColor="WhiteSmoke" Theme="Office365" Visible="false"/>  
+                           <dx:ASPxTextBox ID="ASPxTextBox1" runat="server" NullText="EMAIL DEL PAGO" NullTextStyle-BackColor="WhiteSmoke" Theme="Office365" Visible="false" Width="150%"/>  
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem> 
+                    <dx:LayoutItem Caption="XXXX"  CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Hidden" ShowCaption="False">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
                     <dx:LayoutGroup Border-BorderStyle="None"  Caption=" " CssClass="buttonMargin" GroupBoxDecoration="None"  Width="100" RowSpan="2" VerticalAlign="Bottom" >
                         <Border BorderStyle="None" />
                         <Items>

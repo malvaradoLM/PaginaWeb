@@ -147,42 +147,100 @@
                <dx:ASPxButton ID="btnTicketsPDF" Text="TICKETS PDF" runat="server" Theme="Office365" CssClass="floatButton shadowBoxMin" />               
                   <dx:ASPxButton ID="btnConsumosExcel" Text="CONSUMOS XLS" OnClick="btnConsumosExcel_Click" runat="server" Theme="Office365" CssClass="floatButton shadowBoxMin" />
                 <dx:ASPxButton ID="btnConsumosPDF" OnClick="btnConsumosPDF_Click" Text="CONSUMOS PDF" runat="server" Theme="Office365" CssClass="floatButton shadowBoxMin" />
-                                <dx:BootstrapGridView ID="bgvConsumo" runat="server"  KeyFieldName="ID" ClientSideEvents-BeginCallback="ocultarDetalles" Width="100%">
-                                    <ClientSideEvents BeginCallback="ocultarDetalles" />
+                                <dx:BootstrapGridView ID="bgvConsumo" runat="server"  KeyFieldName="ID" ClientSideEvents-BeginCallback="ocultarDetalles" Width="100%" >
+                                    <ClientSideEvents BeginCallback="ocultarDetalles" /><SettingsDetail ShowDetailRow="true" ShowDetailButtons="false"  />
     <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
-    <Settings ShowTitlePanel="true" />
+    <Settings ShowTitlePanel="true" ShowHeaderFilterButton="true" GroupSummaryTextSeparator=" Litros - Importe: " />
     <Settings ShowGroupPanel="true"/>
     <Settings ShowFooter="True" />
     <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
     <SettingsBehavior AllowFocusedRow="True" />
-    <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>
+    <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel="Arrastre una cabecera aquí para agrupar"  />
     <SettingsAdaptivity  AdaptivityMode="HideDataCells" AllowOnlyOneAdaptiveDetailExpanded="true" />
     <Columns>
         <dx:BootstrapGridViewTextColumn FieldName="ID"   HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" >    
                          <DataItemTemplate>
                             <asp:LinkButton runat="server" Text='<%#Eval("ID")%>' OnClick="button1_Click" ID='button1'  />
                          </DataItemTemplate>   
+             <Settings AllowHeaderFilter="False" />
                     </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewTextColumn FieldName="EstacionID" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" />
-                    <dx:BootstrapGridViewTextColumn FieldName="Ticket"    UnboundType="String" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" />
+                    <dx:BootstrapGridViewTextColumn FieldName="EstacionID" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" >
+                   <SettingsHeaderFilter Mode="CheckedList" />
+                    </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewTextColumn FieldName="Ticket"    UnboundType="String" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" >
+                    <Settings AllowHeaderFilter="False" />
+                    </dx:BootstrapGridViewTextColumn>
                     <dx:BootstrapGridViewTextColumn FieldName="FechaCarga"  UnboundType="DateTime" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader">
                                <PropertiesTextEdit DisplayFormatString="dd/MM/yyyy" />        
+                                <SettingsHeaderFilter Mode="DateRangeCalendar" />
                     </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewTextColumn FieldName="Producto"   UnboundType="String" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" />
-        <dx:BootstrapGridViewTextColumn FieldName="Serie"   UnboundType="String" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" />        
-        <dx:BootstrapGridViewTextColumn FieldName="Folio"   UnboundType="String" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" />        
-                    <dx:BootstrapGridViewDataColumn FieldName="Cantidad"   UnboundType="Decimal" CssClasses-HeaderCell="alignHeader" />
+                    <dx:BootstrapGridViewTextColumn FieldName="Producto"   UnboundType="String" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" >
+                        <SettingsHeaderFilter Mode="CheckedList" />
+                    </dx:BootstrapGridViewTextColumn>
+        <dx:BootstrapGridViewTextColumn FieldName="VehiculoID"   UnboundType="String" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" >
+            <SettingsHeaderFilter Mode="CheckedList" />
+        </dx:BootstrapGridViewTextColumn>
+        <dx:BootstrapGridViewTextColumn FieldName="Identificacion"   UnboundType="String" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" >
+            <SettingsHeaderFilter Mode="CheckedList" />
+            </dx:BootstrapGridViewTextColumn>
+        <dx:BootstrapGridViewTextColumn FieldName="Serie"   UnboundType="String" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" Visible="false" > 
+            </dx:BootstrapGridViewTextColumn>
+        <dx:BootstrapGridViewTextColumn FieldName="Folio"    UnboundType="String" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" Visible="false" >     
+            <PropertiesTextEdit />    
+        </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewDataColumn FieldName="Cantidad"   UnboundType="Decimal" CssClasses-HeaderCell="alignHeader">
+                        <Settings AllowHeaderFilter="False" />
+                        </dx:BootstrapGridViewDataColumn>
                     <dx:BootstrapGridViewTextColumn FieldName="Precio"   UnboundType="Decimal"  CssClasses-HeaderCell="alignHeader">
                              <PropertiesTextEdit DisplayFormatString="c" /> 
+                        <Settings AllowHeaderFilter="False" />
                     </dx:BootstrapGridViewTextColumn>
                     <dx:BootstrapGridViewTextColumn FieldName="Importe"   UnboundType="Decimal" CssClasses-HeaderCell="alignHeader" >
                                  <PropertiesTextEdit DisplayFormatString="c" />    
+                        <Settings AllowHeaderFilter="False" />
                     </dx:BootstrapGridViewTextColumn>
     </Columns>
+    <Templates>
+        <DetailRow>
+            <dx:ASPxPageControl ID="carTabPage" Width="100%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"  Border-BorderStyle="None"  Theme="Moderno" EnableTabScrolling="true" OnInit="button1_Click" Border-BorderWidth="0"  >
+        <TabPages>
+            <dx:TabPage Text="TICKET">
+                <ContentCollection>
+                    <dx:ContentControl ID="ContentControl1" runat="server">
+                 <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumento" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" />
+                 <iframe id="ticket" style="position:relative; width: 100% ; height:500px;" runat="server" class="shadowBox fade-in animacion" onload="ticket_Load" ></iframe>
+                    </dx:ContentControl>
+                </ContentCollection>
+            </dx:TabPage>
+            <dx:TabPage Text="FOTOGRAFÍA">
+                <ContentCollection>
+                    <dx:ContentControl ID="ContentControl2" runat="server">
+                        <dx:ASPxImageSlider ID="imageSlider" runat="server" ClientInstanceName="imageSlider" CssClass="imageSlider carousel fade-in animacion carouselSize" Width="100%"  OnLoad="imageSlider_Load">
+                            <SettingsSlideShow AutoPlay="true" StopPlayingWhenPaging="true" PausePlayingWhenMouseOver="true" />
+                         </dx:ASPxImageSlider>
+                    </dx:ContentControl>
+                </ContentCollection>
+            </dx:TabPage>
+            <dx:TabPage Text="GEOLOCALIZACIÓN">
+                <ContentCollection>
+                    <dx:ContentControl ID="ContentControl3" runat="server">
+                      <%--  <div id="myMap" style="position:relative; width: 90% ; height:500px;"></div> --%> 
+                        <iframe runat="server" id="mapagoogle"  style="width:100%;height:500px;" class="fade-in animacion shadowBox" onload="mapagoogle_Load"></iframe>
+                    </dx:ContentControl>
+                </ContentCollection>
+            </dx:TabPage>
+        </TabPages>
+    </dx:ASPxPageControl>	
+        </DetailRow>
+    </Templates>
     <TotalSummary>
-        <dx:ASPxSummaryItem FieldName="Cantidad"  SummaryType="Sum" DisplayFormat="c"  />
+        <dx:ASPxSummaryItem FieldName="Cantidad"  SummaryType="Sum"  />
         <dx:ASPxSummaryItem FieldName="Importe" SummaryType="Sum" DisplayFormat="c"  />
     </TotalSummary>
+       <GroupSummary>
+        <dx:ASPxSummaryItem  FieldName="Cantidad" SummaryType="Sum"/>
+        <dx:ASPxSummaryItem  FieldName="Importe" SummaryType="Sum" DisplayFormat="c"/>
+    </GroupSummary>
 </dx:BootstrapGridView> 
 
                 </dx:PanelContent>

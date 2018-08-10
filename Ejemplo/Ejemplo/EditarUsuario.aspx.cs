@@ -93,15 +93,19 @@ namespace Ejemplo
             Datos.GasolineroID = Convert.ToInt32(Session["GasolineroID"]);
             string resultado = "";
             string alerta = "";
+            string titulo = "";
+
             try
             {
                 if (!DataModule.DataService.cmdActualizaUsuarioWeb(Datos)) {
-                    resultado = "NO SE PUDIERON GUARDAR LOS CAMBIOS";
+                    resultado = "No se pudieron guardar los cambios";
                     alerta = labelCssClases.Peligro;
+                    titulo = "Error!";
                 } 
                 else{
-                    resultado = "LOS CAMBIOS HAN SIDO GUARDADOS CORRECTAMENTE";
+                    resultado = "Los cambios se han guardado correctamente";
                     alerta = labelCssClases.Exito;
+                    titulo = "Éxito!";
                 }
             }
             catch (Exception ex)
@@ -109,7 +113,7 @@ namespace Ejemplo
                 resultado = ex.Message;
             }
 
-            mensaje(resultado, alerta, "Modificar");
+            mensaje(resultado, alerta, titulo);
 
         }
         private void crearUsuario()

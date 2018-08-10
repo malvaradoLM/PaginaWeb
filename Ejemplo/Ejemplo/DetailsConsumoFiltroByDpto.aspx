@@ -108,7 +108,7 @@
                     <dx:LayoutItem Caption="Fecha Inicial" HelpText="Porfavor, ingrese la fecha inicial">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxDateEdit ID="txtFechaInicial" runat="server" ButtonEditEllipsisImage-IconID="" Theme="Office365" Width="100%"  >
+                                <dx:ASPxDateEdit ID="txtFechaInicial" runat="server" ButtonEditEllipsisImage-IconID="" Theme="Office365" Width="120%"  >
                                     <DropDownButton Image-IconID="">
                                         <Image IconID="conditionalformatting_adateoccurring_16x16">
                                         </Image>

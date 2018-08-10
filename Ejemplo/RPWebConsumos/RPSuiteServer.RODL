@@ -333,6 +333,14 @@
 </Element>
 <Element Name="LimiteMNTurno" DataType="AnsiString">
 </Element>
+<Element Name="Departamento" DataType="AnsiString">
+</Element>
+<Element Name="NombreUsuario" DataType="AnsiString">
+</Element>
+<Element Name="CentroCosto" DataType="AnsiString">
+</Element>
+<Element Name="Tanque" DataType="Double">
+</Element>
 </Elements>
 </Struct>
 <Struct Name="TUsuarioWeb" UID="{5B0BDE9A-A27B-42EA-889A-F261493EC7CA}" AutoCreateParams="1">

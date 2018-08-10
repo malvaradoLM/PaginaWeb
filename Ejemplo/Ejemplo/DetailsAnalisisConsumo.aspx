@@ -54,6 +54,9 @@
     width:0px;
 }
     }
+carouselSize{
+    height:500px;
+}
  </style>
 
 <script type="text/javascript">
@@ -241,13 +244,13 @@
 
 
     <%-- Tabla Consumos--%>
-                <dx:ASPxRoundPanel ID="panelConsumos" ClientInstanceName="panelConsumos" HeaderText="CONSUMOS" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes fade-in animacion"  HeaderStyle-ForeColor="Gray">
+                <dx:ASPxRoundPanel ID="panelConsumos" ClientInstanceName="panelConsumos" HeaderText="CONSUMOS" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes fade-in animacion"  HeaderStyle-ForeColor="Gray" AutoPostback="false">
 <HeaderStyle ForeColor="Gray"></HeaderStyle>
                     <PanelCollection>
             <dx:PanelContent>
-                <dx:BootstrapGridView ID="bgvConsumo2" runat="server"  KeyFieldName="ID"  ClientSideEvents-BeginCallback="ocultarDetalles" Width="90%" CssClasses-Control="shadowBox alinearConsumos FloatRight" CssClasses-HeaderRow="coloresGrid" >
-    <Settings ShowFooter="True" GroupSummaryTextSeparator=" Litros - Importe: " ShowGroupedColumns="true" ShowGroupButtons="true" ShowGroupPanel="true" />
-    <SettingsBehavior AllowFocusedRow="True" />
+  <dx:BootstrapGridView ID="bgvConsumo2" runat="server"  KeyFieldName="ID"  ClientSideEvents-BeginCallback="ocultarDetalles" Width="90%" CssClasses-Control="shadowBox alinearConsumos FloatRight" CssClasses-HeaderRow="coloresGrid" SettingsDetail-AllowOnlyOneMasterRowExpanded="true" OnAfterPerformCallback="bgvConsumo2_AfterPerformCallback"   >
+    <Settings ShowFooter="True" GroupSummaryTextSeparator=" Litros - Importe: " ShowGroupedColumns="true" ShowGroupButtons="true" ShowGroupPanel="true"/>
+    <SettingsBehavior AllowFocusedRow="True"  /><SettingsDetail ShowDetailRow="true" ShowDetailButtons="false"  />
 <CssClasses HeaderRow="coloresGrid" Control="shadowBox alinearConsumos FloatRight"></CssClasses>
 
     <Settings ShowGroupPanel="true" ShowColumnHeaders="true"/>
@@ -255,10 +258,10 @@
     <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
     <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel="Arrastre una cabecera aquí para Agrupar"/>
     <Columns>
-        <dx:BootstrapGridViewTextColumn FieldName="ID"   HorizontalAlign="Center" CssClasses-HeaderCell="coloresGrid" VisibleIndex="1"  >    
-                         <CssClasses HeaderCell="coloresGrid" />
+        <dx:BootstrapGridViewTextColumn FieldName="ID"   HorizontalAlign="Center" CssClasses-HeaderCell="coloresGrid" VisibleIndex="1" >    
+                         <CssClasses />
                          <DataItemTemplate>
-                            <asp:LinkButton runat="server" Text='<%#Eval("ID")%>' OnClick="Unnamed_Click" ID='button1' CssClass="coloresGrid"  />
+                            <asp:LinkButton runat="server" Text='<%#Eval("ID")%>' OnClick="Unnamed_Click" ID='button1'  />
                          </DataItemTemplate>   
                     </dx:BootstrapGridViewTextColumn>
                     <dx:BootstrapGridViewTextColumn FieldName="EstacionID" HorizontalAlign="Center" VisibleIndex="2"  >
@@ -294,7 +297,39 @@
                                  <PropertiesTextEdit DisplayFormatString="c" />    
                     </dx:BootstrapGridViewTextColumn>
     </Columns>
-
+      <Templates>
+        <DetailRow>
+            <dx:ASPxPageControl ID="carTabPage" Width="100%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"  Border-BorderStyle="None"  Theme="Moderno" EnableTabScrolling="true" OnInit="Unnamed_Click" Border-BorderWidth="0"  >
+        <TabPages>
+            <dx:TabPage Text="TICKET">
+                <ContentCollection>
+                    <dx:ContentControl ID="ContentControl1" runat="server">
+                 <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumento" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" />
+                 <iframe id="ticket" style="position:relative; width: 100% ; height:500px;" runat="server" class="shadowBox fade-in animacion" onload="ticketDetail_Load" ></iframe>
+                    </dx:ContentControl>
+                </ContentCollection>
+            </dx:TabPage>
+            <dx:TabPage Text="FOTOGRAFÍA">
+                <ContentCollection>
+                    <dx:ContentControl ID="ContentControl2" runat="server">
+                        <dx:ASPxImageSlider ID="imageSlider" runat="server" ClientInstanceName="imageSlider" CssClass="imageSlider carousel fade-in animacion carouselSize" Width="100%"  OnLoad="imageSlider_Load">
+                            <SettingsSlideShow AutoPlay="true" StopPlayingWhenPaging="true" PausePlayingWhenMouseOver="true" />
+                         </dx:ASPxImageSlider>
+                    </dx:ContentControl>
+                </ContentCollection>
+            </dx:TabPage>
+            <dx:TabPage Text="GEOLOCALIZACIÓN">
+                <ContentCollection>
+                    <dx:ContentControl ID="ContentControl3" runat="server">
+                      <%--  <div id="myMap" style="position:relative; width: 90% ; height:500px;"></div> --%> 
+                        <iframe runat="server" id="mapagoogle"  style="width:100%;height:500px;" class="fade-in animacion shadowBox" onload="mapagoogle_Load"></iframe>
+                    </dx:ContentControl>
+                </ContentCollection>
+            </dx:TabPage>
+        </TabPages>
+    </dx:ASPxPageControl>	
+        </DetailRow>
+    </Templates>
 <ClientSideEvents BeginCallback="ocultarDetalles"></ClientSideEvents>
     <TotalSummary>
         <dx:ASPxSummaryItem FieldName="Cantidad"  SummaryType="Sum"  />
@@ -311,18 +346,10 @@
 <Border BorderColor="Gray" BorderStyle="None" BorderWidth="0px"></Border>
                 </dx:ASPxRoundPanel>
      <%-- Formulario Nuevo --%>
-</div>
-      <dx:ASPxRoundPanel ID="panelDetallesConsumo" ClientInstanceName="panelDetallesConsumo" HeaderText="DETALLES DEL CONSUMO" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes fade-in animacion" HeaderStyle-ForeColor="Gray">
+        <dx:ASPxRoundPanel ID="panelDetallesConsumo" ClientInstanceName="panelDetallesConsumo" HeaderText="DETALLES DEL CONSUMO" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes fade-in animacion" HeaderStyle-ForeColor="Gray">
                     <PanelCollection>
             <dx:PanelContent>
-
-
-
-
-
-
-
-                <div id="detallesConsumo" runat="server" class="detalles"  >
+                <div id="detallesConsumo" runat="server" class="detalles" style="visibility:hidden;"  >
     <dx:ASPxPageControl ID="carTabPage" Width="90%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"  Border-BorderStyle="None" CssClass="page-header alinearConsumos" Theme="Office365" EnableTabScrolling="true">
         <TabPages>
             <dx:TabPage Text="TICKET">
@@ -356,8 +383,11 @@
                 </dx:PanelContent>
                         </PanelCollection>
     </dx:ASPxRoundPanel>
+</div>
+      
         
     <asp:HiddenField ID="hiddenURL" runat="server" />
     <asp:HiddenField ID="ticketName" runat="server" />
+    <asp:HiddenField ID="HiddenFocusIndex" runat="server" />
     <div ID="bottom" runat="server" />
 </asp:Content>

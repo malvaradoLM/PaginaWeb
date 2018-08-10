@@ -12,7 +12,8 @@ namespace Ejemplo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           // NombreGrupo.Text = System.Configuration.ConfigurationManager.AppSettings["Gasolinero"];
+            // NombreGrupo.Text = System.Configuration.ConfigurationManager.AppSettings["Gasolinero"];
+            string sesion = Session["GasolineroID"].ToString();
            if(DataModule.Seguridad == null || Session["GasolineroID"] == null)
             {
                 Session["Caducada"] = "Sesion Caducada";

@@ -29,7 +29,14 @@ namespace Ejemplo
             Params.Clear();
             Data.DataModule.ParamByName(Params, "ClienteID", ClienteID);
             spFacturaCliente ds = new spFacturaCliente();
-            DataModule.FillDataSet(ds, "spFacturaCliente", Params.ToArray());
+            try
+            {
+                DataModule.FillDataSet(ds, "spFacturaCliente", Params.ToArray());
+            }
+            catch(Exception e)
+            {
+                string error = e.ToString();
+            }
             DataTable dt = null;
             dt = ds.Tables["spFacturaCliente"];
             IEnumerable<DataRow> queryenum = from dts in dt.AsEnumerable() select dts;

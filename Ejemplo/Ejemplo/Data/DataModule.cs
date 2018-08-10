@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Data;
 using RemObjects.DataAbstract.Server;
 using System.Windows.Forms;
+using Ejemplo.Clases;
 
 namespace Ejemplo.Data
 {
@@ -69,12 +70,13 @@ namespace Ejemplo.Data
                 rInfo.Parameters = Parametros;
                 try
                 {
+                  //  throw new Exception("Error de prueba");
                     Instance.remoteDataAdapter.Fill(ds, TableName, rInfo, true);
                 }
                 catch(Exception e)
                 {
+               
                     string exception = e.ToString();
-
                 }
                 
             } else

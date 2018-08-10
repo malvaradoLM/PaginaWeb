@@ -275,7 +275,7 @@ namespace Ejemplo
             RPSuiteServer.TVehiculo vehiculo = new RPSuiteServer.TVehiculo();
             var definicion = new
             { Nip = "", VehiculoId = new int(), Status = "", CargasMaximas = new int(), LimiteLTDia = new double(), LimiteLTSemana = new double(), LimiteLTMes = new double(), LimiteMNDia = new double(),
-                LimiteMNSemana = new double(), LimiteMNMes = new double(), Lunes = "", Martes = "", Miercoles = "", Jueves = "", Viernes = "", Sabado = "", Domingo = "", ProductoAutorizado = "", Estacion = "" };
+                LimiteMNSemana = new double(), LimiteMNMes = new double(), Lunes = "", Martes = "", Miercoles = "", Jueves = "", Viernes = "", Sabado = "", Domingo = "", ProductoAutorizado = "", Estacion = "", Departamento = "", CentroCosto = "", NombreUsuario = "", Tanque = new Double() };
             var listaDefinicion = new[] { definicion };
             var horarios = ID;
             var listHorarios = JsonConvert.DeserializeAnonymousType(horarios, listaDefinicion);
@@ -301,14 +301,13 @@ namespace Ejemplo
             vehiculo.Nip = listHorarios[0].Nip;
             vehiculo.ProductoAutorizado = listHorarios[0].ProductoAutorizado;
             vehiculo.Sabado = listHorarios[0].Sabado;
-            vehiculo.Status = listHorarios[0].Status;
-            
+            vehiculo.Status = listHorarios[0].Status;          
             vehiculo.Viernes = listHorarios[0].Viernes;
             vehiculo.Estacion = listHorarios[0].Estacion;
-            
-            
-            
-
+            vehiculo.Departamento = listHorarios[0].Departamento;
+            vehiculo.NombreUsuario = listHorarios[0].NombreUsuario;
+            vehiculo.CentroCosto = listHorarios[0].CentroCosto;
+            vehiculo.Tanque = listHorarios[0].Tanque;
             return vehiculo;
 
         }

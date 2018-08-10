@@ -15,6 +15,8 @@ using System.Drawing;
 using System.Text;
 using System.IO;
 using System.Reflection;
+using System.Web.UI.HtmlControls;
+using DevExpress.Web.Bootstrap;
 
 namespace Ejemplo
 {
@@ -23,6 +25,7 @@ namespace Ejemplo
         private List<DataParameter> Params = new List<DataParameter>();
         protected void Page_Load(object sender, EventArgs e)
         {
+           
             if (!IsPostBack)
             {
                 txtFechaInicial.Date = DateTime.Now;
@@ -63,6 +66,10 @@ namespace Ejemplo
                     labelAlerta.Text = "No existen registros que mostrar";
                 }
                 else msjAlerta.Visible = false;
+                if(HiddenFocusIndex.Value != null && HiddenFocusIndex.Value != "")
+                {
+                    bgvConsumo2.FocusedRowIndex = Convert.ToInt32(HiddenFocusIndex.Value);
+                }
             }
             if (detallesConsumo.Visible) carTabPage.Focus();
         }
@@ -127,16 +134,18 @@ namespace Ejemplo
         protected void Unnamed_Click(object sender, EventArgs e)
         {
             //detallesConsumo.Visible = true;
-            panelDetallesConsumo.Visible = true;
+           // panelDetallesConsumo.Visible = true;
             detallesConsumo.Attributes.CssStyle.Add("display", "inline");
-            LinkButton item = (LinkButton)sender;
-            string ID = item.Text;
+            //LinkButton item = (LinkButton)sender;
+            //string ID = item.Text;
+            string ID = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "ID").ToString();
             string EstacionID = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "EstacionID").ToString();
             string Serie = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "Serie").ToString();
             string Folio = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "Folio").ToString();
 
             consumoReporte(Convert.ToInt32(ID), Serie, Folio);
             obtenerGeolocalizacion(Convert.ToInt32(EstacionID));
+            bgvConsumo2.DetailRows.ExpandRow(bgvConsumo2.FocusedRowIndex);
         }
         private void consumoReporte(int _ConsumoID, string Serie, String Folio)
         {
@@ -178,9 +187,9 @@ namespace Ejemplo
 
         private void CargarMapa(string latitud, string longitud)
         {
-            panelParametros.Collapsed = true;
-            panelConsumos.Collapsed = true;
-            panelDetallesConsumo.Collapsed = false;
+           // panelParametros.Collapsed = true;
+           // panelConsumos.Collapsed = true;
+           // panelDetallesConsumo.Collapsed = false;
             carTabPage.ActiveTabIndex = 2;
 
             const string ScriptKey = "ScriptKey";
@@ -240,6 +249,38 @@ namespace Ejemplo
             if (txtFechaFinal.Date < txtFechaInicial.Date) e.ErrorText = "Error: La fecha inicial no puede ser mayor a la fecha final";
             if (e.ErrorText != "") e.IsValid = false;
             else e.IsValid = true;
+        }
+
+        protected void bgvConsumo2_DetailRowExpandedChanged(object sender, ASPxGridViewDetailRowEventArgs e)
+        {
+           // BootstrapGridView x = (BootstrapGridView)sender;
+           // bgvConsumo2.FocusedRowIndex = x.PageIndex;
+        }
+
+        protected void ticketDetail_Load(object sender, EventArgs e)
+        {
+            HtmlIframe nuevo = (HtmlIframe)sender;
+            nuevo.Src = ticket.Src;
+        }
+
+        protected void mapagoogle_Load(object sender, EventArgs e)
+        {
+            HtmlIframe nuevo = (HtmlIframe)sender;
+            nuevo.Src = mapagoogle.Src;
+        }
+
+        protected void imageSlider_Load(object sender, EventArgs e)
+        {
+            ASPxImageSlider nuevo = (ASPxImageSlider)sender;
+            nuevo.Items.AddRange(imageSlider.Items);
+        }
+
+        protected void bgvConsumo2_AfterPerformCallback(object sender, ASPxGridViewAfterPerformCallbackEventArgs e)
+        {
+            int rowIndex = bgvConsumo2.FocusedRowIndex;
+            (sender as ASPxGridView).FocusedRowIndex = (rowIndex == ASPxGridView.InvalidRowIndex) ? -1 : rowIndex;
+            HiddenFocusIndex.Value = rowIndex.ToString();
+            
         }
     }
 }
