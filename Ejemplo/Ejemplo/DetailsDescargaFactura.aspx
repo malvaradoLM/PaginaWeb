@@ -132,7 +132,7 @@
 
 
 
-    <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=LoadMap" async defer></script>
+
     <div class="fade-in animacion">
          <dx:ASPxPageControl ID="pageConsumos" Width="100%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"  Border-BorderStyle="None" CssClass="page-header" Theme="Office365" >
         <TabPages>
@@ -147,12 +147,12 @@
                <dx:ASPxButton ID="btnTicketsPDF" Text="TICKETS PDF" runat="server" Theme="Office365" CssClass="floatButton shadowBoxMin" />               
                   <dx:ASPxButton ID="btnConsumosExcel" Text="CONSUMOS XLS" OnClick="btnConsumosExcel_Click" runat="server" Theme="Office365" CssClass="floatButton shadowBoxMin" />
                 <dx:ASPxButton ID="btnConsumosPDF" OnClick="btnConsumosPDF_Click" Text="CONSUMOS PDF" runat="server" Theme="Office365" CssClass="floatButton shadowBoxMin" />
-                                <dx:BootstrapGridView ID="bgvConsumo" runat="server"  KeyFieldName="ID" ClientSideEvents-BeginCallback="ocultarDetalles" Width="100%" >
-                                    <ClientSideEvents BeginCallback="ocultarDetalles" /><SettingsDetail ShowDetailRow="true" ShowDetailButtons="false"  />
+                                <dx:BootstrapGridView ID="bgvConsumo" runat="server"  KeyFieldName="ID" ClientSideEvents-BeginCallback="ocultarDetalles" SettingsDetail-AllowOnlyOneMasterRowExpanded="true" Width="100%" >
+                                    <ClientSideEvents BeginCallback="ocultarDetalles" />
     <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
     <Settings ShowTitlePanel="true" ShowHeaderFilterButton="true" GroupSummaryTextSeparator=" Litros - Importe: " />
     <Settings ShowGroupPanel="true"/>
-    <Settings ShowFooter="True" />
+    <Settings ShowFooter="True" /><SettingsDetail ShowDetailRow="true" ShowDetailButtons="true"  />
     <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
     <SettingsBehavior AllowFocusedRow="True" />
     <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel="Arrastre una cabecera aquí para agrupar"  />

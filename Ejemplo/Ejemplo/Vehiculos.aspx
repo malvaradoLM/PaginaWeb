@@ -790,15 +790,12 @@ fieldset[disabled] .btn-sample.active {
         <a id="0" style=' cursor: pointer; color:white; background-color: #428bca;' class="btn-block" onclick="checks(this);" >
      Desactivar todo</a>
                     --%>
-               <div class="btn-group" style="margin-left: 65%;">
+               <div class="btn-group" style="margin-left: 76%;">
                    <dx:ASPxButton runat="server" ID="btn1" ClientSideEvents-Click="checksasp" Text="Activar Todo" Theme="Glass" ClientInstanceName="1" AutoPostBack="false" CssClass="shadowBox">
                     <ClientSideEvents Click="checksasp" />
                 </dx:ASPxButton>
                 <dx:ASPxButton runat="server" ID="btn2" ClientSideEvents-Click="checksasp" Text="Desactivar Todo" Theme="Glass" ClientInstanceName="0" AutoPostBack="false" CssClass="shadowBox">
                     <ClientSideEvents Click="checksasp" />
-                </dx:ASPxButton>
-                   <dx:ASPxButton runat="server" ID="btn3" ClientSideEvents-Click="cancelarHorario" Text="Cancelar" Theme="Glass" ClientInstanceName="3" AutoPostBack="false"  CssClass="shadowBox">
-                    <ClientSideEvents Click="cancelarHorario" />
                 </dx:ASPxButton>
                 </div>
                 
@@ -809,7 +806,8 @@ fieldset[disabled] .btn-sample.active {
     <%-- TABS CSS --%>
 
      <div class="btn-group" style="margin-left:75%; margin-top:2px;">
-         <dx:ASPxButton runat="server" ID="ASPxButton2"  Text="CANCELAR" Theme="Office365"  AutoPostBack="false" OnClick="ASPxButton2_Click" CssClass="shadowBox animacion">
+         <dx:ASPxButton runat="server" ID="ASPxButton2"  Text="CANCELAR" Theme="Office365"  AutoPostBack="false"  CssClass="shadowBox animacion">
+             <ClientSideEvents Click="cancelarHorario" />
                 </dx:ASPxButton>
          <dx:ASPxButton runat="server" ID="btnProcesar"  Text="GUARDAR" Theme="Office365" ClientInstanceName="2" AutoPostBack="false" CssClass="shadowBox animacion">
                     <ClientSideEvents Click="leerTabla" />

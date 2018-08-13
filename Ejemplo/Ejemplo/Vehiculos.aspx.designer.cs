@@ -787,15 +787,6 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ASPxButton btn2;
         
         /// <summary>
-        /// btn3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btn3;
-        
-        /// <summary>
         /// ASPxButton2 control.
         /// </summary>
         /// <remarks>

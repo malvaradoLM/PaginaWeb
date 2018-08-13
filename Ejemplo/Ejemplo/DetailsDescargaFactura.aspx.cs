@@ -26,6 +26,7 @@ namespace Ejemplo
         private List<RemObjects.DataAbstract.Server.DataParameter> Params = new List<RemObjects.DataAbstract.Server.DataParameter>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            Page.MaintainScrollPositionOnPostBack = true;
             string serie, folio;
             serie = Session["Serie"].ToString();
             folio = Session["Folio"].ToString();
@@ -57,46 +58,35 @@ namespace Ejemplo
 
         protected void button1_Click(object sender, EventArgs e)
         {
-            LinkButton item = (LinkButton)sender;
-            string ID = item.Text;
-            string EstacionID = bgvConsumo.GetRowValues(int.Parse(bgvConsumo.FocusedRowIndex.ToString()), "EstacionID").ToString();
-            string Serie = bgvConsumo.GetRowValues(int.Parse(bgvConsumo.FocusedRowIndex.ToString()), "Serie").ToString();
-            string Folio = bgvConsumo.GetRowValues(int.Parse(bgvConsumo.FocusedRowIndex.ToString()), "Folio").ToString();
+            string ID="", EstacionID="", Serie="", Folio="";
+            string tipo = sender.GetType().ToString();
+            if (bgvConsumo.DetailRows.VisibleCount > 0 || !(sender is ASPxPageControl))
+            {
+                if (sender is ASPxPageControl)
+                {
+                    ASPxPageControl nuevo = (ASPxPageControl)sender;
+                    GridViewDetailRowTemplateContainer row = (GridViewDetailRowTemplateContainer)nuevo.Parent;
+                    ID = bgvConsumo.GetRowValues(row.ItemIndex, "ID").ToString();
+                    EstacionID = bgvConsumo.GetRowValues(row.ItemIndex, "EstacionID").ToString();
+                    Serie = bgvConsumo.GetRowValues(row.ItemIndex, "Serie").ToString();
+                    Folio = bgvConsumo.GetRowValues(row.ItemIndex, "Folio").ToString();
+                }
+                else
+                {
+                    ID = bgvConsumo.GetRowValues(int.Parse(bgvConsumo.FocusedRowIndex.ToString()), "ID").ToString();
+                    EstacionID = bgvConsumo.GetRowValues(int.Parse(bgvConsumo.FocusedRowIndex.ToString()), "EstacionID").ToString();
+                    Serie = bgvConsumo.GetRowValues(int.Parse(bgvConsumo.FocusedRowIndex.ToString()), "Serie").ToString();
+                    Folio = bgvConsumo.GetRowValues(int.Parse(bgvConsumo.FocusedRowIndex.ToString()), "Folio").ToString();
+                }
+                consumoReporte(Convert.ToInt32(ID), Serie, Folio);
+                obtenerGeolocalizacion(Convert.ToInt32(EstacionID));
+                bgvConsumo.DetailRows.ExpandRow(bgvConsumo.FocusedRowIndex);
+            }
 
-            consumoReporte(Convert.ToInt32(ID), Serie, Folio);
-            obtenerGeolocalizacion(Convert.ToInt32(EstacionID));
         }
         private void CargarMapa(string latitud, string longitud)
         {
-            detallesConsumo.Visible = true;
-           // pageConsumos.ActiveTabIndex = 0;
-           carTabPage.ActiveTabIndex = 2;
-            const string ScriptKey = "ScriptKey";
-            if (!ClientScript.IsStartupScriptRegistered(this.GetType(), ScriptKey))
-            {
-                //  carTabPage.ActiveTabIndex = 2;
-                StringBuilder fn = new StringBuilder();
-                fn.Append("var map = null; ");
-                fn.Append("function LoadMap() { ");
-                fn.Append("map = new Microsoft.Maps.Map('#myMap', { ");
-                fn.Append("credentials: \"Amj5vm4UWJ5FGig8NYp7xQLVV5RJEXMz0KGIl5BFnCVT2B1GHKsjnQ1MYZFy5_pw\" ");
-                fn.Append("}); ");
-                ////Pushpins
-                fn.Append("var pins = [];");
-                fn.Append("var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(" + latitud + "," + longitud + ")); ");
-                fn.Append("pins.push(pushpin); ");
-                fn.Append("map.entities.push(pins); ");
-                fn.Append("map.setView({ ");
-                fn.Append("zoom: 12, center: new Microsoft.Maps.Location(" + latitud + ", " + longitud + ")");
-                fn.Append("}); ");
-                ///Cambiar Tab
-                //fn.Append(" document.getElementById('"+carTabPage.ClientID+"').attr(\"ActiveTabIndex\",\"0\"); ");
-                ///
-                fn.Append("};");
-                ClientScript.RegisterStartupScript(this.GetType(),
-        ScriptKey, fn.ToString(), true);
-            }
-
+            
             carTabPage.ActiveTabIndex = 0;
             //panelDetallesConsumo.Visible = true;
             panelDetallesConsumo.Collapsed = false;

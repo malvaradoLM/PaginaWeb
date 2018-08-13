@@ -25,7 +25,7 @@ namespace Ejemplo
         private List<DataParameter> Params = new List<DataParameter>();
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            Page.MaintainScrollPositionOnPostBack = true;
             if (!IsPostBack)
             {
                 txtFechaInicial.Date = DateTime.Now;
@@ -133,19 +133,30 @@ namespace Ejemplo
         }
         protected void Unnamed_Click(object sender, EventArgs e)
         {
-            //detallesConsumo.Visible = true;
-           // panelDetallesConsumo.Visible = true;
-            detallesConsumo.Attributes.CssStyle.Add("display", "inline");
-            //LinkButton item = (LinkButton)sender;
-            //string ID = item.Text;
-            string ID = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "ID").ToString();
-            string EstacionID = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "EstacionID").ToString();
-            string Serie = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "Serie").ToString();
-            string Folio = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "Folio").ToString();
-
-            consumoReporte(Convert.ToInt32(ID), Serie, Folio);
-            obtenerGeolocalizacion(Convert.ToInt32(EstacionID));
-            bgvConsumo2.DetailRows.ExpandRow(bgvConsumo2.FocusedRowIndex);
+            string ID = "", EstacionID = "", Serie = "", Folio = "";
+            string tipo = sender.GetType().ToString();
+            if (bgvConsumo2.DetailRows.VisibleCount > 0 || !(sender is ASPxPageControl))
+            {
+                if (sender is ASPxPageControl)
+                {
+                    ASPxPageControl nuevo = (ASPxPageControl)sender;
+                    GridViewDetailRowTemplateContainer row = (GridViewDetailRowTemplateContainer)nuevo.Parent;
+                    ID = bgvConsumo2.GetRowValues(row.ItemIndex, "ID").ToString();
+                    EstacionID = bgvConsumo2.GetRowValues(row.ItemIndex, "EstacionID").ToString();
+                    Serie = bgvConsumo2.GetRowValues(row.ItemIndex, "Serie").ToString();
+                    Folio = bgvConsumo2.GetRowValues(row.ItemIndex, "Folio").ToString();
+                }
+                else
+                {
+                    ID = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "ID").ToString();
+                    EstacionID = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "EstacionID").ToString();
+                    Serie = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "Serie").ToString();
+                    Folio = bgvConsumo2.GetRowValues(int.Parse(bgvConsumo2.FocusedRowIndex.ToString()), "Folio").ToString();
+                }
+                consumoReporte(Convert.ToInt32(ID), Serie, Folio);
+                obtenerGeolocalizacion(Convert.ToInt32(EstacionID));
+                bgvConsumo2.DetailRows.ExpandRow(bgvConsumo2.FocusedRowIndex);
+            }
         }
         private void consumoReporte(int _ConsumoID, string Serie, String Folio)
         {
@@ -261,6 +272,7 @@ namespace Ejemplo
         {
             HtmlIframe nuevo = (HtmlIframe)sender;
             nuevo.Src = ticket.Src;
+            nuevo.Focus();
         }
 
         protected void mapagoogle_Load(object sender, EventArgs e)
@@ -281,6 +293,11 @@ namespace Ejemplo
             (sender as ASPxGridView).FocusedRowIndex = (rowIndex == ASPxGridView.InvalidRowIndex) ? -1 : rowIndex;
             HiddenFocusIndex.Value = rowIndex.ToString();
             
+        }
+
+        protected void bgvConsumo2_BeforeColumnSortingGrouping(object sender, BootstrapGridViewBeforeColumnGroupingSortingEventArgs e)
+        {
+            bgvConsumo2.DetailRows.CollapseAllRows();
         }
     }
 }

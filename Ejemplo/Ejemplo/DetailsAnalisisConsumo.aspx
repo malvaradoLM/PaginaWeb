@@ -248,9 +248,10 @@ carouselSize{
 <HeaderStyle ForeColor="Gray"></HeaderStyle>
                     <PanelCollection>
             <dx:PanelContent>
-  <dx:BootstrapGridView ID="bgvConsumo2" runat="server"  KeyFieldName="ID"  ClientSideEvents-BeginCallback="ocultarDetalles" Width="90%" CssClasses-Control="shadowBox alinearConsumos FloatRight" CssClasses-HeaderRow="coloresGrid" SettingsDetail-AllowOnlyOneMasterRowExpanded="true" OnAfterPerformCallback="bgvConsumo2_AfterPerformCallback"   >
-    <Settings ShowFooter="True" GroupSummaryTextSeparator=" Litros - Importe: " ShowGroupedColumns="true" ShowGroupButtons="true" ShowGroupPanel="true"/>
-    <SettingsBehavior AllowFocusedRow="True"  /><SettingsDetail ShowDetailRow="true" ShowDetailButtons="false"  />
+  <dx:BootstrapGridView ID="bgvConsumo2" runat="server"  KeyFieldName="ID"  ClientSideEvents-BeginCallback="ocultarDetalles" Width="90%" CssClasses-Control="shadowBox alinearConsumos FloatRight" CssClasses-HeaderRow="coloresGrid" SettingsDetail-AllowOnlyOneMasterRowExpanded="true" OnBeforeColumnSortingGrouping="bgvConsumo2_BeforeColumnSortingGrouping"   >
+    <Settings ShowFooter="True" GroupSummaryTextSeparator=" Litros - Importe: " ShowGroupedColumns="true"  ShowHeaderFilterButton="true" ShowGroupButtons="true" ShowGroupPanel="true"/>
+
+    <SettingsBehavior AllowFocusedRow="True"  /><SettingsDetail ShowDetailRow="true" ShowDetailButtons="true"  />
 <CssClasses HeaderRow="coloresGrid" Control="shadowBox alinearConsumos FloatRight"></CssClasses>
 
     <Settings ShowGroupPanel="true" ShowColumnHeaders="true"/>
@@ -262,39 +263,46 @@ carouselSize{
                          <CssClasses />
                          <DataItemTemplate>
                             <asp:LinkButton runat="server" Text='<%#Eval("ID")%>' OnClick="Unnamed_Click" ID='button1'  />
-                         </DataItemTemplate>   
+                         </DataItemTemplate>
+                    <Settings AllowHeaderFilter="False" />
                     </dx:BootstrapGridViewTextColumn>
                     <dx:BootstrapGridViewTextColumn FieldName="EstacionID" HorizontalAlign="Center" VisibleIndex="2"  >
+                        <SettingsHeaderFilter Mode="CheckedList" />
                     </dx:BootstrapGridViewTextColumn>
                     <dx:BootstrapGridViewTextColumn FieldName="VehiculoID" HorizontalAlign="Center" VisibleIndex="3"  >
+                        <SettingsHeaderFilter Mode="CheckedList" />
                     </dx:BootstrapGridViewTextColumn>
                     <dx:BootstrapGridViewTextColumn FieldName="Identificacion" HorizontalAlign="Center" VisibleIndex="4" >
+                        <SettingsHeaderFilter Mode="CheckedList" />
                     </dx:BootstrapGridViewTextColumn>
                       <dx:BootstrapGridViewTextColumn FieldName="Nombre" HorizontalAlign="Center" VisibleIndex="5" >
                     </dx:BootstrapGridViewTextColumn>
                     <dx:BootstrapGridViewTextColumn FieldName="FechaCarga"  UnboundType="DateTime" HorizontalAlign="Center" VisibleIndex="6">
-                               <PropertiesTextEdit DisplayFormatString="dd/MM/yyyy" />        
+                               <PropertiesTextEdit DisplayFormatString="dd/MM/yyyy" />       
+                        <SettingsHeaderFilter Mode="DateRangeCalendar" />
                     </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewCheckColumn FieldName="Facturado"    UnboundType="Boolean" HorizontalAlign="Center" VisibleIndex="7">
+                    <dx:BootstrapGridViewCheckColumn FieldName="Facturado"    UnboundType="Boolean" HorizontalAlign="Center" VisibleIndex="7" Visible="false">
                                     
                     </dx:BootstrapGridViewCheckColumn>
                     <dx:BootstrapGridViewTextColumn FieldName="Producto"   UnboundType="String" HorizontalAlign="Center" VisibleIndex="8">
+                                    <SettingsHeaderFilter Mode="CheckedList" />
+                    </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewTextColumn FieldName="Serie" UnboundType="String" HorizontalAlign="Center" VisibleIndex="9" Visible="false" >
                                     
                     </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewTextColumn FieldName="Serie" UnboundType="String" HorizontalAlign="Center" VisibleIndex="9" >
-                                    
-                    </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewTextColumn FieldName="Folio"  UnboundType="String"  HorizontalAlign="Center" VisibleIndex="10">
+                    <dx:BootstrapGridViewTextColumn FieldName="Folio"  UnboundType="String"  HorizontalAlign="Center" VisibleIndex="10" Visible="false">
                                    
                     </dx:BootstrapGridViewTextColumn>
                     <dx:BootstrapGridViewDataColumn FieldName="Cantidad"   UnboundType="Decimal" VisibleIndex="11">
-                                   
+                                   <Settings AllowHeaderFilter="False" />
                     </dx:BootstrapGridViewDataColumn>
                     <dx:BootstrapGridViewTextColumn FieldName="Precio"   UnboundType="Decimal" VisibleIndex="12" >
                              <PropertiesTextEdit DisplayFormatString="c" /> 
+                        <Settings AllowHeaderFilter="False" />
                     </dx:BootstrapGridViewTextColumn>
                     <dx:BootstrapGridViewTextColumn FieldName="Importe"   UnboundType="Decimal" VisibleIndex="13" >
                                  <PropertiesTextEdit DisplayFormatString="c" />    
+                        <Settings AllowHeaderFilter="False" />
                     </dx:BootstrapGridViewTextColumn>
     </Columns>
       <Templates>
