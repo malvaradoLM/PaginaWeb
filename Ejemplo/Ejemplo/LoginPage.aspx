@@ -65,8 +65,14 @@
         </div>
     <form class="login shadowBoxMin" runat="server">
     <h1 class="login-title">FLOTILLAS</h1>
+        <div class="inner-addon left-addon">
+    <i class="glyphicon glyphicon-user"></i>
     <input type="text" class="login-input" placeholder="Usuario" autofocus="autofocus" runat="server" id="inputUser" style="width: 100%;" />
+            </div>
+        <div class="inner-addon left-addon">
+    <i class="glyphicon glyphicon-lock"></i>
     <input type="password" class="login-input" placeholder="Password" runat="server" id="inputPass" style="width: 100%;" />
+            </div>
     <asp:Button runat="server" OnClick="btnAceptar_Click" Text="INICIAR SESION" CssClass="login-button shadowBoxMin" />
   </form>
 

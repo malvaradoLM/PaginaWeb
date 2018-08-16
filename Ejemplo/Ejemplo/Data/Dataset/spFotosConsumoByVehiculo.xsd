@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="spFotosConsumoByVehiculo" targetNamespace="http://tempuri.org/spFotosConsumoByVehiculo.xsd" xmlns:mstns="http://tempuri.org/spFotosConsumoByVehiculo.xsd" xmlns="http://tempuri.org/spFotosConsumoByVehiculo.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="spFotosConsumoByVehiculo" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="spFotosConsumoByVehiculo" msprop:Generator_UserDSName="spFotosConsumoByVehiculo">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="spFotosConsumoByVehiculo" msprop:Generator_TableClassName="spFotosConsumoByVehiculoDataTable" msprop:Generator_TableVarName="tablespFotosConsumoByVehiculo" msprop:Generator_TablePropName="_spFotosConsumoByVehiculo" msprop:Generator_RowDeletingName="spFotosConsumoByVehiculoRowDeleting" msprop:Generator_RowChangingName="spFotosConsumoByVehiculoRowChanging" msprop:Generator_RowEvHandlerName="spFotosConsumoByVehiculoRowChangeEventHandler" msprop:Generator_RowDeletedName="spFotosConsumoByVehiculoRowDeleted" msprop:Generator_UserTableName="spFotosConsumoByVehiculo" msprop:Generator_RowChangedName="spFotosConsumoByVehiculoRowChanged" msprop:Generator_RowEvArgName="spFotosConsumoByVehiculoRowChangeEvent" msprop:Generator_RowClassName="spFotosConsumoByVehiculoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="VehiculoID" msprop:Generator_ColumnVarNameInTable="columnVehiculoID" msprop:Generator_ColumnPropNameInRow="VehiculoID" msprop:Generator_ColumnPropNameInTable="VehiculoIDColumn" msprop:Generator_UserColumnName="VehiculoID" type="xs:string" minOccurs="0" />
+              <xs:element name="FechaCarga" msprop:Generator_ColumnVarNameInTable="columnFechaCarga" msprop:Generator_ColumnPropNameInRow="FechaCarga" msprop:Generator_ColumnPropNameInTable="FechaCargaColumn" msprop:Generator_UserColumnName="FechaCarga" type="xs:string" minOccurs="0" />
+              <xs:element name="Foto" msprop:Generator_ColumnVarNameInTable="columnFoto" msprop:Generator_ColumnPropNameInRow="Foto" msprop:Generator_ColumnPropNameInTable="FotoColumn" msprop:Generator_UserColumnName="Foto" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

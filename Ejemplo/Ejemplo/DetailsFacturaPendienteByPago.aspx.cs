@@ -35,6 +35,7 @@ namespace Ejemplo
 
         protected void btnProcesar_Click(object sender, EventArgs e)
         {
+            panelParametros.Collapsed = true;
             msjAlerta.Visible = false;
             panelDetalles.Visible = true;
             panelParametros.Collapsed = true;
@@ -80,6 +81,7 @@ namespace Ejemplo
                     reporteDoc.Src = resultado2.pathFile;
                     ticketName.Value = fecCorte;
                     ASPxSpreadsheet1.Visible = false;
+                    reporteDoc.Visible = true;
                 }
                 else
                 {

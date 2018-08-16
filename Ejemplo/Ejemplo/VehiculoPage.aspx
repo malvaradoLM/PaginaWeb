@@ -49,7 +49,9 @@
   }
     </style>
     <link href="css/StylePageMenuPrincipal.css" rel="stylesheet">
-   
+    
+
+
 
     <div class="row fade-in animacion">
         <div class="col-lg-8 col-md-8">
@@ -67,13 +69,19 @@
         <dx:ASPxLabel ID="labelAlerta" runat="server" />
         </div>
     <dx:BootstrapGridView ID="bgvVehiculo" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="VehiculoID" CssClassesPager-Control="true"  CssClasses-Control="FloatRight fade-in animacion"   >
-                <SettingsAdaptivity  AdaptivityMode="HideDataCells" AllowOnlyOneAdaptiveDetailExpanded="true" />
-                <SettingsSearchPanel Visible="true" ShowApplyButton="true"  />
-                <Settings ShowGroupPanel="true" />
-                <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" " />
-                <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
-                <SettingsDataSecurity AllowEdit="True" />
                 <SettingsBehavior AllowFocusedRow="True" />
+<CssClasses Control="FloatRight fade-in animacion"></CssClasses>
+
+<CssClassesPager Control="true"></CssClassesPager>
+
+                <Settings ShowGroupPanel="true" />
+                <SettingsAdaptivity  AdaptivityMode="HideDataCells" AllowOnlyOneAdaptiveDetailExpanded="true" />
+                <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
+                <SettingsCommandButton>
+                    <SearchPanelApplyButton IconCssClass="glyphicon glyphicon-search" Text=" " />
+                </SettingsCommandButton>
+                <SettingsText SearchPanelEditorNullText="Ingrese texto para buscar..." GroupPanel=" " />
+                <SettingsDataSecurity AllowEdit="True" />
                 <Columns>
                     <dx:BootstrapGridViewTextColumn FieldName="VehiculoID" ReadOnly="True" VisibleIndex="1" Caption="ID">
                                         <DataItemTemplate>
@@ -96,14 +104,17 @@
                                         </DataItemTemplate>
                     </dx:BootstrapGridViewTextColumn>
                     <dx:BootstrapGridViewDataColumn Caption="" Width="50px" Settings-AllowDragDrop="False" VisibleIndex="5">
+<Settings AllowDragDrop="False"></Settings>
             <DataItemTemplate>
-                     <asp:LinkButton ID="btnEditar" runat="server" Text="Editar" AutoPostBack="false" OnClick="btnEditar_Click">
+                     <asp:LinkButton ID="btnEditar" runat="server" Text="Editar"  OnClick="btnEditar_Click">
                         <i class="fa fa-edit" style="font-size:40px"></i>
                      </asp:LinkButton>
                 
             </DataItemTemplate>
         </dx:BootstrapGridViewDataColumn>
                 </Columns>
+
+                <SettingsSearchPanel Visible="true" ShowApplyButton="true"  />
 
            </dx:BootstrapGridView>
             </div>

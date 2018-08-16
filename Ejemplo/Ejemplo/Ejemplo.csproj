@@ -413,6 +413,17 @@
     <Content Include="Data\Dataset\spMailCliente.xsc">
       <DependentUpon>spMailCliente.xsd</DependentUpon>
     </Content>
+    <Content Include="Data\Dataset\spFotosConsumoByVehiculo.xsc">
+      <DependentUpon>spFotosConsumoByVehiculo.xsd</DependentUpon>
+    </Content>
+    <None Include="Data\Dataset\spFotosConsumoByVehiculo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>spFotosConsumoByVehiculo.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Data\Dataset\spFotosConsumoByVehiculo.xss">
+      <DependentUpon>spFotosConsumoByVehiculo.xsd</DependentUpon>
+    </Content>
     <None Include="Data\Dataset\spMailCliente.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -682,6 +693,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>spConsumoDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dataset\spFotosConsumoByVehiculo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>spFotosConsumoByVehiculo.xsd</DependentUpon>
     </Compile>
     <Compile Include="Data\Dataset\spMailCliente.Designer.cs">
       <AutoGen>True</AutoGen>

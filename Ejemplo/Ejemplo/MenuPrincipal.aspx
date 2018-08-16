@@ -76,7 +76,7 @@
  
     <div id="cssmenu" class="row MarginBreadCumb">  
     <ul>
-        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Inicio</a></li>
+        <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i>  Inicio</a></li>
     </ul>
 </div>      
     <div class="tab-content fade-in animacion" style="margin-top:10%;">

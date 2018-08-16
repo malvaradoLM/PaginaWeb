@@ -398,6 +398,10 @@ namespace Ejemplo.Data.Dataset {
             
             private global::System.Data.DataColumn columnFotos;
             
+            private global::System.Data.DataColumn columnFotoVehiculo;
+            
+            private global::System.Data.DataColumn columnCapacidadTanque;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public spCatVehiculoDataTable() {
@@ -913,6 +917,22 @@ namespace Ejemplo.Data.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn FotoVehiculoColumn {
+                get {
+                    return this.columnFotoVehiculo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CapacidadTanqueColumn {
+                get {
+                    return this.columnCapacidadTanque;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1008,7 +1028,9 @@ namespace Ejemplo.Data.Dataset {
                         double AnteriorMNSemana, 
                         double AnteriorMNMes, 
                         string PlacasNumero, 
-                        string Fotos) {
+                        string Fotos, 
+                        string FotoVehiculo, 
+                        string CapacidadTanque) {
                 spCatVehiculoRow rowspCatVehiculoRow = ((spCatVehiculoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         VehiculoID,
@@ -1070,7 +1092,9 @@ namespace Ejemplo.Data.Dataset {
                         AnteriorMNSemana,
                         AnteriorMNMes,
                         PlacasNumero,
-                        Fotos};
+                        Fotos,
+                        FotoVehiculo,
+                        CapacidadTanque};
                 rowspCatVehiculoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowspCatVehiculoRow);
                 return rowspCatVehiculoRow;
@@ -1153,6 +1177,8 @@ namespace Ejemplo.Data.Dataset {
                 this.columnAnteriorMNMes = base.Columns["AnteriorMNMes"];
                 this.columnPlacasNumero = base.Columns["PlacasNumero"];
                 this.columnFotos = base.Columns["Fotos"];
+                this.columnFotoVehiculo = base.Columns["FotoVehiculo"];
+                this.columnCapacidadTanque = base.Columns["CapacidadTanque"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1278,6 +1304,10 @@ namespace Ejemplo.Data.Dataset {
                 base.Columns.Add(this.columnPlacasNumero);
                 this.columnFotos = new global::System.Data.DataColumn("Fotos", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFotos);
+                this.columnFotoVehiculo = new global::System.Data.DataColumn("FotoVehiculo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFotoVehiculo);
+                this.columnCapacidadTanque = new global::System.Data.DataColumn("CapacidadTanque", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCapacidadTanque);
                 this.columnVehiculoID.AllowDBNull = false;
                 this.columnNombre.AllowDBNull = false;
                 this.columnNombre.MaxLength = 30;
@@ -2244,6 +2274,38 @@ namespace Ejemplo.Data.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string FotoVehiculo {
+                get {
+                    try {
+                        return ((string)(this[this.tablespCatVehiculo.FotoVehiculoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FotoVehiculo\' in table \'spCatVehiculo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablespCatVehiculo.FotoVehiculoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string CapacidadTanque {
+                get {
+                    try {
+                        return ((string)(this[this.tablespCatVehiculo.CapacidadTanqueColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CapacidadTanque\' in table \'spCatVehiculo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablespCatVehiculo.CapacidadTanqueColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsDigitoSeguridadNull() {
                 return this.IsNull(this.tablespCatVehiculo.DigitoSeguridadColumn);
             }
@@ -2492,6 +2554,30 @@ namespace Ejemplo.Data.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetFotosNull() {
                 this[this.tablespCatVehiculo.FotosColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsFotoVehiculoNull() {
+                return this.IsNull(this.tablespCatVehiculo.FotoVehiculoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetFotoVehiculoNull() {
+                this[this.tablespCatVehiculo.FotoVehiculoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCapacidadTanqueNull() {
+                return this.IsNull(this.tablespCatVehiculo.CapacidadTanqueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCapacidadTanqueNull() {
+                this[this.tablespCatVehiculo.CapacidadTanqueColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -88,11 +88,11 @@ namespace Ejemplo
                 {
                     ASPxSpreadsheet1.Visible = true;
                     ASPxSpreadsheet1.Open(Server.MapPath("" + resultado2.pathFile));
-
                     reporteDoc.Visible = false;
                 }
                 hiddenURL.Value = resultado2.pathFile;
                 ticketName.Value = "documento";
+                panelDetalles.Collapsed = false;
 
             }
             else

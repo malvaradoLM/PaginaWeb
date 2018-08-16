@@ -100,7 +100,7 @@ namespace Ejemplo {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtTanque;
+        protected global::DevExpress.Web.ASPxSpinEdit txtTanque;
         
         /// <summary>
         /// ASPxFormLayout1 control.
@@ -172,7 +172,7 @@ namespace Ejemplo {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtFechaAlta;
+        protected global::DevExpress.Web.ASPxDateEdit txtFechaAlta;
         
         /// <summary>
         /// txtFechaExpiracion control.
@@ -181,7 +181,7 @@ namespace Ejemplo {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtFechaExpiracion;
+        protected global::DevExpress.Web.ASPxDateEdit txtFechaExpiracion;
         
         /// <summary>
         /// txtFechaCancelacion control.
@@ -190,7 +190,7 @@ namespace Ejemplo {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtFechaCancelacion;
+        protected global::DevExpress.Web.ASPxDateEdit txtFechaCancelacion;
         
         /// <summary>
         /// txtFechaBaja control.
@@ -199,7 +199,7 @@ namespace Ejemplo {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtFechaBaja;
+        protected global::DevExpress.Web.ASPxDateEdit txtFechaBaja;
         
         /// <summary>
         /// txtFechaBloqueo control.
@@ -208,7 +208,7 @@ namespace Ejemplo {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtFechaBloqueo;
+        protected global::DevExpress.Web.ASPxDateEdit txtFechaBloqueo;
         
         /// <summary>
         /// txtFechaInactivacion control.
@@ -217,7 +217,7 @@ namespace Ejemplo {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtFechaInactivacion;
+        protected global::DevExpress.Web.ASPxDateEdit txtFechaInactivacion;
         
         /// <summary>
         /// lblLAAcumulado control.
@@ -785,6 +785,24 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton btn2;
+        
+        /// <summary>
+        /// BinaryImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxBinaryImage BinaryImage;
+        
+        /// <summary>
+        /// imageGallery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxImageGallery imageGallery;
         
         /// <summary>
         /// ASPxButton2 control.

@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraPivotGrid;
+﻿using DevExpress.Web;
+using DevExpress.XtraPivotGrid;
 using Ejemplo.Clases;
 using Ejemplo.Data;
 using Ejemplo.Data.Dataset;
@@ -9,7 +10,10 @@ using RemObjects.DataAbstract.Server;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -27,7 +31,7 @@ namespace Ejemplo
         {
 
             Params.Clear();
-            Data.DataModule.ParamByName(Params, "Datos",Session["VehiculoID"]);
+            Data.DataModule.ParamByName(Params, "Datos", Session["VehiculoID"]);
             spCatVehiculoDS ds = new spCatVehiculoDS();
             DataModule.FillDataSet(ds, "spCatVehiculo", Params.ToArray());
             DataTable dt = new DataTable();
@@ -42,6 +46,8 @@ namespace Ejemplo
                 FillDataFourthTab(dt);
                 FillDataFifthTab(dt);
                 FillDataSixthTab(dt);
+                cargarGaleriaFotosConsumo();
+                if (txtTanque.Text == "") txtTanque.Value = 0;
             }
             else mensaje("No se pudo cargar el Vehiculo, intente nuevamente", labelCssClases.Advertencia, "Advertencia");
             
@@ -139,9 +145,12 @@ namespace Ejemplo
                 cmbEstatusActual.Value= dr.Field<string>("Estatus");
                 txtCargasMaximas.Text = dr.Field<int>("CargasMaximas").ToString();
                 cmbLimitarEstacion.Value= dr.Field<string>("Estacion");
+                if (dr.Field<object>("CapacidadTanque") != null)
+                    txtTanque.Value = dr.Field<double>("CapacidadTanque");
+                else txtTanque.Value = 0;
                 //txtNombreUsuario.Text = dr.Field<string>("Nombre");
                 //chkPlacas.Value = dr.Field<bool>("Placas");
-                
+
             }
         }
         private void FillDataThirdTab(DataTable dt)
@@ -150,14 +159,12 @@ namespace Ejemplo
             foreach (DataRow dr in query)
             {
                
-                txtFechaAlta.Text = dr.Field<DateTime?>("FechaAlta").ToString();
-                txtFechaBaja.Text = dr.Field<DateTime?>("FechaBaja").ToString();
-                txtFechaBloqueo.Text = dr.Field<DateTime?>("FechaBloqueada").ToString();
-                txtFechaCancelacion.Text = dr.Field<DateTime?>("FechaCancelacion").ToString();
-                txtFechaExpiracion.Text = dr.Field<DateTime?>("FechaExpira").ToString();
-                txtFechaInactivacion.Text = dr.Field<DateTime?>("FechaInactiva").ToString();
-               
-            
+                txtFechaAlta.Value = dr.Field<DateTime?>("FechaAlta").ToString();
+                txtFechaBaja.Value = dr.Field<DateTime?>("FechaBaja").ToString();
+                txtFechaBloqueo.Value = dr.Field<DateTime?>("FechaBloqueada").ToString();
+                txtFechaCancelacion.Value = dr.Field<DateTime?>("FechaCancelacion").ToString();
+                txtFechaExpiracion.Value = dr.Field<DateTime?>("FechaExpira").ToString();
+                txtFechaInactivacion.Value = dr.Field<DateTime?>("FechaInactiva").ToString();    
             }
         }
         private void FillDataFourthTab(DataTable dt)
@@ -234,6 +241,7 @@ namespace Ejemplo
                 ConstruirChecks(dr.Field<string>("Viernes"),5);
                 ConstruirChecks(dr.Field<string>("Sabado"),6);
                 ConstruirChecks(dr.Field<string>("Domingo"),7);
+                BinaryImage.ContentBytes = (Byte[])dr.Field<object>("FotoVehiculo");
             }
         }
 
@@ -275,7 +283,7 @@ namespace Ejemplo
             RPSuiteServer.TVehiculo vehiculo = new RPSuiteServer.TVehiculo();
             var definicion = new
             { Nip = "", VehiculoId = new int(), Status = "", CargasMaximas = new int(), LimiteLTDia = new double(), LimiteLTSemana = new double(), LimiteLTMes = new double(), LimiteMNDia = new double(),
-                LimiteMNSemana = new double(), LimiteMNMes = new double(), Lunes = "", Martes = "", Miercoles = "", Jueves = "", Viernes = "", Sabado = "", Domingo = "", ProductoAutorizado = "", Estacion = "", Departamento = "", CentroCosto = "", NombreUsuario = "", Tanque = new Double() };
+                LimiteMNSemana = new double(), LimiteMNMes = new double(), Lunes = "", Martes = "", Miercoles = "", Jueves = "", Viernes = "", Sabado = "", Domingo = "", ProductoAutorizado = "", Estacion = "", Departamento = "", CentroCosto = "", NombreUsuario = "", Tanque = new double(), Foto = new object()  };
             var listaDefinicion = new[] { definicion };
             var horarios = ID;
             var listHorarios = JsonConvert.DeserializeAnonymousType(horarios, listaDefinicion);
@@ -308,6 +316,22 @@ namespace Ejemplo
             vehiculo.NombreUsuario = listHorarios[0].NombreUsuario;
             vehiculo.CentroCosto = listHorarios[0].CentroCosto;
             vehiculo.Tanque = listHorarios[0].Tanque;
+            if (listHorarios[0].Foto != null)
+            {
+                if (listHorarios[0].Foto.ToString().Contains("http"))
+                {
+                    WebClient wc = new WebClient();
+                    byte[] bytes = wc.DownloadData(listHorarios[0].Foto.ToString());
+                    vehiculo.Foto = bytes;
+                }
+                else
+                {
+                    string newBytes = listHorarios[0].Foto.ToString().Replace("data:image/png;base64,", "");
+                    byte[] NewBytes = Convert.FromBase64String(newBytes);
+                    vehiculo.Foto = NewBytes;
+                }
+            }
+            else vehiculo.Foto = null;
             return vehiculo;
 
         }
@@ -324,7 +348,36 @@ namespace Ejemplo
             lblTitleMensaje.Text = titulo;
             msjAlerta.Visible = true;
         }
+        private void cargarGaleriaFotosConsumo()
+        {
+            Params.Clear();
+            Data.DataModule.ParamByName(Params, "VehiculoID", Session["VehiculoID"]);
+            spFotosConsumoByVehiculo ds = new spFotosConsumoByVehiculo();
+            DataModule.FillDataSet(ds, "spFotosConsumoByVehiculo", Params.ToArray());
+            DataTable dt = new DataTable();
+            dt = ds.Tables["spFotosConsumoByVehiculo"];
+            IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
+            foreach (DataRow dr in query)
+            {
+                imageGallery.Items.Add(
+        "data:image/png;base64," + Convert.ToBase64String((Byte[])dr.Field<object>("Foto")),
+        dr.Field<object>("FechaCarga").ToString(),
+        "", ""
+    );
+            }
+        }
 
-
+        protected void BinaryImage_ValueChanged(object sender, EventArgs e)
+        {
+            ASPxBinaryImage binary = (ASPxBinaryImage)sender;
+            if(binary.ContentBytes == null)
+            {
+                binary.Height = 400;
+            }
+            else
+            {
+                binary.Height = Unit.Percentage(100);
+            }
+        }
     }
 }

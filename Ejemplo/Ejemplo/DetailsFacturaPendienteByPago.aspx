@@ -104,6 +104,15 @@ fieldset[disabled] .btn-sample.active {
     .marginSpread{
         margin-top:40px;
     }
+    .dxflGroupCell_Office365 {
+    padding: 0 0px;
+}
+@media screen and (max-width: 480px) {
+  .MarginBreadCumb{
+          margin-top: 80px;
+         
+  }
+ }
  </style>
     <script>
         function validarFecha(s, e) {
@@ -215,9 +224,15 @@ fieldset[disabled] .btn-sample.active {
                             <dx:LayoutItem  Border-BorderWidth="0px" CssClass="buttonMargin" HorizontalAlign="Right" RequiredMarkDisplayMode="Hidden" ShowCaption="False" Width="100">
                                 <LayoutItemNestedControlCollection >
                                     <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer1" BorderStyle="None"  runat="server" ValidateRequestMode="Disabled" >
-                                        <dx:ASPxButton ID="btnCancelar4" runat="server" OnClick="btnCancelar_Click" Text="Cancelar"  Theme="Office365" Width="80" UseSubmitBehavior="False"  CausesValidation="false" CssClass="shadowBoxMin"    />
+                                        <dx:ASPxButton ID="btnCancelar4" runat="server" OnClick="btnCancelar_Click" Text="Cancelar"  Theme="Office365" Width="80" UseSubmitBehavior="False"  CausesValidation="false" CssClass="shadowBoxMin"  ImagePosition="Right">
+                                            <Image Url="~/Icons/png/16px/large/button-cancel.png">
+                                              </Image>
+                                        </dx:ASPxButton>
                                         <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="   " />
-                                        <dx:ASPxButton ID="btnProcesar4" UseSubmitBehavior="False" runat="server" OnClick="btnProcesar_Click" Text="Aceptar" Theme="Office365" Width="80" CssClass="shadowBoxMin"    />
+                                        <dx:ASPxButton ID="btnProcesar4" UseSubmitBehavior="False" runat="server" OnClick="btnProcesar_Click" Text="Aceptar" Theme="Office365" Width="80" CssClass="shadowBoxMin" ImagePosition="Right">
+                                            <Image Url="~/Icons/png/16px/large/button-ok.png">
+                                              </Image>
+                                            </dx:ASPxButton>
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
                                 <Border BorderWidth="0px" />
@@ -241,7 +256,10 @@ fieldset[disabled] .btn-sample.active {
         <PanelCollection>
             <dx:PanelContent>
                 <div>
-    <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumento" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" />
+    <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumento" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" ImagePosition="Right">
+        <Image Url="~/Icons/png/16px/large/button-download.png">
+                                              </Image>
+                 </dx:ASPxButton>
 </div>
                 <div id="Div1" runat="server">	
                  <iframe id="reporteDoc" style="position:relative; width: 100% ; height:500px;" runat="server" class="shadowBox fade-in animacion" ></iframe>

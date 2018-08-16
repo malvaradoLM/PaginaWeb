@@ -146,6 +146,10 @@ fieldset[disabled] .btn-sample.active {
     width: 150px;
     float:right;
 }
+.galleryStyle .dxp-pageSizeItem
+    {
+        visibility: hidden;
+    }
     </style>
     <script>
         function checks(control) {
@@ -170,6 +174,13 @@ fieldset[disabled] .btn-sample.active {
                     $("." + id).prop("checked", true);
                 }
             }
+        }
+        function clickFoto(s, e) {
+            var foto = s;
+            var fotoUpload = document.getElementById('ContentPlaceHolder1_BinaryImage_DXPreview');
+            var image = "" + foto.items[e.index].tu + "";
+            fotoUpload.src = image;
+            document.getElementById("ContentPlaceHolder1_BinaryImage_DXValueKeyInput").value = image;
         }
         function checksasp(s, e) {
             if (s.globalName == "1" || s.globalName == "0") {
@@ -275,7 +286,7 @@ fieldset[disabled] .btn-sample.active {
                 , "Departamento": document.getElementById('<%=txtDepartamento.ClientID%>_I').value
                 , "NombreUsuario": document.getElementById('<%=txtNombreUsuario.ClientID%>_I').value
                 , "CentroCosto": document.getElementById('<%=txtCentrodeCosto.ClientID%>_I').value
-                , "Tanque": document.getElementById('<%=txtTanque.ClientID%>_I').value
+                , "Tanque": getTanque()
                 , "Lunes": TableData[0]["Valor"]
                 , "Martes": TableData[1]["Valor"]
                 , "Miercoles": TableData[2]["Valor"]
@@ -284,13 +295,25 @@ fieldset[disabled] .btn-sample.active {
                 , "Sabado": TableData[5]["Valor"]
                 , "Domingo": TableData[6]["Valor"]
                 , "Estacion": obtenerIdEstacion(document.getElementById('<%=cmbLimitarEstacion.ClientID%>_I').value)
+                , "Foto": getFoto()
             }
 
             return TableData2;
         }
+        function getFoto() {
+            if (document.getElementById("ContentPlaceHolder1_BinaryImage_DXValueKeyInput").value != null && document.getElementById("ContentPlaceHolder1_BinaryImage_DXValueKeyInput").value != "")
+                return document.getElementById('ContentPlaceHolder1_BinaryImage_DXPreview').src;
+            else return null;
+        }
         function getStatus(letra) {
             if (letra == "I") return "C";
             else return letra;
+        }
+        function getTanque() {
+            var tanque = document.getElementById('<%=txtTanque.ClientID%>_I').value;
+            if (tanque == null || tanque == "")
+                return 0;
+            else return tanque;
         }
         function leerChecks(tr) {
             result = "";
@@ -300,8 +323,11 @@ fieldset[disabled] .btn-sample.active {
             return result;
         }
         function obtenerIdEstacion(estacion) {
-            var array = estacion.split("-");
-            return array[0];
+            if (estacion != "") {
+                var array = estacion.split("-");
+                if (array[0] != "") return array[0];
+                else return array[1];
+            } else return "";
         }
         function getProductoAutorizado() {
             var ProductoAutorizado = "";
@@ -311,7 +337,7 @@ fieldset[disabled] .btn-sample.active {
             return ProductoAutorizado;
         }
         function cancelarHorario(s, e) {
-            window.location.hash = "#tab6";
+           
             window.location.reload();
         }
     </script>
@@ -391,7 +417,7 @@ fieldset[disabled] .btn-sample.active {
                     <dx:LayoutItem Caption="Nombre/Usuario" VerticalAlign="Middle" CaptionStyle-Font-Bold="true" CssClass="caption" CaptionStyle-Font-Size="Medium">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                           <dx:ASPxTextBox ID="txtNombreUsuario" runat="server" Theme="Office365"></dx:ASPxTextBox>
+                           <dx:ASPxTextBox ID="txtNombreUsuario" runat="server" Theme="Office365" AutoPostBack="false"></dx:ASPxTextBox>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
@@ -405,7 +431,7 @@ fieldset[disabled] .btn-sample.active {
                     <dx:LayoutItem Caption="Tanque"  ShowCaption="True" CssClass="caption" CaptionStyle-Font-Size="Medium" CaptionStyle-Font-Bold="true">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                           <dx:ASPxTextBox ID="txtTanque" runat="server" Theme="Office365" ></dx:ASPxTextBox>
+                           <dx:ASPxSpinEdit runat="server" ID="txtTanque" MinValue="0" Theme="Office365" NumberType="Float" />
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
@@ -421,7 +447,7 @@ fieldset[disabled] .btn-sample.active {
                       <SettingsItems HorizontalAlign="Center"  />
         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="500"  />
             <Items>
-            <dx:LayoutGroup Caption="SEGURIDAD"  CssClass="labelLimpia" ColCount="3" ShowCaption="True" >
+            <dx:LayoutGroup Caption="SEGURIDAD"  CssClass="labelLimpia" ColCount="3" ShowCaption="True"  >
                 <GroupBoxStyle Border-BorderStyle="Solid" CssClass="shadowBox">
                     <Caption Paddings-PaddingTop="1px">
                     </Caption>
@@ -489,14 +515,30 @@ fieldset[disabled] .btn-sample.active {
                     <dx:LayoutItem Caption="Fecha de Alta"  VerticalAlign="Middle" CaptionStyle-Font-Bold="true">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer >
-                    <dx:ASPxTextBox ID="txtFechaAlta" runat="server" Theme="Office365" Enabled="false" ></dx:ASPxTextBox>
+                    <dx:ASPxDateEdit ID="txtFechaAlta" runat="server" Theme="Office365" ReadOnly="true" >
+                                    <DropDownButton Image-IconID="">
+                                        <Image IconID="conditionalformatting_adateoccurring_16x16">
+                                        </Image>
+                                    </DropDownButton>
+                                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" RequiredField-IsRequired="true" ErrorText="Valor inválido" >
+                                        <RequiredField IsRequired="false" />
+                                    </ValidationSettings>
+                                </dx:ASPxDateEdit>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
                     <dx:LayoutItem Caption="Fecha de Expiracion"  VerticalAlign="Middle" CaptionStyle-Font-Bold="true" >
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer >
-                  <dx:ASPxTextBox ID="txtFechaExpiracion" runat="server" Theme="Office365"  Enabled="false"   ></dx:ASPxTextBox>
+                  <dx:ASPxDateEdit ID="txtFechaExpiracion" runat="server"  Theme="Office365" ReadOnly="true"  >
+                                    <DropDownButton Image-IconID="">
+                                        <Image IconID="conditionalformatting_adateoccurring_16x16">
+                                        </Image>
+                                    </DropDownButton>
+                                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" RequiredField-IsRequired="true" ErrorText="Valor inválido" >
+                                        <RequiredField IsRequired="false" />
+                                    </ValidationSettings>
+                                </dx:ASPxDateEdit>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
@@ -504,31 +546,60 @@ fieldset[disabled] .btn-sample.active {
                     <dx:LayoutItem Caption="Fecha de Cancelacion"  VerticalAlign="Middle" CaptionStyle-Font-Bold="true">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer >
-                  <dx:ASPxTextBox ID="txtFechaCancelacion" runat="server" Theme="Office365"   Enabled="false"></dx:ASPxTextBox>
+                  <dx:ASPxDateEdit ID="txtFechaCancelacion" runat="server" Theme="Office365" ReadOnly="true" >
+                                    <DropDownButton Image-IconID="">
+                                        <Image IconID="conditionalformatting_adateoccurring_16x16">
+                                        </Image>
+                                    </DropDownButton>
+                                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" RequiredField-IsRequired="true" ErrorText="Valor inválido" >
+                                        <RequiredField IsRequired="false" />
+                                    </ValidationSettings>
+                                </dx:ASPxDateEdit>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
-
-                    
-
                     <dx:LayoutItem Caption="Fecha de Baja"  VerticalAlign="Middle" CaptionStyle-Font-Bold="true">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer >
-                    <dx:ASPxTextBox ID="txtFechaBaja" runat="server" Theme="Office365" Enabled="false"></dx:ASPxTextBox>
+                    <dx:ASPxDateEdit ID="txtFechaBaja" runat="server" Theme="Office365" ReadOnly="true" >
+                                    <DropDownButton Image-IconID="">
+                                        <Image IconID="conditionalformatting_adateoccurring_16x16">
+                                        </Image>
+                                    </DropDownButton>
+                                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" RequiredField-IsRequired="true" ErrorText="Valor inválido" >
+                                        <RequiredField IsRequired="false" />
+                                    </ValidationSettings>
+                                </dx:ASPxDateEdit>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
                     <dx:LayoutItem Caption="Fecha de Bloqueo"  VerticalAlign="Middle" CaptionStyle-Font-Bold="true" >
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer >
-                    <dx:ASPxTextBox ID="txtFechaBloqueo" runat="server" Theme="Office365"  Enabled="false"></dx:ASPxTextBox>
+                    <dx:ASPxDateEdit ID="txtFechaBloqueo" runat="server" Theme="Office365" ReadOnly="true" >
+                                    <DropDownButton Image-IconID="">
+                                        <Image IconID="conditionalformatting_adateoccurring_16x16">
+                                        </Image>
+                                    </DropDownButton>
+                                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" RequiredField-IsRequired="true" ErrorText="Valor inválido" >
+                                        <RequiredField IsRequired="false" />
+                                    </ValidationSettings>
+                                </dx:ASPxDateEdit>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
                     <dx:LayoutItem Caption="Fecha de inactivación:"  VerticalAlign="Middle" CaptionStyle-Font-Bold="true" >
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer >
-                    <dx:ASPxTextBox ID="txtFechaInactivacion" runat="server" Theme="Office365" Enabled="false"></dx:ASPxTextBox>
+                    <dx:ASPxDateEdit ID="txtFechaInactivacion" runat="server" Theme="Office365" ReadOnly="true" >
+                                    <DropDownButton Image-IconID="">
+                                        <Image IconID="conditionalformatting_adateoccurring_16x16">
+                                        </Image>
+                                    </DropDownButton>
+                                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" RequiredField-IsRequired="true" ErrorText="Valor inválido" >
+                                        <RequiredField IsRequired="false" />
+                                    </ValidationSettings>
+                                </dx:ASPxDateEdit>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
@@ -800,17 +871,44 @@ fieldset[disabled] .btn-sample.active {
                 </div>
                 
 			</section>
-            <section id="content7" >
+            <section id="content7" >  
+                <div style="text-align:center;">
+                    <dx:ASPxLabel runat="server" Text="Foto Actual" AllowEllipsisInText="true" Theme="Office365"  Width="100%" Font-Size="X-Large"  />
+                    </div>
+                <div style="margin-left: 60px;" class="row">
+                <dx:ASPxBinaryImage ID="BinaryImage" ClientInstanceName="ClientBinaryImage" Width="100%" Height="400" ShowLoadingImage="true" LoadingImageUrl="~/Content/Loading.gif" runat="server"  OnValueChanged="BinaryImage_ValueChanged" CssClass="fade-in animacion shadowBox">
+            <EditingSettings Enabled="true">
+                <UploadSettings>
+                    <UploadValidationSettings MaxFileSize="4194304"></UploadValidationSettings>
+                </UploadSettings>
+            </EditingSettings>
+        </dx:ASPxBinaryImage>
+                    </div>
+                <br/>
+                <div style="text-align:center;">
+                    <dx:ASPxLabel runat="server" Text="Asignar otra foto" AllowEllipsisInText="true" Theme="Office365"  Width="100%" Font-Size="X-Large"  />
+                    </div>
+                <div class="row">
+                                <dx:ASPxImageGallery ID="imageGallery" runat="server" ClientInstanceName="imageGallery" CssClass="galleryStyle fade-in animacion" PagerSettings-EnableAdaptivity="true" ThumbnailUrlField="MediumImageUrl" EnableViewState="False" AlwaysShowPager="false" PagerSettings-Visible="false" AutoPostback="False" Theme="Office365">
+                                    <SettingsFullscreenViewer Visible="false"  />
+                                    <SettingsTableLayout ColumnCount="5" />
+                                    <ClientSideEvents FullscreenViewerShowing="clickFoto"/>
+                                </dx:ASPxImageGallery>
+                    </div>
             </section>
 		</div>
     <%-- TABS CSS --%>
 
      <div class="btn-group" style="margin-left:75%; margin-top:2px;">
-         <dx:ASPxButton runat="server" ID="ASPxButton2"  Text="CANCELAR" Theme="Office365"  AutoPostBack="false"  CssClass="shadowBox animacion">
+         <dx:ASPxButton runat="server" ID="ASPxButton2"  Text="CANCELAR" Theme="Office365"  AutoPostBack="false"  CssClass="shadowBox animacion" ImagePosition="Right">
              <ClientSideEvents Click="cancelarHorario" />
+                <Image Url="~/Icons/png/16px/large/button-cancel.png">
+             </Image>
                 </dx:ASPxButton>
-         <dx:ASPxButton runat="server" ID="btnProcesar"  Text="GUARDAR" Theme="Office365" ClientInstanceName="2" AutoPostBack="false" CssClass="shadowBox animacion">
+         <dx:ASPxButton runat="server" ID="btnProcesar"  Text="GUARDAR" Theme="Office365" ClientInstanceName="2" AutoPostBack="false" CssClass="shadowBox animacion" ImagePosition="Right">
                     <ClientSideEvents Click="leerTabla" />
+                    <Image Url="~/Icons/png/16px/large/button-ok.png">
+                    </Image>
                 </dx:ASPxButton>
      </div> 
        

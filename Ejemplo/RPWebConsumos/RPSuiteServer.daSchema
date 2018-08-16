@@ -1,7 +1,7 @@
 <TDASchema>
   <UnionDataTables IsObject="true" Count="0" IsCollection="true" Type="TDAUnionDataTableCollection" ItemClass="TDAUnionDataTable" />
   <JoinDataTables IsObject="true" Count="0" IsCollection="true" Type="TDAJoinDataTableCollection" ItemClass="TDAJoinDataTable" />
-  <Datasets IsObject="true" Count="44" IsCollection="true" Type="TDADatasetCollection" ItemClass="TDADataset">
+  <Datasets IsObject="true" Count="45" IsCollection="true" Type="TDADatasetCollection" ItemClass="TDADataset">
     <Item0>
       <ReadOnly>False</ReadOnly>
       <Fields IsObject="true" Count="2" IsCollection="true" ItemClass="TDAField" Type="TDASchemaFieldCollection">
@@ -10017,7 +10017,7 @@ WHERE
     </Item27>
     <Item28>
       <ReadOnly>False</ReadOnly>
-      <Fields IsObject="true" Count="60" IsCollection="true" ItemClass="TDAField" Type="TDASchemaFieldCollection">
+      <Fields IsObject="true" Count="62" IsCollection="true" ItemClass="TDAField" Type="TDASchemaFieldCollection">
         <Item0>
           <Name>VehiculoID</Name>
           <Alignment>taLeftJustify</Alignment>
@@ -11818,6 +11818,66 @@ WHERE
           <BusinessClassID />
           <Description />
         </Item59>
+        <Item60>
+          <Name>FotoVehiculo</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datBlob</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>FotoVehiculo</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item60>
+        <Item61>
+          <Name>CapacidadTanque</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datFloat</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>NewField</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item61>
       </Fields>
       <BusinessRulesClient IsObject="true" Type="TDAClientBusinessRuleScript">
         <CompileOnServer>False</CompileOnServer>
@@ -11840,30 +11900,12 @@ WHERE
         <Item0>
           <Connection>RPSuite</Connection>
           <SQL>SELECT 	
-	[VehiculoID], [DigitoSeguridad], [Nombre], 
-	[Identificacion], [Departamento], [CuentaContable], 
-	[CentroCostos], [NumeroEconomico], [NIP], 
-	[Estatus], [CargasMaximas], [Odometro], 
-	[Firma], [Placas], [FechaAlta], 
-	[FechaExpira], [FechaBaja], [FechaCancelacion], 
-	[FechaBloqueada], [FechaInactiva], [Mensaje], 
-	[LimiteLTTurno], [LimiteLTDia], [LimiteLTSemana], 
-	[LimiteLTMes], [LimiteMNTurno], [LimiteMNDia], 
-	[LimiteMNSemana], [LimiteMNMes], [ActualLTTurno], 
-	[ActualLTDia], [ActualLTSemana], [ActualLTMes], 
-	[ActualMNTurno], [ActualMNDia], [ActualMNSemana], 
-	[ActualMNMes], [ActualCargas], [Clasificacion], 
-	[Generada], [Lunes], [Martes], 
-	[Miercoles], [Jueves], [Viernes], 
-	[Sabado], [Domingo], [ClienteID], 
-	[GasolineroID], [ProductoAutorizado], [IngresarDirecto], 
-	[Estacion], [AnteriorLTDia], [AnteriorLTSemana], 
-	[AnteriorLTMes], [AnteriorMNDia], [AnteriorMNSemana], 
-	[AnteriorMNMes], [PlacasNumero], [Fotos] 
+Vehiculo.* ,FotoVehiculo
 FROM 
 	[Vehiculo] 
+  inner join FotoVehiculo on Vehiculo.VehiculoID = FotoVehiculo.VehiculoID
 WHERE 
-	[VehiculoID]=:Datos</SQL>
+	Vehiculo.VehiculoID=:Datos</SQL>
           <TargetTable>Vehiculo</TargetTable>
           <ConnectionType>SQLite</ConnectionType>
           <Default>True</Default>
@@ -19860,6 +19902,156 @@ end
       <Description />
       <Name>spLoginCliente</Name>
     </Item43>
+    <Item44>
+      <ReadOnly>False</ReadOnly>
+      <Fields IsObject="true" Count="3" IsCollection="true" ItemClass="TDAField" Type="TDASchemaFieldCollection">
+        <Item0>
+          <Name>VehiculoID</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datInteger</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>VehiculoID</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item0>
+        <Item1>
+          <Name>FechaCarga</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datDateTime</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>FechaCarga</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item1>
+        <Item2>
+          <Name>Foto</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datBlob</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Foto</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>False</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item2>
+      </Fields>
+      <BusinessRulesClient IsObject="true" Type="TDAClientBusinessRuleScript">
+        <CompileOnServer>False</CompileOnServer>
+        <RunOnClientAndServer>False</RunOnClientAndServer>
+        <Script />
+        <ScriptLanguageStr />
+        <Description />
+        <Name />
+      </BusinessRulesClient>
+      <BusinessRulesServer Type="TDABusinessRuleScript" IsObject="true">
+        <Script />
+        <ScriptLanguageStr />
+        <Description />
+        <Name />
+      </BusinessRulesServer>
+      <UpdateCommandName />
+      <DeleteCommandName />
+      <InsertCommandName />
+      <Statements IsCollection="true" IsObject="true" Count="1" ItemClass="TDAStatement" Type="TDAStatementCollection">
+        <Item0>
+          <Connection>RPSuite</Connection>
+          <SQL>select top 5 Consumo.VehiculoID, Consumo.FechaCarga,Album.Foto1 AS Foto from Consumo 
+INNER Join Album On Consumo.EstacionID = Album.EstacionID And Consumo.SecuenciaVenta = Album.TicketID
+ where Consumo.VehiculoID=:VehiculoID
+ ORDER BY Consumo.FechaCarga DESC</SQL>
+          <TargetTable />
+          <ConnectionType>SQLite</ConnectionType>
+          <Default>True</Default>
+          <StatementName />
+          <StatementType>stSQL</StatementType>
+          <GeneratorName />
+          <ColumnMappings IsObject="true" Count="0" IsCollection="true" Type="TDAColumnMappingCollection" ItemClass="TDAColumnMapping" />
+          <Description />
+        </Item0>
+      </Statements>
+      <Params IsObject="true" Count="1" IsCollection="true" Type="TDAParamCollection" ItemClass="TDAParam">
+        <Item0>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>VehiculoID</Name>
+          <DataType>datInteger</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item0>
+      </Params>
+      <CustomAttributes />
+      <IsPublic>True</IsPublic>
+      <DynamicWhereXML />
+      <BusinessClassID />
+      <Description />
+      <Name>spFotosConsumoByVehiculo</Name>
+    </Item44>
   </Datasets>
   <Commands IsObject="true" Count="10" IsCollection="true" ItemClass="TDASQLCommand" Type="TDASQLCommandCollection">
     <Item0>
@@ -21217,7 +21409,7 @@ END</SQL>
       </BusinessRulesServer>
       <Statements IsCollection="true" IsObject="true" Count="1" ItemClass="TDAStatement" Type="TDAStatementCollection">
         <Item0>
-          <Connection />
+          <Connection>RPSuite</Connection>
           <SQL>DECLARE @ClienteID_ int
 DECLARE @VehiculoID_ int
 DECLARE @GasolineroID_ int
@@ -21241,6 +21433,11 @@ DECLARE @Viernes_ VarChar(24)
 DECLARE @Sabado_ VarChar(24)
 DECLARE @Domingo_ VarChar(24)
 DECLARE @Mensaje_ VarChar(200)
+DECLARE @Departamento_ VarChar(100)
+DECLARE @CentroCosto_ VarChar(150)
+DECLARE @NombreUsuario_ VarChar(50)
+DECLARE @Tanque_ int
+
 -- ASIGNACION DE PARAMETROS EN VARIABLES LOCALES
 SELECT @ClienteID_ = (SELECT upper(:ClienteID))
 SELECT @VehiculoID_ = (SELECT upper(:VehiculoID))
@@ -21265,6 +21462,11 @@ SELECT @Viernes_ = (SELECT upper(:Viernes))
 SELECT @Sabado_ = (SELECT upper(:Sabado))
 SELECT @Domingo_ = (SELECT upper(:Domingo))
 SELECT @Mensaje_ = (SELECT upper(:Mensaje))
+SELECT @Departamento_ = (SELECT upper(:Departamento))
+SELECT @CentroCosto_ = (SELECT upper(:CentroCosto))
+SELECT @NombreUsuario_ = (SELECT upper(:NombreUsuario))
+SELECT @Tanque_ = (SELECT upper(:Tanque))
+
 -- VARIABLES PARA ACTUALIZAR BICORAWEB
 -- VARIABLES GENERALES
 DECLARE @ClienteID_bw int
@@ -21315,7 +21517,8 @@ BEGIN
     BEGIN TRAN UpdateVehiculo
 		BEGIN TRY
 			-- ACTUALIZA VEHICULO
-			UPDATE Vehiculo SET NIP = @NIP_, Estatus = @Estatus_, ProductoAutorizado = @ProductoAutorizado_, CargasMaximas = @CargasMaximas_, --Estacion = @Estacion_,
+			UPDATE Vehiculo SET NIP = @NIP_, Estatus = @Estatus_, ProductoAutorizado = @ProductoAutorizado_, CargasMaximas = @CargasMaximas_, Estacion = @Estacion_,CapacidadTanque=@Tanque_,
+			Nombre = @NombreUsuario_, Departamento = @Departamento_, CentroCostos = @CentroCosto_,
 			LimiteLTDia = CASE WHEN @LimiteLTDia_ is null or @LimiteLTDia_ = '' THEN 0 ELSE convert(float, @LimiteLTDia_) END,
 			LimiteMNDia = CASE WHEN @LimiteMNDia_ is null or @LimiteMNDia_ = '' THEN 0 ELSE convert(float, @LimiteMNDia_) END,
 			LimiteLTSemana = CASE WHEN @LimiteLTSemana_ is null or @LimiteLTSemana_ = '' THEN 0 ELSE convert(float, @LimiteLTSemana_) END,
@@ -21333,6 +21536,11 @@ BEGIN
 						-- OBTENER FOLIO DE BITACORAWEB		
  			SELECT @Folio=(SELECT TOP 1 ISNULL(Folio, 0) FROM Folio WHERE Campo='WebBitacoraID')
 
+				
+				
+				UPDATE FotoVehiculo set FotoVehiculo =:Foto where VehiculoID=@VehiculoID_
+				
+				
 			-- VALIDA SI EXISTE FOLIO PARA WEBBITACORAID
 			IF (@Folio &lt; 0)
 			BEGIN
@@ -21557,7 +21765,7 @@ BEGIN
           <Description />
         </Item0>
       </Statements>
-      <Params IsObject="true" Count="23" IsCollection="true" Type="TDAParamCollection" ItemClass="TDAParam">
+      <Params IsObject="true" Count="28" IsCollection="true" Type="TDAParamCollection" ItemClass="TDAParam">
         <Item0>
           <Value />
           <ParamType>daptInput</ParamType>
@@ -21857,6 +22065,71 @@ BEGIN
           <BusinessClassID />
           <Description />
         </Item22>
+        <Item23>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Departamento</Name>
+          <DataType>datWideString</DataType>
+          <Size>20</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item23>
+        <Item24>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>CentroCosto</Name>
+          <DataType>datWideString</DataType>
+          <Size>15</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item24>
+        <Item25>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>NombreUsuario</Name>
+          <DataType>datWideString</DataType>
+          <Size>30</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item25>
+        <Item26>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Tanque</Name>
+          <DataType>datFloat</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item26>
+        <Item27>
+          <Value />
+          <ParamType>daptInput</ParamType>
+          <Name>Foto</Name>
+          <DataType>datBlob</DataType>
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item27>
       </Params>
       <CustomAttributes />
       <IsPublic>True</IsPublic>

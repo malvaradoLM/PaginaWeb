@@ -667,6 +667,7 @@ namespace RPSuiteServer {
         private string @__NombreUsuario;
         private string @__CentroCosto;
         private double @__Tanque;
+        private object @__Foto;
         public virtual int VehiculoID {
             get {
                 return @__VehiculoID;
@@ -975,6 +976,16 @@ namespace RPSuiteServer {
                 this.TriggerPropertyChanged("Tanque");
             }
         }
+        [RemObjects.SDK.StreamAs(RemObjects.SDK.StreamingFormat.Variant)]
+        public virtual object Foto {
+            get {
+                return @__Foto;
+            }
+            set {
+                @__Foto = value;
+                this.TriggerPropertyChanged("Foto");
+            }
+        }
         public override void ReadComplex(RemObjects.SDK.Serializer serializer) {
             if (serializer.RecordStrictOrder) {
                 this.VehiculoID = serializer.ReadInt32("VehiculoID");
@@ -1008,6 +1019,7 @@ namespace RPSuiteServer {
                 this.NombreUsuario = serializer.ReadAnsiString("NombreUsuario");
                 this.CentroCosto = serializer.ReadAnsiString("CentroCosto");
                 this.Tanque = serializer.ReadDouble("Tanque");
+                this.Foto = serializer.ReadVariant("Foto");
             }
             else {
                 this.CargasMaximas = serializer.ReadInt32("CargasMaximas");
@@ -1017,6 +1029,7 @@ namespace RPSuiteServer {
                 this.Domingo = serializer.ReadAnsiString("Domingo");
                 this.Estacion = serializer.ReadAnsiString("Estacion");
                 this.Estatus = serializer.ReadAnsiString("Estatus");
+                this.Foto = serializer.ReadVariant("Foto");
                 this.GasolineroID = serializer.ReadInt32("GasolineroID");
                 this.Jueves = serializer.ReadAnsiString("Jueves");
                 this.LimiteLTDia = serializer.ReadDouble("LimiteLTDia");
@@ -1076,6 +1089,7 @@ namespace RPSuiteServer {
                 serializer.WriteAnsiString("NombreUsuario", this.NombreUsuario);
                 serializer.WriteAnsiString("CentroCosto", this.CentroCosto);
                 serializer.WriteDouble("Tanque", this.Tanque);
+                serializer.WriteVariant("Foto", this.Foto);
             }
             else {
                 serializer.WriteInt32("CargasMaximas", this.CargasMaximas);
@@ -1085,6 +1099,7 @@ namespace RPSuiteServer {
                 serializer.WriteAnsiString("Domingo", this.Domingo);
                 serializer.WriteAnsiString("Estacion", this.Estacion);
                 serializer.WriteAnsiString("Estatus", this.Estatus);
+                serializer.WriteVariant("Foto", this.Foto);
                 serializer.WriteInt32("GasolineroID", this.GasolineroID);
                 serializer.WriteAnsiString("Jueves", this.Jueves);
                 serializer.WriteDouble("LimiteLTDia", this.LimiteLTDia);

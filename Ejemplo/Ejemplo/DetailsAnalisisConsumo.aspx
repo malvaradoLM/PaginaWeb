@@ -26,7 +26,6 @@
         margin-left: 6%;
 }
 .alinearConsumos{
-        margin-left: 50px;
         margin-top:0px;
 }
 .coloresGrid a{
@@ -139,7 +138,7 @@ carouselSize{
 
    <link href="css/breadCrumb.css" rel="stylesheet">
    
-    <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=LoadMap" async defer></script>
+    
 <div class="alert alert-warning" id="msjAlerta" runat="server">
         <strong>Advertencia! </strong>
         <dx:ASPxLabel ID="labelAlerta" runat="server" />
@@ -152,11 +151,11 @@ carouselSize{
     </ul>
 </div>  
     <div class="fade-in animacion">  
-        <dx:ASPxRoundPanel ID="panelParametros" ClientInstanceName="roundPanel" HeaderText="PARAMETROS" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >
+        <dx:ASPxRoundPanel ID="panelParametros" Width="100%" ClientInstanceName="roundPanel" HeaderText="PARAMETROS" runat="server"  Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >
 <HeaderStyle ForeColor="Gray"></HeaderStyle>
         <PanelCollection>
             <dx:PanelContent>
-                <dx:ASPxFormLayout runat="server" ID="ASPxFormLayout1" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365" SettingsItems-HorizontalAlign="Center"   >
+                <dx:ASPxFormLayout runat="server" ID="ASPxFormLayout1" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365" SettingsItems-HorizontalAlign="Center"    >
         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="500"  />
             <Items>
             <dx:LayoutGroup Caption="PARAMETROS" SettingsItemHelpTexts-Position="Bottom"  GroupBoxStyle-Border-BorderStyle="Solid" GroupBoxStyle-Caption-Font-Bold="true" GroupBoxStyle-Caption-Font-Size="Large" CssClass="TextForm" ColCount="4" ShowCaption="False" >
@@ -217,12 +216,18 @@ carouselSize{
                     <dx:LayoutGroup Border-BorderStyle="None"  Caption=" " CssClass="buttonMargin" GroupBoxDecoration="None" HorizontalAlign="Right" SettingsItemCaptions-HorizontalAlign="Right" Width="100" RowSpan="2" VerticalAlign="Bottom">
                         <Border BorderStyle="None" />
                         <Items>
-                            <dx:LayoutItem  Border-BorderWidth="0px" CssClass="buttonMargin" HorizontalAlign="Right" RequiredMarkDisplayMode="Hidden" ShowCaption="False" Width="100">
+                            <dx:LayoutItem  Border-BorderWidth="0px" CssClass="buttonMargin" HorizontalAlign="Right" RequiredMarkDisplayMode="Hidden" ShowCaption="False">
                                 <LayoutItemNestedControlCollection >
                                     <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer1" BorderStyle="None"  runat="server" ValidateRequestMode="Disabled" >
-                                        <dx:ASPxButton ID="btnCancelar4" runat="server" OnClick="btnCancelar_Click" Text="Cancelar"  Theme="Office365" Width="80" UseSubmitBehavior="False"  CausesValidation="false" CssClass="shadowBoxMin"    />
+                                        <dx:ASPxButton ID="btnCancelar4" runat="server" OnClick="btnCancelar_Click" Text="Cancelar"  Theme="Office365"  UseSubmitBehavior="False"  CausesValidation="false" CssClass="shadowBoxMin" Width="80"  ImagePosition="Right">
+                                            <Image Url="~/Icons/png/16px/large/button-cancel.png">
+                                              </Image>
+                                             </dx:ASPxButton>
                                         <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="   " />
-                                        <dx:ASPxButton ID="btnProcesar4" UseSubmitBehavior="False" runat="server" OnClick="btnProcesar_Click" Text="Aceptar" Theme="Office365" Width="80" CssClass="shadowBoxMin"    />
+                                        <dx:ASPxButton ID="btnProcesar4" UseSubmitBehavior="False" runat="server" OnClick="btnProcesar_Click" Text="Aceptar" Theme="Office365"  CssClass="shadowBoxMin" Width="80"    ImagePosition="Right">
+                                         <Image Url="~/Icons/png/16px/large/button-ok.png">
+                                              </Image>
+                                             </dx:ASPxButton>
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
                                 <Border BorderWidth="0px" />
@@ -244,15 +249,15 @@ carouselSize{
 
 
     <%-- Tabla Consumos--%>
-                <dx:ASPxRoundPanel ID="panelConsumos" ClientInstanceName="panelConsumos" HeaderText="CONSUMOS" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes fade-in animacion"  HeaderStyle-ForeColor="Gray" AutoPostback="false">
+                <dx:ASPxRoundPanel ID="panelConsumos" ClientInstanceName="panelConsumos" HeaderText="CONSUMOS" runat="server" Width="100%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes fade-in animacion"  HeaderStyle-ForeColor="Gray" AutoPostback="false">
 <HeaderStyle ForeColor="Gray"></HeaderStyle>
                     <PanelCollection>
             <dx:PanelContent>
-  <dx:BootstrapGridView ID="bgvConsumo2" runat="server"  KeyFieldName="ID"  ClientSideEvents-BeginCallback="ocultarDetalles" Width="90%" CssClasses-Control="shadowBox alinearConsumos FloatRight" CssClasses-HeaderRow="coloresGrid" SettingsDetail-AllowOnlyOneMasterRowExpanded="true" OnBeforeColumnSortingGrouping="bgvConsumo2_BeforeColumnSortingGrouping"   >
+  <dx:BootstrapGridView ID="bgvConsumo2" runat="server"  KeyFieldName="ID"  ClientSideEvents-BeginCallback="ocultarDetalles" Width="100%" CssClasses-Control="alinearConsumos FloatRight" CssClasses-HeaderRow="coloresGrid" SettingsDetail-AllowOnlyOneMasterRowExpanded="true" OnBeforeColumnSortingGrouping="bgvConsumo2_BeforeColumnSortingGrouping"   >
     <Settings ShowFooter="True" GroupSummaryTextSeparator=" Litros - Importe: " ShowGroupedColumns="true"  ShowHeaderFilterButton="true" ShowGroupButtons="true" ShowGroupPanel="true"/>
 
     <SettingsBehavior AllowFocusedRow="True"  /><SettingsDetail ShowDetailRow="true" ShowDetailButtons="true"  />
-<CssClasses HeaderRow="coloresGrid" Control="shadowBox alinearConsumos FloatRight"></CssClasses>
+<CssClasses HeaderRow="coloresGrid" Control="alinearConsumos FloatRight"></CssClasses>
 
     <Settings ShowGroupPanel="true" ShowColumnHeaders="true"/>
     <SettingsAdaptivity  AdaptivityMode="HideDataCells" AllowOnlyOneAdaptiveDetailExpanded="true"  />
@@ -312,7 +317,10 @@ carouselSize{
             <dx:TabPage Text="TICKET">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl1" runat="server">
-                 <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumento" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" />
+                 <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumento" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" ImagePosition="Right">
+                     <Image Url="~/Icons/png/16px/large/button-download.png">
+                                              </Image>
+                 </dx:ASPxButton>
                  <iframe id="ticket" style="position:relative; width: 100% ; height:500px;" runat="server" class="shadowBox fade-in animacion" onload="ticketDetail_Load" ></iframe>
                     </dx:ContentControl>
                 </ContentCollection>

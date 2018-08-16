@@ -509,11 +509,11 @@ namespace RPSuiteServer
                 using (IDbCommand lcommand = this.ServiceSchema.NewCommand(this.Connection, "cmdActualizaVehiculo", new string[] {
                     "ClienteID", "VehiculoID", "GasolineroID", "UsuarioID", "NIP", "Estatus", "ProductoAutorizado", "CargasMaximas", "Estacion",
                                                                                     "LimiteLTDia", "LimiteMNDia", "LimiteLTSemana", "LimiteMNSemana",
-                                                                                    "LimiteLTMes", "LimiteMNMes", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo", "Mensaje"
+                                                                                    "LimiteLTMes", "LimiteMNMes", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo", "Mensaje","NombreUsuario","Departamento","CentroCosto","Tanque","Foto"
                 }
                     , new object[] { Datos.ClienteID, Datos.VehiculoID, Datos.GasolineroID, Datos.UsuarioID, Datos.Nip, Datos.Status, Datos.ProductoAutorizado, Datos.CargasMaximas, Datos.Estacion, Datos.LimiteLTDia,
                                                                                     Datos.LimiteMNDia, Datos.LimiteLTSemana, Datos.LimiteMNSemana, Datos.LimiteLTMes, Datos.LimiteMNMes, Datos.Lunes,
-                                                                                    Datos.Martes, Datos.Miercoles, Datos.Jueves, Datos.Viernes, Datos.Sabado, Datos.Domingo, Datos.Mensaje
+                                                                                    Datos.Martes, Datos.Miercoles, Datos.Jueves, Datos.Viernes, Datos.Sabado, Datos.Domingo, Datos.Mensaje,Datos.NombreUsuario,Datos.Departamento,Datos.CentroCosto,Datos.Tanque,Datos.Foto
                             }))
                 {
                     lcommand.ExecuteNonQuery();

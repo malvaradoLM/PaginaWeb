@@ -84,19 +84,22 @@ fieldset[disabled] .btn-sample.active {
         <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Inicio</a></li>
     </ul>
 </div>  
-    <div class="alert alert-warning" id="msjAlerta" runat="server" visible="false">
+    <div class="row alert alert-warning" id="msjAlerta" runat="server" visible="false">
         <strong><dx:ASPxLabel ID="lblTitleMensaje" runat="server" Font-Bold="true" /> </strong>
         <dx:ASPxLabel ID="labelAlerta" runat="server" />
         </div>
 
     <div class="row  col-lg-12 col-md-12 fade-in" >
-      <dx:BootstrapGridView ID="bgvUsuario" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="UsuarioWebID" CssClassesPager-Control="true"  CssClasses-Control="MarginTable animacion FloatRight" >
+      <dx:BootstrapGridView ID="bgvUsuario" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="UsuarioWebID" CssClassesPager-Control="true"  CssClasses-Control="MarginTable animacion FloatRight" Width="60%" >
                 <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
-                <Settings ShowGroupPanel="true"/>
+                <Settings ShowGroupPanel="false"  />
                 <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>
                 <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
                 <SettingsDataSecurity AllowEdit="True" />
                 <SettingsBehavior AllowFocusedRow="True" />
+                <SettingsCommandButton>
+                    <SearchPanelApplyButton IconCssClass="glyphicon glyphicon-search" Text=" " />
+                </SettingsCommandButton>
                 <SettingsAdaptivity  AdaptivityMode="HideDataCells" AllowOnlyOneAdaptiveDetailExpanded="true" />
                 <Columns>
                     <dx:BootstrapGridViewTextColumn FieldName="ID" ReadOnly="True" VisibleIndex="0"  HorizontalAlign="Center">
