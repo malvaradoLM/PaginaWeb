@@ -202,6 +202,15 @@ namespace Ejemplo {
         protected global::DevExpress.Web.ContentControl ContentControl5;
         
         /// <summary>
+        /// imprimirPDF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton imprimirPDF;
+        
+        /// <summary>
         /// iframePDF control.
         /// </summary>
         /// <remarks>

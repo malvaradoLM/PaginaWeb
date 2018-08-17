@@ -71,11 +71,20 @@
         var nombreDoc = document.getElementById("<%=ticketName.ClientID%>");
         download_file(url.value, nombreDoc.value +".pdf");
     }
+    function imprimirDocumento(s, e) {
+        var imprimirName = s.name;
+        var ticketName = imprimirName.replace("imprimir", "ticket");
+        document.getElementById(ticketName).contentWindow.print();
+    }
     function descargarDocumentoPDF(s, e) {
         var url = document.getElementById("<%=HiddenUrlPDF.ClientID%>");
         var descarga = url.value;
         var nombreDoc = document.getElementById("<%=ticketName.ClientID%>");
         download_file(url.value, nombreDoc.value + ".pdf");
+    }
+    function imprimirDocumentoPDF(s, e) {
+        
+        document.getElementById("ContentPlaceHolder1_pageConsumos_iframePDF").contentWindow.print();
     }
     function descargarDocumentoXML(s, e) {
         var url = document.getElementById("<%=HiddenUrlXML.ClientID%>");
@@ -144,9 +153,18 @@
 <HeaderStyle ForeColor="Gray"></HeaderStyle>
                     <PanelCollection>
             <dx:PanelContent>                       
-               <dx:ASPxButton ID="btnTicketsPDF" Text="TICKETS PDF" runat="server" Theme="Office365" CssClass="floatButton shadowBoxMin" />               
-                  <dx:ASPxButton ID="btnConsumosExcel" Text="CONSUMOS XLS" OnClick="btnConsumosExcel_Click" runat="server" Theme="Office365" CssClass="floatButton shadowBoxMin" />
-                <dx:ASPxButton ID="btnConsumosPDF" OnClick="btnConsumosPDF_Click" Text="CONSUMOS PDF" runat="server" Theme="Office365" CssClass="floatButton shadowBoxMin" />
+               <dx:ASPxButton ID="btnTicketsPDF" Text="TICKETS PDF" runat="server" Theme="Office365" CssClass="floatButton shadowBoxMin" ImagePosition="Right">
+                   <Image Url="~/Icons/png/16px/large/document-acrobat.png">
+                                              </Image>
+                                            </dx:ASPxButton>
+                  <dx:ASPxButton ID="btnConsumosExcel" Text="CONSUMOS XLS" OnClick="btnConsumosExcel_Click" runat="server" Theme="Office365" CssClass="floatButton shadowBoxMin" ImagePosition="Right">
+                      <Image Url="~/Icons/png/16px/large/document-spreadsheet.png">
+                                              </Image>
+                                            </dx:ASPxButton>
+                <dx:ASPxButton ID="btnConsumosPDF" OnClick="btnConsumosPDF_Click" Text="CONSUMOS PDF" runat="server" Theme="Office365" CssClass="floatButton shadowBoxMin" ImagePosition="Right">
+                    <Image Url="~/Icons/png/16px/large/document-acrobat.png">
+                                              </Image>
+                                            </dx:ASPxButton>
                                 <dx:BootstrapGridView ID="bgvConsumo" runat="server"  KeyFieldName="ID" ClientSideEvents-BeginCallback="ocultarDetalles" SettingsDetail-AllowOnlyOneMasterRowExpanded="true" Width="100%" >
                                     <ClientSideEvents BeginCallback="ocultarDetalles" />
     <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
@@ -207,7 +225,14 @@
             <dx:TabPage Text="TICKET">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl1" runat="server">
-                 <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumento" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" />
+                 <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumento" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" ImagePosition="Right">
+                     <Image Url="~/Icons/png/16px/large/button-download.png">
+                                              </Image>
+                                            </dx:ASPxButton>
+                         <dx:ASPxButton runat="server" ClientSideEvents-Click="imprimirDocumento" ID="imprimir" Theme="Office365" Text="IMPRIMIR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" ImagePosition="Right">
+                <Image Url="~/Icons/png/16px/large/printer.png">
+                                              </Image>
+                                            </dx:ASPxButton>
                  <iframe id="ticket" style="position:relative; width: 100% ; height:500px;" runat="server" class="shadowBox fade-in animacion" onload="ticket_Load" ></iframe>
                     </dx:ContentControl>
                 </ContentCollection>
@@ -301,7 +326,14 @@
             <dx:TabPage Text="PDF">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl5" runat="server">
-              <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumentoPDF" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" />
+              <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumentoPDF" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" ImagePosition="Right">
+                  <Image Url="~/Icons/png/16px/large/button-download.png">
+                                              </Image>
+                                            </dx:ASPxButton>
+                         <dx:ASPxButton runat="server" ClientSideEvents-Click="imprimirDocumentoPDF" ID="imprimirPDF" Theme="Office365" Text="IMPRIMIR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" ImagePosition="Right">
+                <Image Url="~/Icons/png/16px/large/printer.png">
+                                              </Image>
+                                            </dx:ASPxButton>
                   <iframe id="iframePDF" style="position:relative; width: 100% ; height:600px;" class="shadowBox fade-in animacion" runat="server" ></iframe>
                     </dx:ContentControl>
                 </ContentCollection>
@@ -309,7 +341,10 @@
             <dx:TabPage Text="XML">
                 <ContentCollection>
                    <dx:ContentControl>
-                   <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumentoXML" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" />
+                   <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumentoXML" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" ImagePosition="Right">
+                       <Image Url="~/Icons/png/16px/large/button-download.png">
+                                              </Image>
+                                            </dx:ASPxButton>
                        <div class="wordWrap fade-in animacion">
                         <pre class="brush: xml" id="xmlClass" style="height:600px;width:100%;"  runat="server">
                         </pre>

@@ -22,6 +22,7 @@
  .descargarButton{
         float:right;
         margin-bottom:5px;
+        margin-left: 2px;
  }
     .marginSpread{
         margin-top:40px;
@@ -31,17 +32,25 @@
     }
  </style>
     <script>
-    function descargarDocumento(s, e) {
-        var url = document.getElementById("<%=hiddenURL.ClientID%>");
+        function descargarDocumento(s, e) {
+            var url = document.getElementById("<%=hiddenURL.ClientID%>");
         var descarga = url.value;
         var nombreDoc = document.getElementById("<%=ticketName.ClientID%>");
-            var checkbox = document.getElementById("ContentPlaceHolder1_panelParametros_ASPxFormLayout1_chkBoxList_RB0_I");
-            var tipo = "";
-            if (checkbox.value == "C") tipo = ".pdf";
-            else tipo = ".xls";
-            download_file(url.value, nombreDoc.value + tipo);
+        var checkbox = document.getElementById("ContentPlaceHolder1_panelParametros_ASPxFormLayout1_chkBoxList_RB0_I");
+        var tipo = "";
+        if (document.getElementById("<%=hiddenURL.ClientID%>").value.includes("pdf")) tipo = ".pdf";
+         else tipo = ".xls";
+         download_file(url.value, nombreDoc.value + tipo);
 
         }
+        function imprimir(s, e) {
+            if (document.getElementById("<%=hiddenURL.ClientID%>").value.includes("pdf"))
+                 document.getElementById("<%=reporteDoc.ClientID%>").contentWindow.print();
+             else {
+                 //Get the HTML of div
+                 document.getElementById("<%=reporteDoc.ClientID%>").contentWindow.print();
+             }
+         }
         function download_file(fileURL, fileName) {
             // for non-IE
             if (!window.ActiveXObject) {
@@ -170,6 +179,10 @@
             <dx:PanelContent>
           <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumento" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" ImagePosition="Right">
               <Image Url="~/Icons/png/16px/large/button-download.png">
+                                              </Image>
+                                            </dx:ASPxButton>
+                <dx:ASPxButton runat="server" ClientSideEvents-Click="imprimir" ID="imprimir" Theme="Office365" Text="IMPRIMIR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" ImagePosition="Right" >
+                <Image Url="~/Icons/png/16px/large/printer.png">
                                               </Image>
                                             </dx:ASPxButton>
                 <div id="Div1" runat="server">	

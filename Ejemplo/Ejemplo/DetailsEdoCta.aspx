@@ -18,6 +18,9 @@
 .parametroAlign{
     float:unset;
 }
+.dxflGroupCell_Office365 {
+    padding: 0 5px;
+    }
  </style>
     <link href="css/breadCrumb.css" rel="stylesheet">
  
@@ -82,9 +85,15 @@
                             <dx:LayoutItem  Border-BorderWidth="0px" CssClass="buttonMargin" HorizontalAlign="Right" RequiredMarkDisplayMode="Hidden" ShowCaption="False" Width="100">
                                 <LayoutItemNestedControlCollection >
                                     <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer1" BorderStyle="None"  runat="server" ValidateRequestMode="Disabled" >
-                                        <dx:ASPxButton ID="btnCancelar4" runat="server" OnClick="btnCancelar4_Click" Text="Cancelar"  Theme="Office365" Width="80" UseSubmitBehavior="False"  CausesValidation="false" CssClass="shadowBoxMin"    />
+                                        <dx:ASPxButton ID="btnCancelar4" runat="server" OnClick="btnCancelar4_Click" Text="Cancelar"  Theme="Office365" Width="80" UseSubmitBehavior="False"  CausesValidation="false" CssClass="shadowBoxMin" ImagePosition="Right">
+                                            <Image Url="~/Icons/png/16px/large/button-cancel.png">
+                                              </Image>
+                                            </dx:ASPxButton>
                                         <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="   " />
-                                        <dx:ASPxButton ID="btnProcesar4" UseSubmitBehavior="False" runat="server" OnClick="btnProcesar4_Click" Text="Aceptar" Theme="Office365" Width="80" CssClass="shadowBoxMin"    />
+                                        <dx:ASPxButton ID="btnProcesar4" UseSubmitBehavior="False" runat="server" OnClick="btnProcesar4_Click" Text="Aceptar" Theme="Office365" Width="80" CssClass="shadowBoxMin" ImagePosition="Right">
+                                            <Image Url="~/Icons/png/16px/large/button-ok.png">
+                                              </Image>
+                                            </dx:ASPxButton>
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
                                 <Border BorderWidth="0px" />

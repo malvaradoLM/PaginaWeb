@@ -101,6 +101,11 @@ carouselSize{
         download_file(url.value, nombreDoc.value+".pdf"); 
 
     }
+    function imprimir(s, e) {
+        var imprimirName = s.name;
+        var ticketName = imprimirName.replace("imprimir", "ticket");
+        document.getElementById(ticketName).contentWindow.print();
+    }
     function download_file(fileURL, fileName) {
         // for non-IE
         if (!window.ActiveXObject) {
@@ -321,6 +326,10 @@ carouselSize{
                      <Image Url="~/Icons/png/16px/large/button-download.png">
                                               </Image>
                  </dx:ASPxButton>
+                 <dx:ASPxButton runat="server" ClientSideEvents-Click="imprimir" ID="imprimir" Theme="Office365" Text="IMPRIMIR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" ImagePosition="Right">
+                <Image Url="~/Icons/png/16px/large/printer.png">
+                                              </Image>
+                                            </dx:ASPxButton>
                  <iframe id="ticket" style="position:relative; width: 100% ; height:500px;" runat="server" class="shadowBox fade-in animacion" onload="ticketDetail_Load" ></iframe>
                     </dx:ContentControl>
                 </ContentCollection>
@@ -372,6 +381,7 @@ carouselSize{
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl1" runat="server">
                  <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumento" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" />
+
                  <iframe id="ticket" style="position:relative; width: 100% ; height:500px;" runat="server" class="shadowBox fade-in animacion" ></iframe>
                     </dx:ContentControl>
                 </ContentCollection>

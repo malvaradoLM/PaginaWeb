@@ -16,7 +16,9 @@ namespace Ejemplo
             {
                 if(Session["formato"].ToString() == "PDF")
                     cargarPDF(Session["path"].ToString());
-                else cargarXLS(Session["path"].ToString());
+                else 
+                    cargarXLS(Session["path"].ToString());
+                   
 
             }
         }
@@ -37,6 +39,8 @@ namespace Ejemplo
             hiddenURL.Value = path;
             ticketName.Value = "ListaConsumosXLS";
             tipoDocumento.Value = ".xls";
+            imprimir.Visible = false;
+
         }
     }
 }

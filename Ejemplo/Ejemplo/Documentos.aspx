@@ -9,6 +9,7 @@
         .descargarButton{
         float:right;
             margin-top: 9%;
+             margin-left: 2px;
  }
     .marginSpread{
         margin-top:40px;
@@ -24,7 +25,11 @@
 
         download_file(url.value, nombreDoc.value + checkbox.value);
 
-        }
+    }
+    function imprimir(s, e) {
+            document.getElementById("<%=pdf.ClientID%>").contentWindow.print();
+
+    }
         function download_file(fileURL, fileName) {
             // for non-IE
             if (!window.ActiveXObject) {
@@ -69,7 +74,14 @@
         <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Inicio</a></li>
     </ul>
 </div>    
-     <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumento" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" />
+     <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumento" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" ImagePosition="Right">
+         <Image Url="~/Icons/png/16px/large/button-download.png">
+                                              </Image>
+                                            </dx:ASPxButton>
+    <dx:ASPxButton runat="server" ClientSideEvents-Click="imprimir" ID="imprimir" Theme="Office365" Text="IMPRIMIR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" ImagePosition="Right">
+                <Image Url="~/Icons/png/16px/large/printer.png">
+                                              </Image>
+                                            </dx:ASPxButton>
     <iframe id="pdf" runat="server" height="700" style="width:100%;" class="shadowBox fade-in animacion" >
          </iframe>
     <dx:ASPxSpreadsheet ID="ASPxSpreadsheet1" runat="server" WorkDirectory="~/App_Data/WorkDirectory" CssClass="shadowBox fade-in animacion marginSpread" Width="100%" Height="700" ReadOnly="true" RibbonMode="None" >

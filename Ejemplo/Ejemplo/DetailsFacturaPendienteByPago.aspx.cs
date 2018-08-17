@@ -82,12 +82,13 @@ namespace Ejemplo
                     ticketName.Value = fecCorte;
                     ASPxSpreadsheet1.Visible = false;
                     reporteDoc.Visible = true;
+                    imprimir.Visible = true;
                 }
                 else
                 {
                     ASPxSpreadsheet1.Visible = true;
                     ASPxSpreadsheet1.Open(Server.MapPath(""+resultado2.pathFile));
-
+                    imprimir.Visible = false;
                     reporteDoc.Visible = false;
                 }
                 hiddenURL.Value = resultado2.pathFile;

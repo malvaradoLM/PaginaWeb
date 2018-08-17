@@ -99,9 +99,11 @@ fieldset[disabled] .btn-sample.active {
 }
 .parametroAlign{
     float:unset;
-}    .descargarButton{
+}   
+.descargarButton{
         float:right;
         margin-bottom:5px;
+        margin-left: 2px;
  }
     .marginSpread{
         margin-top:40px;
@@ -118,10 +120,18 @@ fieldset[disabled] .btn-sample.active {
         var nombreDoc = document.getElementById("<%=ticketName.ClientID%>");
             var checkbox = document.getElementById("ContentPlaceHolder1_panelParametros_ASPxFormLayout1_chkBoxList_RB0_I");
             var tipo = "";
-            if (checkbox.value == "C") tipo = ".pdf";
-            else tipo = ".xls";
-            download_file(url.value, nombreDoc.value + tipo);
+            if (document.getElementById("<%=hiddenURL.ClientID%>").value.includes("pdf")) tipo = ".pdf";
+         else tipo = ".xls";
+         download_file(url.value, nombreDoc.value + tipo);
 
+        }
+        function imprimir(s, e) {
+            if (document.getElementById("<%=hiddenURL.ClientID%>").value.includes("pdf"))
+                document.getElementById("<%=reporteDoc.ClientID%>").contentWindow.print();
+            else {
+                //Get the HTML of div
+                document.getElementById("<%=reporteDoc.ClientID%>").contentWindow.print();
+            }
         }
         function download_file(fileURL, fileName) {
             // for non-IE
@@ -261,10 +271,16 @@ fieldset[disabled] .btn-sample.active {
         <dx:ASPxRoundPanel ID="panelDetalles" ClientInstanceName="roundPanel" HeaderText="DETALLES" runat="server" Width="90%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes" HeaderStyle-ForeColor="Gray" >
         <PanelCollection>
             <dx:PanelContent>
+
                 <dx:ASPxButton runat="server" ClientSideEvents-Click="descargarDocumento" Theme="Office365" Text="DESCARGAR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" ImagePosition="Right">
                 <Image Url="~/Icons/png/16px/large/button-download.png">
                                               </Image>
                                         </dx:ASPxButton>
+                <dx:ASPxButton runat="server" ClientSideEvents-Click="imprimir" ID="imprimir" Theme="Office365" Text="IMPRIMIR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" ImagePosition="Right" >
+                <Image Url="~/Icons/png/16px/large/printer.png">
+                                              </Image>
+                                            </dx:ASPxButton>
+
                 <div id="Div1" runat="server">	
                  <iframe id="reporteDoc" style="position:relative; width: 100% ; height:500px;" runat="server" class="shadowBox fade-in animacion" ></iframe>
                     <dx:ASPxSpreadsheet ID="ASPxSpreadsheet1" runat="server" WorkDirectory="~/App_Data/WorkDirectory" CssClass="fade-in animacion marginSpread" Width="100%" RibbonMode="None" ReadOnly="true" >

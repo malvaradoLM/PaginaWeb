@@ -84,13 +84,14 @@ namespace Ejemplo
                     reporteDoc.Src = resultado2.pathFile;
                     ticketName.Value = "documento";
                     ASPxSpreadsheet1.Visible = false;
+                    imprimir.Visible = true;
                 }
                 else
                 {
                     ASPxSpreadsheet1.Visible = true;
                     ASPxSpreadsheet1.Open(Server.MapPath("" + resultado2.pathFile));
-
                     reporteDoc.Visible = false;
+                    imprimir.Visible = false;
                 }
                 hiddenURL.Value = resultado2.pathFile;
                 ticketName.Value = "documento";
@@ -139,6 +140,10 @@ namespace Ejemplo
         {
             msjAlerta.Visible = true;
             labelAlerta.Value = value;
+        }
+        private void imprimirXls()
+        {
+
         }
     }
 }

@@ -23,27 +23,42 @@
     <div class="fade-in animacion">
 <dx:BootstrapGridView ID="bgvListaFactura" runat="server"  KeyFieldName="Serie" Width="90%"   >
     <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
-    <Settings ShowTitlePanel="true" />
+    <Settings ShowTitlePanel="true" ShowHeaderFilterButton="true"  />
     <Settings ShowGroupPanel="true"/>
     <Settings ShowFooter="True" />
     <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True"  />
     <SettingsBehavior AllowFocusedRow="True" />
-    <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>
+    <SettingsText SearchPanelEditorNullText="Ingrese texto a buscar..." GroupPanel=" "/>
+    <SettingsCommandButton>
+                    <SearchPanelApplyButton IconCssClass="glyphicon glyphicon-search" Text=" " />
+                </SettingsCommandButton>
     <SettingsAdaptivity  AdaptivityMode="HideDataCells" AllowOnlyOneAdaptiveDetailExpanded="true" />
     <Columns>
                     <dx:BootstrapGridViewTextColumn FieldName="Serie" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader">
+                        <SettingsHeaderFilter Mode="CheckedList" />
                     </dx:BootstrapGridViewTextColumn>
         <dx:BootstrapGridViewTextColumn FieldName="Folio"   HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" >    
                          <DataItemTemplate>
                             <asp:LinkButton runat="server" Text='<%#Eval("Folio")%>' OnClick="button1_Click" ID='button1'  />
-                         </DataItemTemplate>   
+                         </DataItemTemplate>  
+            <SettingsHeaderFilter Mode="CheckedList" />
+
                     </dx:BootstrapGridViewTextColumn>
                     <dx:BootstrapGridViewTextColumn FieldName="Fecha"  UnboundType="DateTime" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader">
-                               <PropertiesTextEdit DisplayFormatString="dd/MM/yyyy" />        
+                               <PropertiesTextEdit DisplayFormatString="dd/MM/yyyy" />
+                        <SettingsHeaderFilter Mode="CheckedList" />
                     </dx:BootstrapGridViewTextColumn>
-                    <dx:BootstrapGridViewTextColumn FieldName="Subtotal" UnboundType="Decimal" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" />               
-                    <dx:BootstrapGridViewTextColumn FieldName="IVA"   UnboundType="Decimal" HorizontalAlign="Center"  CssClasses-HeaderCell="alignHeader"/>           
-                    <dx:BootstrapGridViewTextColumn FieldName="Total" UnboundType="Decimal" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" />  
+
+                    <dx:BootstrapGridViewTextColumn FieldName="Subtotal" UnboundType="Decimal" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader">
+                        <Settings AllowHeaderFilter="False" />
+                        </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewTextColumn FieldName="IVA"   UnboundType="Decimal" HorizontalAlign="Center"  CssClasses-HeaderCell="alignHeader">      
+         <Settings AllowHeaderFilter="False" />
+                        </dx:BootstrapGridViewTextColumn>
+                    <dx:BootstrapGridViewTextColumn FieldName="Total" UnboundType="Decimal" HorizontalAlign="Center" CssClasses-HeaderCell="alignHeader" >  
+                         <Settings AllowHeaderFilter="False" />
+                        </dx:BootstrapGridViewTextColumn>
+
     </Columns>
 </dx:BootstrapGridView>
     </div>
