@@ -99,13 +99,18 @@ namespace Ejemplo
             }
             else
             {
-                panelDetalles.Visible = false;
                 if (resultado2.errorFile == "")
                 {
-                    msjAlerta.Visible = true;
-                    if (resultado2.errorFile == null || resultado2.errorFile == "")
-                        labelAlerta.Value = "No existen registros que mostrar";
-                    else labelAlerta.Value = "Error: " + resultado2.errorFile;
+                    panelDetalles.Visible = false;
+                    if (Validaciones.AccesoInternet())
+                        mensaje("No se encontraron registros", labelCssClases.Advertencia, "Aviso!");
+                    else mensaje("Error de conexion, verifique su conexión a internet e intente nuevamente", labelCssClases.Peligro, "Error de Conexión!");
+
+                }
+                else
+                {
+                    mensaje("Ha ocurrido un error interno, el servicio se encuentra detenido; contacte con el administrador", labelCssClases.Peligro, "Error de servicio!");
+                    panelDetalles.Visible = false;
                 }
             }
         }
@@ -134,6 +139,13 @@ namespace Ejemplo
                 e.ErrorText = "Error: La fecha está vacía.";
             if (txtFechaInicial.Date > txtFechaFinal.Date) e.ErrorText = "Error: La Fecha Inicial no puede ser mayor a la Fecha Final";
             if (e.ErrorText != "") e.IsValid = false;
+        }
+        private void mensaje(string contenido, string tipo, string titulo)
+        {
+            msjAlerta.Attributes["class"] = tipo;
+            labelAlerta.Text = contenido;
+            lblTitleMensaje.Text = titulo;
+            msjAlerta.Visible = true;
         }
     }
 }

@@ -170,11 +170,6 @@ fieldset[disabled] .btn-sample.active {
             }
         }
 </script>
-    <div class="alert alert-warning" id="msjAlerta" runat="server">
-        <strong>Advertencia! </strong>
-        <dx:ASPxLabel ID="labelAlerta" runat="server" />
-        </div>
-
      <link href="css/breadCrumb.css" rel="stylesheet">
  
     <div id="cssmenu" style="margin-top:60px;" class="row">  
@@ -184,7 +179,14 @@ fieldset[disabled] .btn-sample.active {
         <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Inicio</a></li>
     </ul>
 </div>         
-    
+
+
+<div class="alert alert-warning" id="msjAlerta" runat="server" visible="false">
+        <strong><dx:ASPxLabel ID="lblTitleMensaje" runat="server" Font-Bold="true" /> </strong>
+        <dx:ASPxLabel ID="labelAlerta" runat="server" />
+        </div>
+
+
     <dx:ASPxRoundPanel ID="panelParametros" ClientInstanceName="roundPanel" HeaderText="PARAMETROS" runat="server" Width="100%" Theme="Metropolis" BackColor="White" Border-BorderStyle="None" Border-BorderWidth="0px" ShowCollapseButton="true"   Border-BorderColor ="Gray" CssClass="bordes fade-in animacion" HeaderStyle-ForeColor="Gray" >   
         <PanelCollection>
             <dx:PanelContent>

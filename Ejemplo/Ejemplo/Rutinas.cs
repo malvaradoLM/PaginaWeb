@@ -97,7 +97,7 @@ namespace Ejemplo
                 //TempData["Warning2"] = "El servicio web se encuentra detenido, favor de contactar al administrador! ";
 
                 result.pathFile = null;
-                result.errorFile = null;
+                result.errorFile = "Ocurrio un error en la conexión al sistema, favor de contactar al administrador!";
 
                 return result;
             }

@@ -43,22 +43,31 @@ namespace Ejemplo
             DataModule.FillDataSet(ds, "spCatUsuarioWeb", Params.ToArray());
             DataTable dt = new DataTable();
             dt = ds.Tables["spCatUsuarioWeb"];
-            if(dt.Rows.Count != 0)
+            if(dt != null)
             {
-                IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
-                foreach (DataRow dr in query)
+                if (dt.Rows.Count != 0)
                 {
-                    txtNombre.Text = dr.Field<string>("Nombre");
-                    txtUsuario.Text = dr.Field<string>("Usuario");
-                    txtClave.Text = dr.Field<string>("Clave");
-                    chkAdministrador.Value = dr.Field<bool>("Administrador");
+                    IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
+                    foreach (DataRow dr in query)
+                    {
+                        txtNombre.Text = dr.Field<string>("Nombre");
+                        txtUsuario.Text = dr.Field<string>("Usuario");
+                        txtClave.Text = dr.Field<string>("Clave");
+                        chkAdministrador.Value = dr.Field<bool>("Administrador");
+                    }
                 }
-            }
-            else
-            {
-                mensaje("No se pudo cargar la información del usuario, intente nuevamente", labelCssClases.Peligro, "Error");
-            }
-            
+                else
+                {
+                    mensaje("No se pudo cargar la información del usuario, intente nuevamente", labelCssClases.Peligro, "Error");
+                    btnCancelar.Visible = false;
+                    btnProcesar.Visible = false;
+                }
+            }else{
+                mensaje("No se pudo cargar la informacion, verifique su conexión", labelCssClases.Peligro, "Error");
+                btnCancelar.Visible = false;
+                btnProcesar.Visible = false;
+                 }
+
         }
         protected void btnguardar_Click(object sender, EventArgs e)
         {
@@ -111,6 +120,9 @@ namespace Ejemplo
             catch (Exception ex)
             {
                 resultado = ex.Message;
+                resultado = "No se pudieron guardar los cambios, verifique su conexión y vuelva a intentarlo";
+                alerta = labelCssClases.Peligro;
+                titulo = "Error de Conexión!";
             }
 
             mensaje(resultado, alerta, titulo);
@@ -141,16 +153,19 @@ namespace Ejemplo
             Datos.GasolineroID = Convert.ToInt32(Session["GasolineroID"]);
             string resultado = "";
             string alerta = "";
+            string titulo = "";
             try
             {
                 if (!DataModule.DataService.cmdInsertUsuarioWeb(Datos))
                 {
-                    resultado = "No se pudieron guardar los cambios, verifique su red o su limite de usuarios";
+                    resultado = "No se pudieron guardar los cambios, verifique su red";
                     alerta = labelCssClases.Peligro;
+                    titulo = "Error!";
                 }
                 else {
                     resultado = "Los cambios han sido guardados correctamente";
                     alerta = labelCssClases.Exito;
+                    titulo = "Exito!";
                 }
             }
             catch (Exception ex)
@@ -158,10 +173,7 @@ namespace Ejemplo
                 resultado = ex.Message;
             }
 
-            MessageBox.Show(resultado);
-            if(resultado.Contains("NO")) Response.Redirect("Usuarios.aspx", false);
-            else Response.Redirect("Usuarios.aspx", false);
-          
+            mensaje(resultado, alerta, titulo);
 
         }
         private void mensaje(string contenido, string tipo, string titulo)

@@ -90,7 +90,7 @@ namespace Ejemplo
             carTabPage.ActiveTabIndex = 0;
             //panelDetallesConsumo.Visible = true;
             panelDetallesConsumo.Collapsed = false;
-            mapagoogle.Src = @"https://maps.google.com.mx/maps?key=AIzaSyDN_xSn-jF76JH6J_qmU50SpqF_6kNIePU&q=" + latitud + "," + longitud + "&language=es&hl=es;z=14&amp;output=embed";
+            HiddenGoogleMap.Value = @"https://maps.google.com.mx/maps?key=AIzaSyDN_xSn-jF76JH6J_qmU50SpqF_6kNIePU&q=" + latitud + "," + longitud + "&language=es&hl=es;z=14&amp;output=embed";
         }
         private void cargarGaleria(TAlbum album)
         {
@@ -120,11 +120,12 @@ namespace Ejemplo
             string path = System.AppDomain.CurrentDomain.BaseDirectory;
 
             Ejemplo.Models.ComodinModel.BigViewModel.pathConsumoFactura resultado2 = InfoConsumoFacturaTicket.GetInfoConsumoFactura(_GasolineroID, Serie, Folio, ReporteNombre, ParametrosReporte, TipoArchivo);
-            ticket.Src = resultado2.pathImpresion + "#zoom=70";
-            hiddenURL.Value = resultado2.pathImpresion;
-            RPSuiteServer.TAlbum album = new TAlbum();
-            album = DataModule.DataService.ListaConsumoFotosByID(_ConsumoID);
-            cargarGaleria(album);
+            //ticket.Src = resultado2.pathImpresion + "#zoom=70";
+            hiddenURL.Value = resultado2.pathImpresion + "#zoom=70";
+            /// RPSuiteServer.TAlbum album = new TAlbum();
+            ///  album = DataModule.DataService.ListaConsumoFotosByID(_ConsumoID);
+            ///  cargarGaleria(album);
+            HiddenConsumoID.Value = _ConsumoID.ToString();
         }
         private void obtenerGeolocalizacion(int EstacionID)
         {
@@ -166,7 +167,7 @@ namespace Ejemplo
                     foreach(char c in doc.InnerXml)
                     {
                         xmlfinal += c;
-                        if (c == '>') xmlfinal += "\n ";
+                        if (c == '>') xmlfinal += "\n";
                     }
                     xmlClass.InnerText = xmlfinal;
                 }
@@ -221,19 +222,34 @@ namespace Ejemplo
         protected void ticket_Load(object sender, EventArgs e)
         {
             HtmlIframe nuevo = (HtmlIframe)sender;
-            nuevo.Src = ticket.Src;
+            nuevo.Src = hiddenURL.Value;
         }
 
         protected void imageSlider_Load(object sender, EventArgs e)
         {
             ASPxImageSlider nuevo = (ASPxImageSlider)sender;
-            nuevo.Items.AddRange(imageSlider.Items);
+            //nuevo.Items.AddRange(imageSlider.Items);
+
+
+
+            RPSuiteServer.TAlbum album = new TAlbum();
+            int _ConsumoID = Convert.ToInt32(HiddenConsumoID.Value);
+            album = DataModule.DataService.ListaConsumoFotosByID(_ConsumoID);
+            foreach (TAlbum item in album.Datos)
+            {
+                nuevo.Items.Add(
+        "data:image/png;base64," + Convert.ToBase64String((Byte[])item.Foto),
+        "data:image/png;base64," + Convert.ToBase64String((Byte[])item.Foto),
+        "", "Estacion: " + item.Nombre + " Identificacion: " + item.Identificacion + " Fecha de Carga: " + item.FechaCarga
+    );
+            }
+
         }
 
         protected void mapagoogle_Load(object sender, EventArgs e)
         {
             HtmlIframe nuevo = (HtmlIframe)sender;
-            nuevo.Src = mapagoogle.Src;
+            nuevo.Src = HiddenGoogleMap.Value;
         }
     }
 }

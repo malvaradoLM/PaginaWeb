@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Home.Master" CodeBehind="DetailsDescargaFactura.aspx.cs" Inherits="Ejemplo.DetailsDescargaFactura" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Home.Master" CodeBehind="DetailsDescargaFactura.aspx.cs" Inherits="Ejemplo.DetailsDescargaFactura" ValidateRequest="false" %>
 
 <%@ Register Assembly="DevExpress.Web.ASPxRichEdit.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxRichEdit" TagPrefix="dx" %>
 <%@ Register assembly="DevExpress.Web.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
@@ -58,7 +58,17 @@
         margin-bottom:5px;
     }
  </style>
+    <script src="lib/codemirror.js"></script>
+    <script src="lib/autorefresh.js"></script>
+    <link rel="stylesheet" href="lib/codemirror.css">
+    <script src="mode/xml/xml.js"></script>
+    <script src="mode/htmlmixed/htmlmixed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.8.0-rc10/beautify.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.8.0-rc10/beautify-css.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.8.0-rc10/beautify-html.js"></script>
 <script>
+
+
     function ocultarDetalles(s, e) {
         if (document.getElementById('<%= detallesConsumo.ClientID %>') != null) {
             document.getElementById('<%= detallesConsumo.ClientID %>').remove("visible");
@@ -75,6 +85,20 @@
         var imprimirName = s.name;
         var ticketName = imprimirName.replace("imprimir", "ticket");
         document.getElementById(ticketName).contentWindow.print();
+    }
+    function imprimirXML(s, e) {
+        var divToPrint = document.getElementById("<%=xmlClass.ClientID%>");
+
+        var newWin = window.open('', 'Print-Window');
+
+        newWin.document.open();
+
+        newWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</body></html>');
+
+        newWin.document.close();
+
+        setTimeout(function () { newWin.close(); }, 10);
+
     }
     function descargarDocumentoPDF(s, e) {
         var url = document.getElementById("<%=HiddenUrlPDF.ClientID%>");
@@ -122,7 +146,11 @@
             _window.close();
         }
     }
+    function tabClick(s, e) {
+       
+    }
         </script>
+
 
     <div class="alert alert-warning" id="msjAlerta" runat="server" visible="false">
         <strong>Advertencia! </strong>
@@ -144,6 +172,7 @@
 
     <div class="fade-in animacion">
          <dx:ASPxPageControl ID="pageConsumos" Width="100%" runat="server"  EnableHierarchyRecreation="true" ActiveTabIndex="0"  Border-BorderStyle="None" CssClass="page-header" Theme="Office365" >
+             <ClientSideEvents TabClick="tabClick" />
         <TabPages>
             <dx:TabPage Text="CONSUMOS">
                 <ContentCollection>
@@ -345,10 +374,15 @@
                        <Image Url="~/Icons/png/16px/large/button-download.png">
                                               </Image>
                                             </dx:ASPxButton>
+                     <dx:ASPxButton runat="server" ClientSideEvents-Click="imprimirXML" ID="imprimirXML" Theme="Office365" Text="IMPRIMIR" AutoPostBack="false" CssClass="descargarButton shadowBoxMin" ImagePosition="Right">
+                <Image Url="~/Icons/png/16px/large/printer.png">
+                                              </Image>
+                                            </dx:ASPxButton>
                        <div class="wordWrap fade-in animacion">
-                        <pre class="brush: xml" id="xmlClass" style="height:600px;width:100%;"  runat="server">
-                        </pre>
-                           <asp:Xml ID="Xml1" runat="server"></asp:Xml>
+                       <textarea  id="xmlClass"  runat="server"  >
+                        </textarea>
+
+                           
                     </div>
                    </dx:ContentControl>
                 </ContentCollection>
@@ -361,4 +395,23 @@
      
     <asp:HiddenField ID="HiddenUrlPDF" runat="server" />
     <asp:HiddenField ID="HiddenUrlXML" runat="server" />
+    <asp:HiddenField ID="HiddenGoogleMap" runat="server" />
+    <asp:HiddenField ID="HiddenConsumoID" runat="server" />
+    <script>
+        $(document).ready(function () {
+            var editor = CodeMirror.fromTextArea(document.getElementById('<%= xmlClass.ClientID %>'), {
+                lineNumbers: true,
+                styleActiveLine: true,
+                matchBrackets: true,
+                readOnly: 'nocursor',
+                autoRefresh: true,
+                mode: { name: "xml", htmlMode: true }
+            });
+
+        });
+        update_mirror = function () {
+            var editor = $('.CodeMirror')[0].CodeMirror;        
+        }
+
+   </script>
 </asp:Content>

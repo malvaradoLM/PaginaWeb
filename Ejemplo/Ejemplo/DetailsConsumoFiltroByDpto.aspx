@@ -83,10 +83,7 @@
             }
         }
         </script>
-    <div class="alert alert-warning" id="msjAlerta" runat="server">
-        <strong>Advertencia! </strong>
-        <dx:ASPxLabel ID="labelAlerta" runat="server" />
-        </div>
+
     <link href="css/breadCrumb.css" rel="stylesheet">
  
     <div id="cssmenu" style="margin-top:60px;" class="row">  
@@ -95,7 +92,11 @@
         <li><a href="Reportes.aspx">Reportes</a></li>
         <li><a href="MenuPrincipal.aspx"><i class="fa fa-home"></i> Inicio</a></li>
     </ul>
-</div>         
+</div>     
+     <div class="alert alert-warning" id="msjAlerta" runat="server" visible="false">
+        <strong><dx:ASPxLabel ID="lblTitleMensaje" runat="server" Font-Bold="true" /> </strong>
+        <dx:ASPxLabel ID="labelAlerta" runat="server" />
+        </div>
     <p/>
 
 <%-- Panel Para Minimizar --%>

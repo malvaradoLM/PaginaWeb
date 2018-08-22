@@ -28,16 +28,22 @@ namespace Ejemplo
             DataModule.FillDataSet(ds, "spUsuarioWeb", Params.ToArray());
             DataTable dt = new DataTable();
             dt = ds.Tables["spUsuarioWeb"];
-            if(dt.Rows.Count != 0)
+            if(dt != null)
             {
-                bgvUsuario.DataSource = dt;
-                bgvUsuario.DataBind();
-            }
-            else
-            {
-                mensaje("No se han encontrado registros, intente nuevamente", labelCssClases.Advertencia, "Advertencia");
-            }
-            
+                if (dt.Rows.Count != 0)
+                {
+                    bgvUsuario.DataSource = dt;
+                    bgvUsuario.DataBind();
+                    if(dt.Rows.Count > 9)
+                    {
+                        btnNuevo1.Visible = false;
+                        mensaje("Se ha alcanzado el limite de usuarios para su cuenta", labelCssClases.Advertencia, "Aviso!");
+                    }
+                }
+                else
+                    mensaje("No se han encontrado registros, intente nuevamente", labelCssClases.Advertencia, "Advertencia");
+            }else mensaje("No se encontró el contenido, verifique su conexión", labelCssClases.Peligro, "Error de red");
+
             ///Deshabilita boton Crear Nuevo si no tiene permisos
             if (DataModule.Seguridad.Privileges == null) btnNuevo1.Visible = false;
         }

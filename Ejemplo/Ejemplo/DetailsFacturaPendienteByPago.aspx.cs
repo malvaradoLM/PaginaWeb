@@ -35,10 +35,7 @@ namespace Ejemplo
 
         protected void btnProcesar_Click(object sender, EventArgs e)
         {
-            panelParametros.Collapsed = true;
-            msjAlerta.Visible = false;
             panelDetalles.Visible = true;
-            panelParametros.Collapsed = true;
             panelDetalles.Collapsed = false;
             Rutinas getReporte = new Rutinas();
             string _ClienteID = DataModule.Seguridad.UserID;
@@ -74,8 +71,9 @@ namespace Ejemplo
 
             //GENERA REPORTE
             Ejemplo.Models.ComodinModel.FormatReport resultado2 = getReporte.GetInfoReportes(ReporteNombre, _GasolineroID, ParametrosReporte, TipoArchivo);
-            if (resultado2.pathFile != null)
+            if (resultado2.pathFile != null && resultado2.pathFile != "")
             {
+                panelParametros.Collapsed = true;
                 if (TipoArchivo == "PDF")
                 {
                     reporteDoc.Src = resultado2.pathFile;
@@ -96,12 +94,21 @@ namespace Ejemplo
             }
             else
             {
-                panelDetalles.Visible = false;
-                if (resultado2.errorFile == "")
+                if(resultado2.errorFile == "")
                 {
-                    msjAlerta.Visible = true;
-                    labelAlerta.Value = "No existen registros que mostrar";
+                    panelDetalles.Visible = false;
+                    if(Validaciones.AccesoInternet())
+                    mensaje("No se encontraron registros", labelCssClases.Advertencia, "Aviso!");
+                    else mensaje("Error de conexion, verifique su conexión a internet e intente nuevamente", labelCssClases.Peligro, "Error de Conexión!");
+
                 }
+                else
+                {
+                    mensaje("Ha ocurrido un error interno, el servicio se encuentra detenido; contacte con el administrador", labelCssClases.Peligro, "Error de servicio!");
+                    panelDetalles.Visible = false;
+                }
+
+
             }
         }
 
@@ -137,6 +144,14 @@ namespace Ejemplo
             if (resultado != "") e.ErrorText = resultado;
             if (e.ErrorText != "") e.IsValid = false;
             else e.IsValid = true;
+        }
+
+        private void mensaje(string contenido, string tipo, string titulo)
+        {
+            msjAlerta.Attributes["class"] = tipo;
+            labelAlerta.Text = contenido;
+            lblTitleMensaje.Text = titulo;
+            msjAlerta.Visible = true;
         }
     }
 }

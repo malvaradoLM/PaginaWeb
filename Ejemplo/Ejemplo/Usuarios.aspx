@@ -63,18 +63,22 @@ fieldset[disabled] .btn-sample.active {
 }
     .FloatRight{
 
-            width:70%;
+            width:60%;
     }
 @media screen and (max-width: 480px) {
   .FloatRight{
 
             width:100%;
-            float: right;
+            float: none;
     }
     .linkclass
 {
     width:0px;
 }
+    .MarginTable{
+    margin-left:0%;
+}
+    }
 /*end gridview */
  </style>
     <link href="css/breadCrumb.css" rel="stylesheet">
@@ -90,7 +94,7 @@ fieldset[disabled] .btn-sample.active {
         </div>
 
     <div class="row  col-lg-12 col-md-12 fade-in" >
-      <dx:BootstrapGridView ID="bgvUsuario" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="UsuarioWebID" CssClassesPager-Control="true"  CssClasses-Control="MarginTable animacion FloatRight" Width="60%" >
+      <dx:BootstrapGridView ID="bgvUsuario" runat="server" ClientIDMode="Static" EnableViewState="false" AutoGenerateColumns="false" KeyFieldName="UsuarioWebID" CssClassesPager-Control="true"  CssClasses-Control="MarginTable animacion FloatRight"   >
                 <SettingsSearchPanel Visible="true" ShowApplyButton="true" />
                 <Settings ShowGroupPanel="false"  />
                 <SettingsText SearchPanelEditorNullText="Buscar" GroupPanel=" "/>

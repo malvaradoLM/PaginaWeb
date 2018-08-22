@@ -220,22 +220,22 @@ namespace Ejemplo {
         protected global::System.Web.UI.HtmlControls.HtmlIframe iframePDF;
         
         /// <summary>
+        /// imprimirXML control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton imprimirXML;
+        
+        /// <summary>
         /// xmlClass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl xmlClass;
-        
-        /// <summary>
-        /// Xml1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Xml Xml1;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea xmlClass;
         
         /// <summary>
         /// HiddenUrlPDF control.
@@ -254,5 +254,23 @@ namespace Ejemplo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenUrlXML;
+        
+        /// <summary>
+        /// HiddenGoogleMap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenGoogleMap;
+        
+        /// <summary>
+        /// HiddenConsumoID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenConsumoID;
     }
 }

@@ -119,10 +119,11 @@ fieldset[disabled] .btn-sample.active {
     </ul>
 </div>  
 
-    <div class="alert alert-warning" id="msjAlerta" runat="server" visible="false">
+      <div class="row alert alert-warning" id="msjAlerta" runat="server" visible="false">
         <strong><dx:ASPxLabel ID="lblTitleMensaje" runat="server" Font-Bold="true" /> </strong>
         <dx:ASPxLabel ID="labelAlerta" runat="server" />
         </div>
+
     
     <div class="tab-content">
     <dx:ASPxFormLayout runat="server" ID="exampleFormLayout" RequiredMarkDisplayMode="All"  EncodeHtml="false" UseDefaultPaddings="false" Theme="Office365" SettingsItems-HorizontalAlign="Center" CssClass="animacion" >

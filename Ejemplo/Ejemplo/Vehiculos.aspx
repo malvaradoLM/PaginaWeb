@@ -151,7 +151,11 @@ fieldset[disabled] .btn-sample.active {
         visibility: hidden;
     }
     </style>
+    <link rel="stylesheet" href="dist/jquery-confirm.min.css">
+     <script src="dist/jquery-confirm.min.js"></script>
+
     <script>
+
         function checks(control) {
             if (control.id == "1" || control.id == "0") {
                 if (control.id == "1") {
@@ -228,30 +232,51 @@ fieldset[disabled] .btn-sample.active {
                 return "0";
             else return "1";
         }
-        function leerTabla(s,e) {
-            var TableData = new Array();
-            TableData = recibirParametros();
-            var TableData1 = JSON.stringify(TableData);
-            $.ajax({
-                type: "POST",
-                url: "Vehiculos.aspx/leer",
-                data: JSON.stringify({ ID: TableData1 }),
-                contentType: "application/json",
-                async: true,
-                dataType: "json",
-                success: function (result) {
-                    alert(result.d);
-                    var tab = tabActual();
-                    window.location.hash = tab;
-                    window.location.reload();
+        function leerTabla(s, e) {
+            var validado = validar();
+            if (validado == "") {
+                var TableData = new Array();
+                TableData = recibirParametros();
+                var TableData1 = JSON.stringify(TableData);
+                $.ajax({
+                    type: "POST",
+                    url: "Vehiculos.aspx/leer",
+                    data: JSON.stringify({ ID: TableData1 }),
+                    contentType: "application/json",
+                    async: true,
+                    dataType: "json",
+                    success: function (result) {
+                        alert(result.d);
+                        var tab = tabActual();
+                        window.location.hash = tab;
+                        window.location.reload();
 
-                },
-                error: function (xhr, textStatus, error) {
-                    console.log(xhr.statusText);
-                    console.log(textStatus);
-                    console.log(error);
-                }
-            });
+                    },
+                    error: function (xhr, textStatus, error) {
+                        console.log(xhr.statusText);
+                        console.log(textStatus);
+                        console.log(error);
+                    }
+                });
+            } else {
+                jQuery.alert({
+                    closeIcon: true,
+                    closeIconClass: 'fa fa-close' // or 'glyphicon glyphicon-remove'
+                });
+                
+            }
+        }
+        function validar() {
+            var result = "";
+            if (document.getElementById('<%=txtNombreUsuario.ClientID%>_I').value == null || document.getElementById('<%=txtNombreUsuario.ClientID%>_I').value.toString() == "") {
+                $("#tab1").attr("checked", true);
+                return result = "Fallo al guardar, debe ingresar un Nombre/Usuario";
+            }
+            if (document.getElementById('<%=txtNIP.ClientID%>_I').value == null || document.getElementById('<%=txtNIP.ClientID%>_I').value.toString() == "") {
+                $("#tab2").attr("checked", true);
+                return result = "Fallo al guardar, debe ingresar un NIP";
+            }
+
         }
         function tabActual() {
             var result = "";

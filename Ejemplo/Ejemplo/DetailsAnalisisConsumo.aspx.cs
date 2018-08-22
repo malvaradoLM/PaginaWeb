@@ -17,6 +17,7 @@ using System.IO;
 using System.Reflection;
 using System.Web.UI.HtmlControls;
 using DevExpress.Web.Bootstrap;
+using Ejemplo.Clases;
 
 namespace Ejemplo
 {
@@ -59,17 +60,17 @@ namespace Ejemplo
                         dt = CargarReportePorCliente(Convert.ToInt32(DataModule.Seguridad.UserID), txtFechaInicial.Text, txtFechaFinal.Text);
 
                 }
-                cargarReporte(titulo, dt);
-                if (dt.Rows.Count == 0)
+                if (dt != null)
                 {
-                    msjAlerta.Visible = true;
-                    labelAlerta.Text = "No existen registros que mostrar";
+                    cargarReporte(titulo, dt);
+                    if (dt.Rows.Count == 0)         
+                        mensaje("No existen registros que mostrar", labelCssClases.Advertencia, "Aviso!");
+                    else msjAlerta.Visible = false;
+                    if (HiddenFocusIndex.Value != null && HiddenFocusIndex.Value != "")
+                        bgvConsumo2.FocusedRowIndex = Convert.ToInt32(HiddenFocusIndex.Value);
                 }
-                else msjAlerta.Visible = false;
-                if(HiddenFocusIndex.Value != null && HiddenFocusIndex.Value != "")
-                {
-                    bgvConsumo2.FocusedRowIndex = Convert.ToInt32(HiddenFocusIndex.Value);
-                }
+                else mensaje("Error al cargar el contenido, verifique su conexión a internet e intente nuevamente. Si el error persiste contacte al administrador", labelCssClases.Peligro, "Error de conexión!");
+
             }
             if (detallesConsumo.Visible) carTabPage.Focus();
         }
@@ -133,6 +134,7 @@ namespace Ejemplo
         }
         protected void Unnamed_Click(object sender, EventArgs e)
         {
+            msjAlerta.Visible = false;
             string ID = "", EstacionID = "", Serie = "", Folio = "";
             string tipo = sender.GetType().ToString();
             if (bgvConsumo2.DetailRows.VisibleCount > 0 || !(sender is ASPxPageControl))
@@ -174,12 +176,20 @@ namespace Ejemplo
             string path = System.AppDomain.CurrentDomain.BaseDirectory;
 
             Ejemplo.Models.ComodinModel.BigViewModel.pathConsumoFactura resultado2 = InfoConsumoFacturaTicket.GetInfoConsumoFactura(_GasolineroID, Serie, Folio, ReporteNombre, ParametrosReporte, TipoArchivo);
-            ticketName.Value = Serie+Folio;
-            hiddenURL.Value = resultado2.pathImpresion;
-            ticket.Src = resultado2.pathImpresion+ "#zoom=70";
-            RPSuiteServer.TAlbum album = new TAlbum();
-            album = DataModule.DataService.ListaConsumoFotosByID(_ConsumoID);
-            cargarGaleria(album);
+            if(resultado2.pathImpresion != null)
+            {
+                ticketName.Value = Serie + Folio;
+                hiddenURL.Value = resultado2.pathImpresion;
+                ticket.Src = resultado2.pathImpresion + "#zoom=70";
+                RPSuiteServer.TAlbum album = new TAlbum();
+                album = DataModule.DataService.ListaConsumoFotosByID(_ConsumoID);
+                cargarGaleria(album);
+            }
+            else
+            {
+                mensaje("No se pudo cargar el ticket, verifique su conexión. Si el problema persiste contacte con el administrador", labelCssClases.Peligro, "Error de conexión!");
+            }
+            
         }
 
         private void cargarGaleria(TAlbum album)
@@ -298,6 +308,13 @@ namespace Ejemplo
         protected void bgvConsumo2_BeforeColumnSortingGrouping(object sender, BootstrapGridViewBeforeColumnGroupingSortingEventArgs e)
         {
             bgvConsumo2.DetailRows.CollapseAllRows();
+        }
+        private void mensaje(string contenido, string tipo, string titulo)
+        {
+            msjAlerta.Attributes["class"] = tipo;
+            labelAlerta.Text = contenido;
+            lblTitleMensaje.Text = titulo;
+            msjAlerta.Visible = true;
         }
     }
 }

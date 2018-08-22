@@ -49,7 +49,12 @@ namespace Ejemplo
                 cargarGaleriaFotosConsumo();
                 if (txtTanque.Text == "") txtTanque.Value = 0;
             }
-            else mensaje("No se pudo cargar el Vehiculo, intente nuevamente", labelCssClases.Advertencia, "Advertencia");
+            else
+            {
+                mensaje("No se pudo cargar el Vehiculo, intente nuevamente", labelCssClases.Advertencia, "Advertencia");
+                btnProcesar.Visible = false;
+                ASPxButton2.Visible = false;
+            }
             
             ///Si no es Administrador se deshabilita boton.
             if (DataModule.Seguridad.Privileges == null) btnProcesar.Visible = false;
