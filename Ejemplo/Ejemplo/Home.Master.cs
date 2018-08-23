@@ -14,7 +14,7 @@ namespace Ejemplo
         {
             // NombreGrupo.Text = System.Configuration.ConfigurationManager.AppSettings["Gasolinero"];
            // string sesion = Session["GasolineroID"].ToString();
-           if(Session["GasolineroID"]== null || DataModule.Seguridad == null || Session["GasolineroID"] == null)
+           if(Session["GasolineroID"]== null || DataModule.Seguridad == null || Session["GasolineroID"] == null || DataModule.Seguridad==null)
             {
                 Session["Caducada"] = "Sesion Caducada";
                 Response.Redirect("loginpage.aspx", true);

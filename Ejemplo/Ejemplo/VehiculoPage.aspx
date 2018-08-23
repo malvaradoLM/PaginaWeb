@@ -27,10 +27,7 @@
     font-size: 16px;
     text-transform: uppercase;
 }
-    .shadowBox{
-    padding: 5px;
-    box-shadow: 3px 8px 6px #888888;
-}
+
     .FloatRight{
 
             float: right;

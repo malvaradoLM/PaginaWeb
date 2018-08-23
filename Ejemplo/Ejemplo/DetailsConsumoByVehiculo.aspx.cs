@@ -24,12 +24,11 @@ namespace Ejemplo
                 txtFechaFinal.Date = DateTime.Now;
                 chkBoxList.SelectedIndex = 0;
                 llenarComboBox();
-                msjAlerta.Visible = false;
                 panelDetalles.Visible = false;
                 ASPxSpreadsheet1.WorkDirectory = "~/App_Data/WorkDirectory/ClienteID" + DataModule.Seguridad.UserID;
-            }
+            }else
             llenarComboBox();
-            msjAlerta.Visible = false;
+           
         }
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control)
         {
@@ -43,10 +42,14 @@ namespace Ejemplo
             DataModule.FillDataSet(ds, "spVehiculosActivos", Params.ToArray());
             DataTable dt = new DataTable();
             dt = ds.Tables["spVehiculosActivos"];
-            cmbVehiculoInicial.DataSource = dt;
-            cmbVehiculoInicial.DataBind();
-            cmbVehiculoFinal.DataSource = dt;
-            cmbVehiculoFinal.DataBind();
+            if (dt != null)
+            {
+                cmbVehiculoInicial.DataSource = dt;
+                cmbVehiculoInicial.DataBind();
+                cmbVehiculoFinal.DataSource = dt;
+                cmbVehiculoFinal.DataBind();
+            }
+            else mensaje("Error al cargar los Vehículos, verifique su conexión a internet e intente nuevamente", labelCssClases.Peligro, "Error de Red!");
 
         }
 

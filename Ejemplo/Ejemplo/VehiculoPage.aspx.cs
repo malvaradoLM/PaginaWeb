@@ -15,43 +15,47 @@ namespace Ejemplo
         private List<DataParameter> Params = new List<DataParameter>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Params.Clear();
-            Data.DataModule.ParamByName(Params, "ClienteID", DataModule.Seguridad.UserID);
-            spVehiculoDS ds = new spVehiculoDS();
-            DataModule.FillDataSet(ds, "spVehiculo", Params.ToArray());
-            DataTable dt = new DataTable();
-            dt = ds.Tables["spVehiculo"];
-
-            if(dt.Rows.Count != 0)
+            if (DataModule.Seguridad != null)
             {
-                msjAlerta.Visible = false;
-                if (!IsPostBack)
+                Params.Clear();
+                Data.DataModule.ParamByName(Params, "ClienteID", DataModule.Seguridad.UserID);
+                spVehiculoDS ds = new spVehiculoDS();
+                DataModule.FillDataSet(ds, "spVehiculo", Params.ToArray());
+                DataTable dt = new DataTable();
+                dt = ds.Tables["spVehiculo"];
+
+                if (dt.Rows.Count != 0)
                 {
-                    if (Session["TODOS"] == null)
+                    msjAlerta.Visible = false;
+                    if (!IsPostBack)
                     {
-                        dt = CargarVehiculosActivos(dt);
+                        if (Session["TODOS"] == null)
+                        {
+                            dt = CargarVehiculosActivos(dt);
+                        }
+                        else
+                        {
+                            lblTitulo.InnerText = "TODOS LOS VEHICULOS";
+                            lblVehiculosActivos.InnerText = "VEHICULOS ACTIVOS";
+                        }
                     }
                     else
                     {
-                        lblTitulo.InnerText = "TODOS LOS VEHICULOS";
-                        lblVehiculosActivos.InnerText = "VEHICULOS ACTIVOS";
+                        if (!lblTitulo.InnerText.Contains("TODOS"))
+                        {
+                            dt = CargarVehiculosActivos(dt);
+                        }
                     }
+                    bgvVehiculo.DataSource = dt;
+                    bgvVehiculo.DataBind();
+                    Session.Remove("TODOS");
                 }
                 else
                 {
-                    if (!lblTitulo.InnerText.Contains("TODOS"))
-                    {
-                        dt = CargarVehiculosActivos(dt);
-                    }
+                    mensaje("No se pudieron cargar los registros, intente de nuevo", labelCssClases.Advertencia, "Advertencia");
                 }
-                bgvVehiculo.DataSource = dt;
-                bgvVehiculo.DataBind();
-                Session.Remove("TODOS");
             }
-            else
-            {
-                mensaje("No se pudieron cargar los registros, intente de nuevo", labelCssClases.Advertencia, "Advertencia");
-            }
+            else Response.Redirect("loginpage.aspx", false);
         }
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control)
         {

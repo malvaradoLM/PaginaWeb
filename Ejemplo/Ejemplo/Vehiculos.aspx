@@ -6,8 +6,41 @@
 <%@ Register assembly="DevExpress.Web.Bootstrap.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.Bootstrap" tagprefix="dx" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <style>
-        
+    input[type=checkbox] {
+         position: relative;
+	       cursor: pointer;
+    }
+    input[type=checkbox]:before {
+         content: "";
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 0;
+    border: 1px solid #01010133;
+    border-radius: 3px;
+    background-color: white;
+}
+
+    input[type=checkbox]:checked:after {
+            content: "";
+    display: block;
+    width: 5px;
+    height: 10px;
+    border: solid #4d4d4d;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 2px;
+    left: 6px;
+}
+    
+
 #exTab1 .tab-content {
   color : white;
   background-color: #428bca;
@@ -151,8 +184,6 @@ fieldset[disabled] .btn-sample.active {
         visibility: hidden;
     }
     </style>
-    <link rel="stylesheet" href="dist/jquery-confirm.min.css">
-     <script src="dist/jquery-confirm.min.js"></script>
 
     <script>
 
@@ -259,10 +290,7 @@ fieldset[disabled] .btn-sample.active {
                     }
                 });
             } else {
-                jQuery.alert({
-                    closeIcon: true,
-                    closeIconClass: 'fa fa-close' // or 'glyphicon glyphicon-remove'
-                });
+                window.alert(validado);
                 
             }
         }
@@ -276,6 +304,7 @@ fieldset[disabled] .btn-sample.active {
                 $("#tab2").attr("checked", true);
                 return result = "Fallo al guardar, debe ingresar un NIP";
             }
+            return result;
 
         }
         function tabActual() {
@@ -439,7 +468,7 @@ fieldset[disabled] .btn-sample.active {
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
-                    <dx:LayoutItem Caption="Nombre/Usuario" VerticalAlign="Middle" CaptionStyle-Font-Bold="true" CssClass="caption" CaptionStyle-Font-Size="Medium">
+                    <dx:LayoutItem Caption="Nombre/Usuario" VerticalAlign="Middle" RequiredMarkDisplayMode="Required" CaptionStyle-Font-Bold="true" CssClass="caption" CaptionStyle-Font-Size="Medium">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
                            <dx:ASPxTextBox ID="txtNombreUsuario" runat="server" Theme="Office365" AutoPostBack="false"></dx:ASPxTextBox>
@@ -478,7 +507,7 @@ fieldset[disabled] .btn-sample.active {
                     </Caption>
                 </GroupBoxStyle>
                 <Items>
-                    <dx:LayoutItem Caption="NIP"  VerticalAlign="Middle" CaptionStyle-Font-Bold="true">
+                    <dx:LayoutItem Caption="NIP"  VerticalAlign="Middle" CaptionStyle-Font-Bold="true" RequiredMarkDisplayMode="Required">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer >
                     <dx:ASPxTextBox ID="txtNIP" runat="server" Theme="Office365" ></dx:ASPxTextBox>
@@ -857,6 +886,7 @@ fieldset[disabled] .btn-sample.active {
                   </tr>
               </table>
                 </section>
+
             <section id="content6" class="tab-content">
 				<table id="tableHorarios" style="width:100%; height:300px;  border-radius:15px;" runat="server" class="table-condensed animacion">
   <caption>Horarios</caption>
