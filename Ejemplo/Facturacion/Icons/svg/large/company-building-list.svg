@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+  <g id="main">
+    <clipPath id="clip_mask">
+      <path d="M18.1667,31.5294C18,30.9706,18,30.363,18,30v-8v-3l0.2706,-1c0.3465,-0.5968,0.9911,-1,1.7294,-1h11c0.3644,0,0.7058,0.0986,1,0.2698V0H0v32h18.3576C18.2818,31.8568,18.2176,31.6999,18.1667,31.5294z"/>
+    </clipPath>
+    <g id="icon" clip-path="url(#clip_mask)">
+      <g id="transformed_icon" transform="translate(-1 -1)">
+        <path d="M28.5833,29H27V1.4c0,-0.2209,-0.1791,-0.4,-0.4,-0.4H5.4c-0.2209,0,-0.4,0.1791,-0.4,0.4v27.6H3.4c-0.2209,0,-0.4,0.1791,-0.4,0.4v1.2c0,0.2209,0.1791,0.4,0.4,0.4h25.2c0.2209,0,0.4,-0.1791,0.4,-0.4v-1.1833C29,29.1865,28.8135,29,28.5833,29zM14,4h4v3h-4V4zM14,9h4v3h-4V9zM14,14h4v3h-4V14zM14,19h4v3h-4V19zM12,22H8v-3h4V22zM12,17H8v-3h4V17zM12,12H8V9h4V12zM12,7H8V4h4V7zM19,30h-6v-5h6V30zM24,22h-4v-3h4V22zM24,17h-4v-3h4V17zM24,12h-4V9h4V12zM24,7h-4V4h4V7z" fill="#FFFFFF"/>
+      </g>
+    </g>
+    <g id="overlay">
+      <path d="M31,31.5H20c-0.2761,0,-0.5,-0.2239,-0.5,-1.5V19.5h12v10.5C31.5,31.2761,31.2761,31.5,31,31.5z" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-miterlimit="1"/>
+      <path d="M32,21H19v-2c0,-0.5523,0.4477,-1,1,-1h11c0.5523,0,1,0.4477,1,1V21z" fill="#FFFFFF"/>
+      <path d="M22,23h2M22,25h2M22,27h2M22,29h2" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+      <path d="M26,23h3.1M26,25h3.1M26,27h3.1M26,29h3.1" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+  <g id="icon">
+    <path d="M14.0167,0H2.9833C2.4425,0,2,0.4425,2,0.9833v14.0333c0,0.5408,0.4425,0.9833,0.9833,0.9833h11.0333c0.5408,0,0.9833,-0.4425,0.9833,-0.9833V0.9833C15,0.4425,14.5575,0,14.0167,0zM13,14H4v-1H3v-2h1V9H3V7h1V5H3V3h1V2h9V14z" fill="#FFFFFF"/>
+    <path d="M2,7v2H1V7H2zM1,3v2h1V3H1zM1,11v2h1v-2H1z" fill="#FFFFFF"/>
+    <path d="M4,7v2H3V7H4zM3,3v2h1V3H3zM3,11v2h1v-2H3z" fill="#FFFFFF"/>
+    <line x1="5.5" y1="3.5" x2="8" y2="3.5" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+    <line x1="5.5" y1="5.5" x2="8" y2="5.5" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+    <line x1="5.5" y1="7.5" x2="8" y2="7.5" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+    <line x1="5.5" y1="9.5" x2="8" y2="9.5" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+    <line x1="5.5" y1="11.5" x2="8" y2="11.5" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+    <line x1="10" y1="3.5" x2="11.5" y2="3.5" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+    <line x1="10" y1="5.5" x2="11.5" y2="5.5" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+    <line x1="10" y1="7.5" x2="11.5" y2="7.5" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+    <line x1="10" y1="9.5" x2="11.5" y2="9.5" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+    <line x1="10" y1="11.5" x2="11.5" y2="11.5" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+  </g>
+</svg>

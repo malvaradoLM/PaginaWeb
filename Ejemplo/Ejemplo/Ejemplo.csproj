@@ -353,6 +353,7 @@
     <Content Include="Icons\svg\small\vehicle-van-side-time.svg" />
     <Content Include="Icons\svg\small\warning.svg" />
     <Content Include="Icons\svg\small\window-user.svg" />
+    <Content Include="images\RedPacifico.png" />
     <Content Include="Oops.aspx" />
     <Content Include="ExcelPage.aspx" />
     <Content Include="Login.aspx" />

@@ -1,0 +1,372 @@
+﻿
+
+/*================================================= Buttons Dashboard style Responsive ================================================================*/
+a.wide i, a.box i, a.btn i{
+    font-size: 60px;
+    text-align: center;
+    display: block;
+    margin-top: 10px; 
+}
+
+a.wide:hover, a.box:hover, a.btn:hover{
+	-webkit-transform: scale(1.05);
+}
+
+a.wide:active, a.box:active, a.btn:active{
+	-webkit-transform: scale(1);
+}
+/*===========================================*/
+h2-Largo {
+	margin:0px;
+	/*font-family: "Open Sans", arial;*/
+    font-family: 'Roboto Condensed', sans-serif;
+	font-weight:300;
+}
+
+.fontNormal {
+    font-style: normal !important;
+}
+
+.Largo .Cards-Titulos {
+text-align: center;
+}
+
+.Cards-Titulos span {
+    font-size: 9px;
+    display: block;
+}
+
+/*===========================================*/
+a.wide, a.box, a.Largo{
+	text-decoration:none;
+	color:#fff;
+	-webkit-transition: -webkit-transform 0.1s;
+	position:relative;
+	overflow:hidden;
+}
+
+a.wide h2.top, a.box h2.top, a.Largo h2.top{
+	position:static;
+	font-size:14px;
+}
+
+/* outside Codepen is actually 30px */
+a.wide i, a.box i, a.Largo i{
+    font-size: 60px;
+    text-align: center;
+    display: block;
+    margin-top: 10px; 
+}
+
+a.wide:hover, a.box:hover, a.Largo:hover{
+	-webkit-transform: scale(1.05);
+}
+
+a.wide:active, a.box:active, a.Largo:active{
+	-webkit-transform: scale(1);
+}
+
+/*ESTO ES NUEVO*/
+a.wide h2-Largo, a.box h2-Largo, a.Largo h2-Largo{
+    display: block;
+    /*font-size: 14px;*/
+    text-align: center;     /*Title Button is Aligh Center*/
+    margin-top: 5px;
+
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    /*font-style: normal;*/
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+#new-board-btn {
+    white-space: normal;
+    /*width: 100px;*/
+}
+
+.Largo{
+	/*width:270px;*/
+    width:100%;
+	height:180px;
+
+	overflow:hidden;
+	/*font-size:13px;*/
+	padding:10px;
+	display:block;
+	float:left;
+	margin:5px 0;
+}
+
+.lime{background:#61b812;}
+.orange{background:#e76022;}
+.blue{background:#1E90FF;}
+.redgay{background:#DA312E;}
+.yellow{background:#dbb701;}
+.bluefish{background:#02b9e3;}
+.magenta{background:#d22a4e;}
+
+.rojo{background:#F44336;}
+.azul{background:#2196F3;}
+.amarillo{background:#FFC107;}
+.verde_claro{background:#4CAF50;}
+.anaranjado{background:#FF5722;}
+.morado{background:#673AB7;}
+.cyan{background:#00BCD4;}
+.verdeDash{background:#009688;}
+
+.verdeAzuloso{background:#009688;}
+.naranjaFuerte{background:#FF9800;}
+
+/*.bg-cyan {
+  background-color: #1ba1e2 !important;
+}*/
+
+/*===========================================*/
+/* outside Codepen is actually 30px */
+/*button .Largo i{
+    font-size: 60px;
+    text-align: center;
+    display: block;
+    margin-top: 10px; 
+}*/
+
+/*ESTO ES NUEVO*/
+/*Title Button is Aligh Center*/
+/*button .Largo h2-Largo{
+    display: block;
+    font-size: 14px;
+    text-align: center;     
+    margin-top: 5px;
+}*/
+
+/*.shortcut-button {
+  padding: 0 1rem;
+  height: 2.125rem;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border: 1px #d9d9d9 solid;
+  color: #262626;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  font-size: .875rem;
+  line-height: 100%;
+  margin: .15625rem 0;
+  position: relative;
+  width: 5.75rem;
+  height: 5.75rem;
+  text-align: center;
+  font-size: .75rem;
+
+    width:100%;
+	height:180px;
+}*/
+
+/*.shortcut-button.default {
+  background-color: #008287;
+  color: #fff;
+}
+.shortcut-button:hover {
+  border-color: #787878;
+}
+.shortcut-button:active {
+  background: #eeeeee;
+  color: #262626;
+  box-shadow: none;
+}
+.shortcut-button:focus {
+  outline: 0;
+}
+.shortcut-button:disabled,
+.shortcut-button.disabled {
+  background-color: #eaeaea;
+  color: #bebebe;
+  cursor: default;
+  border-color: transparent;
+}
+.shortcut-button * {
+  color: inherit;
+}
+.shortcut-button *:hover {
+  color: inherit;
+}
+.shortcut-button.rounded {
+  border-radius: .325rem;
+}
+.shortcut-button > [class*=mif-] {
+  vertical-align: middle;
+}
+.shortcut-button img {
+  height: .875rem;
+  vertical-align: middle;
+  margin: 0;
+}
+.shortcut-button.loading-pulse {
+  position: relative;
+  padding: 0 1.325rem;
+}
+.shortcut-button.loading-pulse:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  margin-top: -10px;
+  width: 20px;
+  height: 20px;
+  background-color: #333;
+  border-radius: 100%;
+  -webkit-animation: scaleout 1s infinite ease-in-out;
+          animation: scaleout 1s infinite ease-in-out;
+}
+.shortcut-button.loading-pulse.lighten:before {
+  background-color: #fff;
+}
+.shortcut-button.loading-cube {
+  position: relative;
+  padding: 0 1.325rem;
+}
+.shortcut-button.loading-cube:before,
+.shortcut-button.loading-cube:after {
+  content: "";
+  background-color: #333;
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  margin-top: -8px;
+  -webkit-animation: cubemove 1.8s infinite ease-in-out;
+          animation: cubemove 1.8s infinite ease-in-out;
+}
+.shortcut-button.loading-cube:after {
+  -webkit-animation-delay: -0.9s;
+          animation-delay: -0.9s;
+}
+.shortcut-button.loading-cube.lighten:before,
+.shortcut-button.loading-cube.lighten:after {
+  background-color: #fff;
+}
+.shortcut-button.dropdown-toggle {
+  padding-right: 1.625rem;
+}
+.shortcut-button.dropdown-toggle.drop-marker-light:before,
+.shortcut-button.dropdown-toggle.drop-marker-light:after {
+  background-color: #ffffff;
+}
+.shortcut-button.primary {
+  background: #2086bf;
+  color: #ffffff;
+  border-color: #2086bf;
+}
+.shortcut-button.primary:active {
+  background: #1b6eae;
+  color: #ffffff;
+}
+.shortcut-button.success {
+  background: #60a917;
+  color: #ffffff;
+  border-color: #60a917;
+}
+.shortcut-button.success:active {
+  background: #128023;
+  color: #ffffff;
+}
+.shortcut-button.danger,
+.shortcut-button.alert {
+  background: #ce352c;
+  color: #ffffff;
+  border-color: #ce352c;
+}
+.shortcut-button.danger:active,
+.shortcut-button.alert:active {
+  background: #9a1616;
+  color: #ffffff;
+}
+.shortcut-button.info {
+  background: #59cde2;
+  color: #ffffff;
+  border-color: #59cde2;
+}
+.shortcut-button.info:active {
+  background: #1ba1e2;
+  color: #ffffff;
+}
+.shortcut-button.warning {
+  background: #fa6800;
+  color: #ffffff;
+  border-color: #fa6800;
+}
+.shortcut-button.warning:active {
+  background: #bf5a15;
+  color: #ffffff;
+}
+.shortcut-button.link {
+  background: transparent;
+  color: #2086bf;
+  border-color: transparent;
+  text-decoration: underline;
+}
+.shortcut-button.link:hover,
+.shortcut-button.link:active {
+  background: transparent;
+  color: #114968;
+  border-color: transparent;
+}
+.shortcut-button .icon,
+.shortcut-button .title {
+  display: block;
+  color: inherit;
+}
+.shortcut-button .icon {
+  font-size: 1.7rem;
+  height: 1.7rem;
+  width: 1.7rem;
+  margin: .875rem auto;
+}
+.shortcut-button .badge {
+  color: inherit;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: .7rem;
+  line-height: 1rem;
+  padding: 0 .225rem;
+}
+a.shortcut-button {
+  padding-top: 10px;
+}*/
+
+/* ============================================================ navbar style ============================================================================ */
+#navbar-white.navbar-default { 
+    /*font-size: 14px;
+    background-color: rgba(255, 255, 255, 1);
+    background: -webkit-linear-gradient(top, rgba(239, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(to bottom, rgba(239, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);*/
+
+    background-color: #66cccc;
+    border: 0px;
+	border-radius: 0;
+}
+
+#navbar-white.navbar-default .navbar-nav>li>a:hover,
+#navbar-white.navbar-default .navbar-nav>li>a:focus,
+#navbar-white.navbar-default .navbar-nav>li>ul>li>a:hover, 
+#navbar-white.navbar-default .navbar-nav>li>ul>li>a:focus, 
+#navbar-white.navbar-default .navbar-nav>.active>a,
+#navbar-white.navbar-default .navbar-nav>.active>a:hover,
+#navbar-white.navbar-default .navbar-nav>.active>a:focus {  
+	/*color: rgba(51, 51, 51, 1);
+    background-color: rgba(255, 255, 255, 1);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);*/
+
+    /*background-color: #1b2431;*/
+}
+
+#sidebar-white, #column-white, #dashboard-white, #slidebar-white {
+    background-color: #1B2431;
+}
+

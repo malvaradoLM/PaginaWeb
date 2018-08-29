@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+  <g id="main">
+    <clipPath id="clip_mask">
+      <path d="M20.9262,32C18.5189,30.6,16.9,27.9878,16.9,25c0,-4.4735,3.6265,-8.1,8.1,-8.1c2.9878,0,5.6,1.6189,7,4.0262V0L0,0l0,32H20.9262z" fill-rule="evenodd"/>
+    </clipPath>
+    <g id="icon" clip-path="url(#clip_mask)">
+      <g id="transformed_icon" transform="translate(-1 -1)">
+        <polygon points="28.5,1.5564 26.4249,4.1825 24.35,1.5564 22.2749,4.1825 20.2001,1.5564 18.125,4.1825 16.05,1.5564 13.875,4.1825 11.7999,1.5564 9.7251,4.1825 7.65,1.5564 5.5751,4.1825 3.5,1.5564 3.5,30.4436 5.5751,27.8175 7.65,30.4436 9.7251,27.8175 11.7999,30.4436 13.875,27.8175 16.05,30.4436 18.125,27.8175 20.2001,30.4436 22.2749,27.8175 24.35,30.4436 26.4249,27.8175 28.5,30.4436" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1" stroke-linejoin="round"/>
+        <path d="M25.4875,9H6.5125C6.2295,9,6,8.7705,6,8.4875v-0.975C6,7.2295,6.2295,7,6.5125,7h18.975c0.283,0,0.5125,0.2295,0.5125,0.5125v0.975C26,8.7705,25.7705,9,25.4875,9z" fill="#FFFFFF"/>
+        <path d="M7.5,11.5h10M7.5,13.5h6.9M7.5,15.5h10M7.5,17.5h6.9M7.5,19.5h10M7.5,21.5h6.9" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+        <path d="M20.5,11.5h4M20.5,13.5h4M20.5,15.5h4M20.5,17.5h4M20.5,19.5h4M20.5,21.5h4" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+        <line x1="19.5" y1="24.5" x2="25" y2="24.5" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+      </g>
+    </g>
+    <g id="overlay">
+      <path d="M25,32c3.866,0,7,-3.134,7,-7c0,-3.866,-3.134,-7,-7,-7s-7,3.134,-7,7C18,28.866,21.134,32,25,32zM21,23.3l3,2.9v-6.2h2v6.2l3,-3v2.9l-4,4c-0.0311,-0.0311,-4,-4,-4,-4V23.3z" fill-rule="evenodd" fill="#FFFFFF"/>
+    </g>
+  </g>
+</svg>

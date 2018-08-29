@@ -23,8 +23,9 @@ namespace Ejemplo
             {
                 msjAlerta.Visible = false;
             }
+            Session.Clear();
+            Session.Abandon();
         }
-
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
             try
@@ -43,13 +44,13 @@ namespace Ejemplo
                 {
                     //ShowMessage("Nombre de Usuario o Contrasena incorrecta verifique datos");
                     //MessageBox.Show("Nombre de Usuario o Contrasena incorrecta verifique datos","Advertecia", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw new Exception("Usuario o Clave Invalido");
+                    mensaje("Usuario o clave inválida", labelCssClases.Peligro, "Error de Autenticación!");
                 }
             }
             catch (Exception ex)
             {
                 //ShowMessage(ex.Message.ToString());
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mensaje("Error interno; si el problema persiste contacte con el Administrador", labelCssClases.Peligro, "Aviso!");
             }
         }
         private void mensaje(string contenido, string tipo, string titulo)

@@ -59,13 +59,16 @@
 		</div><!-- /.col-->
 	</div><!-- /.row -->	
     --%>
-    <div class="alert alert-warning" id="msjAlerta" runat="server" visible="false">
+    <div class="alert alert-warning" id="msjAlerta" runat="server" visible="false" style="margin-top: -3%;">
         <strong><dx:ASPxLabel ID="lblTitleMensaje" runat="server" Font-Bold="true" /> </strong>
         <dx:ASPxLabel ID="labelAlerta" runat="server" />
         </div>
     <form class="login shadowBoxMin" runat="server">
     <h1 class="login-title">FLOTILLAS</h1>
-        <div class="inner-addon left-addon">
+    <div class="row"> 
+        <dx:ASPxImage Width="50%" Height="50%" runat="server" ID="imageTitulo" ImageUrl="~/images/RedPacifico.png" CssClass="logo-login" /> 
+    </div> 
+        <div class="inner-addon left-addon"> 
     <i class="glyphicon glyphicon-user"></i>
     <input type="text" class="login-input" placeholder="Usuario" autofocus="autofocus" runat="server" id="inputUser" style="width: 100%;" />
             </div>

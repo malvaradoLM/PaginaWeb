@@ -1,2 +1,21 @@
 <Connections>Z:\Compartida\Proyectos\Redco\RPSuiteServer\RPSuiteServer.daConnections
-  <PoolTransactionBehaviour>Fail</PoolTransactionBehaviour><CanRaiseEventsInternal>True</CanRaiseEventsInternal><Definitions><Definition><Description /><ConnectionString>MSSQL.NET?Server=sevafusa.redpacifico.com;Database=Flotillas;User ID=sa;Password=N0p4rK3m;</ConnectionString><ConnectionType>SQLite</ConnectionType><Default>True</Default><Name>RPSuite</Name></Definition></Definitions></Connections>
+  <PoolTransactionBehaviour>Fail</PoolTransactionBehaviour>
+  <CanRaiseEventsInternal>True</CanRaiseEventsInternal>
+  <Definitions>
+    <Definition>
+     <Description />
+     <ConnectionString>MSSQL.NET?Server=sevafusa.redpacifico.com;Database=Flotillas;User ID=sa;Password=N0p4rK3m;</ConnectionString>
+      <ConnectionType>SQLite</ConnectionType>
+      <Default>True</Default>
+      <Name>RPSuite</Name>
+    </Definition>
+    <Definition>
+      <Description />
+      <ConnectionString>MSSQL.NET?Server=(local);Database=Administrativo;User ID=sa;Password=N0p4rK3m;</ConnectionString>
+      <ConnectionType>SQLite</ConnectionType>
+      <Default>True</Default>
+      <Name>RPSuiteAdministracion</Name>
+    </Definition>
+  </Definitions>
+  
+</Connections>

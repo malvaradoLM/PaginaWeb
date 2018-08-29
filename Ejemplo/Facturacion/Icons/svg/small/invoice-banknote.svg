@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+  <g id="main">
+    <clipPath id="clip_mask">
+      <path d="M4,15.5671V9.4329C4,8.6428,4.628,8,5.4,8h10.2c0.139,0,0.2731,0.0215,0.4,0.0603V0H0v16h4.0656C4.0232,15.8633,4,15.718,4,15.5671z"/>
+    </clipPath>
+    <g id="icon" clip-path="url(#clip_mask)">
+      <path d="M12.7,14.5H1.3c-0.4418,0,-0.8,-0.3582,-0.8,-0.8V1.3c0,-0.4418,0.3582,-0.8,0.8,-0.8h11.4c0.4418,0,0.8,0.3582,0.8,0.8v12.4C13.5,14.1418,13.1418,14.5,12.7,14.5z" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-miterlimit="1"/>
+      <rect x="2.5" y="9.5" width="9" height="3" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-miterlimit="1"/>
+      <path d="M11.4875,4h-8.975C2.2295,4,2,3.7705,2,3.4875v-0.975C2,2.2295,2.2295,2,2.5125,2h8.975c0.283,0,0.5125,0.2295,0.5125,0.5125v0.975C12,3.7705,11.7705,4,11.4875,4z" fill="#FFFFFF"/>
+      <path d="M2.5,5.5h4" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+      <path d="M8.5,5.5h3" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+      <path d="M7.5,7.5h4" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-miterlimit="1"/>
+    </g>
+    <g id="overlay">
+      <path d="M12,12.5364c0,1.1157,-0.6736,2.0202,-1.5045,2.0202s-1.5045,-0.9045,-1.5045,-2.0202c0,-1.1157,0.6736,-2.0202,1.5045,-2.0202S12,11.4206,12,12.5364zM16,9.4329v6.1343c0,0.2391,-0.1791,0.4329,-0.4,0.4329H5.4c-0.2209,0,-0.4,-0.1938,-0.4,-0.4329V9.4329C5,9.1938,5.1791,9,5.4,9h10.2C15.8209,9,16,9.1938,16,9.4329zM15,11.0719c-0.5726,-0.1156,-1.0023,-0.4698,-1.1091,-1.0719H7.0267c0,0.6675,-0.3937,1.0909,-1.0267,1.0909v2.8372c0.5726,0.1156,0.9023,0.4698,1.0091,1.0719h6.8643c0,-0.6676,0.4937,-1.0909,1.1267,-1.0909V11.0719z" fill="#FFFFFF"/>
+    </g>
+  </g>
+</svg>

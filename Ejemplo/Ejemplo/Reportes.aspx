@@ -81,7 +81,7 @@
             </a>
         </div>
         <div class="col-lg-3">
-            <a href="DetailsComparativoMensualByCliente.aspx" id="btnComparativoMensulaCte" class="Largo morado">
+            <a href="DetailsComparativoMensualByCliente.aspx" id="btnComparativoMensulaCte" class="Largo morado shadowBox">
                 <asp:Image ID="Image6" runat="server" ImageUrl="\Icons\png\80px\calendar-customer.png" CssClass="linkclass" />
                 <h2-largo>COMPARATIVO MENSUAL POR CLIENTE</h2-largo>
             </a>

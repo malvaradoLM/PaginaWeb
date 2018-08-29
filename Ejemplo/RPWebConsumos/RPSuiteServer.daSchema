@@ -1,7 +1,7 @@
 <TDASchema>
   <UnionDataTables IsObject="true" Count="0" IsCollection="true" Type="TDAUnionDataTableCollection" ItemClass="TDAUnionDataTable" />
   <JoinDataTables IsObject="true" Count="0" IsCollection="true" Type="TDAJoinDataTableCollection" ItemClass="TDAJoinDataTable" />
-  <Datasets IsObject="true" Count="45" IsCollection="true" Type="TDADatasetCollection" ItemClass="TDADataset">
+  <Datasets IsObject="true" Count="46" IsCollection="true" Type="TDADatasetCollection" ItemClass="TDADataset">
     <Item0>
       <ReadOnly>False</ReadOnly>
       <Fields IsObject="true" Count="2" IsCollection="true" ItemClass="TDAField" Type="TDASchemaFieldCollection">
@@ -19851,7 +19851,7 @@ begin
 	end
 	else
 	begin
-		select -1 as ClienteID, -1 as UsuarioWebID, '' as nombre, '' as ClienteNombre, '' as GasolineroID, '' as NombreGasolinero, 0 as Administrador, Grupo=NULL
+		declare  @fin int
 	end
 end
 
@@ -20052,6 +20052,174 @@ INNER Join Album On Consumo.EstacionID = Album.EstacionID And Consumo.SecuenciaV
       <Description />
       <Name>spFotosConsumoByVehiculo</Name>
     </Item44>
+    <Item45>
+      <ReadOnly>False</ReadOnly>
+      <Fields IsObject="true" Count="4" IsCollection="true" ItemClass="TDAField" Type="TDASchemaFieldCollection">
+        <Item0>
+          <Name>c_UsoCFDI</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>c_UsoCFDI</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>5</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item0>
+        <Item1>
+          <Name>Descripcion</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datString</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Descripcion</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>500</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item1>
+        <Item2>
+          <Name>Fisica</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datBoolean</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Fisica</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item2>
+        <Item3>
+          <Name>Moral</Name>
+          <Alignment>taLeftJustify</Alignment>
+          <Calculated>False</Calculated>
+          <ServerCalculated>False</ServerCalculated>
+          <DataType>datBoolean</DataType>
+          <DefaultValue />
+          <CustomAttributes />
+          <DictionaryEntry />
+          <DisplayFormat />
+          <DisplayLabel>Moral</DisplayLabel>
+          <DisplayWidth>0</DisplayWidth>
+          <EditFormat />
+          <EditMask />
+          <InPrimaryKey>False</InPrimaryKey>
+          <LogChanges>True</LogChanges>
+          <ReadOnly>False</ReadOnly>
+          <RegExpression />
+          <Required>True</Required>
+          <ServerAutoRefresh>False</ServerAutoRefresh>
+          <Visible>True</Visible>
+          <Expression />
+          <Size>0</Size>
+          <DecimalScale>0</DecimalScale>
+          <DecimalPrecision>0</DecimalPrecision>
+          <BlobType>dabtUnknown</BlobType>
+          <GeneratorName />
+          <BusinessClassID />
+          <Description />
+        </Item3>
+      </Fields>
+      <BusinessRulesClient IsObject="true" Type="TDAClientBusinessRuleScript">
+        <CompileOnServer>False</CompileOnServer>
+        <RunOnClientAndServer>False</RunOnClientAndServer>
+        <Script />
+        <ScriptLanguageStr />
+        <Description />
+        <Name />
+      </BusinessRulesClient>
+      <BusinessRulesServer Type="TDABusinessRuleScript" IsObject="true">
+        <Script />
+        <ScriptLanguageStr />
+        <Description />
+        <Name />
+      </BusinessRulesServer>
+      <UpdateCommandName />
+      <DeleteCommandName />
+      <InsertCommandName />
+      <Statements IsCollection="true" IsObject="true" Count="1" ItemClass="TDAStatement" Type="TDAStatementCollection">
+        <Item0>
+          <Connection>RPSuiteAdministracion</Connection>
+          <SQL>SELECT 	
+	[c_UsoCFDI], [Descripcion], [Fisica], 
+	[Moral] 
+FROM 
+	[Cfdi] 
+</SQL>
+          <TargetTable>Cfdi</TargetTable>
+          <ConnectionType>SQLite</ConnectionType>
+          <Default>True</Default>
+          <StatementName />
+          <StatementType>stSQL</StatementType>
+          <GeneratorName />
+          <ColumnMappings IsObject="true" Count="0" IsCollection="true" Type="TDAColumnMappingCollection" ItemClass="TDAColumnMapping" />
+          <Description />
+        </Item0>
+      </Statements>
+      <Params IsObject="true" Count="0" IsCollection="true" Type="TDAParamCollection" ItemClass="TDAParam" />
+      <CustomAttributes />
+      <IsPublic>True</IsPublic>
+      <DynamicWhereXML />
+      <BusinessClassID />
+      <Description />
+      <Name>spCFDI</Name>
+    </Item45>
   </Datasets>
   <Commands IsObject="true" Count="10" IsCollection="true" ItemClass="TDASQLCommand" Type="TDASQLCommandCollection">
     <Item0>

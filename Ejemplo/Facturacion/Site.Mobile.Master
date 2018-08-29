@@ -1,23 +1,107 @@
 <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Mobile.master.cs" Inherits="Facturacion.Site_Mobile" %>
-<%@ Register Src="~/ViewSwitcher.ascx" TagPrefix="friendlyUrls" TagName="ViewSwitcher" %>
-
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<html>
 <head runat="server">
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>FACTURACION</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/datepicker3.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+    <link href="css/topbar.css" rel="stylesheet">
+    <link href="css/General.css" rel="stylesheet">
+	<!--Custom Font-->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+        <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/General.css" rel="stylesheet" />
+    	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/font-awesome.min.css" rel="stylesheet" />
+	<link href="css/datepicker3.css" rel="stylesheet" />
+	<link href="css/styles.css" rel="stylesheet" />
+    <link href="css/topbar.css" rel="stylesheet" />
+    <link href="css/General.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
+
 </head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-        <h1>Mobile Master Page</h1>
-        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
-        <section class="content-wrapper main-content clear-fix">
-            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
-        </section>
-        <friendlyUrls:ViewSwitcher runat="server" />
-    </div>
-    </form>
+<body style="background:#ffffff;" >
+     <style>
+
+     </style>
+    <!--TopBar-->
+<header style="margin-top:-60px; z-index:100000">
+		<div class="wrapper">
+			<div class="logo"><a href="Default" style="color:#ffffff;">Facturación</a></div>			
+			<nav>
+			</nav>
+		</div>
+	</header>
+<style>
+.animacion{
+        animation: fadeInScale 0.7s ease-in-out;
+}
+.animacionLoad{
+        animation: fadeInScale 0.7 ease-in;
+}
+th {
+    text-align:center;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+	
+   	<!--Inicio-->
+	 <div class="container" style="height: auto">
+
+		<div class="row container-fluid">
+	
+        <%--<div>--%>
+         <form runat="server" style="align-self:center;">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            </form>       
+                <%--</div>--%>
+    
+		</div><!--/.row-->
+	</div>	<!--/.main-->
+	<%--<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	<script src="js/chart-data.js"></script>
+	<script src="js/easypiechart.js"></script>
+	<script src="js/easypiechart-data.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/custom.js"></script>--%>
+    <script>
+        $(document).ready(function () {
+            if ($(window).width() < 950) {
+                // code for small viewports
+                $('header').addClass('header2');
+            } else {
+                // code for large viewports
+                $('header').removeClass('header2');
+            }
+            window.onresize = function (event) {
+                if ($(window).width() < 950) {
+                    // code for small viewports
+                    $('header').addClass('header2');
+                } else {
+                    // code for large viewports
+                    $('header').removeClass('header2');
+                }
+};
+
+	$(window).scroll(function(){
+		
+        });
+});
+        </script>
 </body>
 </html>
+
