@@ -14,6 +14,9 @@
         .btnSiguienteCss{
             float:right;
         }
+        .RFC{
+            text-transform: uppercase;
+        }
 @media screen and (max-width: 480px) {
   .checkClass{
             margin-left:0%;
@@ -65,7 +68,7 @@
         function barraEstado() {
             var porciento = 0;
             var color = "#30a5ff";
-            if (bgvtickets.GetVisibleRowsOnPage() == 0) {
+            if (bgvtickets.GetVisibleRowsOnPage() != 0) {
                 porciento = 33;
             } 
             if (validarSegundoTab()) {
@@ -97,6 +100,7 @@
            
             if (txtRFC.GetValue() != null) {
                 if (txtRFC.GetValue().length == 13 || txtRFC.GetValue().length == 12) {
+                    var valor = cmbCFDI.GetValue();
                     cmbCFDI.ClearItems();
                     cmbCFDI.AddItem("Adquisición de mercancias", "G01");
                     cmbCFDI.AddItem("Devoluciones, descuentos o bonificaciones", "G02");
@@ -122,21 +126,27 @@
                         cmbCFDI.AddItem("Pagos por servicios educativos (colegiaturas)", "D10");
                     }
                     cmbCFDI.AddItem("Por definir", "P01");
+                    if (valor != null) {
+                        if (valor.includes("D") && txtRFC.GetValue().length == "12") cmbCFDI.SetValue("P01");
+                        else cmbCFDI.SetValue(valor);
+                    }
                 }
             } 
         }
         function validarRFC(s, e) {
             if (e.value != null) {
+                e.value = e.value.toUpperCase();
                 if (e.value.length < 12 || e.value.length > 13) {
-                    e.errorText = "Formato incorrecto";
+                    e.errorText = "Formato incorrecto, la longitud debe ser de 12 o 13 caracteres";
                     e.isValid = false;
-                } else {
+                }
+                else {
                     e.isValid = true;
                     txtRfcReceptor.SetValue(e.value.toString());
                 }
             } else {
                 e.isValid = false;
-                e.errorText = "Debe llegar el campo RFC";
+                e.errorText = "Debe llenar el campo RFC";
             }
         }
         function validarRazonSocial(s, e) {
@@ -306,7 +316,7 @@
                     <dx:LayoutItem Caption="Capture el R.F.C " CaptionStyle-Font-Bold="true" HorizontalAlign="Left" Width="800">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxTextBox ID="txtRFC" runat="server"  Theme="Material" Width="150" CaptionSettings-RequiredMarkDisplayMode="Required" ClientInstanceName="txtRFC" >
+                                <dx:ASPxTextBox ID="txtRFC" runat="server"  Theme="Material" Width="150" CaptionSettings-RequiredMarkDisplayMode="Required" ClientInstanceName="txtRFC" CssClass="RFC">
 <CaptionSettings RequiredMarkDisplayMode="Hidden"></CaptionSettings>
                                     <ClientSideEvents KeyUp="llenarCFDI" Validation="validarRFC"/>
                                       <ValidationSettings>
@@ -396,7 +406,7 @@
                     <dx:LayoutItem Caption="Correo Electrónico" CaptionStyle-Font-Bold="true" HorizontalAlign="Left" Width="600">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxTextBox ID="ASPxTextBox1" runat="server"  Theme="Material" CaptionSettings-RequiredMarkDisplayMode="Hidden" ReadOnly="true" ClientInstanceName="txtCorreo3">
+                                <dx:ASPxTextBox ID="ASPxTextBox1" runat="server"  Theme="Material" CaptionSettings-RequiredMarkDisplayMode="Hidden" ReadOnly="true" ClientInstanceName="txtCorreo3" BackColor="#009688" ForeColor="White" Font-Bold="true">
 
 <CaptionSettings RequiredMarkDisplayMode="Hidden"></CaptionSettings>
                                     <ClientSideEvents/>
@@ -411,7 +421,7 @@
                     <dx:LayoutItem Caption="R.F.C Receptor " CaptionStyle-Font-Bold="true" HelpTextSettings-HorizontalAlign="left" Width="600">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxTextBox ID="txtRfcReceptor" runat="server"  Theme="Material" Width="150" CaptionSettings-RequiredMarkDisplayMode="Hidden" ClientInstanceName="txtRfcReceptor" ReadOnly="true" >
+                                <dx:ASPxTextBox ID="txtRfcReceptor" runat="server"  Theme="Material" Width="150" CaptionSettings-RequiredMarkDisplayMode="Hidden" ClientInstanceName="txtRfcReceptor" ReadOnly="true" BackColor="#009688" ForeColor="White" Font-Bold="true">
                                 </dx:ASPxTextBox>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
@@ -421,7 +431,7 @@
                     <dx:LayoutItem Caption="Nombre Receptor" CaptionStyle-Font-Bold="true" HelpTextSettings-HorizontalAlign="Center" Width="600">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxTextBox ID="ASPxComboBox1" runat="server"  Theme="Material"  CaptionSettings-RequiredMarkDisplayMode="Hidden" ClientInstanceName="txtRazonSocial3" ReadOnly="true">
+                                <dx:ASPxTextBox ID="ASPxComboBox1" runat="server"  Theme="Material"  CaptionSettings-RequiredMarkDisplayMode="Hidden" ClientInstanceName="txtRazonSocial3" ReadOnly="true" BackColor="#009688" ForeColor="White" Font-Bold="true">
                                 </dx:ASPxTextBox>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
@@ -482,11 +492,15 @@
 <Border BorderStyle="None" BorderWidth="0px"></Border>
     </dx:ASPxPageControl>	
         <div class="row fade-in animacion">
-            <dx:ASPxButton ID="btnAtras" runat="server" Text="Atras" Theme="Material" CssClass="btnAtrasCss shadowBox" AutoPostBack="false" ClientInstanceName="btnAtras">
+            <dx:ASPxButton ID="btnAtras" runat="server" Text="Atras" Theme="Material" CssClass="btnAtrasCss shadowBox" AutoPostBack="false" ClientInstanceName="btnAtras" ImagePosition="Left">
                 <ClientSideEvents Click="atras" />
+                <Image Url="~/Icons/png/16px/large/arrow_left.png">
+                                              </Image>
              </dx:ASPxButton> 
-            <dx:ASPxButton ID="btnSiguiente" runat="server" Text="Siguiente" Theme="Material" CssClass="btnSiguienteCss shadowBox" AutoPostBack="false" ClientInstanceName="btnSiguiente">
+            <dx:ASPxButton ID="btnSiguiente" runat="server" Text="Siguiente" Theme="Material" CssClass="btnSiguienteCss shadowBox" AutoPostBack="false" ClientInstanceName="btnSiguiente" ImagePosition="Right">
                 <ClientSideEvents Click="adelante" />
+                <Image Url="~/Icons/png/16px/large/arrow_right.png">
+                                              </Image>
              </dx:ASPxButton>
         </div>
         </div>
