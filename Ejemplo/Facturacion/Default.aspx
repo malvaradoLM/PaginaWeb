@@ -68,7 +68,7 @@
         function barraEstado() {
             var porciento = 0;
             var color = "#30a5ff";
-            if (bgvtickets.GetVisibleRowsOnPage() != 0) {
+            if (bgvtickets.GetVisibleRowsOnPage() == 0) {
                 porciento = 33;
             } 
             if (validarSegundoTab()) {
@@ -141,8 +141,13 @@
                     e.isValid = false;
                 }
                 else {
-                    e.isValid = true;
-                    txtRfcReceptor.SetValue(e.value.toString());
+                    if (verificaRFC(e.value)) {
+                        e.isValid = true;
+                        txtRfcReceptor.SetValue(e.value.toString());
+                    } else {
+                        e.errorText = "Formato incorrecto, verifique el formato del RFC";
+                        e.isValid = false;
+                    }
                 }
             } else {
                 e.isValid = false;
@@ -179,6 +184,12 @@
                 }
             }
         }
+        function verificaRFC(rfc) {
+            const re = /^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$/;
+            var validado = rfc.match(re);
+            return validado;
+        }
+
 
 
     </script>
