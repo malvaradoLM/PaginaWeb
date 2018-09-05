@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using Ejemplo.Data;
 using System.Data;
 using DevExpress.Web;
+using Ejemplo.Clases;
 
 namespace Facturacion
 {
@@ -28,6 +29,11 @@ namespace Facturacion
             {
                 TValidaTicketEnLinea ticket = new TValidaTicketEnLinea();
                 ticket = RPSuiteServer.RPServer.RPAdmin.ValidaTicketWEB(codigoTicket.Text);
+                if(ticket.Error != null && ticket.Error != "")
+                {
+                    mensaje("" + ticket.Error, labelCssClases.Peligro, "Error al cargar el Ticket");
+                }
+
             }
         }
         private void cargarCfdi(int longitudRfc)
@@ -60,6 +66,13 @@ namespace Facturacion
             cmbCFDI.Items.Add(new ListEditItem { Value = "P01", Text = "Por definir" });
             cmbCFDI.DataBind();
            
+        }
+        private void mensaje(string contenido, string tipo, string titulo)
+        {
+            msjAlerta.Attributes["class"] = tipo;
+            labelAlerta.Text = contenido;
+            lblTitleMensaje.Text = titulo;
+            msjAlerta.Visible = true;
         }
     }
 }

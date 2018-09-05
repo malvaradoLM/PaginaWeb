@@ -189,11 +189,8 @@
             var validado = rfc.match(re);
             return validado;
         }
-
-
-
     </script>
-    <div class="alert alert-warning" id="msjAlerta" runat="server" visible="false" style="margin-top: -3%;">
+    <div class="alert alert-warning" id="msjAlerta" runat="server" visible="false" >
         <strong><dx:ASPxLabel ID="lblTitleMensaje" runat="server" Font-Bold="true" /> </strong>
         <dx:ASPxLabel ID="labelAlerta" runat="server" />
         </div>

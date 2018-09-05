@@ -210,6 +210,9 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Clases\ChartsData.cs" />
+    <Compile Include="Clases\labelCssClases.cs" />
+    <Compile Include="Clases\Validaciones.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
